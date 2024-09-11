@@ -19,12 +19,8 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0009-advertising-Do-not-crash-in-case-of-adv-update-failu.patch \
                         file://0010-device-Add-btd_device_bearer_is_connected.patch \
                         file://0011-device-Fix-marking-device-as-temporary.patch \
-                        file://0012-advertising-Fix-peripheral-adverts-when-Discoverable.patch \
-                        file://0013-adapter-Cancel-the-service-authorization-when-remote.patch \
-                        file://0014-Manage-device-state-of-cross-transport-SMP-keys.patch \
-                        file://0015-client-gatt-Fix-scan-build-warning.patch \
-                        file://0016-client-Allow-gatt.select-attribute-to-work-with-local-attributes.patch \
-                        file://0017-client-Invalidate-scan-filter-on-scan-command.patch \
+                        file://0012-adapter-Cancel-the-service-authorization-when-remote.patch \
+                        file://0013-Manage-device-state-of-cross-transport-SMP-keys.patch \
                         file://0018-device-Remove-device-after-all-bearers-are-disconnec.patch \
                         file://0019-device-only-use-the-address-type-selection-algorithm.patch \
                         file://qca_set_bdaddr.service \
@@ -56,6 +52,7 @@ NOINST_TOOLS:remove = " \
 "
 
 do_install:append:qcom() {
+    install -d ${D}${sysconfdir}/bluetooth/
     install -v -m 0644  ${S}/src/main.conf ${D}${sysconfdir}/bluetooth/
 
     #Install desired tools that upstream leaves in build area
