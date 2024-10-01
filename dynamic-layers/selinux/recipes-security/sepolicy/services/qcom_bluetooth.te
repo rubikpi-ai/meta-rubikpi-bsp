@@ -56,7 +56,7 @@ kernel_read_unlabeled_state({ qcom_bluetooth_t qcom_bluetooth_exec_t})
 kernel_read_system_state(qcom_bluetooth_t)
 
 qcom_connect_to_property_vault({ qcom_bluetooth_t qcom_bluetooth_exec_t})
-uhid_device_rw(qcom_bluetooth_t);
+dev_rw_uhid(qcom_bluetooth_t);
 
 allow qcom_bluetooth_t self:process {getsched setsched};
 

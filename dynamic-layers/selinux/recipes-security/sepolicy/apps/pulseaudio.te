@@ -3,7 +3,7 @@
 
 qcom_dev_audio_rw_device(pulseaudio_t)
 qcom_audioml_dmabuf_read_device(pulseaudio_t)
-qcom_connect_to_btipc_src(pulseaudio_t)
+# qcom_connect_to_btipc_src(pulseaudio_t)
 qcom_coredump_read_write(pulseaudio_t)
 
 type qcom_pulseaudio_etc_t;
@@ -25,6 +25,4 @@ allow pulseaudio_t qcom_pulseaudio_acdb_etc_t:dir manage_dir_perms;
 init_dbus_chat_script(pulseaudio_t)
 init_bt_socket_manage(pulseaudio_t)
 allow pulseaudio_t self:bluetooth_socket { create accept bind getopt listen read setopt write connect shutdown};
-pulseaudio_acd_read_permission_t(pulseaudio_t)
 
-unconfined_stream_connect(pulseaudio_t)

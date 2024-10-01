@@ -161,24 +161,6 @@ interface(`qcom_read_pd_mapper',`
     allow $1 sysfs_t:lnk_file read;
 ')
 
-#####################
-## <summary>
-## Allow open/read/write uhid device
-## </summary>
-## <param name="domain">
-##  <summary>
-##  Domain allowed rw to uhid device
-##  to communicate with uhid input node
-##  </summary>
-## </param>
-#
-interface(`uhid_device_rw',`
-	gen_require(`
-		type uhid_device_t;
-	')
-        allow $1 uhid_device_t:chr_file rw_chr_file_perms ;
-')
-
 #######################################
 ## <summary>
 ##      Allow read/ioctl/open for cdsp secure device.
@@ -508,4 +490,59 @@ interface(`qcom_weston_dev_write',`
                 type qcom_weston_socket_dev_t;
         ')
         allow $1 qcom_weston_socket_dev_t:sock_file write;
+')
+
+
+########################################
+## <summary>
+##      Search usbfs directories
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`fs_list_usbfs_dirs',`
+        gen_require(`
+                type usbfs_t;
+        ')
+
+        allow $1 usbfs_t:dir list_dir_perms;
+')
+
+########################################
+## <summary>
+##      Read and write usbfs files.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`fs_rw_usbfs_files',`
+        gen_require(`
+                type usbfs_t;
+        ')
+
+        rw_files_pattern($1, usbfs_t, usbfs_t)
+')
+
+########################################
+## <summary>
+##	Allow permissions for usb_fs mounting
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to mount f_fs.
+##	</summary>
+## </param>
+#
+interface(`fs_mount_usbfs',`
+	gen_require(`
+		type usbfs_t;
+	')
+
+	allow $1 usbfs_t:filesystem {mount};
 ')

@@ -13,8 +13,6 @@ FILES:${PN} += " \
         ${QCOM_STORE_ROOT}/${POLICY_NAME}/ \
 "
 
-SRC_URI:remove:qcom = "file://0042-policy-modules-system-systemd-systemd-user-fixes.patch"
-
 #Patches
 SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-busybox.patch \
             file://0071-PENDING-Add-net_admin-capability-to-modutils.patch \
@@ -27,9 +25,6 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
             file://0078-PENDING-add-sepolicies-for-modem-manager.patch \
             file://0079-PENDING-Add-sepolicy-for-systemd-networkd-wait-online.patch \
             file://0080-PENDING-Add-sepolicy-rules-for-hostapd-hostapd_cli.patch \
-            file://0081-PENDING-SEPolicy-changes-to-allow-read-write-to-dbus-and-bl.patch \
-            file://0082-PENDING-sepolicy-for-bluez-to-access-uhid.patch \
-            file://0083-PENDING-Add-Docker-related-policies.patch \
             file://0084-PENDING-Allow-SE-policy-read-and-write-access-to-dbu.patch \
             file://0085-PENDING-Adding-rules-for-dnsmasq.patch \
             file://0086-PENDING-networkmanager-allow-access-tmpfs.patch \
