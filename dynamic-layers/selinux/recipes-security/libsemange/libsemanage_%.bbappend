@@ -1,4 +1,3 @@
-FILESEXTRAPATHS:append := "${THISDIR}:"
 FILESEXTRAPATHS:append := "${THISDIR}/libsemanage:"
 
 #Patches
