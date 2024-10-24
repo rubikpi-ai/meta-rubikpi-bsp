@@ -219,4 +219,5 @@ SRC_URI:append = " \
     file://qcs615/0002-BACKPORT-drm-msm-dpu-merge-MAX_IMG_WIDTH-HEIGHT-with.patch \
     file://qcs615/0003-BACKPORT-drm-msm-dpu-sync-mode_config-limits-to-the-.patch \
     file://qcs615/0004-FROMLIST-drm-msm-dpu-filter-out-too-wide-modes-if-no.patch \
+    file://qcs615/0001-FROMLIST-arm64-gfx-qcom-qcs615-Add-support-for-Adren.patch \
     "
