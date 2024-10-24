@@ -107,6 +107,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-dt-bindings-display-msm-Add-SM6150-DSI-phy.patch \
     file://qcs615/0002-FROMLIST-dt-bindings-display-msm-dsi-controller-main.patch \
     file://qcs615/0003-FROMLIST-dt-bindings-display-msm-Add-SM6150-MDSS-DPU.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-qcom-qcs615-venus-add-support-f.patch \
     file://common/0031-UPSTREAM-dt-bindings-net-phy-Make-LED-active-low-pro.patch \
     file://common/0032-UPSTREAM-dt-bindings-net-phy-Document-LED-inactive-h.patch \
     file://common/0034-UPSTREAM-dt-bindings-net-Document-QCA808x-PHYs.patch \

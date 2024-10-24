@@ -180,6 +180,7 @@ SRC_URI:append = " \
     file://qcs615/0005-FROMLIST-drm-msm-dpu-Add-SM6150-support.patch \
     file://qcs615/0006-FROMLIST-drm-msm-dsi-Add-dsi-phy-support-for-SM6150.patch \
     file://qcs615/0007-FROMLIST-drm-msm-dsi-Add-support-for-SM6150.patch \
+    file://qcs615/0002-FROMLIST-media-venus-core-add-qcs615-platform-data.patch \
     file://common/0003-UPSTREAM-net-phy-aquantia-add-firmware-load-support.patch \
     file://common/0005-UPSTREAM-net-phylink-use-for_each_set_bit.patch \
     file://common/0006-UPSTREAM-net-phy-add-possible-interfaces.patch \
