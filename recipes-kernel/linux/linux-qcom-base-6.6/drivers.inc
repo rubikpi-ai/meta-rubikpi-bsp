@@ -176,6 +176,10 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-misc-fastrpc-Rename-tgid-and-pid-to-client_id.patch \
     file://qcs615/0002-FROMLIST-phy-qcom-qmp-Add-phy-register-and-clk-setti.patch \
     file://qcs615/0004-FROMLIST-PCI-qcom-Add-QCS615-PCIe-support.patch \
+    file://qcs615/0004-FROMLIST-drm-msm-mdss-Add-SM6150-support.patch \
+    file://qcs615/0005-FROMLIST-drm-msm-dpu-Add-SM6150-support.patch \
+    file://qcs615/0006-FROMLIST-drm-msm-dsi-Add-dsi-phy-support-for-SM6150.patch \
+    file://qcs615/0007-FROMLIST-drm-msm-dsi-Add-support-for-SM6150.patch \
     file://common/0003-UPSTREAM-net-phy-aquantia-add-firmware-load-support.patch \
     file://common/0005-UPSTREAM-net-phylink-use-for_each_set_bit.patch \
     file://common/0006-UPSTREAM-net-phy-add-possible-interfaces.patch \
