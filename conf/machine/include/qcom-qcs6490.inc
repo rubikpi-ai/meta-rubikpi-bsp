@@ -30,4 +30,5 @@ MACHINE_EXTRA_RRECOMMENDS:append:qcom-custom-bsp = " \
     qcom-subsystem-ramdump \
     securedsp-example \
     wlan-conf \
+    remote-debug-agent \
 "
