@@ -33,6 +33,7 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0020-BACKPORT-shared-att-Fix-failing-to-set-security-level.patch \
                         file://0021-UPSTREAM-Resolve-obex-SRM-issue-for-PTS-testcases.patch \
                         file://0022-advertising-Fix-for-broadcaster-role.patch \
+                        file://0023-UPSTREAM-Fix-the-obex-PBAP-GET-request-in-PTS-testin.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP
