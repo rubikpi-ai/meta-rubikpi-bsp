@@ -22,8 +22,9 @@ RDEPENDS:${PN} = "glib-2.0 diag diag-router"
 EXTRA_OECONF += " --with-syslog --with-glib"
 EXTRA_OECONF += " --with-sanitized-headers=${STAGING_INCDIR}/linux-kernel-qcom/usr/include"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
 
 PACKAGECONFIG ??= "qcom"
 PACKAGECONFIG[qcom] = "--with-qcom, --without-qcom"

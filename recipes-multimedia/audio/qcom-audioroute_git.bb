@@ -14,6 +14,8 @@ S = "${WORKDIR}/audio/opensource/audio-utils/audio-route"
 
 DEPENDS = "glib-2.0 tinyalsa expat"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 
 FILES_SOLIBSDEV = ""
+
+INSANE_SKIP:${PN} = "dev-so"

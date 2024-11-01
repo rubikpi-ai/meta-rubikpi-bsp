@@ -17,6 +17,6 @@ DEPENDS = "qcom-pal-headers qcom-kvh2xml qcom-vui-interface-header qcom-args"
 
 EXTRA_OECONF += " --with-glib"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
-
+INSANE_SKIP:${PN} = "dev-so"

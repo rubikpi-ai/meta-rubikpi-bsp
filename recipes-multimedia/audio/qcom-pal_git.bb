@@ -22,6 +22,10 @@ EXTRA_OECONF += " --with-glib --with-syslog"
 
 SYSTEMD_SERVICE:${PN} += "adsprpcd_audiopd.service"
 
+SOLIBS = ".so*"
+FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
+
 do_install:append () {
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/adsprpcd_audiopd.service ${D}${systemd_system_unitdir}

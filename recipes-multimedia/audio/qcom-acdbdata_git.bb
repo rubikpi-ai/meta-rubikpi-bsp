@@ -50,6 +50,8 @@ do_install:append:qcs9100() {
 
 DEPENDS = "qcom-kvh2xml"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 
 FILES_SOLIBSDEV = ""
+
+INSANE_SKIP:${PN} = "dev-so"
