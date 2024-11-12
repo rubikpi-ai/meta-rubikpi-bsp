@@ -176,4 +176,5 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-misc-fastrpc-Rename-tgid-and-pid-to-client_id.patch \
     file://common/0039-BACKPORT-UPSTREAM-net-phy-aquantia-AQR115c-fix-up-PM.patch \
     file://common/0040-BACKPORT-UPSTREAM-net-phy-aquantia-remove-usage-of-p.patch \
+    file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \
     "

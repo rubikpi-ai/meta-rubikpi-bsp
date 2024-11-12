@@ -96,7 +96,6 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-LLCC-support-for-.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-QUPv3-configurati.patch \
     file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-add-UFS-node.patch \
-    file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-add-ethernet-node.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-SDHC1-and-SDHC2.patch \
     file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-add-AOSS_QMP-node.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-coresight-nodes-for-QCS6.patch \
@@ -107,6 +106,7 @@ SRC_URI:append = " \
     file://qcs615/0008-FROMLIST-arm64-dts-qcom-Add-display-support-for-QCS615.patch \
     file://qcs615/0003-FROMLIST-arm64-dts-qcom-add-venus-node-for-the-qcs61.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-cpu-scaling-clock-node.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-ethernet-node.patch \
     file://qcs615/0001-QCLINUX-Revert-arm64-dts-qcom-qcs615-enable-PCIe-for.patch \
     "
 
