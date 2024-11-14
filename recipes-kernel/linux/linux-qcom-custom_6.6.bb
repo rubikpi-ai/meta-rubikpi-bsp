@@ -18,6 +18,8 @@ SRCREV     = "46009bdf8e055c4bc6ef8fa5fcfcf79d8ba0c9a0"
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux_debug.cfg', '', d)} \
+           ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack.cfg', '', d)} \
+           ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack_debug.cfg', '', d)} \
            "
 
 S = "${WORKDIR}/kernel"
@@ -31,6 +33,10 @@ KERNEL_CONFIG_FRAGMENTS:append = " ${@oe.utils.vartrue('DEBUG_BUILD', '${S}/arch
 # Enable selinux support
 SELINUX_CFG = "${@oe.utils.vartrue('DEBUG_BUILD', 'selinux_debug.cfg', 'selinux.cfg', d)}"
 KERNEL_CONFIG_FRAGMENTS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', '${WORKDIR}/${SELINUX_CFG}', '', d)}"
+
+#Enable SMACK Support
+SMACK_CFG = "${@oe.utils.vartrue('DEBUG_BUILD', 'smack_debug.cfg', 'smack.cfg', d)}"
+KERNEL_CONFIG_FRAGMENTS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'smack', '${WORKDIR}/${SMACK_CFG}', '', d)}"
 
 # List of kernel modules that will be auto-loaded for Qualcomm platforms.
 
