@@ -1,4 +1,4 @@
-From d9f4eb76a081b53ed3f42656993ef2b5ab8af135 Mon Sep 17 00:00:00 2001
+From 4393fa358bb4301e854c0c8510ccbb79d3edfae3 Mon Sep 17 00:00:00 2001
 From: Sasi Kumar Maddineni <quic_sasikuma@quicinc.com>
 Date: Wed, 15 Nov 2023 23:13:39 +0530
 Subject: [PATCH] PENDING: add perms to mount to resolve service failures
@@ -13,16 +13,17 @@ Signed-off-by: Sasi Kumar Maddineni <quic_sasikuma@quicinc.com>
  policy/modules/kernel/files.if      | 20 +++++++++++
  policy/modules/kernel/filesystem.if | 36 +++++++++++++++++++
  policy/modules/services/chronyd.if  | 18 ++++++++++
+ policy/modules/services/ntp.if      | 17 +++++++++
  policy/modules/system/init.if       | 56 +++++++++++++++++++++++++++++
  policy/modules/system/libraries.if  | 19 ++++++++++
- policy/modules/system/mount.te      | 13 +++++++
- 6 files changed, 162 insertions(+)
+ policy/modules/system/mount.te      | 15 ++++++++
+ 7 files changed, 181 insertions(+)
 
 diff --git a/policy/modules/kernel/files.if b/policy/modules/kernel/files.if
-index b308eefd9..b92c2e8c4 100644
+index 495cbe2f4..072d8ef4b 100644
 --- a/policy/modules/kernel/files.if
 +++ b/policy/modules/kernel/files.if
-@@ -7792,6 +7792,26 @@ interface(`files_manage_generic_spool',`
+@@ -7784,6 +7784,26 @@ interface(`files_manage_generic_spool',`
  	manage_files_pattern($1, var_spool_t, var_spool_t)
  ')
 
@@ -50,7 +51,7 @@ index b308eefd9..b92c2e8c4 100644
  ## <summary>
  ##	Create objects in the spool directory
 diff --git a/policy/modules/kernel/filesystem.if b/policy/modules/kernel/filesystem.if
-index 1fdba77f5..63032bcc0 100644
+index 1fdba77f5..c4eed051e 100644
 --- a/policy/modules/kernel/filesystem.if
 +++ b/policy/modules/kernel/filesystem.if
 @@ -1912,6 +1912,42 @@ interface(`fs_cifs_domtrans',`
@@ -122,6 +123,34 @@ index 25fb1b0d7..24a3d829b 100644
 +        allow $1 chronyd_var_lib_t:dir list_dir_perms;
 +')
 +
+diff --git a/policy/modules/services/ntp.if b/policy/modules/services/ntp.if
+index dc813d136..1c4aaff00 100644
+--- a/policy/modules/services/ntp.if
++++ b/policy/modules/services/ntp.if
+@@ -176,6 +176,23 @@ interface(`ntp_read_drift_files',`
+ 	read_files_pattern($1, ntp_drift_t, ntp_drift_t)
+ ')
+
++########################################
++## <summary>
++##      Write ntp drift files.
++## </summary>
++## <param name="domain">
++##      <summary>
++##      Domain allowed access.
++##      </summary>
++## </param>
++#
++interface(`ntp_write_drift_files',`
++        gen_require(`
++                type ntp_drift_t;
++        ')
++        allow $1 ntp_drift_t:file write;
++')
++
+ ########################################
+ ## <summary>
+ ##	Read and write ntpd shared memory.
 diff --git a/policy/modules/system/init.if b/policy/modules/system/init.if
 index 0171ee299..2f57eb339 100644
 --- a/policy/modules/system/init.if
@@ -227,10 +256,10 @@ index 15cba69bc..0ba278bd6 100644
  ## <summary>
  ##	Create, read, write, and delete library directories.
 diff --git a/policy/modules/system/mount.te b/policy/modules/system/mount.te
-index 3481f9294..db9082ef9 100644
+index e39ab41a8..015469b1d 100644
 --- a/policy/modules/system/mount.te
 +++ b/policy/modules/system/mount.te
-@@ -146,6 +146,19 @@ selinux_getattr_fs(mount_t)
+@@ -145,6 +145,21 @@ selinux_getattr_fs(mount_t)
 
  userdom_use_all_users_fds(mount_t)
 
@@ -246,10 +275,12 @@ index 3481f9294..db9082ef9 100644
 +fs_getattr_functionfs_files(mount_t)
 +files_relabel_var_lib_dirs(mount_t)
 +chronyd_var_lib_file(mount_t)
++auth_getattr_shadow(mount_t)
++ntp_write_drift_files(mount_t)
 +
  ifdef(`distro_redhat',`
  	optional_policy(`
  		auth_read_pam_console_data(mount_t)
 --
-2.17.1
+2.25.1
 
