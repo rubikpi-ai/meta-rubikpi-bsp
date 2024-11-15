@@ -113,6 +113,7 @@ SRC_URI:append = " \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-ethernet-.patch \
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-SDHC1-and-SDHC2.patch\
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-PMIC-peri.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-WiFi-BT-nodes.patch \
     "
 
 # qcs8300 dtsi patches
