@@ -220,6 +220,7 @@ SRC_URI:append = " \
     file://qcs615/0003-BACKPORT-drm-msm-dpu-sync-mode_config-limits-to-the-.patch \
     file://qcs615/0004-FROMLIST-drm-msm-dpu-filter-out-too-wide-modes-if-no.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dp-call-dp_hpd_plug_handle-unplug_h.patch \
+    file://qcs9100/0002-soc-qcom-socinfo-add-QCS9075-SoC-ID.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Filter-modes-based-on-adjusted-.patch \
     file://qcs615/0001-FROMLIST-arm64-gfx-qcom-qcs615-Add-support-for-Adren.patch \
     file://common/0001-FROMLIST-irqchip-gic-v3-Handle-failure-case-of-CPU-e.patch \
