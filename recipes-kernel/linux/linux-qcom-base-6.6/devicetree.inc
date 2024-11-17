@@ -133,6 +133,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-Correct-IRQ-number-of-EL2-non-secure-.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-TRNG-node.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-QCrypto-nodes.patch \
+    file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-Add-QUPv3-configurat.patch \
     "
 
 # qcs8300 board dts patches
