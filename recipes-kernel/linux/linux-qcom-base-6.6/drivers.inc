@@ -124,7 +124,6 @@ SRC_URI:append = " \
     file://qcs9100/0003-BACKPORT-FROMGIT-rpmsg-glink-Introduce-packet-tracep.patch \
     file://qcs9100/0001-FROMGIT-soc-qcom-smp2p-Use-devname-for-interrupt-des.patch \
     file://qcs9100/0002-BACKPORT-FROMGIT-soc-qcom-smp2p-Introduce-tracepoint.patch \
-    file://qcs9100/0001-BACKPORT-PCI-Add-ACS-quirk-for-Qualcomm-SA8775P.patch \
     file://qcs9100/0001-QCLINUX-regulator-add-proxy-consumer-library.patch \
     file://qcs615/0013-FROMGIT-pinctrl-qcom-add-the-tlmm-driver-for-QCS615-.patch \
     file://qcs615/0014-FROMLIST-clk-qcom-rpmhcc-Add-support-for-QCS615-Cloc.patch \

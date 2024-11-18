@@ -37,7 +37,6 @@ SRC_URI:append = " \
 # qcs9100 dtsi patches
 SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-add-ADSP-CDSP-and-GP.patch \
-    file://qcs9100/0001-FROMGIT-arm64-dts-qcom-sa8775p-Mark-APPS-and-PCIe-SM.patch \
     file://qcs9100/0002-BACKPORT-arm64-dts-qcom-sa8775p-Add-llcc-support-for.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-Add-capacity-and-DPC.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-add-TRNG-node.patch \
