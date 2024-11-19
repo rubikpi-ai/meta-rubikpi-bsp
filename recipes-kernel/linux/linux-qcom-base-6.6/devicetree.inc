@@ -163,6 +163,8 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-enable-the-inline-cr.patch \
     file://qcs8300/0006-FROMLIST-arm64-dts-qcom-qcs8300-add-display-dt-nodes.patch \
     file://qcs8300/0001-arm64-dts-qcom-qcs8300-add-the-first-2.5G-ethernet.patch \
+    file://qcs8300/0005-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-soc.patch \
+    file://qcs8300/0007-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-soc.patch \
     "
 
 # qcs8300 board dts patches
@@ -174,6 +176,8 @@ SRC_URI:append = " \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-ride-Add-PSCI-SYSTEM_.patch \
     file://qcs8300/0007-BACKPORT-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable.patch \
     file://qcs8300/0002-arm64-dts-qcom-qcs8300-ride-enable-ethernet0.patch \
+    file://qcs8300/0006-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-plat.patch \
+    file://qcs8300/0008-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-plat.patch \
 	"
 # qcs9075 board dts patches
 SRC_URI:append = " \
