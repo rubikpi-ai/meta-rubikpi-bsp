@@ -102,6 +102,8 @@ SRC_URI:append = " \
     file://qcs6490/0002-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Add-.patch \
     file://qcs6490/0003-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Fix-.patch \
     file://qcs6490/0006-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Add-.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-phy-qcom-sc8280xp-qmp-pcie-phy-.patch \
+    file://qcs615/0003-FROMLIST-dt-bindings-PCI-qcom-Document-the-QCS615-PC.patch \
     file://common/0031-UPSTREAM-dt-bindings-net-phy-Make-LED-active-low-pro.patch \
     file://common/0032-UPSTREAM-dt-bindings-net-phy-Document-LED-inactive-h.patch \
     file://common/0034-UPSTREAM-dt-bindings-net-Document-QCA808x-PHYs.patch \

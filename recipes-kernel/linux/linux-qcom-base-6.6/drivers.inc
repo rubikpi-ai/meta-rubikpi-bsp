@@ -174,6 +174,8 @@ SRC_URI:append = " \
     file://qcs6490/0007-UPSTREAM-remoteproc-qcom_q6v5_pas-Add-SC7280-ADSP-CD.patch \
     file://qcs9100/0001-FROMLIST-misc-fastrpc-Add-support-for-multiple-PD-from-one-pr.patch \
     file://qcs9100/0002-FROMLIST-misc-fastrpc-Rename-tgid-and-pid-to-client_id.patch \
+    file://qcs615/0002-FROMLIST-phy-qcom-qmp-Add-phy-register-and-clk-setti.patch \
+    file://qcs615/0004-FROMLIST-PCI-qcom-Add-QCS615-PCIe-support.patch \
     file://common/0003-UPSTREAM-net-phy-aquantia-add-firmware-load-support.patch \
     file://common/0005-UPSTREAM-net-phylink-use-for_each_set_bit.patch \
     file://common/0006-UPSTREAM-net-phy-add-possible-interfaces.patch \
