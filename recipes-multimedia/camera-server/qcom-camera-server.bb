@@ -8,7 +8,6 @@ SSTATE_ALLOW_OVERLAP_FILES = "/"
 
 DEPENDS += "glib-2.0"
 DEPENDS += "gtest"
-DEPENDS += "gbm"
 DEPENDS += "property-vault syslog-plumber protobuf-native protobuf-c protobuf-c-native"
 DEPENDS:append:qcm6490 = " camx-kt"
 DEPENDS:append:qcs9100 = " camx"
@@ -22,8 +21,6 @@ SRC_URI  = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=le-camera-server \
             file://cam-server-env"
 
 S = "${WORKDIR}/le-camera-server"
-
-RDEPENDS:${PN} += "gbm"
 
 GBM_FREE_FD := "FALSE"
 
