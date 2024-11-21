@@ -129,6 +129,7 @@ SRC_URI:append = " \
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-SDHC1-and-SDHC2.patch\
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-PMIC-peri.patch \
     file://qcs615/0006-FROMLIST-arm64-dts-qcom-qcs615-enable-pcie-for-qcs61.patch \
+    file://qcs615/0002-FROMLIST-arm64-dts-qcom-Enable-Primary-USB-controlle.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-WiFi-BT-nodes.patch \
     file://qcs615/0008-FROMLIST-arm64-dts-qcom-Enable-DisplayPort-on-QCS615.patch \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-Adreno-61.patch \
