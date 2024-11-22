@@ -174,4 +174,6 @@ SRC_URI:append = " \
     file://qcs6490/0007-UPSTREAM-remoteproc-qcom_q6v5_pas-Add-SC7280-ADSP-CD.patch \
     file://qcs9100/0001-FROMLIST-misc-fastrpc-Add-support-for-multiple-PD-from-one-pr.patch \
     file://qcs9100/0002-FROMLIST-misc-fastrpc-Rename-tgid-and-pid-to-client_id.patch \
+    file://common/0039-BACKPORT-UPSTREAM-net-phy-aquantia-AQR115c-fix-up-PM.patch \
+    file://common/0040-BACKPORT-UPSTREAM-net-phy-aquantia-remove-usage-of-p.patch \
     "
