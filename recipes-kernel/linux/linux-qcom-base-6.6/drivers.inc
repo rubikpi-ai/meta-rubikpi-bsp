@@ -174,6 +174,37 @@ SRC_URI:append = " \
     file://qcs6490/0007-UPSTREAM-remoteproc-qcom_q6v5_pas-Add-SC7280-ADSP-CD.patch \
     file://qcs9100/0001-FROMLIST-misc-fastrpc-Add-support-for-multiple-PD-from-one-pr.patch \
     file://qcs9100/0002-FROMLIST-misc-fastrpc-Rename-tgid-and-pid-to-client_id.patch \
+    file://common/0003-UPSTREAM-net-phy-aquantia-add-firmware-load-support.patch \
+    file://common/0005-UPSTREAM-net-phylink-use-for_each_set_bit.patch \
+    file://common/0006-UPSTREAM-net-phy-add-possible-interfaces.patch \
+    file://common/0007-UPSTREAM-net-phy-marvell10g-table-driven-mactype-dec.patch \
+    file://common/0008-UPSTREAM-net-phy-marvell10g-fill-in-possible_interfa.patch \
+    file://common/0009-UPSTREAM-net-phy-bcm84881-fill-in-possible_interface.patch \
+    file://common/0010-UPSTREAM-net-phy-aquantia-fill-in-possible_interface.patch \
+    file://common/0011-UPSTREAM-net-phylink-split-out-per-interface-validat.patch \
+    file://common/0012-UPSTREAM-net-phylink-pass-PHY-into-phylink_validate_.patch \
+    file://common/0013-UPSTREAM-net-phylink-pass-PHY-into-phylink_validate_.patch \
+    file://common/0014-UPSTREAM-net-phylink-split-out-PHY-validation-from-p.patch \
+    file://common/0015-UPSTREAM-net-phylink-use-the-PHY-s-possible_interfac.patch \
+    file://common/0016-UPSTREAM-net-phy-aquantia-drop-wrong-endianness-conv.patch \
+    file://common/0017-UPSTREAM-linux-next-build-failure-after-merge-of-the.patch \
+    file://common/0018-UPSTREAM-net-phy-aquantia-clear-PMD-Global-Transmit-.patch \
+    file://common/0019-UPSTREAM-net-phy-aquantia-add-AQR111-and-AQR111B0-PH.patch \
+    file://common/0020-UPSTREAM-net-phy-aquantia-add-AQR113-PHY-ID.patch \
+    file://common/0021-UPSTREAM-net-phy-aquantia-add-AQR813-PHY-ID.patch \
+    file://common/0022-UPSTREAM-net-phy-aquantia-add-support-for-AQR114C-PH.patch \
+    file://common/0023-UPSTREAM-net-phy-aquantia-move-priv-and-hw-stat-to-h.patch \
+    file://common/0024-UPSTREAM-net-phy-aquantia-add-support-for-PHY-LEDs.patch \
+    file://common/0025-UPSTREAM-net-phy-aquantia-add-missing-include-guards.patch \
+    file://common/0026-UPSTREAM-net-phy-aquantia-rename-and-export-aqr107_w.patch \
+    file://common/0027-UPSTREAM-net-phy-aquantia-wait-for-FW-reset-before-c.patch \
+    file://common/0028-UPSTREAM-net-phy-aquantia-wait-for-the-GLOBAL_CFG-to.patch \
+    file://common/0029-UPSTREAM-net-phy-aquantia-add-support-for-aqr115c.patch \
+    file://common/0030-UPSTREAM-net-phy-aquantia-only-poll-GLOBAL_CFG-regs-.patch \
+    file://common/0033-UPSTREAM-net-phy-add-support-for-PHY-LEDs-polarity-m.patch \
+    file://common/0035-UPSTREAM-net-stmmac-qcom-ethqos-add-support-for-2.5G.patch \
+    file://common/0037-UPSTREAM-net-stmmac-dwmac-qcom-ethqos-Add-support-fo.patch \
+    file://common/0038-UPSTREAM-leds-trigger-netdev-extend-speeds-up-to-10G.patch \
     file://common/0039-BACKPORT-UPSTREAM-net-phy-aquantia-AQR115c-fix-up-PM.patch \
     file://common/0040-BACKPORT-UPSTREAM-net-phy-aquantia-remove-usage-of-p.patch \
     file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \

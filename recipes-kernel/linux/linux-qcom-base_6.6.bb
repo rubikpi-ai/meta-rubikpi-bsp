@@ -23,6 +23,7 @@ require ${BPN}-${PV}/devicetree.inc
 require ${BPN}-${PV}/drivers.inc
 require ${BPN}-${PV}/dt-bindings.inc
 require ${BPN}-${PV}/tools.inc
+require ${BPN}-${PV}/documentation.inc
 
 KERNEL_CONFIG_FRAGMENTS:append = " ${WORKDIR}/qcom.cfg"
 KERNEL_CONFIG_FRAGMENTS:append = " ${@oe.utils.vartrue('DEBUG_BUILD', '${WORKDIR}/qcom_debug.cfg', '', d)}"

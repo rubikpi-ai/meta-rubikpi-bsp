@@ -102,6 +102,9 @@ SRC_URI:append = " \
     file://qcs6490/0002-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Add-.patch \
     file://qcs6490/0003-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Fix-.patch \
     file://qcs6490/0006-UPSTREAM-dt-bindings-remoteproc-qcom-sc7180-pas-Add-.patch \
+    file://common/0031-UPSTREAM-dt-bindings-net-phy-Make-LED-active-low-pro.patch \
+    file://common/0032-UPSTREAM-dt-bindings-net-phy-Document-LED-inactive-h.patch \
+    file://common/0034-UPSTREAM-dt-bindings-net-Document-QCA808x-PHYs.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-net-qcom-ethqos-revise-descript.patch \
     file://qcs615/0002-FROMLIST-dt-bindings-net-snps-dwmac-add-description-.patch \
     file://qcs8300/0001-FROMLIST-dt-bindings-crypto-qcom-prng-document-QCS83.patch \
