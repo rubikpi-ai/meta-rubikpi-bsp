@@ -102,6 +102,11 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-coresight-nodes-for-QCS6.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-clock-nodes-for-multimed.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Adds-SPMI-support.patch \
+    file://qcs615/0005-FROMLIST-arm64-dts-qcom-qcs615-enable-pcie-for-qcs61.patch \
+    file://qcs615/0001-BACKPORT-FROMLIST-arm64-dts-qcom-Add-support-for-usb.patch \
+    file://qcs615/0008-FROMLIST-arm64-dts-qcom-Add-display-support-for-QCS615.patch \
+    file://qcs615/0003-FROMLIST-arm64-dts-qcom-add-venus-node-for-the-qcs61.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-cpu-scaling-clock-node.patch \
     file://qcs615/0001-QCLINUX-Revert-arm64-dts-qcom-qcs615-enable-PCIe-for.patch \
     "
 
