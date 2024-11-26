@@ -64,6 +64,9 @@ PREFERRED_VERSION_fastrpc:qcom-custom-bsp ?= "15.0.qcom"
 #Use version of libvirt from meta-qcom-hwe
 PREFERRED_VERSION_libvirt = "9.2.0"
 
+#Use version of android-tools from meta-openembedded
+PREFERRED_VERSION_android-tools ?= "5.1.1.r37"
+
 # For module signing
 INHERIT += " qmodule"
 
