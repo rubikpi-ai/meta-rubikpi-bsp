@@ -114,4 +114,6 @@ SRC_URI:append = " \
     file://qcs615/0002-FROMLIST-dt-bindings-phy-qcom-msm8998-qmp-usb3-phy-A.patch \
     file://qcs615/0001-FROMGIT-dt-bindings-arm-smmu-document-QCS615-GPU-SMMU.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-interconnect-qcom-bwmon-Documen.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-display-msm-gpu-Document-A612-G.patch \
+    file://qcs615/0002-FROMLIST-dt-bindings-display-msm-gmu-Document-RGMU.patch \
     "
