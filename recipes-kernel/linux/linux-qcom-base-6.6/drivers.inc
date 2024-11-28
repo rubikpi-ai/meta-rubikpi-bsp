@@ -177,4 +177,5 @@ SRC_URI:append = " \
     file://common/0039-BACKPORT-UPSTREAM-net-phy-aquantia-AQR115c-fix-up-PM.patch \
     file://common/0040-BACKPORT-UPSTREAM-net-phy-aquantia-remove-usage-of-p.patch \
     file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \
+    file://common/0028-FROMLIST-mmc-sdhci-msm-Enable-MMC_CAP_AGGRESSIVE_PM-.patch \
     "
