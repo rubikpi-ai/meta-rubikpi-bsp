@@ -103,6 +103,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-coresight-nodes-for-QCS6.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-Add-clock-nodes-for-multimed.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Adds-SPMI-support.patch \
+    file://qcs615/0001-QCLINUX-Revert-arm64-dts-qcom-qcs615-enable-PCIe-for.patch \
     "
 
 # qcs615 board dts patches
