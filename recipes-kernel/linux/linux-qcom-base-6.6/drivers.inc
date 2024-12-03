@@ -248,7 +248,24 @@ SRC_URI:append = " \
     file://common/0047-UPSTREAM-wifi-ath11k-add-support-for-MU-EDCA.patch \
     file://common/0048-UPSTREAM-wifi-ath11k-fix-wrong-overriding-for-VHT-Be.patch \
     file://common/0001-UPSTREAM-drm-msm-dpu-drop-duplicate-drm-formats-from.patch \
+    file://common/0001-UPSTREAM-PCI-pwrctl-pwrseq-add-support-for-WCN6855.patch \
+    file://common/0001-FROMLIST-blk-crypto-add-basic-hardware-wrapped-key-s.patch \
+    file://common/0002-FROMLIST-blk-crypto-show-supported-key-types-in-sysf.patch \
+    file://common/0003-FROMLIST-blk-crypto-add-ioctls-to-create-and-prepare.patch \
+    file://common/0004-FROMLIST-fscrypt-add-support-for-hardware-wrapped-ke.patch \
+    file://common/0005-FROMLIST-ice-ufs-mmc-use-the-blk_crypto_key-struct-w.patch \
+    file://common/0006-FROMLIST-firmware-qcom-scm-add-a-call-for-deriving-t.patch \
+    file://common/0007-FROMLIST-firmware-qcom-scm-add-calls-for-creating-pr.patch \
+    file://common/0008-FROMLIST-firmware-qcom-scm-add-a-call-for-checking-w.patch \
+    file://common/0009-FROMLIST-soc-qcom-ice-add-HWKM-support-to-the-ICE-dr.patch \
+    file://common/0010-FROMLIST-soc-qcom-ice-add-support-for-hardware-wrapp.patch \
+    file://common/0011-FROMLIST-soc-qcom-ice-add-support-for-generating-imp.patch \
+    file://common/0012-FROMLIST-ufs-core-add-support-for-wrapped-keys-to-UF.patch \
+    file://common/0013-FROMLIST-ufs-core-add-support-for-deriving-the-softw.patch \
+    file://common/0014-FROMLIST-ufs-core-add-support-for-generating-importi.patch \
+    file://common/0015-FROMLIST-ufs-host-add-support-for-wrapped-keys-in-QC.patch \
+    file://common/0016-FROMLIST-ufs-host-add-a-callback-for-deriving-softwa.patch \
+    file://common/0017-FROMLIST-ufs-host-add-support-for-generating-importi.patch \
     file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
-    file://common/0001-UPSTREAM-PCI-pwrctl-pwrseq-add-support-for-WCN6855.patch \
     "
