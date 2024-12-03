@@ -128,4 +128,5 @@ SRC_URI:append = " \
     file://qcs8300/0003-FROMLIST-dt-bindings-clock-qcom-Add-CAMCC-clocks-for.patch \
     file://qcs8300/0005-FROMLIST-dt-bindings-clock-qcom-Add-QCS8300-video-cl.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-net-stmmac-Tune-rx-sampling-occ.patch \
+    file://qcs8300/0001-FROMLIST-dt-bindings-crypto-ice-document-the-qcs8300.patch \
     "

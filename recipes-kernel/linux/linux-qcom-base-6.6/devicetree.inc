@@ -50,7 +50,6 @@ SRC_URI:append = " \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-fix-the-fastrpc-labe.patch \
     file://qcs9100/0002-UPSTREAM-arm64-qcom-sa8775p-Add-ADSP-and-CDSP0-fastr.patch \
     file://qcs9100/0003-FROMLIST-arm64-dts-qcom-sa8775p-Add-TCSR-halt-regist.patch \
-    file://qcs9100/0001-QCLINUX-Revert-UPSTREAM-arm64-dts-qcom-sa8775p-enabl.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-pmics-enable-rtc.patch \
     file://qcs9100/0003-FROMGIT-arm64-dts-qcom-sa8775p-ride-enable-pmm8654au.patch \
     file://qcs9100/0001-arm64-dts-qcom-sa8775p-Add-new-memory-map-updates-to.patch \
@@ -62,6 +61,7 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPUs-to-psci-pow.patch \
     file://qcs9100/0001-FROMGIT-arm64-dts-qcom-sa8775p-add-QCrypto-nodes.patch \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-fix-the-secure-devic.patch \
+    file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-extend-the-register-.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -155,6 +155,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-capacity-and-DPC.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-support-for-cloc.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-add-video-codec-node.patch \
+    file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-enable-the-inline-cr.patch \
     "
 
 # qcs8300 board dts patches
