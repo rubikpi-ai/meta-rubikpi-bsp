@@ -16,7 +16,6 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
     networkmanager-nmcli \
     networkmanager-wifi \
     qrtr \
-    tqftpserv \
 "
 
 MACHINE_EXTRA_RDEPENDS += " \
