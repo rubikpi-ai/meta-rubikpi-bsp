@@ -209,4 +209,6 @@ SRC_URI:append = " \
     file://common/0040-BACKPORT-UPSTREAM-net-phy-aquantia-remove-usage-of-p.patch \
     file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \
     file://common/0028-FROMLIST-mmc-sdhci-msm-Enable-MMC_CAP_AGGRESSIVE_PM-.patch \
+    file://common/0041-UPSTREAM-net-phy-mdio_device-Reset-device-only-when-necessary.patch \
+    file://common/0042-UPSTREAM-net-stmmac-don-t-create-a-MDIO-bus-if-unnecessary.patch \
     "
