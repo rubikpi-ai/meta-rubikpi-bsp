@@ -215,4 +215,8 @@ SRC_URI:append = " \
     file://qcs615/0004-FROMLIST-drm-msm-dp-Add-DisplayPort-support-for-QCS6.patch \
     file://qcs615/0005-FROMLIST-drm-msm-dp-Add-support-for-lane-mapping-con.patch \
     file://qcs615/0006-FROMLIST-drm-msm-dp-Retry-Link-Training-2-with-lower.patch \
+    file://qcs615/0001-BACKPORT-drm-msm-dpu-check-for-overflow-in-_dpu_crtc_.patch \
+    file://qcs615/0002-BACKPORT-drm-msm-dpu-merge-MAX_IMG_WIDTH-HEIGHT-with.patch \
+    file://qcs615/0003-BACKPORT-drm-msm-dpu-sync-mode_config-limits-to-the-.patch \
+    file://qcs615/0004-FROMLIST-drm-msm-dpu-filter-out-too-wide-modes-if-no.patch \
     "
