@@ -211,4 +211,8 @@ SRC_URI:append = " \
     file://common/0028-FROMLIST-mmc-sdhci-msm-Enable-MMC_CAP_AGGRESSIVE_PM-.patch \
     file://common/0041-UPSTREAM-net-phy-mdio_device-Reset-device-only-when-necessary.patch \
     file://common/0042-UPSTREAM-net-stmmac-don-t-create-a-MDIO-bus-if-unnecessary.patch \
+    file://qcs615/0003-FROMLIST-phy-qcom-qmp-usbc-Add-DP-phy-mode-support-o.patch \
+    file://qcs615/0004-FROMLIST-drm-msm-dp-Add-DisplayPort-support-for-QCS6.patch \
+    file://qcs615/0005-FROMLIST-drm-msm-dp-Add-support-for-lane-mapping-con.patch \
+    file://qcs615/0006-FROMLIST-drm-msm-dp-Retry-Link-Training-2-with-lower.patch \
     "
