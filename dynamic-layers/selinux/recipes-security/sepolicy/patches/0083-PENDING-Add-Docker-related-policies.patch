@@ -5,7 +5,8 @@ Subject: [PATCH] PENDING-Add Docker related policies
 
 Added Sepolicies for running docker
 
-Upstream-Status: Present (https://github.com/SELinuxProject/refpolicy/tree/main/policy/modules/services)
+Upstream-Status: backport
+Backported-from : https://github.com/SELinuxProject/refpolicy/tree/main/policy/modules/services
 
 Signed-off-by: Gargi Misra <quic_gmisra@quicinc.com>
 
@@ -14,9 +15,9 @@ Signed-off-by: Gargi Misra <quic_gmisra@quicinc.com>
  policy/modules/services/container.if | 37 ++++++++++++++++++++++++++++
  policy/modules/services/container.te | 13 ++++++++++
  policy/modules/services/docker.fc    | 10 ++++++++
- policy/modules/services/docker.if    | 13 ++++++++++
- policy/modules/services/docker.te    | 19 ++++++++++++++
- 6 files changed, 113 insertions(+)
+ policy/modules/services/docker.if    | 19 ++++++++++++++
+ policy/modules/services/docker.te    | 20 +++++++++++++++
+ 6 files changed, 120 insertions(+)
  create mode 100644 policy/modules/services/container.fc
  create mode 100644 policy/modules/services/container.if
  create mode 100644 policy/modules/services/container.te
@@ -131,26 +132,32 @@ index 000000000..6faa0b744
 +/usr/sbin/docker-proxy --      gen_context(system_u:object_r:dockerd_exec_t,s0)
 diff --git a/policy/modules/services/docker.if b/policy/modules/services/docker.if
 new file mode 100644
-index 000000000..73269d2b4
+index 000000000..0c9b484f2
 --- /dev/null
 +++ b/policy/modules/services/docker.if
-@@ -0,0 +1,13 @@
+@@ -0,0 +1,19 @@
 +## <summary>Policy for docker</summary>
 +
 +########################################
 +## <summary>
-+##      Execute docker CLI in the docker CLI domain.
++##      Allow the specified domain to connect to
++##      dockerd with an unix stream socket.
 +## </summary>
 +## <param name="domain">
 +##      <summary>
-+##      Domain allowed to transition.
++##      Domain allowed access.
 +##      </summary>
 +## </param>
 +#
-+
++interface(`dockerd_connect_to_stream_socket',`
++    gen_require(`
++        type dockerd_t;
++    ')
++    allow $1 dockerd_t:unix_stream_socket connectto;
++')
 diff --git a/policy/modules/services/docker.te b/policy/modules/services/docker.te
 new file mode 100644
-index 000000000..a2954a2c9
+index 000000000..05a6591f8
 --- /dev/null
 +++ b/policy/modules/services/docker.te
 @@ -0,0 +1,20 @@
