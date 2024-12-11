@@ -3,5 +3,7 @@ PACKAGECONFIG[ftrace] = "--enable-trace-backend=ftrace,,,"
 PACKAGECONFIG[ust] = "--enable-trace-backends=ust,,lttng-ust,"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-softmmu-fix-device-deletion-events-with-device-JSON-.patch"
+SRC_URI += "file://0001-softmmu-fix-device-deletion-events-with-device-JSON-.patch \
+            file://0001-virtio-iommu-Fix-the-domain_range-end.patch \
+            "
 
