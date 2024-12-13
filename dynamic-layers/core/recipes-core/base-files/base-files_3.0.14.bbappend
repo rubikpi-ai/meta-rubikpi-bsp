@@ -11,7 +11,7 @@ do_install:append:qcom(){
             install -d ${D}/etc/tmpfiles.d
             install -m 0644 ${WORKDIR}/base-files.conf ${D}/etc/tmpfiles.d/base-files.conf
 
-            rm -rf ${D}/${localstatedir} ${D}/home ${D}/mnt ${D}/media
+            rm -rf ${D}/${localstatedir}
 
             # Create /var/volatile at build-time to skip error with empty_var_volatile task
             mkdir -p ${D}${localstatedir}/volatile/
