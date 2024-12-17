@@ -228,13 +228,10 @@ SRC_URI += "file://0001-FROMLIST-Fastcv-HAL-for-Opencv-Acceleration.patch \
 
 DEPENDS:qcom-custom-bsp += "qcom-fastcv-binaries"
 
+PACKAGECONFIG:remove = "gstreamer gtk"
 EXTRA_OECMAKE += "-DOPENCV_ALLOW_DOWNLOADS=ON "
 EXTRA_OECMAKE:append:qcom-custom-bsp = " -DWITH_FASTCV=ON "
-#python () {
-#    bsp_type = d.getVar('BSP_TYPE')
-#    if bsp_type == 'qcom-custom-bsp':
-#        d.appendVar('EXTRA_OECMAKE', ' -DWITH_FASTCV=ON ')
-#}
+
 COMPATIBLE_MACHINE = "(qcm6490-idp|qcs6490-rb3gen2-vision-kit|qcs6490-rb3gen2-core-kit|qcs6490-rb3gen2-industrial-kit|qcs9100-ride-sx|qcs8300-ride-sx|qcs9075-ride-sx|qcs9075-rb8-core-kit)"
 
 ########## End of Qcom overrides ##########
