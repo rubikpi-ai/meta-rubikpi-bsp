@@ -184,7 +184,6 @@ INSANE_SKIP:${PN}-java = "libdir"
 INSANE_SKIP:${PN}-dbg = "libdir"
 
 ALLOW_EMPTY:${PN} = "1"
-RM_WORK_EXCLUDE += "${PN}"
 
 SUMMARY:python3-opencv = "Python bindings to opencv"
 FILES:python3-opencv = "${PYTHON_SITEPACKAGES_DIR}/*"
