@@ -21,14 +21,14 @@ RDEPENDS:${PN} += "useradd-qcom"
 PACKAGECONFIG ??= "\
     ${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)} \
 "
-PACKAGECONFIG[systemd] = "--with-systemdunitdir=${systemd_system_unitdir}/,--with-systemdunitdir="
+
+PACKAGECONFIG[systemd] = "--with-systemdunitdir=${systemd_system_unitdir}/ --with-tmpfilesdir=${sysconfdir}/tmpfiles.d/,--with-systemdunitdir='' --with-tmpfilesdir=''"
 
 SYSTEMD_SERVICE:${PN} = "property-vault.service persist-property-vault.service"
 
 do_install:append() {
-    install -b -m 0644 /dev/null -D ${D}${sysconfdir}/build.prop 
+    install -b -m 0644 /dev/null -D ${D}${sysconfdir}/build.prop
     chown system:system ${D}${sysconfdir}/build.prop
-
 }
 
 FILES:${PN} += " /etc/build.prop "
