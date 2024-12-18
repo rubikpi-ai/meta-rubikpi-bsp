@@ -3,10 +3,9 @@ DESCRIPTION = "Application to parse the IEC61850 data, detect anomalies, run pro
 LICENSE = "BSD-3-Clause-Clear"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=7a434440b651f4a472ca93716d01033a"
 
-PR = "r0"
-
 SRC_URI = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/edgegateway.git;branch=edgegateway.lnx.1.0;protocol=https"
 SRCREV = "${AUTOREV}"
+
 S="${WORKDIR}/git/parser"
 
 CFLAGS += "\
@@ -15,7 +14,7 @@ CFLAGS += "\
 
 DEPENDS += "dpdk rapidjson paho-mqtt-cpp mosquitto sqlite"
 
-inherit autotools-brokensep pkgconfig logging
+inherit autotools-brokensep pkgconfig
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
