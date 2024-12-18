@@ -124,4 +124,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-dt-bindings-interconnect-qcom-bwmon-Documen.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-display-msm-gpu-Document-A612-G.patch \
     file://qcs615/0002-FROMLIST-dt-bindings-display-msm-gmu-Document-RGMU.patch \
+    file://qcs8300/0001-FROMLIST-dt-bindings-clock-qcom-Add-GPU-clocks-for-Q.patch \
+    file://qcs8300/0003-FROMLIST-dt-bindings-clock-qcom-Add-CAMCC-clocks-for.patch \
+    file://qcs8300/0005-FROMLIST-dt-bindings-clock-qcom-Add-QCS8300-video-cl.patch \
     "

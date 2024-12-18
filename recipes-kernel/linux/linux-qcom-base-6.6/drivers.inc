@@ -234,4 +234,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Filter-modes-based-on-adjusted-.patch \
     file://qcs615/0001-FROMLIST-arm64-gfx-qcom-qcs615-Add-support-for-Adren.patch \
     file://common/0001-FROMLIST-irqchip-gic-v3-Handle-failure-case-of-CPU-e.patch \
+    file://qcs8300/0002-FROMLIST-clk-qcom-Add-support-for-GPU-Clock-Controll.patch \
+    file://qcs8300/0004-FROMLIST-clk-qcom-Add-support-for-Camera-Clock-Contr.patch \
+    file://qcs8300/0006-FROMLIST-clk-qcom-Add-support-for-Video-Clock-Contro.patch \
     "
