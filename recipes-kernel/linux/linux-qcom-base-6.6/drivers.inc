@@ -239,4 +239,5 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-drm-msm-a6xx-Skip-gpu-secure-fw-load-in-EL2.patch \
     file://qcs615/0001-FROMLIST-net-stmmac-qcom-ethqos-Enable-RX-programmab.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Add-writeback-support-for-SM6150.patch \
+    file://qcs8300/0002-PENDING-media-iris-add-platfrom-data-for-qcs8300.patch \
     "

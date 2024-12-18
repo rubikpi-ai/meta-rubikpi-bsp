@@ -154,6 +154,7 @@ SRC_URI:append = " \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-Add-QUPv3-configurat.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-capacity-and-DPC.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-support-for-cloc.patch \
+    file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-add-video-codec-node.patch \
     "
 
 # qcs8300 board dts patches
