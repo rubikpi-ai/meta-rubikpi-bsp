@@ -136,6 +136,7 @@ SRC_URI:append = " \
     file://qcs615/0008-FROMLIST-arm64-dts-qcom-Enable-DisplayPort-on-QCS615.patch \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-Adreno-61.patch \
     file://qcs615/0002-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Tune-RX-sampling.patch \
     "
 
 # qcs8300 dtsi patches

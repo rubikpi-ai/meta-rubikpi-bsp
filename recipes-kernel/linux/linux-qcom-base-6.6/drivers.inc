@@ -238,4 +238,5 @@ SRC_URI:append = " \
     file://qcs8300/0004-FROMLIST-clk-qcom-Add-support-for-Camera-Clock-Contr.patch \
     file://qcs8300/0006-FROMLIST-clk-qcom-Add-support-for-Video-Clock-Contro.patch \
     file://qcs9100/0001-FROMLIST-drm-msm-a6xx-Skip-gpu-secure-fw-load-in-EL2.patch \
+    file://qcs615/0001-FROMLIST-net-stmmac-qcom-ethqos-Enable-RX-programmab.patch \
     "
