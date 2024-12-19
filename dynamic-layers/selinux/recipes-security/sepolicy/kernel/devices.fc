@@ -28,6 +28,7 @@
 /dev/byte-cntr    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/byte-cntr1    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/tmc_etf0    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
+/dev/tmc_etf1    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/tmc_etr0    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/tmc_etr1    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/stm0    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
