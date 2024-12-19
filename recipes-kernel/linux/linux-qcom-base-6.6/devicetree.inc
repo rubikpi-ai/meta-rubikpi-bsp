@@ -110,6 +110,7 @@ SRC_URI:append = " \
     file://qcs615/0001-QCLINUX-Revert-arm64-dts-qcom-qcs615-enable-PCIe-for.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-CPU-capacity-and-.patch \
     file://qcs615/0007-FROMLIST-arm64-dts-qcom-Add-DisplayPort-support-for-.patch \
+    file://qcs615/0001-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-Add-support-.patch \
     "
 
 # qcs615 board dts patches
@@ -122,6 +123,7 @@ SRC_URI:append = " \
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-PMIC-peri.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-WiFi-BT-nodes.patch \
     file://qcs615/0008-FROMLIST-arm64-dts-qcom-Enable-DisplayPort-on-QCS615.patch \
+    file://qcs615/0002-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-.patch \
     "
 
 # qcs8300 dtsi patches
