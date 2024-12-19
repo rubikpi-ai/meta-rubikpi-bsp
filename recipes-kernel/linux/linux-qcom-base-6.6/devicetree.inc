@@ -111,6 +111,10 @@ SRC_URI:append = " \
     file://qcs615/0001-QCLINUX-Revert-arm64-dts-qcom-qcs615-enable-PCIe-for.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-CPU-capacity-and-.patch \
     file://qcs615/0007-FROMLIST-arm64-dts-qcom-Add-DisplayPort-support-for-.patch \
+    file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-add-the-GPU-SMMU-node.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-dma-coherent-for-t.patch \
+    file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-Add-CPU-and-LLCC-BWMO.patch \
+    file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-Add-gpu-and-gmu-nodes.patch \
     file://qcs615/0001-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-Add-support-.patch \
     "
 
