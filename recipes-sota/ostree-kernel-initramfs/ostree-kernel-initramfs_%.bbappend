@@ -1,4 +1,4 @@
-do_install:append() {
+do_install:append:qcom() {
     if [ -n ${OSTREE_KERNEL} ]; then
         if [ -n "${INITRAMFS_IMAGE}" ]; then
             # this is a hack for ostree not to override init= in kernel cmdline -
