@@ -71,22 +71,6 @@ domtrans_pattern(unconfined_t, qcom_kernel_tests_exec_t, qcom_kernel_tests_t)
 domtrans_pattern(initrc_t, qcom_kernel_tests_exec_t, qcom_kernel_tests_t)
 permissive  qcom_kernel_tests_t;
 
-#======================
-# for halnativetest
-#
-type qcom_nativehaltest_t;
-type qcom_nativehaltest_exec_t;
-init_system_domain(qcom_nativehaltest_t, qcom_nativehaltest_exec_t)
-role system_r types qcom_nativehaltest_t;
-
-application_domain(qcom_nativehaltest_t, qcom_nativehaltest_exec_t)
-init_daemon_domain(qcom_nativehaltest_t, qcom_nativehaltest_exec_t)
-domtrans_pattern(unconfined_t, qcom_nativehaltest_exec_t, qcom_nativehaltest_t)
-domtrans_pattern(initrc_t, qcom_nativehaltest_exec_t, qcom_nativehaltest_t)
-can_exec(initrc_t, qcom_nativehaltest_t)
-permissive  qcom_nativehaltest_t;
-
-
 mls_file_write_all_levels( unconfined_execmem_t)
 mls_file_read_all_levels(unconfined_execmem_t)
 
