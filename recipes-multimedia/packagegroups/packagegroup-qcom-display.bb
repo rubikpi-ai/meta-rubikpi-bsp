@@ -14,7 +14,6 @@ PACKAGES = "${PN}"
 RDEPENDS:${PN} = " \
     libcec \
     libdrm \
-    libdrm-tests \
     wayland \
     wayland-protocols \
     weston \
@@ -27,7 +26,7 @@ RDEPENDS:${PN}:append:qcm6490:qcom-custom-bsp = " \
 "
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = "\
-    gbm \
+    virtual/libgbm \
     "
 
 RDEPENDS:${PN}:append:qcm6490 = " \
