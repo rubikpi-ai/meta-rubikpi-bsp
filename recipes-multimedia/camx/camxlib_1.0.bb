@@ -36,3 +36,4 @@ INSANE_SKIP:${PN}-dbg = "arch"
 INSANE_SKIP:${PN} = "arch"
 # The modules require .so to be dynamicaly loaded
 INSANE_SKIP:${PN} += "dev-so"
+INSANE_SKIP:${PN} += "file-rdeps"
