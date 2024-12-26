@@ -32,7 +32,7 @@ index 3108bf5bcd0f..2835751bdc23 100644
 +			clock-names = "stmmaceth", "pclk", "ptp_ref", "rgmii";
 +
 +			interrupts = <GIC_SPI 660 IRQ_TYPE_LEVEL_HIGH>,
-+			             <GIC_SPI 662 IRQ_TYPE_LEVEL_HIGH>;
++			             <GIC_SPI 661 IRQ_TYPE_LEVEL_HIGH>;
 +			interrupt-names = "macirq", "eth_lpi";
 +
 +			power-domains = <&gcc EMAC_GDSC>;
