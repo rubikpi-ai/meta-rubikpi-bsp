@@ -1,0 +1,1 @@
+recipes-kernel/linux/*/*.inc merge=union
