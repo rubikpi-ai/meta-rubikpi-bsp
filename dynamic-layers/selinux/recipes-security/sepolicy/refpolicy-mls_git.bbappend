@@ -25,6 +25,7 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
             file://0078-PENDING-add-sepolicies-for-modem-manager.patch \
             file://0079-PENDING-Add-sepolicy-for-systemd-networkd-wait-online.patch \
             file://0080-PENDING-Add-sepolicy-rules-for-hostapd-hostapd_cli.patch \
+            file://0083-PENDING-Add-Docker-related-policies.patch \
             file://0084-PENDING-Allow-SE-policy-read-and-write-access-to-dbu.patch \
             file://0085-PENDING-Adding-rules-for-dnsmasq.patch \
             file://0086-PENDING-networkmanager-allow-access-tmpfs.patch \

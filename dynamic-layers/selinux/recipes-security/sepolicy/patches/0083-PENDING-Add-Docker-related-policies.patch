@@ -1,0 +1,42 @@
+From 2648a4c2030b6d453e30aca3bd0000f50c672c19 Mon Sep 17 00:00:00 2001
+From: Gargi Misra <quic_gmisra@quicinc.com>
+Date: Thu, 2 Jan 2025 14:57:56 +0530
+Subject: [PATCH] PENDING-Add Docker related policies
+
+Upstream-Status: pending
+Signed-off-by: Gargi Misra <quic_gmisra@quicinc.com>
+---
+ policy/modules/services/docker.if | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/policy/modules/services/docker.if b/policy/modules/services/docker.if
+index 532fa4419..9f0175db7 100644
+--- a/policy/modules/services/docker.if
++++ b/policy/modules/services/docker.if
+@@ -140,6 +140,24 @@ interface(`docker_run_user_cli',`
+ 	docker_domtrans_user_cli($1)
+ ')
+ 
++########################################
++## <summary>
++##      Allow the specified domain to connect to
++##      dockerd with an unix stream socket.
++## </summary>
++## <param name="domain">
++##      <summary>
++##      Domain allowed access.
++##      </summary>
++## </param>
++#
++interface(`dockerd_connect_to_stream_socket',`
++    gen_require(`
++        type dockerd_t;
++    ')
++    allow $1 dockerd_t:unix_stream_socket connectto;
++')
++
+ ########################################
+ ## <summary>
+ ##	Role access for rootless docker.
+-- 
+2.34.1
