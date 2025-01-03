@@ -6,6 +6,7 @@ gen_require(`
         type container_engine_t;
         type dockerc_t;
         type dockerd_t;
+        type local_login_t;
     ')
 
 permissive container_engine_t;
@@ -13,6 +14,8 @@ permissive container_engine_t;
 permissive dockerc_t;
 permissive dockerd_t;
 
+#TODO : Need to remove this line once we have fix.
+permissive local_login_t;
 #TODO: following are added to unblock the tech team
 #      and expected to clean this going fwd.
 
