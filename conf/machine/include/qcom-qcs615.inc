@@ -12,6 +12,7 @@ KERNEL_CMDLINE_EXTRA ?= "pcie_pme=nomsi net.ifnames=0 pci=noaer kpti=off kasan=o
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
     kernel-modules \
     networkmanager-nmcli \
+    networkmanager-wifi \
     pd-mapper \
     qrtr \
     tqftpserv \

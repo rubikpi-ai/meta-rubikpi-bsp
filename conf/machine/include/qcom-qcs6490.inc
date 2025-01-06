@@ -14,6 +14,7 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
     kernel-modules \
     modemmanager \
     networkmanager-nmcli \
+    networkmanager-wifi \
     pd-mapper \
 "
 

@@ -14,6 +14,7 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
     kernel-modules \
     pd-mapper \
     networkmanager-nmcli \
+    networkmanager-wifi \
     qrtr \
     tqftpserv \
 "
