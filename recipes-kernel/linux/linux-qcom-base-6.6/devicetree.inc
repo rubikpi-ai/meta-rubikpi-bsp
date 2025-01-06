@@ -165,3 +165,49 @@ SRC_URI:append = " \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-Enable-USB-controllers-for-Q.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-ride-Add-PSCI-SYSTEM_.patch \
 	"
+# qcs9075 board dts patches
+SRC_URI:append = " \
+    file://qcs9075/0001-UPSTREAM-media-qcom-camss-Amalgamate-struct-resource.patch \
+    file://qcs9075/0002-UPSTREAM-media-qcom-camss-use-1X16-formats-instead-o.patch \
+    file://qcs9075/0003-UPSTREAM-media-qcom-camss-Rename-camss-struct-resour.patch \
+    file://qcs9075/0004-UPSTREAM-media-qcom-camss-Start-to-move-to-module-co.patch \
+    file://qcs9075/0005-UPSTREAM-media-qcom-camss-Pass-icc-bandwidth-table-a.patch \
+    file://qcs9075/0006-UPSTREAM-media-qcom-camss-Pass-remainder-of-variable.patch \
+    file://qcs9075/0007-UPSTREAM-media-qcom-camss-Pass-line_num-from-compat-.patch \
+    file://qcs9075/0008-UPSTREAM-media-qcom-camss-Pass-CAMSS-subdev-callback.patch \
+    file://qcs9075/0009-UPSTREAM-media-qcom-camss-Assign-the-correct-number-.patch \
+    file://qcs9075/0010-UPSTREAM-media-qcom-camss-Remove-special-case-for-VF.patch \
+    file://qcs9075/0011-UPSTREAM-media-qcom-camss-Untangle-if-else-spaghetti.patch \
+    file://qcs9075/0012-UPSTREAM-media-qcom-camss-Allow-clocks-vfeN-vfe_lite.patch \
+    file://qcs9075/0013-UPSTREAM-media-qcom-camss-Functionally-decompose-CSI.patch \
+    file://qcs9075/0014-UPSTREAM-media-qcom-camss-Fix-support-for-setting-CS.patch \
+    file://qcs9075/0015-UPSTREAM-media-qcom-camss-Support-RDI3-for-VFE-17x.patch \
+    file://qcs9075/0016-UPSTREAM-media-qcom-camss-Move-vfe_disable-into-a-co.patch \
+    file://qcs9075/0017-UPSTREAM-media-qcom-camss-Propagate-vfe_reset-error-.patch \
+    file://qcs9075/0018-UPSTREAM-media-qcom-camss-Add-per-sub-device-type-re.patch \
+    file://qcs9075/0019-UPSTREAM-media-qcom-camss-Attach-formats-to-VFE-reso.patch \
+    file://qcs9075/0020-UPSTREAM-media-qcom-camss-Attach-formats-to-CSID-res.patch \
+    file://qcs9075/0021-UPSTREAM-media-qcom-camss-Move-format-related-functi.patch \
+    file://qcs9075/0022-PENDING-media-qcom-camss-Designate-lite-subdevices-i.patch \
+    file://qcs9075/0023-UPSTREAM-media-qcom-camss-Split-testgen-RDI-and-RX-f.patch \
+    file://qcs9075/0024-UPSTREAM-media-qcom-camss-Decompose-register-and-lin.patch \
+    file://qcs9075/0025-UPSTREAM-media-qcom-camss-clean-up-a-check.patch \
+    file://qcs9075/0026-UPSTREAM-media-qcom-camss-vfe-17x-Rename-camss-vfe-1.patch \
+    file://qcs9075/0027-UPSTREAM-media-qcom-camss-Convert-to-per-VFE-pointer.patch \
+    file://qcs9075/0028-UPSTREAM-media-qcom-camss-Use-common-VFE-pm_domain_o.patch \
+    file://qcs9075/0029-UPSTREAM-media-qcom-camss-Move-VFE-power-domain-spec.patch \
+    file://qcs9075/0030-UPSTREAM-media-qcom-camss-Flag-CSID-lites-to-support.patch \
+    file://qcs9075/0031-UPSTREAM-media-qcom-camss-Add-sm8250-named-power-dom.patch \
+    file://qcs9075/0032-UPSTREAM-media-qcom-camss-csiphy-3ph-Add-Gen2-v1.1-t.patch \
+    file://qcs9075/0033-UPSTREAM-media-qcom-camss-Flag-which-VFEs-require-a-.patch \
+    file://qcs9075/0034-UPSTREAM-media-qcom-camss-Add-support-for-named-powe.patch \
+    file://qcs9075/0035-UPSTREAM-media-qcom-camss-Flag-VFE-lites-to-support-.patch \
+    file://qcs9075/0036-UPSTREAM-media-qcom-camss-Attach-formats-to-CSIPHY-r.patch \
+    file://qcs9075/0037-UPSTREAM-media-qcom-camss-Decouple-VFE-from-CSID.patch \
+    file://qcs9075/0038-UPSTREAM-media-qcom-camss-reducing-the-repitious-err.patch \
+    file://qcs9075/0039-UPSTREAM-media-qcom-camss-Restructure-camss_link_ent.patch \
+    file://qcs9075/0040-PENDING-media-dt-bindings-Add-qcom-sa8775p-camss.patch \
+    file://qcs9075/0041-PENDING-media-qcom-camss-Add-support-for-camss-drive.patch \
+    file://qcs9075/0042-PENDING-arm64-dts-qcom-sa8775p-Add-support-for-camss.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-sa8775p-ride.patch \
+    "
