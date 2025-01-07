@@ -14,3 +14,9 @@ PACKAGES = "${PN}"
 RDEPENDS:${PN}:qcom-custom-bsp:qcm6490= "camx-kt camxlib-kt chicdk-kt"
 
 RDEPENDS:${PN}:append:qcm6490:qcom-custom-bsp = " qcom-camera-server"
+
+#qcs9100 is a common SOC_FAMILY name for all Lemans board
+RDEPENDS:${PN}:qcom-custom-bsp:qcs9100 = "camxcommon camxlib camx chicdk cameradlkm"
+
+#qcs8300 is a common SOC_FAMILY name for all Lemans board
+RDEPENDS:${PN}:qcom-custom-bsp:qcs8300 = "camxcommon camxlib camx chicdk cameradlkm"
