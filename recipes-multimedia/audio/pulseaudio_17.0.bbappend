@@ -6,8 +6,6 @@ SRC_URI += "file://pulseaudio/system.pa \
             file://pulseaudio/0002-Propagate-port-change-events-to-all-devices.patch \
             file://pulseaudio/0003-libpulse-Initialize-channel-map-for-7-8-channel-audi.patch \
             file://pulseaudio/0004-pulsecore-Update-desired-sample-spec-for-requested-c.patch \
-            file://pulseaudio/0005-UPSTREAM-bluetooth-Only-remove-cards-belonging-to-th.patch \
-            file://pulseaudio/0006-UPSTREAM-bluetooth-Allow-SCO-socket-packet-size-to-b.patch \
            "
 
 do_compile:prepend() {

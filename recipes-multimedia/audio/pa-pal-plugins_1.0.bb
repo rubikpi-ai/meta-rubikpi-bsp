@@ -13,14 +13,14 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/pulseau
 S = "${WORKDIR}/audio/opensource/pulseaudio-plugins/modules/pa-pal-plugins"
 
 DEPENDS = "qcom-agm pulseaudio qcom-pal qcom-pal-headers qcom-vui-interface-header"
-EXTRA_OECONF = " --with-pa_version=15.0 --without-pa-support-card-status"
+EXTRA_OECONF = " --with-pa_version=17.0 --without-pa-support-card-status"
 
 PACKAGES =+ "\
              pulseaudio-module-pal-card \
              pulseaudio-module-pal-voiceui-card \
             "
-FILES:pulseaudio-module-pal-card = "${libdir}/pulse-15.0/modules/module-pal-card.so ${sysconfdir}/*"
-FILES:pulseaudio-module-pal-voiceui-card = "${libdir}/pulse-15.0/modules/module-pal-voiceui-card.so"
+FILES:pulseaudio-module-pal-card = "${libdir}/pulseaudio/modules/module-pal-card.so ${sysconfdir}/*"
+FILES:pulseaudio-module-pal-voiceui-card = "${libdir}/pulseaudio/modules/module-pal-voiceui-card.so"
 
 RDEPENDS:pulseaudio-server = " pulseaudio-module-pal-card"
 RDEPENDS:pulseaudio-server = " pulseaudio-module-pal-voiceui-card"
