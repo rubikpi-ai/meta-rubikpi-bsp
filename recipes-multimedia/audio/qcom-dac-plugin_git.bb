@@ -17,5 +17,6 @@ EXTRA_OECONF:append:qcs8300 = " --enable-qcs8300=yes "
 
 DEPENDS = "qcom-audio-plugin-headers"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
