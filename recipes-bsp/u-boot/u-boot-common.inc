@@ -28,7 +28,11 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
 	    file://0010-PENDING-arm64-dts-qcom-qcs9100-Added-memory-region-f.patch \
 	    file://0011-PENDING-smem-Updated-smem-driver-to-support-QCS9100.patch \
 	    file://0012-PENDING-efi_loader-Add-multidt-support.patch \
-	    file://0013-PENDING-arm64-dts-qcom-qcs9100-Update-memory-map-as-.patch"
+	    file://0013-PENDING-arm64-dts-qcom-qcs9100-Update-memory-map-as-.patch \
+	    file://0014-PENDING-pinctr-qcom-sa8775p-Added-initial-support.patch \
+	    file://0015-PENDING-config-qcom-add-sa8775p-to-qcom_defconfig.patch \
+	    file://0016-PENDING-arm64-dts-qcom-qcs9100-Add-missed-DDR-memory.patch \
+	    file://0017-PENDING-mach-snapdragon-update-environment-variable-.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
