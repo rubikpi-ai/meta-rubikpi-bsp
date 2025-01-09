@@ -12,8 +12,6 @@ SRC_URI =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=graphics-devicetree"
 
 S = "${WORKDIR}/graphics-devicetree"
 
-PROVIDES += "graphicsdevicetree"
-
 DTC := "${KBUILD_OUTPUT}/scripts/dtc/dtc"
 GRAPHICS_INCLUDE := "${WORKSPACE}/graphics-kernel/"
 KERNEL_INCLUDE := "${STAGING_KERNEL_DIR}/include/"
