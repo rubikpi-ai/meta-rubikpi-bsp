@@ -162,4 +162,5 @@ SRC_URI:append = " \
     file://addons/0001-QCLINUX-arm64-dts-qcom-qcs8300-ride-add-board-id-and.patch \
     file://qcs8300/0003-FROMLIST-arm64-dts-qcom-qcs8300-ride-Add-watchdog-no.patch \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-Enable-USB-controllers-for-Q.patch \
+    file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-ride-Add-PSCI-SYSTEM_.patch \
 	"
