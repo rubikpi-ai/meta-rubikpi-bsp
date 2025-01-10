@@ -12,7 +12,7 @@ DEFAULT_PREFERENCE = "-1"
 GNOMEBASEBUILDCLASS = "meson"
 inherit gnomebase gettext systemd gobject-introspection bash-completion
 
-DEPENDS = "glib-2.0 libgudev libxslt-native dbus json-glib  gtk+3"
+DEPENDS = "glib-2.0 libgudev libxslt-native dbus json-glib "
 
 
 FILESEXTRAPATHS:append := "${THISDIR}:"
