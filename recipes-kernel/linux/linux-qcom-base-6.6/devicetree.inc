@@ -119,6 +119,7 @@ SRC_URI:append = " \
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-qcs615-Add-CPU-and-LLCC-BWMO.patch \
     file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-Add-gpu-and-gmu-nodes.patch \
     file://qcs615/0001-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-Add-support-.patch \
+    file://qcs615/0003-FROMGIT-arm64-dts-qcom-correct-gpio-ranges-for-QCS61.patch \
     "
 
 # qcs615 board dts patches
