@@ -15,7 +15,7 @@ do_compile:prepend() {
     cp ${STAGING_LIBDIR}/libltdl* ${S}/libltdl
 }
 
-do_install:append() {
+do_install:append:qcom() {
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/pulseaudio/pulseaudio.service ${D}${systemd_system_unitdir}
     install -d ${D}${systemd_system_unitdir}/multi-user.target.wants/

@@ -4,7 +4,6 @@ LICENSE = "BSD-3-Clause-Clear"
 LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=3771d4920bd6cdb8cbdf1e8344489ee0"
 
 DESCRIPTION = "pulseaudio BT audio interface"
-PR = "r0"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/pulseaudio-plugin.git;protocol=https"
 SRCBRANCH  = "audio-algos.lnx.1.0.r1-rel"
