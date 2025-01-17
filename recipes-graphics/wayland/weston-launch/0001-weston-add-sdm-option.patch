@@ -12,19 +12,11 @@ Upstream-Status: Inappropriate [Downstream]
 Signed-off-by: Rajavenu Kyatham <quic_rkyatham@quicinc.com>
 
 diff --git a/meson.build b/meson.build
-<<<<<<< HEAD
-index 2b8f8a8..0f2fa48 100644
---- a/meson.build
-+++ b/meson.build
-@@ -157,6 +157,7 @@ dep_libdl = cc.find_library('dl')
- dep_libdrm = dependency('libdrm', version: '>= 2.4.95')
-=======
 index 2383273..2a6cf91 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -143,6 +143,7 @@ dep_libdl = cc.find_library('dl')
  dep_libdrm = dependency('libdrm', version: '>= 2.4.108')
->>>>>>> d7e86a26... sdm-backend bringup with weston 13.
  dep_libdrm_headers = dep_libdrm.partial_dependency(compile_args: true)
  dep_threads = dependency('threads')
 +dep_gbm = dependency('gbm')
@@ -32,11 +24,7 @@ index 2383273..2a6cf91 100644
  dep_lcms2 = dependency('lcms2', version: '>= 2.9', required: false)
 
 diff --git a/meson_options.txt b/meson_options.txt
-<<<<<<< HEAD
-index 8a527d7..5d5b363 100644
-=======
 index ac355f1..8a00560 100644
->>>>>>> d7e86a26... sdm-backend bringup with weston 13.
 --- a/meson_options.txt
 +++ b/meson_options.txt
 @@ -2,6 +2,18 @@
@@ -56,10 +44,5 @@ index ac355f1..8a00560 100644
 +       description: 'Weston backend: disable power key handling'
 +)
  option(
-<<<<<<< HEAD
- 	'backend-drm',
- 	type: 'boolean',
-=======
 	'backend-drm',
 	type: 'boolean',
->>>>>>> d7e86a26... sdm-backend bringup with weston 13.
