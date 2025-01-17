@@ -24,10 +24,18 @@ QCOM_BLUETOOTH_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-open
 QCOM_BLUETOOTH_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
 QCOM_BLUETOOTH_SRCREV ?= "1710c237b493454dc93f41de09b50cd8d109f970"
 
-SRC_URI = "${QCOM_SYSTEM_BT_SRC};branch=${QCOM_SYSTEM_BT_SRCBRANCH};rev=${QCOM_SYSTEM_BT_SRCREV};destsuffix=bluetooth/stack/system/bt \
-           ${QCOM_BLUETOOTH_EXT_SRC};branch=${QCOM_BLUETOOTH_EXT_SRCBRANCH};rev=${QCOM_BLUETOOTH_EXT_SRCREV};destsuffix=bluetooth/stack/bluetooth_ext \
-           ${QCOM_BT_SRC};branch=${QCOM_BT_SRCBRANCH};rev=${QCOM_BT_SRCREV};destsuffix=bluetooth/btapp \
-           ${QCOM_BLUETOOTH_SRC};branch=${QCOM_BLUETOOTH_SRCBRANCH};rev=${QCOM_BLUETOOTH_SRCREV};destsuffix=bluetooth/bt_audio"
+
+SRCREV_FORMAT = "qcomsystembt_qcombluetoothext_qcombt_qcombluetooth"
+
+SRCREV_qcomsystembt = "${QCOM_SYSTEM_BT_SRCREV}"
+SRCREV_qcombluetoothext = "${QCOM_BLUETOOTH_EXT_SRCBRANCH}"
+SRCREV_qcombt = "${QCOM_BT_SRCREV}"
+SRCREV_qcombluetooth = "${QCOM_BLUETOOTH_SRCREV}"
+
+SRC_URI = "${QCOM_SYSTEM_BT_SRC};branch=${QCOM_SYSTEM_BT_SRCBRANCH};name=qcomsystembt;destsuffix=bluetooth/stack/system/bt \
+           ${QCOM_BLUETOOTH_EXT_SRC};branch=${QCOM_BLUETOOTH_EXT_SRCBRANCH};name=qcombluetoothext;destsuffix=bluetooth/stack/bluetooth_ext \
+           ${QCOM_BT_SRC};branch=${QCOM_BT_SRCBRANCH};name=qcombt;destsuffix=bluetooth/btapp \
+           ${QCOM_BLUETOOTH_SRC};branch=${QCOM_BLUETOOTH_SRCBRANCH};name=qcombluetooth;destsuffix=bluetooth/bt_audio"
 
 S = "${WORKDIR}/bluetooth"
 S_EXT = "${S}/stack/bluetooth_ext/system_bt_ext"

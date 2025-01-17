@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/ISC;md5=f3b90e78ea0cffb20bf5cca
 
 DEPENDS += "wlan-platform qcacld-wlan"
 
-
 MODULE_NAME = "qca6490"
 
 MODULE_NAME:qcm6490 := "qca6490"
@@ -28,11 +27,18 @@ QCOM_WLAN_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensourc
 QCOM_WLAN_SRCBRANCH ?= "wlan-platform.qclinux.1.0.r2-rel"
 QCOM_WLAN_SRCREV    ?= "20ee98faaff14a91a99552778ba692f02ce9b688"
 
+SRCREV_FORMAT = "wlanqcacld_wlanhostcmn_fwapi_wlan"
+
+SRCREV_wlanqcacld = "${QCOM_WLAN_QCACLD_SRCREV}"
+SRCREV_wlanhostcmn = "${QCOM_WLAN_HOST_CMN_SRCREV}"
+SRCREV_fwapi = "${QCOM_FW_API_SRCREV}"
+SRCREV_wlan = "${QCOM_WLAN_SRCREV}"
+
 SRC_URI = " \
-    ${QCOM_WLAN_QCACLD_SRC};branch=${QCOM_WLAN_QCACLD_SRCBRANCH};rev=${QCOM_WLAN_QCACLD_SRCREV};destsuffix=wlan/qcacld-3.0 \
-    ${QCOM_WLAN_HOST_CMN_SRC};branch=${QCOM_WLAN_HOST_CMN_SRCBRANCH};rev=${QCOM_WLAN_HOST_CMN_SRCREV};destsuffix=wlan/qca-wifi-host-cmn \
-    ${QCOM_FW_API_SRC};branch=${QCOM_FW_API_SRCBRANCH};rev=${QCOM_FW_API_SRCREV};destsuffix=wlan/fw-api \
-    ${QCOM_WLAN_SRC};branch=${QCOM_WLAN_SRCBRANCH};rev=${QCOM_WLAN_SRCREV};destsuffix=wlan/platform \
+    ${QCOM_WLAN_QCACLD_SRC};branch=${QCOM_WLAN_QCACLD_SRCBRANCH};name=wlanqcacld;destsuffix=wlan/qcacld-3.0 \
+    ${QCOM_WLAN_HOST_CMN_SRC};branch=${QCOM_WLAN_HOST_CMN_SRCBRANCH};name=wlanhostcmn;destsuffix=wlan/qca-wifi-host-cmn \
+    ${QCOM_FW_API_SRC};branch=${QCOM_FW_API_SRCBRANCH};name=fwapi;destsuffix=wlan/fw-api \
+    ${QCOM_WLAN_SRC};branch=${QCOM_WLAN_SRCBRANCH};name=wlan;destsuffix=wlan/platform \
 "
 SRC_URI += "file://qcacld-kbuild.patch"
 
