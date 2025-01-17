@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=58d50a3d36f2
 
 DESCRIPTION = "Camx"
 
-DEPENDS += "syslog-plumber glib-2.0 gbm property-vault camx qcom-adreno"
+DEPENDS += "syslog-plumber glib-2.0 property-vault camx qcom-adreno"
 
 QCS9100_SHA256SUM = "51a2299997b91c4a38318719becb4140e37917fb451abf860564cf3af9a1aeb6"
 QCS8300_SHA256SUM = "62e2fca2a80a95521fdd7739153423b5bc525fe317d02ad7d495be47b4807a1b"

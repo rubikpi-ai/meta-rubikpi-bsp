@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=58d50a3d36f2
 
 DESCRIPTION = "Camx"
 
-DEPENDS += "syslog-plumber glib-2.0 gbm property-vault camxlib fastrpc"
+DEPENDS += "syslog-plumber glib-2.0 property-vault camxlib fastrpc"
 
 QCS9100_SHA256SUM = "a714b329602036cc0b50d4e3b91e12a58526700d541293e14938a8aad20b4d85"
 QCS8300_SHA256SUM = "2310a84b26937284bc6adcf6e1fc582212a620face5010b019a1237a4bbd8f26"
