@@ -8,8 +8,9 @@ checking what is the current security level which may cause errors
 since the kernel does actually return -EINVAL when the security doesn't
 change.
 
+Upstream-Status: Backport [https://git.kernel.org/pub/scm/bluetooth/bluez.git/commit/?id=5c65356cae64ddbc95210deb36ee66430645edf8]
+
 Signed-off-by: Jiayang Mao <quic_jiaymao@quicinc.com>
-upstream-status: Backport
 ---
  src/shared/att.c | 3 +++
  1 file changed, 3 insertions(+)
