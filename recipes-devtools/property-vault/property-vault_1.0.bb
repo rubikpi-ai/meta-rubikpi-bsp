@@ -15,7 +15,7 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=le-utils"
 
 S = "${WORKDIR}/le-utils/property-vault"
 
-DEPENDS += "libselinux syslog-plumber glib-2.0 useradd-qcom"
+DEPENDS += "syslog-plumber glib-2.0 useradd-qcom"
 RDEPENDS:${PN} += "useradd-qcom"
 
 PACKAGECONFIG ??= "\
