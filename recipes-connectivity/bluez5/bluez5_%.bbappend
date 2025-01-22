@@ -36,6 +36,9 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0028-Use-system-bus-instead-of-session-for-obexd.patch \
                         file://0029-obexd-Add-system-bus-support-for-obexd.patch \
                         file://0030-tools-obexctl-Add-support-for-system-session-bus.patch \
+                        file://0031-UPSTREAM-obex-Implement-support-for-message-listing-.patch \
+                        file://0032-UPSTREAM-obexctl-Implement-support-for-message-listi.patch \
+                        file://0033-UPSTREAM-Doc-Obex-Implement-support-for-message-list.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP
