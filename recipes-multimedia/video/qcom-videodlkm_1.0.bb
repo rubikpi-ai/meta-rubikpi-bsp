@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=801f80980d171dd6
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/opensource/video-driver.git;protocol=https"
 SRCBRANCH  = "video.qclinux.1.0.r1-rel"
-SRCREV     = "ab1cb3da31b9348d3fab9d97912de3fed9d615d4"
+SRCREV     = "89163405816b65669f47f3b8c6795bf4e254e82e"
 
 SRC_URI =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=vendor/qcom/opensource/video-driver"
 

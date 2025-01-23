@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM += "file://module-pal-card/inc/pal-card.h;beginline=3;endline=4
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/pulseaudio-plugin.git;protocol=https"
 SRCBRANCH  = "audio-algos.lnx.1.0.r1-rel"
-SRCREV     = "5d133b0475e01da3334a59ae329b555958e239fd"
+SRCREV     = "bb51f6b4f907956d5eeed1190b97242bc7ea7aa2"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/pulseaudio-plugins"
 

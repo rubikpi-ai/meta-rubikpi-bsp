@@ -8,7 +8,7 @@ PR = "r0"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/audio-utils.git;protocol=https"
 SRCBRANCH  = "audio-utils.lnx.1.0.r1-rel"
-SRCREV     = "c1e7b4e6c07d9ad26b38467a1adf56632a7380eb"
+SRCREV     = "a97b4e4c84ff0ee4826af0ef489c7e8843b7536a"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/audio-utils"
 

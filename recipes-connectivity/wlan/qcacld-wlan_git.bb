@@ -9,15 +9,15 @@ DEPENDS += "wlan-platform"
 
 QCOM_WLAN_QCACLD_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/wlan/qcacld-3.0.git;protocol=https"
 QCOM_WLAN_QCACLD_SRCBRANCH ?= "wlan-cld3.driver.lnx.2.0.14.r1-rel"
-QCOM_WLAN_QCACLD_SRCREV ?= "e472004bf8a0880e2313da63fe854503a7e33b05"
+QCOM_WLAN_QCACLD_SRCREV ?= "bda960e96318f4ad4596de95a0c328717b3926e3"
 
 QCOM_WLAN_HOST_CMN_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn.git;protocol=https"
 QCOM_WLAN_HOST_CMN_SRCBRANCH ?= "wlan-cmn.driver.lnx.2.0.14.r1-rel"
-QCOM_WLAN_HOST_CMN_SRCREV    ?= "f8aabe051235c4d30fc116dad3e87f1b6b977316"
+QCOM_WLAN_HOST_CMN_SRCREV    ?= "f268837ec07f8b49e053ab269028576f71f2cd17"
 
 QCOM_FW_API_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/wlan/fw-api.git;protocol=https"
 QCOM_FW_API_SRCBRANCH ?= "wlan-api.lnx.1.0.r230-rel"
-QCOM_FW_API_SRCREV ?= "70669027a35ccc000df35058626d5d6224ac868c"
+QCOM_FW_API_SRCREV ?= "9f2755a33c9c024e7deab054dc5a1bb58f66a6d4"
 
 QCOM_WLAN_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/wlan/platform.git;protocol=https"
 QCOM_WLAN_SRCBRANCH ?= "wlan-platform.qclinux.1.0.r2-rel"

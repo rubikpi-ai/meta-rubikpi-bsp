@@ -7,7 +7,7 @@ DESCRIPTION = "Audio Calibration Library"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/audioreach-conf.git;protocol=https"
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
-SRCREV     = "8ada127da2892cb6b59bcb823523f13c35a93cb9"
+SRCREV     = "4e98e31ff7f76934366e152ecf7416a7efce9f8e"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/audioreach-conf"
 
