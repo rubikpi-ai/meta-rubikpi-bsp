@@ -7,7 +7,7 @@ DESCRIPTION = "Camx"
 
 DEPENDS += "syslog-plumber glib-2.0 property-vault camx-kt qcom-adreno qcom-fastcv-binaries"
 
-QCM6490_SHA256SUM = "a356ad99b063849516080245d9d14c7c8b10c3199ae761150250124cea9959bc"
+QCM6490_SHA256SUM = "224e22d7f19fa9abfd4c82866693e8d06fb6c40c6e7b27b0963683abb2573925"
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
