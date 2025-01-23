@@ -1,7 +1,8 @@
-From 3cfb278b6aabb4fbf02413995ec6a1bad115481b Mon Sep 17 00:00:00 2001
-From: Varadarajan Narayanan <quic_varada@quicinc.com>
-Date: Thu, 28 Nov 2024 21:25:37 +0530
-Subject: [PATCH 07/12] PENDING: phy: qcom: Add QMP UFS PHY driver for QCS9100
+From 88c8753aa175b32e9521e1cdb976a618876dccc2 Mon Sep 17 00:00:00 2001
+From: Aswin Murugan <quic_aswinm@quicinc.com>
+Date: Thu, 16 Jan 2025 17:03:27 +0530
+Subject: [PATCH 07/12] PENDING: phy: qcom: Add QMP UFS PHY
+ driver for QCS9100
 
 Add QMP phy for QCS9100 referenced from Linux
 
@@ -9,13 +10,14 @@ This is a port of the upstream Linux changes sa8775p to U-Boot.
 https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c?id=7dcc1dfaa3d1cd3aafed2beb7086ed34fdb22303
 
 Signed-off-by: Varadarajan Narayanan <quic_varada@quicinc.com>
+Signed-off-by: Aswin Murugan <quic_aswinm@quicinc.com>
 Upstream-Status: Pending
 ---
- drivers/phy/qcom/phy-qcom-qmp-ufs.c | 170 ++++++++++++++++++++++++++++
- 1 file changed, 170 insertions(+)
+ drivers/phy/qcom/phy-qcom-qmp-ufs.c | 171 ++++++++++++++++++++++++++++
+ 1 file changed, 171 insertions(+)
 
 diff --git a/drivers/phy/qcom/phy-qcom-qmp-ufs.c b/drivers/phy/qcom/phy-qcom-qmp-ufs.c
-index 8908a34df5..08e5820605 100644
+index 5c90d60e7d..862632f0d3 100644
 --- a/drivers/phy/qcom/phy-qcom-qmp-ufs.c
 +++ b/drivers/phy/qcom/phy-qcom-qmp-ufs.c
 @@ -33,8 +33,10 @@
@@ -29,7 +31,7 @@ index 8908a34df5..08e5820605 100644
  #include "phy-qcom-qmp-qserdes-txrx-ufs-v6.h"
  
  /* QPHY_SW_RESET bit */
-@@ -103,6 +105,13 @@ static const unsigned int ufsphy_v4_regs_layout[QPHY_LAYOUT_SIZE] = {
+@@ -97,6 +99,13 @@ static const unsigned int ufsphy_v4_regs_layout[QPHY_LAYOUT_SIZE] = {
  	[QPHY_PCS_POWER_DOWN_CONTROL]	= QPHY_V4_PCS_UFS_POWER_DOWN_CONTROL,
  };
  
@@ -43,10 +45,10 @@ index 8908a34df5..08e5820605 100644
  static const unsigned int ufsphy_v6_regs_layout[QPHY_LAYOUT_SIZE] = {
  	[QPHY_START_CTRL]		= QPHY_V6_PCS_UFS_PHY_START,
  	[QPHY_PCS_READY_STATUS]		= QPHY_V6_PCS_UFS_READY_STATUS,
-@@ -460,6 +469,127 @@ static const struct qmp_ufs_init_tbl sm8650_ufsphy_pcs[] = {
- 	QMP_PHY_INIT_CFG(QPHY_V6_PCS_UFS_RX_HS_G5_SYNC_LENGTH_CAPABILITY, 0x4d),
- 	QMP_PHY_INIT_CFG(QPHY_V6_PCS_UFS_RX_HSG5_SYNC_WAIT_TIME, 0x9e),
+@@ -584,6 +593,128 @@ static const struct qmp_ufs_init_tbl sc7280_ufsphy_hs_g4_rx[] = {
+ 	QMP_PHY_INIT_CFG(QSERDES_V4_RX_GM_CAL, 0x0f),
  };
+ 
 +static const struct qmp_ufs_init_tbl sm8350_ufsphy_serdes[] = {
 +	QMP_PHY_INIT_CFG(QSERDES_V5_COM_SYSCLK_EN_SEL, 0xd9),
 +	QMP_PHY_INIT_CFG(QSERDES_V5_COM_HSCLK_SEL, 0x11),
@@ -168,10 +170,11 @@ index 8908a34df5..08e5820605 100644
 +static const struct qmp_ufs_init_tbl sm8350_ufsphy_g4_pcs[] = {
 +	QMP_PHY_INIT_CFG(QPHY_V5_PCS_UFS_BIST_FIXED_PAT_CTRL, 0x0a),
 +};
- 
++
  struct qmp_ufs_offsets {
  	u16 serdes;
-@@ -567,6 +697,11 @@ static const char * const sdm845_ufs_phy_clk_l[] = {
+ 	u16 pcs;
+@@ -690,6 +821,11 @@ static const char * const sdm845_ufs_phy_clk_l[] = {
  	"ref", "ref_aux",
  };
  
@@ -183,8 +186,8 @@ index 8908a34df5..08e5820605 100644
  /* list of regulators */
  static const char * const qmp_ufs_vreg_l[] = {
  	"vdda-phy", "vdda-pll",
-@@ -713,6 +848,40 @@ static const struct qmp_ufs_cfg sm8650_ufsphy_cfg = {
- 	.no_pcs_sw_reset	= false,
+@@ -909,6 +1045,40 @@ static const struct qmp_ufs_cfg sc7280_ufsphy_cfg = {
+ 	.regs			= ufsphy_v4_regs_layout,
  };
  
 +static const struct qmp_ufs_cfg sa8775p_ufsphy_cfg = {
@@ -224,10 +227,10 @@ index 8908a34df5..08e5820605 100644
  static void qmp_ufs_configure_lane(void __iomem *base,
  					const struct qmp_ufs_init_tbl tbl[],
  					int num,
-@@ -1103,6 +1272,7 @@ static const struct udevice_id qmp_ufs_ids[] = {
- 	{ .compatible = "qcom,sm8250-qmp-ufs-phy", .data = (ulong)&sm8250_ufsphy_cfg },
+@@ -1301,6 +1471,7 @@ static const struct udevice_id qmp_ufs_ids[] = {
  	{ .compatible = "qcom,sm8550-qmp-ufs-phy", .data = (ulong)&sm8550_ufsphy_cfg },
  	{ .compatible = "qcom,sm8650-qmp-ufs-phy", .data = (ulong)&sm8650_ufsphy_cfg },
+ 	{ .compatible = "qcom,sc7280-qmp-ufs-phy", .data = (ulong)&sc7280_ufsphy_cfg, },
 +	{ .compatible = "qcom,sa8775p-qmp-ufs-phy", .data = (ulong)&sa8775p_ufsphy_cfg, },
  	{ }
  };

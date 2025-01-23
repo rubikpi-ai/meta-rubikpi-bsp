@@ -12,8 +12,7 @@ PE = "1"
 
 # We use the revision in order to avoid having to fetch it from the
 # repo during parse
-#SRCREV = "f919c3a889f0ec7d63a48b5d0ed064386b0980bd"
-SRCREV = "f39199e8096dab68fe4a8e15f8ff60026a5fe491"
+SRCREV = "v2025.01"
 
 SRC_URI = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
 SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.patch \
@@ -23,7 +22,6 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
 	    file://0005-PENDING-arm64-dts-qcom-qcs9100-Add-memory-entry-to-b.patch \
 	    file://0006-PENDING-phy-qcom-Import-QMP-phy-related-header-files.patch \
 	    file://0007-PENDING-phy-qcom-Add-QMP-UFS-PHY-driver-for-QCS9100.patch \
-	    file://0008-PENDING-qcom_defconfig-Enable-QCOM-UFS-and-PHY.patch \
 	    file://0009-PENDING-smem-Added-socinfo-header-file.patch \
 	    file://0010-PENDING-arm64-dts-qcom-qcs9100-Added-memory-region-f.patch \
 	    file://0011-PENDING-smem-Updated-smem-driver-to-support-QCS9100.patch \
