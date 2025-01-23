@@ -214,5 +214,6 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-media-dt-bindings-Add-qcom-qcs8300-camss.patch \
     file://qcs9075/0002-PENDING-arm64-dts-qcom-qcs8300-Add-support-for-camss.patch \
     file://qcs9075/0003-PENDING-media-qcom-camss-Add-support-for-camss-drive.patch \
+    file://qcs9075/0004-PENDING-add-TPG-support-on-camss-for-qcs8300.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs8300-ride.patch \
     "
