@@ -244,4 +244,5 @@ SRC_URI:append = " \
     file://common/0044-UPSTREAM-wifi-ath11k-add-support-for-QCA2066.patch \
     file://common/0045-BACKPORT-UPSTREAM-wifi-ath11k-fix-misspelling-of-dma.patch \
     file://common/0046-UPSTREAM-wifi-ath11k-add-support-for-QCA6698AQ.patch \
+    file://qcs8300/0004-BACKPORT-FROMLIST-drm-msm-mdss-Add-QCS8300-support.patch \
     "

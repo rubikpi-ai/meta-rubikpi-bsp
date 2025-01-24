@@ -156,6 +156,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-support-for-cloc.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-add-video-codec-node.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-enable-the-inline-cr.patch \
+    file://qcs8300/0006-FROMLIST-arm64-dts-qcom-qcs8300-add-display-dt-nodes.patch \
     "
 
 # qcs8300 board dts patches
@@ -165,6 +166,7 @@ SRC_URI:append = " \
     file://qcs8300/0003-FROMLIST-arm64-dts-qcom-qcs8300-ride-Add-watchdog-no.patch \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-Enable-USB-controllers-for-Q.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-qcs8300-ride-Add-PSCI-SYSTEM_.patch \
+    file://qcs8300/0007-BACKPORT-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable.patch \
 	"
 # qcs9075 board dts patches
 SRC_URI:append = " \

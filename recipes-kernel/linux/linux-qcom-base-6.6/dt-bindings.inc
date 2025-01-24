@@ -129,4 +129,8 @@ SRC_URI:append = " \
     file://qcs8300/0005-FROMLIST-dt-bindings-clock-qcom-Add-QCS8300-video-cl.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-net-stmmac-Tune-rx-sampling-occ.patch \
     file://qcs8300/0001-FROMLIST-dt-bindings-crypto-ice-document-the-qcs8300.patch \
+    file://qcs8300/0001-FROMLIST-dt-bindings-display-msm-Document-the-DPU-fo.patch \
+    file://qcs8300/0002-FROMLIST-dt-bindings-display-msm-Document-the-dp-con.patch \
+    file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-Document-MDSS-on-QC.patch \
+    file://qcs8300/0005-FROMLIST-dt-bindings-phy-Add-eDP-PHY-compatible-for-.patch \
     "
