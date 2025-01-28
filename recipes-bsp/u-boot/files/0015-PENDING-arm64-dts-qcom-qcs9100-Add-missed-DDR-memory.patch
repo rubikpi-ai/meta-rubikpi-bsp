@@ -1,7 +1,7 @@
-From 49052832e72cddeae355e787656192356a0a8827 Mon Sep 17 00:00:00 2001
+From 2554fc24297f55ba95039e09cd9d074f82418298 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Tue, 7 Jan 2025 21:44:02 +0530
-Subject: [PATCH 16/16] PENDING: arm64: dts: qcom: qcs9100: Add missed DDR
+Subject: [PATCH 15/20] PENDING: arm64: dts: qcom: qcs9100: Add missed DDR
  memory region
 
 Added the DDR memory region that was missed earlier.

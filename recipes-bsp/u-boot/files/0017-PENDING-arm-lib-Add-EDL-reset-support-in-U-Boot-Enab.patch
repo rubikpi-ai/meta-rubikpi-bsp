@@ -1,7 +1,7 @@
-From 2ae2b9d60c958cd186b3cf1b24cc12094d8aacfd Mon Sep 17 00:00:00 2001
+From 475e4a118d8a378f79abaf13fe996663fb59e420 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Wed, 22 Jan 2025 08:07:49 +0530
-Subject: [PATCH 18/18] PENDING: arm: lib: Add EDL reset support in U-Boot
+Subject: [PATCH 17/20] PENDING: arm: lib: Add EDL reset support in U-Boot
  Enable EDL
 
 Add support for reset to edl.
@@ -41,10 +41,10 @@ index c9796a4435..99f2ff3215 100644
  	reset_cpu();
  
 diff --git a/arch/arm/mach-snapdragon/board.c b/arch/arm/mach-snapdragon/board.c
-index 2ab2ceb513..397cc9a408 100644
+index 75a880f093..394af747ed 100644
 --- a/arch/arm/mach-snapdragon/board.c
 +++ b/arch/arm/mach-snapdragon/board.c
-@@ -182,6 +182,12 @@ void *board_fdt_blob_setup(int *err)
+@@ -185,6 +185,12 @@ void *board_fdt_blob_setup(int *err)
  	return (void *)gd->fdt_blob;
  }
  

@@ -1,7 +1,7 @@
-From aa73062d25c077251c042e3c02452b34eec12699 Mon Sep 17 00:00:00 2001
+From e6771fcf67291f969992a76a97f047ad80444519 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Thu, 28 Nov 2024 15:05:36 +0530
-Subject: [PATCH 03/12] PENDING: clk/qcom: add initial clock driver for sa8775p
+Subject: [PATCH 03/20] PENDING: clk/qcom: add initial clock driver for sa8775p
 
 Added initial clock driver to enable QCS9100 RideSX enablement
 

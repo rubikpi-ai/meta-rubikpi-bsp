@@ -1,8 +1,8 @@
-From dbd37e7fc8c0d7d7ec11712a660b4346abc4fafe Mon Sep 17 00:00:00 2001
+From 75ee84aee7eb4937a443ac5a9953c210959f3667 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Fri, 13 Dec 2024 11:11:54 +0530
-Subject: [PATCH] PENDING: arm64: dts: qcom: qcs9100: Update memory map as per
- latest
+Subject: [PATCH 12/20] PENDING: arm64: dts: qcom: qcs9100: Update memory map
+ as per latest
 
 Modified the memory map since there were change in the recent memory map
 

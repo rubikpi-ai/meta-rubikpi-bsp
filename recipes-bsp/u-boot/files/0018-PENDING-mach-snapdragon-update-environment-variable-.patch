@@ -1,7 +1,7 @@
-From af7bab50b7ecb740382339fd82f2ed4ce8d8e5e0 Mon Sep 17 00:00:00 2001
+From ecc36b42df60934a2a60345d2b6e85484020ead6 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Wed, 22 Jan 2025 11:42:19 +0530
-Subject: [PATCH 19/19] PENDING: mach-snapdragon: update environment variable
+Subject: [PATCH 18/20] PENDING: mach-snapdragon: update environment variable
  to support debug
 
 Debug environment variables are updated in bootargs
