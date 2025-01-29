@@ -11,7 +11,7 @@ QCM6490_SHA256SUM = "4d81e5115eaed80313cc2b00bc6ec26c75f4d10d9a921416f76737a98cb
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 FILES:${PN} += "/etc/sensors/*"
 

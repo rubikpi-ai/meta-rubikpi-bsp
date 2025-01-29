@@ -12,7 +12,7 @@ PBT_ARCH = "aarch64"
 AARCH64_SHA256SUM = "db41527e6aee48c432c3cce5ec237f86ef3f063f88e0ba4d07ab531e58a82ef2"
 SRC_URI[aarch64.sha256sum] = "${AARCH64_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 FILES:${PN}      = "${bindir}/*"
 

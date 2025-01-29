@@ -11,7 +11,7 @@ QCM6490_SHA256SUM = "4264ef5ae5498be087f9e7f6dbb81765e025c0e7429f773a0b650b0bbb0
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 PACKAGES = "${PN}-dbg ${PN}-dev ${PN}"
 FILES:${PN}  += " /usr/data/display/* "

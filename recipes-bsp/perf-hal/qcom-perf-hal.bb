@@ -15,7 +15,7 @@ PBT_ARCH = "armv8-2a"
 ARMV8_SHA256SUM = "b2f5283de4bd411b965cd262a9db64a77f542499a3b8ffa51f17db08a5b9ad0b"
 SRC_URI[armv8-2a.sha256sum] = "${ARMV8_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 FILES:${PN} += " /etc/*"
 FILES:${PN} += " ${libdir} ${includedir}"

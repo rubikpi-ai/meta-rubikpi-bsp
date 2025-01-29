@@ -9,7 +9,7 @@ QCM6490_SHA256SUM = "f641eb2deac268d6dd58cf19a91b02e3363988c8fda1eafde4f540f38d7
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 INSANE_SKIP:${PN} = "dev-so"
 
