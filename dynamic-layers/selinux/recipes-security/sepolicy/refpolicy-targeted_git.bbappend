@@ -33,6 +33,7 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
             file://0086-PENDING-networkmanager-allow-access-tmpfs.patch \
 	    file://0088-PENDING-allow-irqbalance-to-search-bin.patch \
             file://0087-PENDING-Fix-bluetoothctl-not-working-in-shell.patch \
+            file://0089-PENDING-sepolicy-Add-sepolicy-for-obexctl-to-work-in.patch \
 "
 
 #Policy folders
