@@ -274,4 +274,8 @@ SRC_URI:append = " \
     file://qcs9100/0003-PENDING-thermal-qcom-Add-support-for-MBG-Temp-monito.patch \
     file://qcs8300/0002-phy-qcom-qmp-pcie-add-dual-lane-PHY-support-for-QCS8.patch \
     file://qcs8300/0004-PCI-qcom-Add-QCS8300-PCIe-support.patch \
+    file://qcs9100/0004-FROMLIST-soc-qcom-geni-se-Add-support-to-load-QUP-SE.patch \
+    file://qcs9100/0005-FROMLIST-i2c-qcom-geni-Load-i2c-qup-Firmware-from-li.patch \
+    file://qcs9100/0006-FROMLIST-spi-geni-qcom-Load-spi-qup-Firmware-from-li.patch \
+    file://qcs9100/0007-FROMLIST-serial-qcom-geni-Load-UART-qup-Firmware-fro.patch \
     "
