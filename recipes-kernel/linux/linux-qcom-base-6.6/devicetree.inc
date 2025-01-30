@@ -90,6 +90,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-qcs9100-Update-memory-map.patch \
     file://qcs9100/0004-arm64-dts-qcom-Add-support-for-QCS9075-RB8.patch \
     file://qcs9100/0005-arm64-dts-qcom-Add-support-for-QCS9075-Ride-Ride-.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-Enable-usb0-support-on-QCS907.patch \
     "
 
 # qcs615 dtsi patches
