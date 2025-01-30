@@ -37,7 +37,7 @@ S = "${WORKDIR}/git/wpa_supplicant"
 
 PACKAGES:prepend = "wpa-supplicant-passphrase wpa-supplicant-cli "
 FILES:wpa-supplicant-passphrase = "${bindir}/wpa_passphrase"
-FILES:wpa-supplicant-cli = "${sbindir}/wpa_cli"
+FILES:wpa-supplicant-cli = "${bindir}/wpa_cli"
 FILES:${PN} += "${datadir}/dbus-1/system-services/* ${systemd_system_unitdir}/*"
 
 do_configure () {
