@@ -239,9 +239,9 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-drm-msm-a6xx-Skip-gpu-secure-fw-load-in-EL2.patch \
     file://qcs615/0001-FROMLIST-net-stmmac-qcom-ethqos-Enable-RX-programmab.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Add-writeback-support-for-SM6150.patch \
-    file://qcs8300/0002-PENDING-media-iris-add-platfrom-data-for-qcs8300.patch \
     file://common/0043-UPSTREAM-wifi-ath11k-move-pci.ops-registration-ahead.patch \
     file://common/0044-UPSTREAM-wifi-ath11k-add-support-for-QCA2066.patch \
     file://common/0045-BACKPORT-UPSTREAM-wifi-ath11k-fix-misspelling-of-dma.patch \
     file://common/0046-UPSTREAM-wifi-ath11k-add-support-for-QCA6698AQ.patch \
+    file://qcs8300/0002-PENDING-media-iris-add-platfrom-data-for-qcs8300.patch \
     "

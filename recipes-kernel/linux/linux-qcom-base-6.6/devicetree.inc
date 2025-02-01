@@ -133,6 +133,7 @@ SRC_URI:append = " \
     file://qcs615/0009-FROMLIST-arm64-dts-qcom-Add-display-support-for-QCS615-RIDE-b.patch \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-enable-venus-nod.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-WiFi-BT-nodes.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Fixing-power-iss.patch \
     file://qcs615/0008-FROMLIST-arm64-dts-qcom-Enable-DisplayPort-on-QCS615.patch \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-Adreno-61.patch \
     file://qcs615/0002-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-.patch \
