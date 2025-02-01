@@ -140,6 +140,7 @@ gen_require(`
             type  syslogd_t;
             type  user_home_dir_t;
             type  systemd_tmpfiles_t;
+            type  unconfined_t;
 ')
 
 allow {systemd_generator_t  systemd_modules_load_t systemd_logind_t qcom_usb_t}   usr_t:lnk_file  {read getattr};
@@ -161,3 +162,4 @@ qcom_loc_read_loc_sock_files(unconfined_t)
 
 qcom_loc_locclient_generic_rules(unconfined_t)
 
+init_dbus_chat_script(unconfined_t)

@@ -15,5 +15,6 @@ S = "${WORKDIR}/audio/opensource/audio-utils/audio-plugins/mercury_plugin"
 
 DEPENDS = "qcom-audio-plugin-headers"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"

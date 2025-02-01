@@ -32,7 +32,9 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
 	    file://0014-PENDING-pinctr-qcom-sa8775p-Added-initial-support.patch \
 	    file://0015-PENDING-config-qcom-add-sa8775p-to-qcom_defconfig.patch \
 	    file://0016-PENDING-arm64-dts-qcom-qcs9100-Add-missed-DDR-memory.patch \
-	    file://0017-PENDING-mach-snapdragon-update-environment-variable-.patch"
+	    file://0017-PENDING-mach-snapdragon-update-environment-variable-.patch \
+	    file://0018-PENDING-arm-lib-Add-EDL-reset-support-in-U-Boot-Enab.patch \
+	    file://0019-PENDING-mach-snapdragon-update-environment-variable-.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
