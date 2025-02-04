@@ -96,6 +96,7 @@ SRC_URI:append = " \
     file://qcs9100/0005-arm64-dts-qcom-Add-support-for-QCS9075-Ride-Ride-.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-Enable-usb0-support-on-QCS907.patch \
     file://qcs9100/0012-FROMLIST-arm64-dts-qcom-sa8775p-ride-Add-firmware-name-in-BT-.patch \
+    file://qcs9100/0001-QCLINUX-arm64-dts-qcom-sa8775p-Add-EL2-dtb-support.patch \
     "
 
 # qcs615 dtsi patches

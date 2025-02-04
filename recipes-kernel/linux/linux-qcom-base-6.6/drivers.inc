@@ -427,4 +427,9 @@ SRC_URI:append = " \
     file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
     file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
     file://qcs615/0001-FROMLIST-media-venus-vdec-queue-dpb-buffers-to-firmw.patch \
+    file://common/0002-FROMLIST-remoteproc-qcom-Add-iommu-map_unmap-helper-.patch \
+    file://common/0003-FROMLIST-remoteproc-qcom-Add-helper-function-to-supp.patch \
+    file://common/0004-FROMLIST-remoteproc-qcom-Add-support-to-parse-qcom-d.patch \
+    file://common/0005-FROMLIST-remoteproc-qcom-Add-support-of-SHM-bridge-t.patch \
+    file://common/0006-FROMLIST-remoteproc-qcom-Enable-map-unmap-and-SHM-br.patch \
     "
