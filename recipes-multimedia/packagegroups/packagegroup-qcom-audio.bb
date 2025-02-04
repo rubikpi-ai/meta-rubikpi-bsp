@@ -46,6 +46,7 @@ RDEPENDS:${PN}:append:qcom-custom-bsp = ' \
     qcom-sva-eai \
     qcom-pa-pal-voiceui \
     qcom-pa-pal-acd \
+    qcom-mercuryflasher \
     qcom-audio-dac \
     qcom-audio-expander \
     qcom-audio-mercury \
