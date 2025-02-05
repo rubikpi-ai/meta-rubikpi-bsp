@@ -36,7 +36,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0020-PENDING-qcom_defconfig-Enable-CONFIG_OF_LIBFDT_OVERL.patch \
             file://0021-PENDING-Changes-to-enable-USB-HS-mode-in-Lemans.patch \
             file://0022-PENDING-Changes-to-enable-Fastboot-in-Lemans.patch \
-            file://0023-PENDING-Changes-to-fix-bugs-related-to-Lemans-in-U-B.patch"
+            file://0023-PENDING-Changes-to-fix-bugs-related-to-Lemans-in-U-B.patch \
+            file://0024-PENDING-mach-snapdragon-Save-environment-to-partitio.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
