@@ -165,6 +165,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-arm64-dts-qcom-qcs8300-add-the-first-2.5G-ethernet.patch \
     file://qcs8300/0005-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-soc.patch \
     file://qcs8300/0007-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-soc.patch \
+    file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-the-pcie-smmu-no.patch \
     "
 
 # qcs8300 board dts patches
