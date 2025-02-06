@@ -269,4 +269,5 @@ SRC_URI:append = " \
     file://common/0017-FROMLIST-ufs-host-add-support-for-generating-importi.patch \
     file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
+    file://qcs615/0001-BACKPORT-arm64-dts-qcom-qcs615-Add-metadata.patch \
     "
