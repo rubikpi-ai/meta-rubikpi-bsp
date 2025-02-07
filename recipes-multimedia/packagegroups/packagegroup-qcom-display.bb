@@ -29,13 +29,15 @@ RDEPENDS:${PN}:append:qcom-custom-bsp = "\
     virtual/libgbm \
     "
 
-RDEPENDS:${PN}:append:qcm6490 = " \
+RDEPENDS:${PN}:append:qcm6490:qcom-custom-distro = " \
     qcom-display-extn-linux \
     qcom-display-color-linux \
     "
+
 RDEPENDS:${PN}:append:qcom-custom-bsp = " \
     kernel-module-qcom-touchdlkm \
     "
+
 RDEPENDS:${PN}:remove:qcm6490-idp:qcom-base-bsp = "\
     libdrm \
     weston \
