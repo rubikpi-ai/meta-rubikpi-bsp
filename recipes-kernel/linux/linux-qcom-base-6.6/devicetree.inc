@@ -63,6 +63,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-fix-the-secure-devic.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-extend-the-register-.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-Populate-additional-.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-Add-support-for-MBG-TM-for-pm.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
