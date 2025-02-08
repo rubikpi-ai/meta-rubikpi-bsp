@@ -7,7 +7,7 @@ DESCRIPTION = "capiv2 api headers"
 
 PBT_ARCH = "armv8-2a"
 
-ARMV8_SHA256SUM = "c3d1ed97ad16bf06f6e9cf22d5a8d73c31ffd125e6b62cd7be940e2e9f21b313"
+ARMV8_SHA256SUM = "dcd577b4fff0e8183a30ee04db0c7e79399b9e53a820f97dc6a7aa8269962726"
 SRC_URI[armv8-2a.sha256sum] = "${ARMV8_SHA256SUM}"
 
 SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
