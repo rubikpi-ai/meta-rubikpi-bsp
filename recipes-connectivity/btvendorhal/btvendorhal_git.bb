@@ -10,11 +10,11 @@ QCOM_BLUETOOTH_SRCREV ?= "1710c237b493454dc93f41de09b50cd8d109f970"
 
 QCOM_BT_SRC ?= "git://git.codelinaro.org/clo/le/platform/qcom-opensource/bt.git;protocol=https"
 QCOM_BT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
-QCOM_BT_SRCREV ?= "7a71dcfa0b04ee88fc03af310d947362f7336fa1"
+QCOM_BT_SRCREV ?= "01a79eff5695a8e1f748795cee203f76a1d6f3ad"
 
 QCOM_SYSTEM_BT_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/system/bt.git;protocol=https"
 QCOM_SYSTEM_BT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
-QCOM_SYSTEM_BT_SRCREV ?= "c96740fc959230259215e77b31fac499b8aa3e1f"
+QCOM_SYSTEM_BT_SRCREV ?= "3d2e834079b08e51cf8fffea8a1f689eaba91645"
 
 SRCREV_FORMAT = "bluetooth_qcombt_systembt"
 

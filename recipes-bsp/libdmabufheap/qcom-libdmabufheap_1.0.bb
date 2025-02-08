@@ -8,7 +8,7 @@ DEPENDS:qcom-custom-bsp += "linux-kernel-qcom-headers"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/system/memory/libdmabufheap.git;protocol=https"
 SRCBRANCH  = "memory-le-apps.lnx.1.0.r35-rel"
-SRCREV     = "37bf33001a41b66676d6d1883982f0b14583fc02"
+SRCREV     = "308846f476c4ce37f5a76682a1e93e8c610a761a"
 
 SRC_URI   = " \
              ${SRCPROJECT};branch=${SRCBRANCH};destsuffix=system/memory/libdmabufheap \

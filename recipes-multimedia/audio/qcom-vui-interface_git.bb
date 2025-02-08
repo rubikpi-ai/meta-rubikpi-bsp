@@ -7,7 +7,7 @@ DESCRIPTION = "VUI Interface plugin"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom/opensource/arpal-lx.git;protocol=https"
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
-SRCREV     = "f7a0490320d4ed30fb4f4ab49734bf11891e1fe3"
+SRCREV     = "abd4c859bb21ac22e497916e1fb8e4683dbf288e"
 
 SRC_URI    =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/arpal-lx"
 

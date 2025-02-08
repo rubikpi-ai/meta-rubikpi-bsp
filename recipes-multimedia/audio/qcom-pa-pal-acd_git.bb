@@ -7,7 +7,7 @@ DESCRIPTION = "ACD UI test app"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/pulseaudio-plugin.git;protocol=https"
 SRCBRANCH  = "audio-algos.lnx.1.0.r1-rel"
-SRCREV     = "bb51f6b4f907956d5eeed1190b97242bc7ea7aa2"
+SRCREV     = "bbd3cc6ff8d5b296e2e33890b9ef078073ea1c69"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/pulseaudio-plugins"
 
