@@ -24,3 +24,4 @@ FILES:${PN} += " ${systemd_system_unitdir}"
 
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"

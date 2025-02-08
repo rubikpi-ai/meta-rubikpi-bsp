@@ -17,3 +17,5 @@ SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${P
 FILES:${PN} = "${libdir}/*.so ${bindir}/*"
 FILES:${PN}-dev = "${libdir}/*.la ${includedir}"
 
+INSANE_SKIP:${PN} += "installed-vs-shipped"
+INSANE_SKIP:${PN} += "dev-so"

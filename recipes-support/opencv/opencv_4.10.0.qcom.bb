@@ -228,7 +228,6 @@ SRC_URI += "file://0001-FROMLIST-Fastcv-HAL-for-Opencv-Acceleration.patch \
 
 DEPENDS:qcom-custom-bsp += "qcom-fastcv-binaries"
 
-PACKAGECONFIG:remove = "gstreamer gtk"
 EXTRA_OECMAKE += "-DOPENCV_ALLOW_DOWNLOADS=ON "
 EXTRA_OECMAKE:append:qcom-custom-bsp = " -DWITH_FASTCV=ON "
 

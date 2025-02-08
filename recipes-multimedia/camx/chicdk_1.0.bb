@@ -1,11 +1,11 @@
-inherit qprebuilt
+inherit qprebuilt pkgconfig
 
 LICENSE          = "Qualcomm-Technologies-Inc.-Proprietary"
 LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=58d50a3d36f27f1a1e6089308a49b403"
 
 DESCRIPTION = "Camx"
 
-DEPENDS += "syslog-plumber glib-2.0 property-vault camx qcom-adreno"
+DEPENDS += "syslog-plumber glib-2.0 property-vault camx qcom-adreno qcom-fastcv-binaries"
 
 QCS9100_SHA256SUM = "66f77c089bc41f684f4927e14e201338be3675f9a49664465eac0e016c5f5fe6"
 QCS8300_SHA256SUM = "58d5747329ebef4b1135854522d1577296b687a84d3fe9153fa63b696219463b"
