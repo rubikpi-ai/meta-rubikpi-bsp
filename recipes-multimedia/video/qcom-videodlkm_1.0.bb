@@ -9,6 +9,7 @@ SRCBRANCH  = "video.qclinux.1.0.r1-rel"
 SRCREV     = "218c41e57ca49533c954bfcd38759203544067de"
 
 SRC_URI =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=vendor/qcom/opensource/video-driver"
+SRC_URI += "file://0001-PENDING-video-driver-fix-life-cycle-of-a-buffer-shared-acros.patch"
 
 S = "${WORKDIR}/vendor/qcom/opensource/video-driver"
 
