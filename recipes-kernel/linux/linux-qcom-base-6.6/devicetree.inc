@@ -67,6 +67,8 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-1-.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-st.patch \
     file://qcs9100/0002-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
+    file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPU-OPP-tables-t.patch \
+    file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -183,6 +185,10 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-device-node-for-.patch \
     file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-Add-gpu-and-gmu-node.patch \
     file://qcs8300/0004-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
+    file://qcs8300/0003-PENDING-arm64-dts-qcom-qcs8300-Add-support-for-cpufr.patch \
+    file://qcs8300/0004-PENDING-arm64-dts-qcom-qcs8300-Add-LMH-interrupts-fo.patch \
+    file://qcs8300/0005-PENDING-arm64-dts-qcom-Add-static-vote-for-QCS8300.patch \
+    file://qcs8300/0006-PENDING-arm64-dts-qcom-qcs8300-Add-support-to-scale-.patch \
     "
 
 # qcs8300 board dts patches
