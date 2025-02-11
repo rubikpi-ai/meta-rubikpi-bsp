@@ -34,6 +34,7 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
 	    file://0088-PENDING-allow-irqbalance-to-search-bin.patch \
             file://0087-PENDING-Fix-bluetoothctl-not-working-in-shell.patch \
             file://0089-PENDING-sepolicy-Add-sepolicy-for-obexctl-to-work-in.patch \
+            file://0090-PENDING-sepolicy-Add-sepolicy-rules-for-obex-server-.patch \
 "
 
 #Policy folders
