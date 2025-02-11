@@ -247,4 +247,6 @@ SRC_URI:append = " \
     file://qcs8300/0004-BACKPORT-FROMLIST-drm-msm-mdss-Add-QCS8300-support.patch \
     file://common/0047-UPSTREAM-wifi-ath11k-add-support-for-MU-EDCA.patch \
     file://common/0048-UPSTREAM-wifi-ath11k-fix-wrong-overriding-for-VHT-Be.patch \
+    file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
+    file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
     "
