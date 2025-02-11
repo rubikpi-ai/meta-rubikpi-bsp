@@ -245,4 +245,6 @@ SRC_URI:append = " \
     file://common/0046-UPSTREAM-wifi-ath11k-add-support-for-QCA6698AQ.patch \
     file://qcs8300/0002-PENDING-media-iris-add-platfrom-data-for-qcs8300.patch \
     file://qcs8300/0004-BACKPORT-FROMLIST-drm-msm-mdss-Add-QCS8300-support.patch \
+    file://common/0047-UPSTREAM-wifi-ath11k-add-support-for-MU-EDCA.patch \
+    file://common/0048-UPSTREAM-wifi-ath11k-fix-wrong-overriding-for-VHT-Be.patch \
     "
