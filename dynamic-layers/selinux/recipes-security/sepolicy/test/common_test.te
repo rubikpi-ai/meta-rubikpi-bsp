@@ -2,17 +2,6 @@
 #SPDX-License-Identifier: BSD-3-Clause-Clear
 policy_module(common_test, 1.0.0)
 
-gen_require(`
-        type local_login_t;
-        type sshd_t;
-        type pulseaudio_t;
-    ')
-
-#TODO : Need to remove this line once we have fix.
-permissive local_login_t;
-permissive sshd_t;
-permissive pulseaudio_t;
-
 #TODO: following are added to unblock the tech team
 #      and expected to clean this going fwd.
 

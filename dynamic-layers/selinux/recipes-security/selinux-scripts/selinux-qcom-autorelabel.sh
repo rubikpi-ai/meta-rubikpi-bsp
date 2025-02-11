@@ -13,6 +13,8 @@ fi
 if [ ! -f "$restore_cookie" ]; then
        ${RESTORCON} -R  /var
        ${RESTORCON}   /sysroot
+       rm -rf  /root
+       ln -s  /var/roothome   /root
        touch "$restore_cookie"
 fi
 
