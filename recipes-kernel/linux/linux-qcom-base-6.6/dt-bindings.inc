@@ -147,4 +147,5 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-qce-document-the-QC615.patch \
     file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-gmu-Add-Adreno-623-.patch \
     file://qcs9100/0001-FROMLIST-dt-bindings-pinctrl-qcom-Add-egpio-function.patch \
+    file://qcs9100/0001-PENDING-dt-bindings-interconnect-Add-EPSS-L3-DT-bind.patch \
     "

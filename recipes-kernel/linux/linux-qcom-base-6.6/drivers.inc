@@ -428,4 +428,5 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
+    file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
     "
