@@ -32,8 +32,10 @@ SRC_URI:append:qcs8300 = "  file://0001-weston-add-sdm-option.patch \
 
 SRC_URI:append:qcs8300:qcom-base-bsp = " file://0001-weston-avoid-duplicate-format.patch"
 
-SRC_URI:append:qcs615  = "  file://0001-drm-backend-power-off-during-hotplug-disconnect.patch \
-                            file://0001-weston-add-sdm-option.patch"
+SRC_URI:append:qcs615  = "  file://0001-weston-add-sdm-option.patch \
+                            file://0001-weston-avoid-duplicate-format.patch \
+                            file://0001-drm-backend-power-off-during-hotplug-disconnect.patch \
+                            "
 
 DEPENDS:append:qcom-custom-bsp = " property-vault qcom-libdmabufheap"
 DEPENDS:append:qcm6490 = " qcom-display-hal-linux virtual/libgbm seatd"
