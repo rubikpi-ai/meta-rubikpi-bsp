@@ -1,4 +1,4 @@
-From 957333b3a246e261bc44dada9aa9326c292982fb Mon Sep 17 00:00:00 2001
+From e1b40ffbf750a7b3d1ae6e52229bb632e2e187a2 Mon Sep 17 00:00:00 2001
 From: Aswin Murugan <quic_aswinm@quicinc.com>
 Date: Wed, 5 Feb 2025 15:20:41 +0530
 Subject: [PATCH] PENDING: mach-snapdragon: Save environment to partition
@@ -8,13 +8,13 @@ Support to save environment to partition
 Signed-off-by: Aswin Murugan <quic_aswinm@quicinc.com>
 Upstream-Status: Pending
 ---
- configs/qcs9100_defconfig |   3 +
- env/Kconfig               |   9 ++-
+ configs/qcs9100_defconfig |   3 ++
+ env/Kconfig               |   9 +++-
  env/Makefile              |   1 +
- env/env.c                 |   3 +
- env/ufs.c                 | 128 ++++++++++++++++++++++++++++++++++++++
+ env/env.c                 |   3 ++
+ env/ufs.c                 | 101 ++++++++++++++++++++++++++++++++++++++
  include/env_internal.h    |   1 +
- 6 files changed, 144 insertions(+), 1 deletion(-)
+ 6 files changed, 117 insertions(+), 1 deletion(-)
  create mode 100644 env/ufs.c
 
 diff --git a/configs/qcs9100_defconfig b/configs/qcs9100_defconfig
@@ -84,10 +84,10 @@ index bcc189e14d..4535af92ba 100644
  #endif
 diff --git a/env/ufs.c b/env/ufs.c
 new file mode 100644
-index 0000000000..845aa635a2
+index 0000000000..11deddc131
 --- /dev/null
 +++ b/env/ufs.c
-@@ -0,0 +1,128 @@
+@@ -0,0 +1,101 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
 + * (C) Copyright 2008-2011 Freescale Semiconductor, Inc.
@@ -109,39 +109,12 @@ index 0000000000..845aa635a2
 +#include <errno.h>
 +#include <dm/ofnode.h>
 +
-+
 +DECLARE_GLOBAL_DATA_PTR;
 +
 +struct env_ufs_info {
 +	struct blk_desc *blk;
 +	struct disk_partition part;
 +};
-+
-+static int env_ufs_get_blk(struct env_ufs_info *info)
-+{
-+	static int scsi_scanned;
-+	struct blk_desc *blk;
-+	int i, ret;
-+
-+	if (!scsi_scanned) {
-+		scsi_scan(false /* no verbose */);
-+		scsi_scanned = 1;
-+	}
-+
-+	for (i = 0; i < blk_find_max_devnum(UCLASS_SCSI) + 1; i++) {
-+		ret = blk_get_desc(UCLASS_SCSI, i, &blk);
-+		if (ret)
-+			continue;
-+
-+		ret = part_get_info_by_name(blk, "logdump", &info->part);
-+		if (ret > 0) {
-+			info->blk = blk;
-+			return 0;
-+		}
-+	}
-+
-+	return -1;
-+}
 +
 +static int env_ufs_save(void)
 +{
@@ -150,7 +123,7 @@ index 0000000000..845aa635a2
 +
 +	ALLOC_CACHE_ALIGN_BUFFER(env_t, env_new, 1);
 +
-+	if (env_ufs_get_blk(&info))
++	if (scsi_get_blk("ubootenv", &info.blk, &info.part))
 +		return -EIO;
 +
 +	ret = env_export(env_new);
@@ -182,7 +155,7 @@ index 0000000000..845aa635a2
 +	struct env_ufs_info info;
 +	int ret, count;
 +
-+	if (env_ufs_get_blk(&info))
++	if (scsi_get_blk("ubootenv", &info.blk, &info.part))
 +		return -EIO;
 +
 +	ALLOC_CACHE_ALIGN_BUFFER(env_t, env, 1);
