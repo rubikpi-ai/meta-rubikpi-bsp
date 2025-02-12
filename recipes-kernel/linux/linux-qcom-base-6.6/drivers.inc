@@ -249,4 +249,5 @@ SRC_URI:append = " \
     file://common/0048-UPSTREAM-wifi-ath11k-fix-wrong-overriding-for-VHT-Be.patch \
     file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
+    file://common/0001-UPSTREAM-PCI-pwrctl-pwrseq-add-support-for-WCN6855.patch \
     "
