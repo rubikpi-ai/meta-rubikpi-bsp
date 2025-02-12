@@ -186,6 +186,7 @@ SRC_URI:append = " \
     file://qcs8300/0006-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-plat.patch \
     file://qcs8300/0008-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-plat.patch \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable-PMIC-per.patch \
+    file://qcs8300/0001-PENDING-arm64-dts-qcom-Add-support-for-PMIC-peripher.patch \
 	"
 # qcs9075 board dts patches
 SRC_URI:append = " \
