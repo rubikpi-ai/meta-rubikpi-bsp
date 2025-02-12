@@ -31,6 +31,7 @@ PREFERRED_PROVIDER_virtual/libgles2-native = "mesa-native"
 
 # Provider for libgbm
 PREFERRED_PROVIDER_virtual/libgbm ?= "msm"
+PREFERRED_PROVIDER_virtual/libqbm ?= "qbm"
 PREFERRED_PROVIDER_virtual/libgbm:qcom-base-bsp ?= "mesa"
 
 # Provider for linux kernel
