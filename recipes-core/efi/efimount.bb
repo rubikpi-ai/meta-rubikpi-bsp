@@ -18,7 +18,6 @@ do_install () {
     ln -sf ${systemd_unitdir}/system/boot.mount ${D}${systemd_unitdir}/system/local-fs.target.wants/boot.mount
 
     install -m 0644  ${WORKDIR}/efi-mount-fail.service ${D}${systemd_unitdir}/system/efi-mount-fail.service
-    ln -sf ${systemd_unitdir}/system/efi-mount-fail.service ${D}${systemd_unitdir}/system/local-fs.target.wants/efi-mount-fail.service
 
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/mount_efi.sh ${D}${bindir}/mount_efi.sh
