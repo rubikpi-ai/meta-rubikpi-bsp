@@ -15,5 +15,6 @@ S = "${WORKDIR}/audio/opensource/pulseaudio-plugins/utils/pa_bt_audio"
 
 DEPENDS = "pulseaudio"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"
