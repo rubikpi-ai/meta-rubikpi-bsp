@@ -1,7 +1,7 @@
-From 89dcbe19a68ff5a80f5d492ac07d84f8ae73508e Mon Sep 17 00:00:00 2001
+From 971bc7a063d242a5e221b5b8ba84637a92a87303 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Fri, 29 Nov 2024 16:21:08 +0530
-Subject: [PATCH 12/12] PENDING: efi_loader: Add multidt support
+Subject: [PATCH 11/20] PENDING: efi_loader: Add multidt support
 
 Support to parse the multidt and pick the correct dtb based on socinfo.
 

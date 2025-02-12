@@ -22,17 +22,19 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
 	    file://0005-PENDING-arm64-dts-qcom-qcs9100-Add-memory-entry-to-b.patch \
 	    file://0006-PENDING-phy-qcom-Import-QMP-phy-related-header-files.patch \
 	    file://0007-PENDING-phy-qcom-Add-QMP-UFS-PHY-driver-for-QCS9100.patch \
-	    file://0009-PENDING-smem-Added-socinfo-header-file.patch \
-	    file://0010-PENDING-arm64-dts-qcom-qcs9100-Added-memory-region-f.patch \
-	    file://0011-PENDING-smem-Updated-smem-driver-to-support-QCS9100.patch \
-	    file://0012-PENDING-efi_loader-Add-multidt-support.patch \
-	    file://0013-PENDING-arm64-dts-qcom-qcs9100-Update-memory-map-as-.patch \
-	    file://0014-PENDING-pinctr-qcom-sa8775p-Added-initial-support.patch \
-	    file://0015-PENDING-config-qcom-add-sa8775p-to-qcom_defconfig.patch \
-	    file://0016-PENDING-arm64-dts-qcom-qcs9100-Add-missed-DDR-memory.patch \
-	    file://0017-PENDING-mach-snapdragon-update-environment-variable-.patch \
-	    file://0018-PENDING-arm-lib-Add-EDL-reset-support-in-U-Boot-Enab.patch \
-	    file://0019-PENDING-mach-snapdragon-update-environment-variable-.patch"
+	    file://0008-PENDING-smem-Added-socinfo-header-file.patch \
+	    file://0009-PENDING-arm64-dts-qcom-qcs9100-Added-memory-region-f.patch \
+	    file://0010-PENDING-smem-Updated-smem-driver-to-support-QCS9100.patch \
+	    file://0011-PENDING-efi_loader-Add-multidt-support.patch \
+	    file://0012-PENDING-arm64-dts-qcom-qcs9100-Update-memory-map-as-.patch \
+	    file://0013-PENDING-pinctr-qcom-sa8775p-Added-initial-support.patch \
+	    file://0014-PENDING-config-qcom-add-sa8775p-to-qcom_defconfig.patch \
+	    file://0015-PENDING-arm64-dts-qcom-qcs9100-Add-missed-DDR-memory.patch \
+	    file://0016-PENDING-mach-snapdragon-update-environment-variable-.patch \
+	    file://0017-PENDING-arm-lib-Add-EDL-reset-support-in-U-Boot-Enab.patch \
+	    file://0018-PENDING-mach-snapdragon-update-environment-variable-.patch \
+            file://0019-PENDING-mach-snapdragon-Add-OF_LIVE-fixup-handlers.patch \
+            file://0020-PENDING-qcom_defconfig-Enable-CONFIG_OF_LIBFDT_OVERL.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"

@@ -1,7 +1,7 @@
-From 21825b2da1effce51bd2cbdeb539549a62bbb1c3 Mon Sep 17 00:00:00 2001
+From 39e8fcede5049d4f8bfb32a48945ad7c132fd73d Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Fri, 29 Nov 2024 16:16:06 +0530
-Subject: [PATCH 11/12] PENDING: smem: Updated smem driver to support QCS9100
+Subject: [PATCH 10/20] PENDING: smem: Updated smem driver to support QCS9100
 
 Updated msm smem driver to support the QCS9100 target
 

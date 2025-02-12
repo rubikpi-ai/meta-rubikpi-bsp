@@ -1,7 +1,7 @@
-From 4952fb1645635678d1544c8d658441f7682f7698 Mon Sep 17 00:00:00 2001
+From 8fee011d67ba814eb4b53de49611bdd528e15459 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Thu, 28 Nov 2024 14:19:22 +0530
-Subject: [PATCH 02/12] PENDING: configs: add qcm6490_defconfig
+Subject: [PATCH 02/20] PENDING: configs: add qcm6490_defconfig
 
 Introduce a defconfig for the QCS9100 RideSX boards with a dedicated
 uefi partition. These can replace EDK2 entirely with U-Boot.

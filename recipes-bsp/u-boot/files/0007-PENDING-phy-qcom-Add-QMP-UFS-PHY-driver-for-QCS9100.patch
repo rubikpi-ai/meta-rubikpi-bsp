@@ -1,8 +1,7 @@
-From 88c8753aa175b32e9521e1cdb976a618876dccc2 Mon Sep 17 00:00:00 2001
+From c1f3985d23075dde54b4adb42b3af57558db4aef Mon Sep 17 00:00:00 2001
 From: Aswin Murugan <quic_aswinm@quicinc.com>
 Date: Thu, 16 Jan 2025 17:03:27 +0530
-Subject: [PATCH 07/12] PENDING: phy: qcom: Add QMP UFS PHY
- driver for QCS9100
+Subject: [PATCH 07/20] PENDING: phy: qcom: Add QMP UFS PHY driver for QCS9100
 
 Add QMP phy for QCS9100 referenced from Linux
 

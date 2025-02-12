@@ -1,7 +1,7 @@
-From 67baf5bfc042e82e098ddab2df0a8f758774bb96 Mon Sep 17 00:00:00 2001
+From f0f5fa7a8a9f7287454f3c424d2f0581ded5bf53 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Fri, 29 Nov 2024 16:11:34 +0530
-Subject: [PATCH 09/12] PENDING: smem: Added socinfo header file
+Subject: [PATCH 08/20] PENDING: smem: Added socinfo header file
 
 Added socinfo header file from linux https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/linux/soc/qcom/socinfo.h?id=7dcc1dfaa3d1cd3aafed2beb7086ed34fdb22303
 

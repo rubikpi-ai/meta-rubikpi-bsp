@@ -1,7 +1,7 @@
-From f2bd2fef1a121c49662ab799d33addffce49a914 Mon Sep 17 00:00:00 2001
+From 03396f86d5576e96474ddb2d7399ea6d67a416aa Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Sun, 5 Jan 2025 19:27:20 +0530
-Subject: [PATCH 14/15] PENDING: pinctr: qcom: sa8775p: Added initial support
+Subject: [PATCH 13/20] PENDING: pinctr: qcom: sa8775p: Added initial support
 
 Add pinctrl and GPIO driver for SA8775P. Driver code is based on the
 similar U-Boot drivers.

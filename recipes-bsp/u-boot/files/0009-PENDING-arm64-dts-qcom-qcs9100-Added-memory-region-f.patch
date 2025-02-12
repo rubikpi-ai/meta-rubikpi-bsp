@@ -1,7 +1,7 @@
-From c38c3307e54fc85674efcefec0b6bdfb3d8b011b Mon Sep 17 00:00:00 2001
+From 5ff9798b45ad50d9b419293dddb93ba0ccae62de Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Fri, 29 Nov 2024 16:18:41 +0530
-Subject: [PATCH 10/12] PENDING: arm64: dts: qcom: qcs9100: Added memory-region
+Subject: [PATCH 09/20] PENDING: arm64: dts: qcom: qcs9100: Added memory-region
  for smem entry
 
 msm smem driver expects the memory-region entry adding to support QCS9100.

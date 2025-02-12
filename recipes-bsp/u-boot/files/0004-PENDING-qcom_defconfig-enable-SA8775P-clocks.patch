@@ -1,8 +1,7 @@
-From 70211ba2e77fe3ce4d85967053aec142f3d1650a Mon Sep 17 00:00:00 2001
+From 3f92594d5aaae2c53876beb7accd696cbb7121ec Mon Sep 17 00:00:00 2001
 From: Aswin Murugan <quic_aswinm@quicinc.com>
 Date: Thu, 16 Jan 2025 16:23:25 +0530
-Subject: [PATCH 04/12] PENDING: qcom_defconfig: enable
- SA8775P clocks
+Subject: [PATCH 04/20] PENDING: qcom_defconfig: enable SA8775P clocks
 
 Enable clocks on SA8775P
 
@@ -14,7 +13,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+)
 
 diff --git a/configs/qcom_defconfig b/configs/qcom_defconfig
-index 5f8082e5ed..f932b27b54 100644
+index cd94315f17..f2f22d58a2 100644
 --- a/configs/qcom_defconfig
 +++ b/configs/qcom_defconfig
 @@ -55,6 +55,7 @@ CONFIG_CLK_QCOM_SM8250=y
