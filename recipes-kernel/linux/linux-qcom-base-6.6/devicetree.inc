@@ -174,6 +174,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-the-pcie-smmu-no.patch \
     file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-add-support-for-stre.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Adds-SPMI-support.patch \
+    file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-a-PCIe-port-for-.patch \
     "
 
 # qcs8300 board dts patches
@@ -189,7 +190,8 @@ SRC_URI:append = " \
     file://qcs8300/0008-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-plat.patch \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable-PMIC-per.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-Add-support-for-PMIC-peripher.patch \
-	"
+    file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-enable-WLAN-on-.patch \
+    "
 # qcs9075 board dts patches
 SRC_URI:append = " \
     file://qcs9075/0001-UPSTREAM-media-qcom-camss-Amalgamate-struct-resource.patch \
