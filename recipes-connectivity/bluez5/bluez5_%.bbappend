@@ -40,6 +40,7 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0032-UPSTREAM-obexctl-Implement-support-for-message-listi.patch \
                         file://0033-UPSTREAM-Doc-Obex-Implement-support-for-message-list.patch \
                         file://0034-UPSTREAM-obex-Update-the-MAP-Client-version-to-1.4-i.patch \
+                        file://0035-UPSTREAM-Audio-Profiles-version-upgrade.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP
