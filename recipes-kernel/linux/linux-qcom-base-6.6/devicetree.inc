@@ -191,6 +191,7 @@ SRC_URI:append = " \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable-PMIC-per.patch \
     file://qcs8300/0001-PENDING-arm64-dts-qcom-Add-support-for-PMIC-peripher.patch \
     file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-enable-WLAN-on-.patch \
+    file://qcs8300/0001-FROMLIST-arm64-dts-qcom-add-BT-node-in-QCS8300-RIDE-.patch \
     "
 # qcs9075 board dts patches
 SRC_URI:append = " \
