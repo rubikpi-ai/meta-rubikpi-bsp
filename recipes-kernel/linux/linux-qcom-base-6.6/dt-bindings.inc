@@ -145,4 +145,5 @@ SRC_URI:append = " \
     file://qcs9100/0003-FROMLIST-dt-bindings-serial-Document-DT-properties-f.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-prng-document-QCS615.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-qce-document-the-QC615.patch \
+    file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-gmu-Add-Adreno-623-.patch \
     "
