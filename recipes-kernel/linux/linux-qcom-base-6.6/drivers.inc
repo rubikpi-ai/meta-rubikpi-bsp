@@ -421,4 +421,8 @@ SRC_URI:append = " \
     file://common/0001-FROMLIST-drm-msm-dpu-Allocate-the-number-of-LMs-base.patch \
     file://common/0002-FROMLIST-drm-msm-dp-Add-support-for-lane-mapping-con.patch \
     file://common/0003-FROMLIST-drm-msm-dp-Populate-the-max_streams-for-qcs.patch \
+    file://qcs8300/0001-BACKPORT-drm-msm-a6xx-Add-A621-support.patch \
+    file://qcs8300/0002-BACKPORT-drm-msm-a6xx-Evaluate-adreno_is_a650_family.patch \
+    file://qcs8300/0001-FROMLIST-drm-msm-a6xx-Fix-gpucc-register-block-for-A.patch \
+    file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
     "
