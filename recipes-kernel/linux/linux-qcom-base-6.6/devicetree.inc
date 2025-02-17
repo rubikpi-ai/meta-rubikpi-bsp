@@ -143,6 +143,7 @@ SRC_URI:append = " \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-Adreno-61.patch \
     file://qcs615/0002-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Tune-RX-sampling.patch \
+    file://qcs615/0022-FROMLIST-arm64-dts-qcom-Add-firmware-name-in-BT-no.patch \
     "
 
 # qcs8300 dtsi patches
