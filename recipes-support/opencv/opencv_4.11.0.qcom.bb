@@ -16,8 +16,8 @@ ARM_INSTRUCTION_SET:armv5 = "arm"
 
 DEPENDS = "libtool swig-native bzip2 zlib glib-2.0 libwebp"
 
-SRCREV_opencv = "a7d942b681c5edd0cc27407d8e4d3dbf36c7a40e"
-SRCREV_contrib = "1aab1f34815a58a5a63aee6d510fe234129754a2"
+SRCREV_opencv = "31b0eeea0b44b370fd0712312df4214d4ae1b158"
+SRCREV_contrib = "0e5254ebf54d2aed6e7eaf6660bf3b797cf50a02"
 SRCREV_boostdesc = "34e4206aef44d50e6bbcd0ab06354b52e7466d26"
 SRCREV_vgg = "fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d"
 SRCREV_face = "8afa57abc8229d611c4937165d20e2a2d9fc5a12"
@@ -221,15 +221,11 @@ SUMMARY = "Opencv : The Open Computer Vision Library, Qualcomm Fork"
 
 # Adding FASTCV HAL and EXTENSION patches
 
-SRC_URI += "file://0001-FROMLIST-Fastcv-HAL-for-Opencv-Acceleration.patch \
-            file://0001-FROMLIST-Fastcv-Ext-for-Opencv-Acceleration.patch \
-	    file://0001-FROMLIST-Removed-cluster-euclidean-in-fastcv-ext.patch \
-	    "
-
-DEPENDS:qcom-custom-bsp += "qcom-fastcv-binaries"
+SRC_URI += "file://0001-PENDING-Removed-cluster-euclidean-in-fastcv-ext.patch;patchdir=${S}/contrib/ \
+            file://0001-FROMLIST-Using-fastcv-static-lib-for-compilation.patch"
 
 EXTRA_OECMAKE += "-DOPENCV_ALLOW_DOWNLOADS=ON "
-EXTRA_OECMAKE:append:qcom-custom-bsp = " -DWITH_FASTCV=ON "
+EXTRA_OECMAKE += " -DWITH_FASTCV=ON "
 
 COMPATIBLE_MACHINE = "(qcm6490-idp|qcs6490-rb3gen2-vision-kit|qcs6490-rb3gen2-core-kit|qcs6490-rb3gen2-industrial-kit|qcs9100-ride-sx|qcs8300-ride-sx|qcs9075-ride-sx|qcs9075-rb8-core-kit)"
 

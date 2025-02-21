@@ -1,40 +1,40 @@
-From c5c06cb2e354118acf417ebd8ddddc0269d905c4 Mon Sep 17 00:00:00 2001
-From: Aakash Preetam <apreetam@qti.qualcomm.com>
-Date: Tue, 26 Nov 2024 21:32:25 +0530
-Subject: [PATCH] FROMLIST: Removed cluster euclidean in fastcv ext
+From d7db8fb8d715a86d0939797bc08073895c475989 Mon Sep 17 00:00:00 2001
+From: Pulkit Singh Tak <quic_ptak@quicinc.com>
+Date: Thu, 13 Feb 2025 17:55:08 +0530
+Subject: [PATCH] PENDING: Removed cluster euclidean in fastcv ext
 
-Signed-off-by: Aakash Preetam <quic_apreetam@quicinc.com>
-Upstream-Status: Submitted [https://github.com/opencv/opencv_contrib/pull/3824]
+Signed-off-by: Pulkit Singh Tak <quic_ptak@quicinc.com>
+Upstream-Status: PENDING
 ---
  modules/fastcv/include/opencv2/fastcv.hpp     |   1 -
- .../fastcv/include/opencv2/fastcv/cluster.hpp |  42 ------
+ .../fastcv/include/opencv2/fastcv/cluster.hpp |  43 ------
  .../fastcv/perf/perf_cluster_euclidean.cpp    |  79 -----------
  modules/fastcv/src/cluster_euclidean.cpp      |  66 ----------
  .../fastcv/test/test_cluster_euclidean.cpp    | 124 ------------------
- 5 files changed, 312 deletions(-)
+ 5 files changed, 313 deletions(-)
  delete mode 100644 modules/fastcv/include/opencv2/fastcv/cluster.hpp
  delete mode 100644 modules/fastcv/perf/perf_cluster_euclidean.cpp
  delete mode 100644 modules/fastcv/src/cluster_euclidean.cpp
  delete mode 100644 modules/fastcv/test/test_cluster_euclidean.cpp
 
 diff --git a/modules/fastcv/include/opencv2/fastcv.hpp b/modules/fastcv/include/opencv2/fastcv.hpp
-index 4248a674..01e1c3da 100644
+index af188dfc..c5deb5e0 100644
 --- a/modules/fastcv/include/opencv2/fastcv.hpp
 +++ b/modules/fastcv/include/opencv2/fastcv.hpp
-@@ -14,7 +14,6 @@
- 
+@@ -11,7 +11,6 @@
  #include "opencv2/fastcv/arithm.hpp"
  #include "opencv2/fastcv/bilateralFilter.hpp"
+ #include "opencv2/fastcv/blur.hpp"
 -#include "opencv2/fastcv/cluster.hpp"
  #include "opencv2/fastcv/draw.hpp"
+ #include "opencv2/fastcv/edges.hpp"
  #include "opencv2/fastcv/fast10.hpp"
- #include "opencv2/fastcv/fft.hpp"
 diff --git a/modules/fastcv/include/opencv2/fastcv/cluster.hpp b/modules/fastcv/include/opencv2/fastcv/cluster.hpp
 deleted file mode 100644
-index f90deeae..00000000
+index 46ac7ad1..00000000
 --- a/modules/fastcv/include/opencv2/fastcv/cluster.hpp
 +++ /dev/null
-@@ -1,42 +0,0 @@
+@@ -1,43 +0,0 @@
 -/*
 - * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 - * SPDX-License-Identifier: Apache-2.0
@@ -53,7 +53,8 @@ index f90deeae..00000000
 -
 -/**
 - * @brief Clusterizes N input points in D-dimensional space into K clusters
-- * 
+- *        Accepts 8-bit unsigned integer points
+- *        Provides faster execution time than cv::kmeans on Qualcomm's processors
 - * @param points            Points array of type 8u, each row represets a point.
 - *                          Size is N rows by D columns, can be non-continuous.
 - * @param clusterCenters    Initial cluster centers array of type 32f, each row represents a center.
