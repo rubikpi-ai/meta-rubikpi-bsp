@@ -48,10 +48,10 @@ interface(`fs_map_tmpfs_file',`
 ##	</summary>
 ## </param>
 #
-interface(`fs_unmount_functionfs',`
+interface(`fs_unmount_usbfs',`
 	gen_require(`
-		type functionfs_t;
+		type usbfs_t;
 	')
 
-	allow $1 functionfs_t:filesystem { unmount };
+	allow $1 usbfs_t:filesystem { unmount };
 ')
