@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2023-2025 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 #####################
@@ -545,4 +545,22 @@ interface(`fs_mount_usbfs',`
 	')
 
 	allow $1 usbfs_t:filesystem {mount};
+')
+
+########################################
+## <summary>
+##      Mounton weston socket dev directory.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`qcom_weston_mounton_dev_dir',`
+    gen_require(`
+        type qcom_weston_socket_dev_t;
+    ')
+
+        allow $1 qcom_weston_socket_dev_t:dir mounton_dir_perms;
 ')
