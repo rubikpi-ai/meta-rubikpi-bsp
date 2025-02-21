@@ -8,5 +8,6 @@ PACKAGES = "packagegroup-qcom-containers"
 
 RDEPENDS:packagegroup-qcom-containers = " \
     docker-compose \
+    docker-conf \
     packagegroup-container \
 "
