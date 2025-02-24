@@ -143,4 +143,6 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-dt-bindings-i2c-qcom-i2c-geni-Document-DT-p.patch \
     file://qcs9100/0002-FROMLIST-spi-dt-bindings-Document-DT-properties-for-.patch \
     file://qcs9100/0003-FROMLIST-dt-bindings-serial-Document-DT-properties-f.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-prng-document-QCS615.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-qce-document-the-QC615.patch \
     "
