@@ -127,6 +127,7 @@ SRC_URI:append = " \
     file://qcs615/0003-FROMGIT-arm64-dts-qcom-correct-gpio-ranges-for-QCS61.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-TRNG-node.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-QCrypto-nodes.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-Command-DB-suppor.patch \
     "
 
 # qcs615 board dts patches
