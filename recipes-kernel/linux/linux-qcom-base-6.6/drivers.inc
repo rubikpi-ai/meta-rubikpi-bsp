@@ -272,4 +272,6 @@ SRC_URI:append = " \
     file://qcs615/0001-BACKPORT-arm64-dts-qcom-qcs615-Add-metadata.patch \
     file://qcs9100/0002-PENDING-iio-adc-Add-support-for-QCOM-PMIC5-Gen3-ADC.patch \
     file://qcs9100/0003-PENDING-thermal-qcom-Add-support-for-MBG-Temp-monito.patch \
+    file://qcs8300/0002-phy-qcom-qmp-pcie-add-dual-lane-PHY-support-for-QCS8.patch \
+    file://qcs8300/0004-PCI-qcom-Add-QCS8300-PCIe-support.patch \
     "

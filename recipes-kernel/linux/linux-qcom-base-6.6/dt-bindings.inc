@@ -138,4 +138,6 @@ SRC_URI:append = " \
     file://qcs9100/0004-PENDING-dt-bindings-iio-adc-Add-support-for-QCOM-PMI.patch \
     file://qcs9100/0005-PENDING-dt-bindings-iio-Add-ADC5-GEN3-Channel-macros.patch \
     file://qcs9100/0006-PENDING-thermal-Add-bindings-support-for-mbg-tm.patch \
+    file://qcs8300/0001-dt-bindings-phy-qcom-sc8280xp-qmp-pcie-phy-Document-.patch \
+    file://qcs8300/0003-dt-bindings-PCI-qcom-pcie-sa8775p-document-qcs8300.patch \
     "
