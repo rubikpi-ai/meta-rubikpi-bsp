@@ -64,6 +64,8 @@ SRC_URI:append = " \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-extend-the-register-.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-Populate-additional-.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-Add-support-for-MBG-TM-for-pm.patch \
+    file://qcs9100/0001-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-1-.patch \
+    file://qcs9100/0002-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-st.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -168,6 +170,7 @@ SRC_URI:append = " \
     file://qcs8300/0005-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-soc.patch \
     file://qcs8300/0007-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-soc.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-the-pcie-smmu-no.patch \
+    file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-add-support-for-stre.patch \
     "
 
 # qcs8300 board dts patches
