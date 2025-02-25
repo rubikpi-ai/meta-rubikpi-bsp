@@ -14,7 +14,7 @@ SRC_URI[aarch64.sha256sum] = "${AARCH64_SHA256SUM}"
 
 SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
-FILES:${PN} = "${libdir}/*.so ${bindir}/*"
+FILES:${PN} = "${libdir}/*.so* ${bindir}/*"
 FILES:${PN}-dev = "${libdir}/*.la ${includedir}"
 
 INSANE_SKIP:${PN} += "installed-vs-shipped"
