@@ -171,6 +171,7 @@ SRC_URI:append = " \
     file://qcs8300/0007-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-soc.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-the-pcie-smmu-no.patch \
     file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-add-support-for-stre.patch \
+    file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Adds-SPMI-support.patch \
     "
 
 # qcs8300 board dts patches
@@ -184,6 +185,7 @@ SRC_URI:append = " \
     file://qcs8300/0002-arm64-dts-qcom-qcs8300-ride-enable-ethernet0.patch \
     file://qcs8300/0006-arm64-dts-qcom-qcs8300-enable-pcie0-for-qcs8300-plat.patch \
     file://qcs8300/0008-arm64-dts-qcom-qcs8300-enable-pcie1-for-qcs8300-plat.patch \
+    file://qcs8300/0002-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable-PMIC-per.patch \
 	"
 # qcs9075 board dts patches
 SRC_URI:append = " \
