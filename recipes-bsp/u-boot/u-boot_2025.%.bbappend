@@ -6,9 +6,15 @@ UBOOT_ELF_IMAGE ?= "u-boot-${MACHINE}-${PV}-${PR}.${UBOOT_ELF_SUFFIX}"
 UBOOT_ELF_BINARY ?= "u-boot.${UBOOT_ELF_SUFFIX}"
 
 do_configure:append() {
+        fsbootargs=""
         cmdline=""
         if [ -n "${QCOM_BOOTIMG_ROOTFS}" ]; then
-                cmdline="$cmdline root=${QCOM_BOOTIMG_ROOTFS} rw rootwait"
+                fsbootargs="root=${QCOM_BOOTIMG_ROOTFS} rw rootwait"
+        fi
+        if grep -q "^fsbootargs=" "${S}/board/qualcomm/default.env";then
+                sed -i "s#^fsbootargs=.*#fsbootargs=${fsbootargs}#g" ${S}/board/qualcomm/default.env
+        else
+                echo "fsbootargs=${fsbootargs}" >> ${S}/board/qualcomm/default.env
         fi
 
         if [ ! -z "${SERIAL_CONSOLES}" ]; then
@@ -19,7 +25,7 @@ do_configure:append() {
                         tty=`echo $entry | sed -e 's/^[0-9]*\;//' -e 's/\;.*//'`
                         console="$tty","$baudrate"n8
                 done
-                cmdline="$cmdline console=$console"
+                cmdline="console=$console"
         fi
 
         if [ -n "${KERNEL_CMDLINE_EXTRA}" ]; then

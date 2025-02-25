@@ -40,7 +40,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0024-PENDING-mach-snapdragon-Save-environment-to-partitio.patch \
             file://0025-PENDING-mach-snapdragon-Support-for-boot-command-boo.patch \
             file://0026-PENDING-Changes-to-enable-fastboot-erase-command-for.patch \
-            file://0027-PENDING-Changes-to-enable-scsi-erase-command-for-Lem.patch"
+            file://0027-PENDING-Changes-to-enable-scsi-erase-command-for-Lem.patch \
+            file://0028-PENDING-Setting-bootargs-in-bootqli-command.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
