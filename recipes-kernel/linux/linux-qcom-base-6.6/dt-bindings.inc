@@ -135,4 +135,7 @@ SRC_URI:append = " \
     file://qcs8300/0002-FROMLIST-dt-bindings-display-msm-Document-the-dp-con.patch \
     file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-Document-MDSS-on-QC.patch \
     file://qcs8300/0005-FROMLIST-dt-bindings-phy-Add-eDP-PHY-compatible-for-.patch \
+    file://qcs9100/0004-PENDING-dt-bindings-iio-adc-Add-support-for-QCOM-PMI.patch \
+    file://qcs9100/0005-PENDING-dt-bindings-iio-Add-ADC5-GEN3-Channel-macros.patch \
+    file://qcs9100/0006-PENDING-thermal-Add-bindings-support-for-mbg-tm.patch \
     "

@@ -270,4 +270,6 @@ SRC_URI:append = " \
     file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
     file://qcs615/0001-BACKPORT-arm64-dts-qcom-qcs615-Add-metadata.patch \
+    file://qcs9100/0002-PENDING-iio-adc-Add-support-for-QCOM-PMIC5-Gen3-ADC.patch \
+    file://qcs9100/0003-PENDING-thermal-qcom-Add-support-for-MBG-Temp-monito.patch \
     "
