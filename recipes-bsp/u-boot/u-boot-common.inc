@@ -43,7 +43,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0027-PENDING-Changes-to-enable-scsi-erase-command-for-Lem.patch \
             file://0028-PENDING-Setting-bootargs-in-bootqli-command.patch \
             file://0029-PENDING-Change-to-enable-flashing-of-boot_a-and-syst.patch \
-            file://0030-PENDING-Changes-to-enable-Verified-Boot-for-Lemans-i.patch"
+            file://0030-PENDING-Changes-to-enable-Verified-Boot-for-Lemans-i.patch \
+            file://0031-PENDING-Update-memory-partition-info-in-dts-from-sme.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
