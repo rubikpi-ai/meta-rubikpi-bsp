@@ -11,6 +11,7 @@ SRC_URI[md5sum] = "ded4f65d0b2c7da97b922a718b629670"
 S = "${WORKDIR}/dpdk-stable-20.11.10"
 
 EXTRA_OEMESON = "-Dexamples=all \
+                 -Ddisable_drivers=net/virtio \
 "
 RDEPENDS:${PN} += "pciutils python3-core bash"
 RDEPENDS:${PN}-examples += "bash"
