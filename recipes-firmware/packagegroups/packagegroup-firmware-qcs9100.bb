@@ -11,6 +11,7 @@ RRECOMMENDS:${PN}:qcom-base-bsp = " \
     linux-firmware-ath11k-qca6698aq \
     linux-firmware-ath11k-wcn6855 \
     linux-firmware-qca-qca6698 \
+    linux-firmware-qcom-adreno-a660 \
     linux-firmware-qcom-adreno-a663 \
     linux-firmware-qcom-sa8775p-audio \
     linux-firmware-qcom-sa8775p-compute \
