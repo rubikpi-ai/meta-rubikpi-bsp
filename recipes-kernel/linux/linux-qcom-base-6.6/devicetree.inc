@@ -260,4 +260,5 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-Display-Po.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs9075-rb8.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Enable-ethernet-on-QC.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-all-3-usb-controllers-.patch \
     "
