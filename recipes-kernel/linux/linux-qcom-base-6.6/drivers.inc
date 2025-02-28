@@ -426,4 +426,5 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-drm-msm-a6xx-Fix-gpucc-register-block-for-A.patch \
     file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
+    file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     "
