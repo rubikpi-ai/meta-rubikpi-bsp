@@ -15,7 +15,6 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += " \
     networkmanager-wifi \
     pd-mapper \
     qrtr \
-    tqftpserv \
 "
 
 MACHINE_EXTRA_RDEPENDS += " \

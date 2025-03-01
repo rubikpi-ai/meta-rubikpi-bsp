@@ -20,6 +20,6 @@ do_install:append:qcm6490() {
     mkdir -p -m 0755 ${D}${sysconfdir}/models/acd/
 }
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
-
+INSANE_SKIP:${PN} = "dev-so"

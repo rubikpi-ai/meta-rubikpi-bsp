@@ -17,6 +17,7 @@ init_stream_connect_script(pulseaudio_t)
 
 kernel_read_vm_overcommit_sysctl(pulseaudio_t)
 kernel_search_vm_sysctl(pulseaudio_t)
+dbus_read_lib_files(pulseaudio_t)
 
 allow pulseaudio_t qcom_pulseaudio_etc_t:file read_file_perms;
 allow pulseaudio_t qcom_pulseaudio_acdb_etc_t:file manage_file_perms;
@@ -26,3 +27,8 @@ init_dbus_chat_script(pulseaudio_t)
 init_bt_socket_manage(pulseaudio_t)
 allow pulseaudio_t self:bluetooth_socket { create accept bind getopt listen read setopt write connect shutdown};
 
+pulseaudio_acd_read_permission_t(pulseaudio_t)
+unconfined_stream_connect(pulseaudio_t)
+dev_rw_input_dev(pulseaudio_t)
+qcom_write_bt_src_socket_file(pulseaudio_t)
+qcom_connect_to_bt_socket(pulseaudio_t)

@@ -14,3 +14,10 @@ SRC_URI:append = " \
 # Static variant of ostree-prepare-root will work only when an initrd isn't used.
 # As qcom bootflow uses initrd to mount rootfs, this configuration will cause boot up issues.
 PACKAGECONFIG:remove:qcom = "static"
+
+do_install:append:qcom (){
+    if [ ! -d "${D}${sysconfdir}/tmpfiles.d" ]; then
+        install -d ${D}${sysconfdir}/tmpfiles.d
+    fi
+    echo "t /var/roothome - - - - security.selinux=system_u:object_r:home_root_t:s0" >> ${D}${sysconfdir}/tmpfiles.d/00ostree-tmpfiles.conf
+}

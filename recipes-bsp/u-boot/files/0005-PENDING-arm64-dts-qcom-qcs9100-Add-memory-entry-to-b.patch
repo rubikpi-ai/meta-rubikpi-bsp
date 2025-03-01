@@ -1,7 +1,7 @@
-From fc5603701d8a4a8b64d2a0c8822e351ebe06bc94 Mon Sep 17 00:00:00 2001
+From 9a1d8d4a7d3579e78cdb482a1b36d12594c5ad46 Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Thu, 28 Nov 2024 19:51:06 +0530
-Subject: [PATCH 05/12] PENDING: arm64: dts: qcom: qcs9100: Add memory entry to
+Subject: [PATCH 05/20] PENDING: arm64: dts: qcom: qcs9100: Add memory entry to
  bootup
 
 Added the memory entry to bootup which will be removed later when the

@@ -12,7 +12,7 @@ PBT_ARCH = "armv8-2a"
 ARMV8_SHA256SUM = "347892c80a637da86091bac47b075149150900d41f04f0a31bbaa53b5e538f42"
 SRC_URI[armv8-2a.sha256sum] = "${ARMV8_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 FILES:${PN} += "/system /data"
 FILES:${PN} += "/lib/systemd/*"

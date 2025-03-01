@@ -17,5 +17,6 @@ DEPENDS = "pulseaudio glib-2.0 qcom-pal qcom-pal-headers qcom-vui-interface-head
 
 EXTRA_OECONF = "--with-glib"
 
-SOLIBS = ".so"
+SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""
+INSANE_SKIP:${PN} = "dev-so"

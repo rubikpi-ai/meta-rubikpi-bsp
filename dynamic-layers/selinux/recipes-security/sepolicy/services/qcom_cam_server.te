@@ -26,6 +26,7 @@ qcom_manage_cam_server_sock_file(qcom_cam_server_t)
 allow qcom_cam_server_t self:capability sys_time;
 allow qcom_cam_server_t self:process { getsched signal };
 allow qcom_cam_server_t self:qipcrtr_socket { connected_socket_perms };
+allow qcom_cam_server_t self:tcp_socket { create bind accept listen };
 
 dev_rw_dri(qcom_cam_server_t)
 qcom_cdsp_rw(qcom_cam_server_t)
@@ -54,3 +55,6 @@ read_lnk_files_pattern(qcom_cam_server_t, etc_t, etc_t)
 miscfiles_rw_localization(qcom_cam_server_t)
 
 dockerd_connect_to_stream_socket(qcom_cam_server_t)
+
+corenet_tcp_bind_all_unreserved_ports(qcom_cam_server_t)
+corenet_tcp_bind_all_nodes(qcom_cam_server_t)
