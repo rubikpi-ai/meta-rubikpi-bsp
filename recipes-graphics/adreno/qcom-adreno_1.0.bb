@@ -7,7 +7,8 @@ DESCRIPTION = "Adreno Graphics"
 
 DEPENDS += "wayland glib-2.0 linux-kernel-qcom-headers property-vault qcom-libdmabufheap virtual/libgbm libdrm"
 
-PROVIDES = "  virtual/libgles1 virtual/libgles2 virtual/egl"
+PROVIDES  = "  virtual/libgles1 virtual/libgles2 virtual/egl"
+RPROVIDES:${PN} = " libegl libgles1 libgles2"
 
 QCM6490_SHA256SUM = "88525fed526c254873b681e63507150cb0bdeee9b3ba4049b84945303ce89230"
 QCS9100_SHA256SUM = "388fef26ffe26eb4cc1d2ba9f00b40c68ef8f3ac1903d6fdf6514777073dcb14"
