@@ -44,6 +44,7 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0036-device-Fix-device_is_connected-checking-for-services.patch \
                         file://0037-UPSTREAM-BNEP-Fix-BNEP-Unknown-Control-Message-in-PTS-.patch \
                         file://0038-UPSTREAM-obex-Add-null-check-for-data-pointer-for-PC.patch \
+                        file://0039-UPSTREAM-obex-Add-messages_get_message-implementatio.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP
