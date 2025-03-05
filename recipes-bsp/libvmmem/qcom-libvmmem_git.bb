@@ -11,7 +11,7 @@ DEPENDS += "linux-kernel-qcom-headers"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/system/memory/libvmmem.git;protocol=https"
 SRCBRANCH  = "kernel.apps.lnx.4.0.r1-rel"
-SRCREV     = "2b88e9bc6030893b8e9b46ae85999c8de103858d"
+SRCREV     = "e14734bd2b05b4fb79965a67f89bffc1a1955f7e"
 
 SRC_URI   = " \
              ${SRCPROJECT};branch=${SRCBRANCH};destsuffix=system/memory/libvmmem \

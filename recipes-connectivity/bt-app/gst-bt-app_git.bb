@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec53
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/qcom-opensource/bt.git;protocol=https"
 SRCBRANCH  = "bt-performant.qclinux.1.0.r1-rel"
-SRCREV     = "01a79eff5695a8e1f748795cee203f76a1d6f3ad"
+SRCREV     = "6656f553a4bbe3f22d7503d72de400c53ce54737"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=bluetooth/btapp"
 
