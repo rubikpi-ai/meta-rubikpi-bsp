@@ -253,4 +253,7 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs8300-ride.patch \
     file://qcs9075/0008-PENDING-arm64-dts-qcom-qcs9075-rb8-QUP-Firmware-load.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-PCIe0-PCIe.patch \
+    file://addons/0001-QCLINUX-arm64-dts-qcom-Add-msm-id-board-id-for-qcs90.patch \
+    file://qcs9075/0002-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-r.patch \
+    file://qcs9075/0003-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-llcc-node.patch \
     "
