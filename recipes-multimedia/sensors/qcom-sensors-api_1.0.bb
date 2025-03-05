@@ -11,7 +11,7 @@ QCM6490_SHA256SUM = "e4b64e8cb33f5391725b6ce1ed43d12bf841cbb6cc3bc0f65c0e644e5b2
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
-SRC_URI = "https://${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
 FILES:${PN} += "${includedir}/*"
 FILES:${PN} += "/usr/lib/*"

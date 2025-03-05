@@ -19,20 +19,10 @@ RDEPENDS:${PN} = " \
     weston \
     "
 
-RDEPENDS:${PN}:append:qcm6490:qcom-custom-bsp = " \
-    kernel-module-displaydlkm \
-    qcom-display-hal-linux \
-    qcom-displaydevicetree \
-"
-
 RDEPENDS:${PN}:append:qcom-custom-bsp = "\
     virtual/libgbm \
     "
 
-RDEPENDS:${PN}:append:qcm6490 = " \
-    qcom-display-extn-linux \
-    qcom-display-color-linux \
-    "
 RDEPENDS:${PN}:append:qcom-custom-bsp = " \
     kernel-module-qcom-touchdlkm \
     "

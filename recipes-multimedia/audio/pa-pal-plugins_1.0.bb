@@ -19,10 +19,13 @@ PACKAGES =+ "\
              pulseaudio-module-pal-card \
              pulseaudio-module-pal-voiceui-card \
             "
-FILES:pulseaudio-module-pal-card = "${libdir}/pulseaudio/modules/module-pal-card.so ${sysconfdir}/*"
-FILES:pulseaudio-module-pal-voiceui-card = "${libdir}/pulseaudio/modules/module-pal-voiceui-card.so"
+FILES:pulseaudio-module-pal-card = "${libdir}/pulseaudio/modules/module-pal-card.so* ${sysconfdir}/*"
+FILES:pulseaudio-module-pal-voiceui-card = "${libdir}/pulseaudio/modules/module-pal-voiceui-card.so*"
 
 RDEPENDS:pulseaudio-server = " pulseaudio-module-pal-card"
 RDEPENDS:pulseaudio-server = " pulseaudio-module-pal-voiceui-card"
 
 ALLOW_EMPTY:${PN} = "1"
+
+INSANE_SKIP:pulseaudio-module-pal-card = "dev-so"
+INSANE_SKIP:pulseaudio-module-pal-voiceui-card = "dev-so"

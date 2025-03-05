@@ -9,7 +9,6 @@ RRECOMMENDS:${PN} += " \
 "
 
 SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
-                        file://0002-Use-system-bus-instead-of-session-for-obexd.patch \
                         file://0003-Bluez-unregister-includes-option-not-working.patch \
                         file://0004-gen_metadata-used-to-test-metadata-over-avrcp.patch \
                         file://0005-Set-variable-MAP_ROOT-map-messages-to-create-MAP-sdp.patch \
@@ -34,6 +33,15 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0025-UPSTREAM-obex-Check-for-supported-features-bit-value.patch \
                         file://0026-UPSTREAM-obex-Update-the-FTP-version-to-1.3-in-SDP-r.patch \
                         file://0027-UPSTREAM-obexctl-Enable-Map-folderlisting-operation-.patch \
+                        file://0028-Use-system-bus-instead-of-session-for-obexd.patch \
+                        file://0029-obexd-Add-system-bus-support-for-obexd.patch \
+                        file://0030-tools-obexctl-Add-support-for-system-session-bus.patch \
+                        file://0031-UPSTREAM-obex-Implement-support-for-message-listing-.patch \
+                        file://0032-UPSTREAM-obexctl-Implement-support-for-message-listi.patch \
+                        file://0033-UPSTREAM-Doc-Obex-Implement-support-for-message-list.patch \
+                        file://0034-UPSTREAM-obex-Update-the-MAP-Client-version-to-1.4-i.patch \
+                        file://0035-UPSTREAM-Audio-Profiles-version-upgrade.patch \
+                        file://0036-device-Fix-device_is_connected-checking-for-services.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP

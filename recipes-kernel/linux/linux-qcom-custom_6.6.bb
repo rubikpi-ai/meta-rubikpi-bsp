@@ -21,7 +21,6 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack_debug.cfg', '', d)} \
            "
-SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9075-Enable-ethernet-on-QC.patch"
 
 S = "${WORKDIR}/kernel"
 

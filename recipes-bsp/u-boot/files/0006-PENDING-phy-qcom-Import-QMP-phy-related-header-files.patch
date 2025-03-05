@@ -1,7 +1,7 @@
-From 0638aff33b08e6f8f0ca46cf98e89aad6f95f6eb Mon Sep 17 00:00:00 2001
+From 209fe196c255df083a80a4979e124f13437a27cd Mon Sep 17 00:00:00 2001
 From: Varadarajan Narayanan <quic_varada@quicinc.com>
 Date: Thu, 28 Nov 2024 21:15:53 +0530
-Subject: [PATCH 06/12] PENDING: phy: qcom: Import QMP phy related header files
+Subject: [PATCH 06/20] PENDING: phy: qcom: Import QMP phy related header files
  from Linux
 
 Import Qualcomm QMP phy related header files from Linux,

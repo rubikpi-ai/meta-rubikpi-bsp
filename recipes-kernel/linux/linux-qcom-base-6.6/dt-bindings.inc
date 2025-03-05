@@ -129,4 +129,21 @@ SRC_URI:append = " \
     file://qcs8300/0003-FROMLIST-dt-bindings-clock-qcom-Add-CAMCC-clocks-for.patch \
     file://qcs8300/0005-FROMLIST-dt-bindings-clock-qcom-Add-QCS8300-video-cl.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-net-stmmac-Tune-rx-sampling-occ.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-pinctrl-qcom-correct-gpio-range.patch \
+    file://qcs8300/0001-FROMLIST-dt-bindings-crypto-ice-document-the-qcs8300.patch \
+    file://qcs8300/0001-FROMLIST-dt-bindings-display-msm-Document-the-DPU-fo.patch \
+    file://qcs8300/0002-FROMLIST-dt-bindings-display-msm-Document-the-dp-con.patch \
+    file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-Document-MDSS-on-QC.patch \
+    file://qcs8300/0005-FROMLIST-dt-bindings-phy-Add-eDP-PHY-compatible-for-.patch \
+    file://qcs9100/0004-PENDING-dt-bindings-iio-adc-Add-support-for-QCOM-PMI.patch \
+    file://qcs9100/0005-PENDING-dt-bindings-iio-Add-ADC5-GEN3-Channel-macros.patch \
+    file://qcs9100/0006-PENDING-thermal-Add-bindings-support-for-mbg-tm.patch \
+    file://qcs8300/0001-dt-bindings-phy-qcom-sc8280xp-qmp-pcie-phy-Document-.patch \
+    file://qcs8300/0003-dt-bindings-PCI-qcom-pcie-sa8775p-document-qcs8300.patch \
+    file://qcs9100/0001-FROMLIST-dt-bindings-i2c-qcom-i2c-geni-Document-DT-p.patch \
+    file://qcs9100/0002-FROMLIST-spi-dt-bindings-Document-DT-properties-for-.patch \
+    file://qcs9100/0003-FROMLIST-dt-bindings-serial-Document-DT-properties-f.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-prng-document-QCS615.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-qce-document-the-QC615.patch \
+    file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-gmu-Add-Adreno-623-.patch \
     "

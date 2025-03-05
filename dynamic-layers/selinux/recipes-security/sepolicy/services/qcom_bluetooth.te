@@ -90,3 +90,6 @@ allow qcom_bluetooth_t self:capability { dac_override };
 pulseaudio_stream_connect(qcom_bluetooth_t)
 qcom_connect_to_btipc_src(qcom_bluetooth_t)
 qcom_pulseaudio_socket_connect(qcom_bluetooth_t)
+
+corecmd_exec_bin_files(qcom_bluetooth_t)
+files_read_usr_files(qcom_bluetooth_t)

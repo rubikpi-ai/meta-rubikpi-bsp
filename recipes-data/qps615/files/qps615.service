@@ -7,7 +7,7 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/sbin/modprobe tc956x_pcie_eth
+ExecStart=/sbin/modprobe tc956x_pcie_eth tc956x_eth_ports_bdf=0x8500,0x900 macX_interface=4,1
 
 [Install]
 WantedBy=multi-user.target
