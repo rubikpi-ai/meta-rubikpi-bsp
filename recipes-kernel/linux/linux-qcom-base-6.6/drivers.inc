@@ -426,4 +426,5 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-drm-msm-a6xx-Fix-gpucc-register-block-for-A.patch \
     file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
     file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
+    file://qcs615/0001-FROMLIST-media-venus-vdec-queue-dpb-buffers-to-firmw.patch \
     "
