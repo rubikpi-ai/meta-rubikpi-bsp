@@ -268,4 +268,5 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Add-UFS-support-for-Q.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Enable-ethernet-on-QC.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs9075-rb8.patch \
+    file://qcs9075/0044-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-W.patch \
     "
