@@ -66,6 +66,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-Add-support-for-MBG-TM-for-pm.patch \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-1-.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-st.patch \
+    file://qcs9100/0002-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -178,6 +179,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-a-PCIe-port-for-.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-device-node-for-.patch \
     file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-Add-gpu-and-gmu-node.patch \
+    file://qcs8300/0004-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
     "
 
 # qcs8300 board dts patches
