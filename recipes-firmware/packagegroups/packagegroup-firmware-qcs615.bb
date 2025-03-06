@@ -5,3 +5,8 @@ inherit packagegroup
 RRECOMMENDS:${PN} += " \
     firmware-qcom-hlosfw \
 "
+
+RRECOMMENDS:${PN}:qcom-base-bsp = " \
+    linux-firmware-ath11k-qca6698aq \
+    linux-firmware-qca-qca6698 \
+"
