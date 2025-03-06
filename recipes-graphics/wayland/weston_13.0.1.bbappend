@@ -35,7 +35,7 @@ SRC_URI:append:qcs615  = "  file://0001-weston-add-sdm-option.patch \
 
 DEPENDS:append:qcom-custom-bsp = " property-vault qcom-libdmabufheap"
 
-EXTRA_OEMESON += "-Dbackend-default=auto -Dbackend-rdp=false"
+EXTRA_OEMESON += "-Dbackend-default=auto -Dbackend-rdp=true"
 
 RRECOMMENDS:${PN} = "weston-launch liberation-fonts"
 
@@ -52,13 +52,16 @@ PACKAGECONFIG:qcom = " \
                  image-jpeg \
                  "
 
-PACKAGECONFIG:append:qcm6490 = "kms"
+
+PACKAGECONFIG:append:qcm6490 = "kms rdp"
+
 PACKAGECONFIG:append:qcs9100 = "kms"
 PACKAGECONFIG:append:qcs8300 = "kms"
 PACKAGECONFIG:append:qcs615  = "kms"
 
 # Weston on SDM
 PACKAGECONFIG[sdm] = "-Dbackend-sdm=true,-Dbackend-sdm=false"
+PACKAGECONFIG[rdp] = "-Dbackend-rdp=true,-Dbackend-rdp=false,freerdp"
 # Weston with disabling display power key
 PACKAGECONFIG[disablepowerkey] = "-Ddisable-power-key=true,-Ddisable-power-key=false"
 
