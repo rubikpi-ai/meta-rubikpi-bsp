@@ -257,4 +257,5 @@ SRC_URI:append = " \
     file://qcs9075/0003-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-llcc-node.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Add-UFS-support-for-Q.patch \
     file://qcs9075/0044-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-W.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-Display-Po.patch \
     "
