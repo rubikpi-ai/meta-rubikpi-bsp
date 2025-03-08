@@ -28,9 +28,11 @@ PULSEAUDIO_PKGS:append:qcom-custom-bsp = " \
     pulseaudio-module-pal-card \
     pulseaudio-module-pal-voiceui-card \
 "
-RDEPENDS:${PN} = ' \
+RDEPENDS:${PN}:append:qcom-base-bsp = ' \
     alsa-utils-alsaucm \
     alsa-utils-aplay \
+    alsa-utils-alsatplg \
+    qcom-audio-firmware \
 '
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = ' \
