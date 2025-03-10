@@ -1,3 +1,5 @@
 do_compile:append() {
-    chmod +w -R ${TMPDIR}
+    if [ -d ${TMPDIR}/bazel ]; then
+        chmod +w -R ${TMPDIR}/bazel
+    fi
 }
