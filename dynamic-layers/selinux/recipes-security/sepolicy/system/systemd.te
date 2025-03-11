@@ -29,3 +29,6 @@ init_use_script_ptys(systemd_journal_init_t)
 systemd_manage_journal_files(systemd_journal_init_t)
 files_read_etc_runtime_files(systemd_journal_init_t)
 logging_search_logs(systemd_journal_init_t)
+files_manage_etc_runtime_files(systemd_journal_init_t)
+systemd_watch_journal_dirs(systemd_journal_init_t);
+allow systemd_journal_init_t self:process { signal };
