@@ -446,4 +446,9 @@ SRC_URI:append = " \
     file://common/0143-QCLINUX-firmware-qcom_scm_addon-Remove-implementatio.patch \
     file://common/0144-QCLINUX-firmware-qcom_scm-allow-scm-addon-to-be-comp.patch \
     file://common/0141-BACKPORT-driver-bluetooth-hci_qca-fix-SSR-unable-.patch \
+    file://common/0001-PENDING-ASoC-dt-bindings-q6dsp-Add-High-Speed-Audio-.patch \
+    file://common/0002-PENDING-ASoC-qcom-q6dsp-Add-SDR-High-speed-DAI-suppo.patch \
+    file://common/0004-PENDING-ASoC-qcom-qcs9100-Add-machine-driver-for-qcs.patch \
+    file://common/0007-PENDING-ASoC-qcom-qcs9100-Set-dai-format-for-MI2S-in.patch \
+    file://common/0008-PENDING-ASoC-qcom-qdsp6-Add-set_fmt-dai-ops-support-.patch \
     "
