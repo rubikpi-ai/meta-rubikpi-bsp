@@ -429,4 +429,9 @@ SRC_URI:append = " \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
     file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
+    file://common/0001-PENDING-ASoC-dt-bindings-q6dsp-Add-High-Speed-Audio-.patch \
+    file://common/0002-PENDING-ASoC-qcom-q6dsp-Add-SDR-High-speed-DAI-suppo.patch \
+    file://common/0004-PENDING-ASoC-qcom-qcs9100-Add-machine-driver-for-qcs.patch \
+    file://common/0007-PENDING-ASoC-qcom-qcs9100-Set-dai-format-for-MI2S-in.patch \
+    file://common/0008-PENDING-ASoC-qcom-qdsp6-Add-set_fmt-dai-ops-support-.patch \
     "
