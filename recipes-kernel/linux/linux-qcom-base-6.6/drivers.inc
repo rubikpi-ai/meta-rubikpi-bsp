@@ -434,4 +434,6 @@ SRC_URI:append = " \
     file://common/0006-FROMLIST-remoteproc-qcom-Enable-map-unmap-and-SHM-br.patch \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
+    file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
+    file://qcs615/0001-BACKPORT-UPSTREAM-net-stmmac-fix-TSO-DMA-API-usage-c.patch \
     "
