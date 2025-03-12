@@ -69,6 +69,7 @@ SRC_URI:append = " \
     file://qcs9100/0002-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPU-OPP-tables-t.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Add-gpr-node.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -272,4 +273,6 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs9075-rb8.patch \
     file://qcs9075/0044-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-W.patch \
     file://qcs9075/0002-PENDING-arm64-dts-qcom-Rename-qcs9075-rb8-to-qcs9075.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-iq-9075-evk-Add-PSCI-SYSTEM_R.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-Add-sound.patch \
     "
