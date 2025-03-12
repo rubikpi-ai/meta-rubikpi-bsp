@@ -425,5 +425,4 @@ SRC_URI:append = " \
     file://qcs8300/0002-BACKPORT-drm-msm-a6xx-Evaluate-adreno_is_a650_family.patch \
     file://qcs8300/0001-FROMLIST-drm-msm-a6xx-Fix-gpucc-register-block-for-A.patch \
     file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
-    file://common/0001-PENDING-pinctrl-sa8775p-Enable-egpio-function-for-pi.patch \
     "
