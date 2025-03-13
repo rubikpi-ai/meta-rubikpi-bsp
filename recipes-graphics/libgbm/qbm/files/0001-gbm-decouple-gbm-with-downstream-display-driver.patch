@@ -9,7 +9,7 @@ Date: Mon, 16 Sep 2024 11:04:58 +0530
 Subject: [PATCH] gbm: decouple gbm with downstream display driver
 
 Change-Id: Ie3c2d899ca1172ecb0ee02f6abb425290741da59
-
+Upstream-Status: Pending
 Signed-off-by: Devanshi Bansal <quic_devanshi@quicinc.com>
 ---
  Android.bp                      |   1 +
@@ -42,7 +42,7 @@ diff --git a/Makefile.am b/Makefile.am
 index 6e4e98c..50f5a06 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -31,7 +31,8 @@ libgbm_la_SOURCES = src/gbm.c \
+@@ -31,7 +31,8 @@ libqbm_la_SOURCES = src/gbm.c \
                      src/msmgbm_platform_wrapper.cpp \
                      src/msmgbm_adreno_utils.cpp \
                      src/msmgbm_camera_utils.cpp \
@@ -51,7 +51,7 @@ index 6e4e98c..50f5a06 100644
 +                    src/msmgbm_helper.c
  
  if ENABLE_COMPILEWITHDRM
- libgbm_la_SOURCES += src/msmgbm.c
+ libqbm_la_SOURCES += src/msmgbm.c
 diff --git a/inc/msmgbm.h b/inc/msmgbm.h
 index 2983308..7528931 100644
 --- a/inc/msmgbm.h
@@ -261,7 +261,7 @@ index 0000000..6ed8750
 +#include <stdint.h>
 +#include <stddef.h>
 +#include <stdbool.h>
-+#include <gbm_priv.h>
++#include <qbm_priv.h>
 +#include <msmgbm_helper.h>
 +
 +unsigned int Align(unsigned int val, int alignment) {
@@ -917,7 +917,7 @@ index 31b6a56..c6455e1 100644
 --- a/test/gbmtest.c
 +++ b/test/gbmtest.c
 @@ -56,7 +56,7 @@
- #include <gbm_priv.h>
+ #include <qbm_priv.h>
  #include <wayland-server.h>
  #include <drm/drm_fourcc.h>
 -#include <display/drm/sde_drm.h>

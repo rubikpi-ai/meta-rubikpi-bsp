@@ -1,18 +1,17 @@
-SUMMARY = "gbm"
-DESCRIPTION = "Provide QC contributed GBM (Generic Buffer Management) library."
+SUMMARY = "qbm"
+DESCRIPTION = "Provide QC contributed QBM (Qualcomm Buffer Management) library."
 
 LICENSE = "BSD-3-Clause & BSD-3-Clause-Clear"
-BSD-3-Clause_LICENSE  = "file://inc/gbm.h;beginline=2;endline=27"
-BSD-3-Clause-Clear_LICENSE = "file://inc/gbm.h;beginline=60;endline=90"
+BSD-3-Clause_LICENSE  = "file://inc/qbm.h;beginline=2;endline=27"
+BSD-3-Clause-Clear_LICENSE = "file://inc/qbm.h;beginline=60;endline=90"
 
 LIC_FILES_CHKSUM = " \
 ${BSD-3-Clause-Clear_LICENSE};md5=01550572dbf950bfb945602fe114d132 \
 ${BSD-3-Clause_LICENSE};md5=966a1bac2e99d152d17ed2b6d7ad8bab"
 
 DEPENDS = "glib-2.0 wayland"
-DEPENDS:append:qcm6490 = " qcom-displaydlkm"
 
-PROVIDES += "virtual/libgbm libgbm"
+PROVIDES += "virtual/libqbm libqbm"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/display/libgbm.git;protocol=https"
 SRCBRANCH  = "display.qclinux.1.0.r1-rel"
@@ -22,12 +21,10 @@ SRC_URI =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/vendor/qcom/ope
 
 S = "${WORKDIR}/display/vendor/qcom/opensource/display/libgbm"
 
-SRC_URI:append = " file://pkgconfig/gbm.pc "
-SRC_URI:append:qcs9100 = " file://files/0001-gbm-decouple-gbm-with-downstream-display-driver.patch \
-                           file://files/0001-fix-plane-offset-calculation-for-ubwc-formats.patch"
-SRC_URI:append:qcs8300-ride-sx = " file://files/0001-gbm-decouple-gbm-with-downstream-display-driver.patch "
+SRC_URI:append = " file://pkgconfig/qbm.pc "
+SRC_URI:append = " file://files/0001-gbm-decouple-gbm-with-downstream-display-driver.patch "
 
-inherit autotools-brokensep pkgconfig
+inherit autotools-brokensep pkgconfig ptest
 
 PACKAGE_ARCH = "${SOC_ARCH}"
 
@@ -47,11 +44,11 @@ PACKAGE_ARCH ?= "${MACHINE_ARCH}"
 
 # The headers for GBM are contained in a completely separate package. Force
 # that subsidiary package to be installed anytime that gbm-dev is.
-RPROVIDES:${PN} += "virtual/libgbm"
+RPROVIDES:${PN} += "virtual/libqbm"
 
 do_install:append(){
     install -d ${D}${libdir}/
-    ln -sf libgbm.so  ${D}${libdir}/libgbm.so.1
+    ln -sf libqbm.so  ${D}${libdir}/libqbm.so.1
 }
 
 SOLIBS = ".so"

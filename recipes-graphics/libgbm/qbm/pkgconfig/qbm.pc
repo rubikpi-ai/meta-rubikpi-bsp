@@ -3,9 +3,9 @@ exec_prefix=OEEXECPREFIX
 libdir=OELIBDIR
 includedir=OEINCDIR
 
-Name: gbm
-Description: gbm library
+Name: qbm
+Description: qbm library
 Requires.private: libudev
 Version: 21.1.1
-Libs: -L${libdir} -lgbm
+Libs: -L${libdir} -lqbm
 Cflags: -I${includedir}
