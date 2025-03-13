@@ -28,6 +28,10 @@ PULSEAUDIO_PKGS:append:qcom-custom-bsp = " \
     pulseaudio-module-pal-card \
     pulseaudio-module-pal-voiceui-card \
 "
+RDEPENDS:${PN} = ' \
+    alsa-utils-alsaucm \
+    alsa-utils-aplay \
+'
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = ' \
     tinyalsa \
