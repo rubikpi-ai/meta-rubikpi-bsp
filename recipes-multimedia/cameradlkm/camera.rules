@@ -1,0 +1,51 @@
+# For Kodiak IDP
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="QCM6490", \
+               ATTR{soc_id}=="497", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcm6490.ko'"
+# For Kodiak RB3
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="QCS6490", \
+               ATTR{soc_id}=="498", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcm6490.ko'"
+# for Lemans Ride-sx-9100 Auto
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="SA8775P", \
+               ATTR{soc_id}=="534", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcs9100.ko'"
+# for Lemans Ride-sx-9100 IOT
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="QCS9100", \
+               ATTR{soc_id}=="667", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcs9100.ko'"
+# for Lemans RB8 - QCS9075
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="QCS9075", \
+               ATTR{soc_id}=="676", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcs9100.ko'"
+#for Monaco
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="SA7255P", \
+               ATTR{soc_id}=="606", \
+               PROGRAM="/bin/uname -r", \
+               ENV{KERNEL_VERSION}="%c", \
+               RUN+="/bin/sh -c '/sbin/insmod /lib/modules/$$KERNEL_VERSION/camera/camera_qcs8300.ko'"
+
+
+

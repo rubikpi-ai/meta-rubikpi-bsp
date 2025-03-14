@@ -42,11 +42,21 @@ do_install[prefuncs] += "get_soc_family"
 
 EXTRA_OEMAKE += "CAMERA_ARCH='${CAMERA_ARCH}' SOC_FAM='${SOC_FAM}' HEADERS_DIR='${HEADERS_DIR}'"
 
-do_install[prefuncs] += "do_module_signing"
+do_install[postfuncs] += "do_module_signing"
 
 do_install:append() {
 	install -d ${D}${includedir}/media
-	install -m 0755 ${B}/sanitized_headers/camera/media/*.h -D ${D}${includedir}/media/
+	if [ "${CAMERA_ARCH}" = "qcm6490" ]; then
+		install -m 0755 ${B}/sanitized_headers/camera_kt/media/*.h -D ${D}${includedir}/media/
+	else
+		install -m 0755 ${B}/sanitized_headers/camera/media/*.h -D ${D}${includedir}/media/
+	fi
         install -d ${D}${includedir}/dt-bindings
         install -m 0644 ${S}/${HEADERS_DIR}/dt-bindings/*.h -D ${D}${includedir}/dt-bindings/
+        install -m 0644 ${THISDIR}/camera.rules -D ${D}${sysconfdir}/udev/rules.d/camera.rules
+        install -d ${D}${sysconfdir}/modprobe.d
+        install -m 0644 ${THISDIR}/*.conf -D ${D}${sysconfdir}/modprobe.d/
 }
+
+FILES:${PN} += "${sysconfdir}/udev/rules.d \
+		${sysconfdir}/modprobe.d"
