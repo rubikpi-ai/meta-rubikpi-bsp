@@ -8,6 +8,7 @@ RRECOMMENDS:${PN} = " \
 "
 
 RRECOMMENDS:${PN}:qcom-base-bsp = " \
+    firmware-qcom-qupv3fw \
     hexagon-dsp-binaries-qcom-sa8775p-ride-adsp \
     hexagon-dsp-binaries-qcom-sa8775p-ride-cdsp \
     hexagon-dsp-binaries-qcom-sa8775p-ride-gdsp \
