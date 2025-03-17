@@ -56,7 +56,6 @@ SRC_URI:append:qcom = "\
             file://0996-QCLINUX-file_contexts.subs_dist-set-aliases-for-var-lib-seli.patch \
             file://0997-QCLINIUX-sepolicy-update-file_contexts.subs_dist-for-support.patch \
             file://0998-refpolicy-config-update-ssh-to-login-in-sysadmin-rol.patch \
-            file://0999-Move-root-user-to-unconfined-context.patch \
 "
 
 EXTRA_OEMAKE += "tc_usrsbindir=${STAGING_SBINDIR_NATIVE}"

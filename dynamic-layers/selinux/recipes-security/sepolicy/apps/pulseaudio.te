@@ -32,3 +32,5 @@ unconfined_stream_connect(pulseaudio_t)
 dev_rw_input_dev(pulseaudio_t)
 qcom_write_bt_src_socket_file(pulseaudio_t)
 qcom_connect_to_bt_socket(pulseaudio_t)
+
+files_read_etc_runtime(pulseaudio_t)
