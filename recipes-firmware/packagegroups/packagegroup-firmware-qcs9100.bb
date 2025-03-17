@@ -8,6 +8,9 @@ RRECOMMENDS:${PN} = " \
 "
 
 RRECOMMENDS:${PN}:qcom-base-bsp = " \
+    hexagon-dsp-binaries-qcom-sa8775p-ride-adsp \
+    hexagon-dsp-binaries-qcom-sa8775p-ride-cdsp \
+    hexagon-dsp-binaries-qcom-sa8775p-ride-gdsp \
     linux-firmware-ath11k-qca6698aq \
     linux-firmware-ath11k-wcn6855 \
     linux-firmware-qca-qca6698 \
