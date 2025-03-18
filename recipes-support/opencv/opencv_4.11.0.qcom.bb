@@ -230,6 +230,6 @@ EXTRA_OECMAKE += " -DWITH_FASTCV=ON "
 do_install:append() {
     rm -f ${D}/usr/lib/libfastcv.a
 }
-COMPATIBLE_MACHINE = "(qcm6490-idp|qcs6490-rb3gen2-vision-kit|qcs6490-rb3gen2-core-kit|qcs6490-rb3gen2-industrial-kit|qcs9100-ride-sx|qcs8300-ride-sx|qcs9075-ride-sx|qcs9075-rb8-core-kit)"
+COMPATIBLE_MACHINE = "(qcm6490-idp|qcs6490-rb3gen2-vision-kit|qcs6490-rb3gen2-core-kit|qcs6490-rb3gen2-industrial-kit|qcs9100-ride-sx|qcs8300-ride-sx|qcs9075-ride-sx|qcs9075-rb8-core-kit|qcs615-adp-air)"
 
 ########## End of Qcom overrides ##########
