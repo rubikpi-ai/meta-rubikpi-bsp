@@ -8,5 +8,6 @@ RRECOMMENDS:${PN} += " \
 "
 
 RRECOMMENDS:${PN}:append:qcom-base-bsp = " \
+    firmware-qcom-gpu \
     linux-firmware-qcom-vpu \
 "
