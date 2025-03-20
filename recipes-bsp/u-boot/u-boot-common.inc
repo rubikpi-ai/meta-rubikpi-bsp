@@ -49,7 +49,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0032-PENDING-Fallback-action-for-u-boot-env.patch \
             file://0033-BACKPORT-UFS-multiple-LUNs-read-fix.patch \
             file://0034-PENDING-Verified-Boot-Add-public-key-info-in-u-boot-.patch \
-            file://0035-PENDING-Add-a-weak-extra-fixup_dt_handler.patch"
+            file://0035-PENDING-Add-a-weak-extra-fixup_dt_handler.patch \
+            file://0036-PENDING-I2C-driver-and-IO-Expander-support-for-qcs91.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
