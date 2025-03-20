@@ -433,4 +433,5 @@ SRC_URI:append = " \
     file://common/0005-FROMLIST-remoteproc-qcom-Add-support-of-SHM-bridge-t.patch \
     file://common/0006-FROMLIST-remoteproc-qcom-Enable-map-unmap-and-SHM-br.patch \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
+    file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
     "
