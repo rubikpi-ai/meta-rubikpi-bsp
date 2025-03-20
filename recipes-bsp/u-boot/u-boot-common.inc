@@ -15,6 +15,7 @@ PE = "1"
 SRCREV = "v2025.01"
 
 SRC_URI = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
+
 SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.patch \
 	    file://0002-PENDING-configs-add-qcm6490_defconfig.patch \
 	    file://0003-PENDING-clk-qcom-add-initial-clock-driver-for-sa8775.patch \
@@ -46,7 +47,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0030-PENDING-Changes-to-enable-Verified-Boot-for-Lemans-i.patch \
             file://0031-PENDING-Update-memory-partition-info-in-dts-from-sme.patch \
             file://0032-PENDING-Fallback-action-for-u-boot-env.patch \
-            file://0033-BACKPORT-UFS-multiple-LUNs-read-fix.patch"
+            file://0033-BACKPORT-UFS-multiple-LUNs-read-fix.patch \
+            file://0034-PENDING-Verified-Boot-Add-public-key-info-in-u-boot-.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
