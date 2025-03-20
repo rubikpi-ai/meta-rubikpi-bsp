@@ -1,0 +1,35 @@
+From b9d5ab3b9d4034087457dbe909501c11516841e3 Mon Sep 17 00:00:00 2001
+From: ZHANG Yuntian <yt@radxa.com>
+Date: Tue, 11 Feb 2025 15:30:27 +0800
+Subject: [PATCH] mbedtls/external: remove broken git submodule
+
+When we squash imported mbedtls, the git submodule "framework" was
+preserved in the commit. However, U-Boot itself does not use git
+submodule, and provides no .gitmodules file to specify the submodule
+repository.
+
+This is normally not an issue when cloning U-Boot repository. However,
+when U-Boot is imported as a submodule, this will break git option
+`--recurse-submodules` as it fails to resolve "framework".
+
+As we do not use the submodule, remove it to unbreak existing workflows.
+
+Fixes: 12f1212e95fe ("Merge commit '0344c602eadc0802776b65ff90f0a02c856cf53c' as 'lib/mbedtls/external/mbedtls'")
+Signed-off-by: ZHANG Yuntian <yt@radxa.com>
+Signed-off-by: Aswin Murugan <quic_aswinm@quicinc.com>
+Upstream-Status: Backport
+---
+ lib/mbedtls/external/mbedtls/framework | 1 -
+ 1 file changed, 1 deletion(-)
+ delete mode 160000 lib/mbedtls/external/mbedtls/framework
+
+diff --git a/lib/mbedtls/external/mbedtls/framework b/lib/mbedtls/external/mbedtls/framework
+deleted file mode 160000
+index 750634d3a5..0000000000
+--- a/lib/mbedtls/external/mbedtls/framework
++++ /dev/null
+@@ -1 +0,0 @@
+-Subproject commit 750634d3a51eb9d61b59fd5d801546927c946588
+-- 
+2.34.1
+
