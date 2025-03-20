@@ -48,7 +48,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0031-PENDING-Update-memory-partition-info-in-dts-from-sme.patch \
             file://0032-PENDING-Fallback-action-for-u-boot-env.patch \
             file://0033-BACKPORT-UFS-multiple-LUNs-read-fix.patch \
-            file://0034-PENDING-Verified-Boot-Add-public-key-info-in-u-boot-.patch"
+            file://0034-PENDING-Verified-Boot-Add-public-key-info-in-u-boot-.patch \
+            file://0035-PENDING-Add-a-weak-extra-fixup_dt_handler.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
