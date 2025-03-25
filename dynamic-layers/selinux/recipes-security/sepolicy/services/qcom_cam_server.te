@@ -60,3 +60,5 @@ corenet_tcp_bind_all_unreserved_ports(qcom_cam_server_t)
 corenet_tcp_bind_all_nodes(qcom_cam_server_t)
 
 qcom_system_alloc_buf_rw(qcom_cam_server_t)
+
+container_stream_connect_spc(qcom_cam_server_t)
