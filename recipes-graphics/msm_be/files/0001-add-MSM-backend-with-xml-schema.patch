@@ -1,16 +1,17 @@
-From 9baafb92b7d1f021c2e2fe9f5bb5a090c1945b47 Mon Sep 17 00:00:00 2001
+From a6e5fc7dc632f36c77e817fe679655f6e369df62 Mon Sep 17 00:00:00 2001
 From: Devanshi Bansal <quic_devanshi@quicinc.com>
-Date: Wed, 26 Feb 2025 09:12:14 +0530
+Date: Wed, 19 Mar 2025 10:12:02 +0530
 Subject: [PATCH] add MSM backend with xml schema
+
 Signed-off-by: Devanshi Bansal <quic_devanshi@quicinc.com>
 
 Upstream-Status: Inappropriate [Downstream]
 ---
  src/gbm/backends/msm/buffer_alloc.c           |   98 ++
  src/gbm/backends/msm/buffer_alloc.h           |   13 +
- src/gbm/backends/msm/buffer_layout.c          |  282 ++++
+ src/gbm/backends/msm/buffer_layout.c          |  285 ++++
  src/gbm/backends/msm/buffer_layout.h          |   21 +
- .../backends/msm/default_fmt_alignment.xml    | 1211 +++++++++++++++++
+ .../backends/msm/default_fmt_alignment.xml    | 1225 +++++++++++++++++
  src/gbm/backends/msm/gbm_msm.c                |  743 ++++++++++
  src/gbm/backends/msm/gbm_msm.h                |   43 +
  src/gbm/backends/msm/gbm_msm_int.h            |   36 +
@@ -19,7 +20,7 @@ Upstream-Status: Inappropriate [Downstream]
  src/gbm/meson.build                           |   34 +
  src/test/gbmtest.c                            |  502 +++++++
  src/test/meson.build                          |   28 +
- 13 files changed, 3283 insertions(+)
+ 13 files changed, 3300 insertions(+)
  create mode 100644 src/gbm/backends/msm/buffer_alloc.c
  create mode 100644 src/gbm/backends/msm/buffer_alloc.h
  create mode 100644 src/gbm/backends/msm/buffer_layout.c
@@ -158,10 +159,10 @@ index 0000000..cbd7ddd
 +int bo_offset(int fd, uint32_t handle, uint64_t *offset);
 diff --git a/src/gbm/backends/msm/buffer_layout.c b/src/gbm/backends/msm/buffer_layout.c
 new file mode 100644
-index 0000000..cd4fa1c
+index 0000000..1c15709
 --- /dev/null
 +++ b/src/gbm/backends/msm/buffer_layout.c
-@@ -0,0 +1,282 @@
+@@ -0,0 +1,285 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -202,8 +203,11 @@ index 0000000..cd4fa1c
 +}
 +
 +void get_plane_width_and_height(uint32_t format, int plane, uint32_t *plane_width, uint32_t *plane_height) {
-+   if (plane == 0)
++   if (plane == 0) {
++     if (format == GBM_FORMAT_GR88)
++       *plane_width *= 2;
 +      return;
++   }
 +
 +   switch(format) {
 +   case GBM_FORMAT_NV12:
@@ -473,10 +477,10 @@ index 0000000..787e6b1
 +                                uint32_t *buffer_width, uint32_t *buffer_height);
 diff --git a/src/gbm/backends/msm/default_fmt_alignment.xml b/src/gbm/backends/msm/default_fmt_alignment.xml
 new file mode 100644
-index 0000000..33299f4
+index 0000000..3d5a8a1
 --- /dev/null
 +++ b/src/gbm/backends/msm/default_fmt_alignment.xml
-@@ -0,0 +1,1211 @@
+@@ -0,0 +1,1225 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<formats>
 +   <format>
@@ -1130,6 +1134,13 @@ index 0000000..33299f4
 +           <plane_name>R</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
++             <pitch_align>128</pitch_align>
++             <height_align>32</height_align>
++             <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
@@ -1154,12 +1165,19 @@ index 0000000..33299f4
 +     <format_name>GR_88</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>2</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>GR</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
++             <pitch_align>128</pitch_align>
++             <height_align>32</height_align>
++             <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
