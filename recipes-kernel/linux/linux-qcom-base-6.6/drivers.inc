@@ -445,4 +445,5 @@ SRC_URI:append = " \
     file://common/0142-QCLINUX-firmware-qcom_scm_addon-Add-function-qcom_sc.patch \
     file://common/0143-QCLINUX-firmware-qcom_scm_addon-Remove-implementatio.patch \
     file://common/0144-QCLINUX-firmware-qcom_scm-allow-scm-addon-to-be-comp.patch \
+    file://common/0141-BACKPORT-driver-bluetooth-hci_qca-fix-SSR-unable-.patch \
     "
