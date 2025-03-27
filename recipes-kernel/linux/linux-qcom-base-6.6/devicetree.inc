@@ -36,6 +36,8 @@ SRC_URI:append = " \
 
 # qcs9100 dtsi patches
 SRC_URI:append = " \
+    file://qcs9100/0001-Revert-arm64-dts-qcom-sa8775p-Update-sleep_clk-frequ.patch \
+    file://qcs9100/0002-Revert-arm64-dts-qcom-move-common-parts-for-sa8775p-.patch \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-add-ADSP-CDSP-and-GP.patch \
     file://qcs9100/0002-BACKPORT-arm64-dts-qcom-sa8775p-Add-llcc-support-for.patch \
     file://qcs9100/0001-UPSTREAM-arm64-dts-qcom-sa8775p-Add-capacity-and-DPC.patch \
@@ -51,7 +53,6 @@ SRC_URI:append = " \
     file://qcs9100/0002-UPSTREAM-arm64-qcom-sa8775p-Add-ADSP-and-CDSP0-fastr.patch \
     file://qcs9100/0003-FROMLIST-arm64-dts-qcom-sa8775p-Add-TCSR-halt-regist.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-pmics-enable-rtc.patch \
-    file://qcs9100/0003-FROMGIT-arm64-dts-qcom-sa8775p-ride-enable-pmm8654au.patch \
     file://qcs9100/0001-arm64-dts-qcom-sa8775p-Add-new-memory-map-updates-to.patch \
     file://qcs9100/0007-FROMLIST-arm64-dts-qcom-sa8775p-add-display-dt-nodes.patch \
     file://qcs9100/0006-FROMLIST-arm64-dts-qcom-sa8775p-add-DisplayPort-devi.patch \
