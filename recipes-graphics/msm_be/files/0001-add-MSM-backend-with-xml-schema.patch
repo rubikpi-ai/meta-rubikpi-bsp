@@ -1,4 +1,4 @@
-From a6e5fc7dc632f36c77e817fe679655f6e369df62 Mon Sep 17 00:00:00 2001
+From 276bc93ddb63776208d14e63591875789b9d0736 Mon Sep 17 00:00:00 2001
 From: Devanshi Bansal <quic_devanshi@quicinc.com>
 Date: Wed, 19 Mar 2025 10:12:02 +0530
 Subject: [PATCH] add MSM backend with xml schema
@@ -12,7 +12,7 @@ Upstream-Status: Inappropriate [Downstream]
  src/gbm/backends/msm/buffer_layout.c          |  285 ++++
  src/gbm/backends/msm/buffer_layout.h          |   21 +
  .../backends/msm/default_fmt_alignment.xml    | 1225 +++++++++++++++++
- src/gbm/backends/msm/gbm_msm.c                |  743 ++++++++++
+ src/gbm/backends/msm/gbm_msm.c                |  748 ++++++++++
  src/gbm/backends/msm/gbm_msm.h                |   43 +
  src/gbm/backends/msm/gbm_msm_int.h            |   36 +
  src/gbm/backends/msm/schema_parser.c          |  221 +++
@@ -20,7 +20,7 @@ Upstream-Status: Inappropriate [Downstream]
  src/gbm/meson.build                           |   34 +
  src/test/gbmtest.c                            |  502 +++++++
  src/test/meson.build                          |   28 +
- 13 files changed, 3300 insertions(+)
+ 13 files changed, 3305 insertions(+)
  create mode 100644 src/gbm/backends/msm/buffer_alloc.c
  create mode 100644 src/gbm/backends/msm/buffer_alloc.h
  create mode 100644 src/gbm/backends/msm/buffer_layout.c
@@ -1708,10 +1708,10 @@ index 0000000..3d5a8a1
 +</formats>
 diff --git a/src/gbm/backends/msm/gbm_msm.c b/src/gbm/backends/msm/gbm_msm.c
 new file mode 100644
-index 0000000..9caab2c
+index 0000000..575b20e
 --- /dev/null
 +++ b/src/gbm/backends/msm/gbm_msm.c
-@@ -0,0 +1,743 @@
+@@ -0,0 +1,748 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -1892,14 +1892,19 @@ index 0000000..9caab2c
 +   FILE *fptr = NULL;
 +   static int count = 1;
 +   const char file_nme[100] = "/var/cache/display/";
++   if (!gbo)
++      return 0;
++
 +   struct gbm_msm_bo *msm_bo = (struct gbm_msm_bo*)gbo;
++   if (!msm_bo)
++      return 0;
++
 +   uint32_t size = msm_bo->size;
 +   int ret = 0;
 +   char tmp_str[50];
 +   uint32_t width = gbo->v0.width;
 +   uint32_t height = gbo->v0.height;
 +   uint32_t format = gbo->v0.format;
-+   int data_fd = msm_bo->fd;
 +
 +   ret = mkdir(file_nme, 777);
 +   if ((ret != 0) && errno != EEXIST) {
@@ -1908,8 +1913,8 @@ index 0000000..9caab2c
 +      return -1;
 +   }
 +
-+   snprintf(tmp_str, sizeof(tmp_str), "gbm_dump_c%d_%d_%d_%d_%d_%s.dat",
-+                    count++,width,height,data_fd,getpid(), func);
++   snprintf(tmp_str, sizeof(tmp_str), "gbm_dump_c%d_%d_%d_%d_%s.dat",
++                    count++,width,height,getpid(), func);
 +
 +   strlcat(file_nme, tmp_str, sizeof(file_nme));
 +   fptr=fopen(file_nme, "w+");
@@ -2007,9 +2012,6 @@ index 0000000..9caab2c
 +   if (allocate_buffer(msm_dev, size, &(bo->base.v0.handle.u32)) != 0)
 +      return NULL;
 +
-+   if (get_fd(msm_dev, bo->base.v0.handle.u32, &(bo->fd)) != 0)
-+      return NULL;
-+
 +   add_gem_handle(bo->base.v0.handle.u32);
 +
 +   if (get_stride(&bufdesc, 0, &(bo->base.v0.stride)) != 0)
@@ -2071,7 +2073,6 @@ index 0000000..9caab2c
 +         return NULL;
 +
 +      bo->modifier = 0;
-+      bo->fd = fd_data->fd;
 +      break;
 +
 +   case GBM_BO_IMPORT_FD_MODIFIER:
@@ -2112,7 +2113,6 @@ index 0000000..9caab2c
 +         return NULL;
 +
 +      bo->modifier = fd_modifer_data->modifier;
-+      bo->fd = fd_modifer_data->fds[0];
 +      break;
 +
 +   default:
@@ -2135,8 +2135,6 @@ index 0000000..9caab2c
 +      return;
 +
 +   remove_gem_handle(msm_dev, bo->base.v0.handle.u32);
-+   if (bo->fd > -1)
-+      close(bo->fd);
 +
 +   if (bo->map) {
 +     void *map_data = bo->map;
@@ -2150,7 +2148,14 @@ index 0000000..9caab2c
 +gbm_msm_bo_get_fd(struct gbm_bo *_bo)
 +{
 +   struct gbm_msm_bo *msm_bo = (struct gbm_msm_bo*)_bo;
-+   return msm_bo->fd;
++
++   int fd;
++   struct gbm_msm_device *msm_dev = gbm_msm_device(_bo->gbm);
++   if (get_fd(msm_dev, _bo->v0.handle.u32, &fd) != 0) {
++      return -1;
++   }
++
++   return fd;
 +}
 +
 +static uint64_t
