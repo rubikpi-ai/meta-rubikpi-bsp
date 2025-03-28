@@ -126,7 +126,7 @@ case "$1" in
 
         echo "WESTON INITIALIZATION STARTUP"
 
-        weston --continue-without-input &
+        weston --idle-time=0 --continue-without-input &
 
         # Wait for wayland socket node to be created with a maximum of 100 attempts.
         attempts=0
