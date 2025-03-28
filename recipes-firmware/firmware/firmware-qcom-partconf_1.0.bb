@@ -38,13 +38,19 @@ python do_install() {
 
     firmware_install(d, fw_file, fw_path)
 
+    import os
+    import shutil
+
     # Remove all files except partition xmls.
     for item in os.listdir(d.getVar('D')):
         name, ext = os.path.splitext(item)
         if name.startswith('partition') and ext == '.xml':
             continue
         else:
-            os.remove(os.path.join(d.getVar('D'), item))
+            if os.path.isdir(os.path.join(d.getVar('D'), item)):
+                shutil.rmtree(os.path.join(d.getVar('D'), item))
+            else:
+                os.remove(os.path.join(d.getVar('D'), item))
 
 }
 
