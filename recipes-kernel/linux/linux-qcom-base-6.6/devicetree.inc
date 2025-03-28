@@ -70,6 +70,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPU-OPP-tables-t.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Add-gpr-node.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Remove-CPUIdle-states.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
