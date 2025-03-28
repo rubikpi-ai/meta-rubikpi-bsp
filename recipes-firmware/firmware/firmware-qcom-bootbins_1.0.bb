@@ -46,11 +46,16 @@ python do_install() {
 inherit deploy
 
 do_deploy() {
-    find "${D}" -name '*.bin' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.elf' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.fv' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.mbn' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.melf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.bin' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.elf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.fv' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.mbn' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.melf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    # Copy sail_nor files to deploydir
+    for f in $(find "${D}/sail_nor" -type f -printf '%P ') ; do
+        install -d ${DEPLOYDIR}/sail_nor
+        install -m 0644 ${D}/sail_nor/$f ${DEPLOYDIR}/sail_nor/$f
+    done
 }
 addtask deploy before do_build after do_install
 
@@ -58,7 +63,7 @@ PACKAGE_ARCH = "${SOC_ARCH}"
 
 PACKAGES += "${PN}-copyright"
 
-FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf"
+FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf /sail_nor/*"
 FILES:${PN}-copyright += "/Qualcomm-Technologies-Inc.-Proprietary"
 
 INSANE_SKIP:${PN} = "arch"
