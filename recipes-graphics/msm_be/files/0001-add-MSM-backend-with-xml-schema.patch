@@ -1,23 +1,27 @@
-From c5f741264d964360a57fab626e00619b8dfd08f8 Mon Sep 17 00:00:00 2001
+From 3667c19b0ca488bc388c7f090614142c86dd2c68 Mon Sep 17 00:00:00 2001
 From: Devanshi Bansal <quic_devanshi@quicinc.com>
-Date: Fri, 7 Feb 2025 19:13:21 +0530
+Date: Thu, 27 Mar 2025 13:49:31 +0530
 Subject: [PATCH] add MSM backend with xml schema
 
+Signed-off-by: Devanshi Bansal <quic_devanshi@quicinc.com>
+
+Upstream-Status: Inappropriate [Downstream]
+
 ---
- src/gbm/backends/msm/buffer_alloc.c           |  105 ++
+ src/gbm/backends/msm/buffer_alloc.c           |   98 ++
  src/gbm/backends/msm/buffer_alloc.h           |   13 +
- src/gbm/backends/msm/buffer_layout.c          |  262 ++++
- src/gbm/backends/msm/buffer_layout.h          |   20 +
- .../backends/msm/default_fmt_alignment.xml    | 1211 +++++++++++++++++
- src/gbm/backends/msm/gbm_msm.c                |  744 ++++++++++
- src/gbm/backends/msm/gbm_msm.h                |   43 +
- src/gbm/backends/msm/gbm_msm_int.h            |   36 +
- src/gbm/backends/msm/schema_parser.c          |  221 +++
+ src/gbm/backends/msm/buffer_layout.c          |  285 ++++
+ src/gbm/backends/msm/buffer_layout.h          |   21 +
+ .../backends/msm/default_fmt_alignment.xml    | 1261 +++++++++++++++++
+ src/gbm/backends/msm/gbm_msm.c                |  755 ++++++++++
+ src/gbm/backends/msm/gbm_msm.h                |   47 +
+ src/gbm/backends/msm/gbm_msm_int.h            |   38 +
+ src/gbm/backends/msm/schema_parser.c          |  222 +++
  src/gbm/backends/msm/schema_parser.h          |   51 +
  src/gbm/meson.build                           |   34 +
  src/test/gbmtest.c                            |  502 +++++++
  src/test/meson.build                          |   28 +
- 13 files changed, 3270 insertions(+)
+ 13 files changed, 3355 insertions(+)
  create mode 100644 src/gbm/backends/msm/buffer_alloc.c
  create mode 100644 src/gbm/backends/msm/buffer_alloc.h
  create mode 100644 src/gbm/backends/msm/buffer_layout.c
@@ -33,10 +37,10 @@ Subject: [PATCH] add MSM backend with xml schema
 
 diff --git a/src/gbm/backends/msm/buffer_alloc.c b/src/gbm/backends/msm/buffer_alloc.c
 new file mode 100644
-index 0000000..5c8677a
+index 0000000..5314b7d
 --- /dev/null
 +++ b/src/gbm/backends/msm/buffer_alloc.c
-@@ -0,0 +1,105 @@
+@@ -0,0 +1,98 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -107,13 +111,6 @@ index 0000000..5c8677a
 +   if (!msm_dev || (msm_dev->base.v0.fd < 0) || (fd < 0))
 +      return -1;
 +
-+
-+   struct stat fileStat;
-+   if (fstat(fd, &fileStat) < 0) {
-+           perror("fstat");
-+   }
-+   printf("GBM Inode: %lu Device ID: %lu FD: %d size=%ld \n", fileStat.st_ino, fileStat.st_dev, fd, fileStat.st_size);
-+
 +   struct drm_prime_handle gemimport_req;
 +   memset(&gemimport_req, 0, sizeof(gemimport_req));
 +   gemimport_req.fd = fd;
@@ -163,10 +160,10 @@ index 0000000..cbd7ddd
 +int bo_offset(int fd, uint32_t handle, uint64_t *offset);
 diff --git a/src/gbm/backends/msm/buffer_layout.c b/src/gbm/backends/msm/buffer_layout.c
 new file mode 100644
-index 0000000..48e38a2
+index 0000000..1c15709
 --- /dev/null
 +++ b/src/gbm/backends/msm/buffer_layout.c
-@@ -0,0 +1,262 @@
+@@ -0,0 +1,285 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -206,24 +203,43 @@ index 0000000..48e38a2
 +   return false;
 +}
 +
-+uint32_t get_plane_height(uint32_t buffer_height, uint32_t format, int plane) {
-+   uint32_t plane_height = buffer_height;
-+
-+   if (plane == 0)
-+      return plane_height;
++void get_plane_width_and_height(uint32_t format, int plane, uint32_t *plane_width, uint32_t *plane_height) {
++   if (plane == 0) {
++     if (format == GBM_FORMAT_GR88)
++       *plane_width *= 2;
++      return;
++   }
 +
 +   switch(format) {
 +   case GBM_FORMAT_NV12:
 +   case GBM_FORMAT_NV21:
 +   case GBM_FORMAT_NV16:
 +   case GBM_FORMAT_NV61:
-+      plane_height = (plane_height+1)>>1;
++      *plane_height /= 2;
 +      break;
++   case GBM_FORMAT_YUV410:
++   case GBM_FORMAT_YVU410:
++   case GBM_FORMAT_YUV411:
++   case GBM_FORMAT_YVU411:
++      *plane_width /= 4;
++      *plane_height /= 4;
++      break;
++   case GBM_FORMAT_YUV420:
++   case GBM_FORMAT_YVU420:
++      *plane_width /= 2;
++      *plane_height /= 2;
++      break;
++   case GBM_FORMAT_YUV422:
++   case GBM_FORMAT_YVU422:
++      *plane_width /= 2;
++      break;
++   case GBM_FORMAT_YUV444:
++   case GBM_FORMAT_YVU444:
++      break;
++
 +   default:
 +      break;
 +   }
-+
-+   return plane_height;
 +}
 +
 +int get_aligned_width_and_height(struct gbm_bufdesc *descriptor, int plane,
@@ -232,7 +248,9 @@ index 0000000..48e38a2
 +   if (!descriptor || !alignedw || !alignedh)
 +      return -1;
 +
-+   uint32_t height = get_plane_height(descriptor->height, descriptor->format, plane);
++   uint32_t width = descriptor->width;
++   uint32_t height = descriptor->height;
++   get_plane_width_and_height(descriptor->format, plane, &width, &height);
 +
 +   const char *format_name = find_format_name(descriptor->format);
 +   if (!format_name) {
@@ -257,7 +275,7 @@ index 0000000..48e38a2
 +      height_align_factor = info->planes[plane].meta_info->height_align;
 +   }
 +
-+   *alignedw = ALIGN(descriptor->width, pitch_align_factor);
++   *alignedw = ALIGN(width, pitch_align_factor);
 +   *alignedh = ALIGN(height, height_align_factor);
 +
 +   return 0;
@@ -337,7 +355,9 @@ index 0000000..48e38a2
 +   if (!descriptor || !metabuffer_size)
 +      return -1;
 +
-+   uint32_t height = get_plane_height(descriptor->height, descriptor->format, plane);
++   uint32_t width = descriptor->width;
++   uint32_t height = descriptor->height;
++   get_plane_width_and_height(descriptor->format, plane, &width, &height);
 +
 +   const char *format_name = find_format_name(descriptor->format);
 +   if (!format_name) {
@@ -362,7 +382,7 @@ index 0000000..48e38a2
 +   uint32_t block_height = info->planes[plane].meta_info->block_height;
 +
 +   int meta_height = ALIGN(((height + block_height - 1) / block_height), 16);
-+   int meta_width = ALIGN(((descriptor->width + block_width - 1) / block_width), 64);
++   int meta_width = ALIGN(((width + block_width - 1) / block_width), 64);
 +   *metabuffer_size = (unsigned int)ALIGN((meta_width * meta_height), 4096);
 +
 +   return 0;
@@ -431,10 +451,10 @@ index 0000000..48e38a2
 +}
 diff --git a/src/gbm/backends/msm/buffer_layout.h b/src/gbm/backends/msm/buffer_layout.h
 new file mode 100644
-index 0000000..cb23e71
+index 0000000..787e6b1
 --- /dev/null
 +++ b/src/gbm/backends/msm/buffer_layout.h
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,21 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -454,13 +474,14 @@ index 0000000..cb23e71
 +int get_size(struct gbm_bufdesc *descriptor, uint32_t *buffer_size);
 +int get_plane_offset(struct gbm_bufdesc *descriptor, int plane, 
 +                     uint32_t *plane_offset);
-+uint32_t get_plane_height(uint32_t buffer_height, uint32_t format, int plane);
++void get_plane_width_and_height(uint32_t format, int plane,
++                                uint32_t *buffer_width, uint32_t *buffer_height);
 diff --git a/src/gbm/backends/msm/default_fmt_alignment.xml b/src/gbm/backends/msm/default_fmt_alignment.xml
 new file mode 100644
-index 0000000..3f569a2
+index 0000000..5cc909a
 --- /dev/null
 +++ b/src/gbm/backends/msm/default_fmt_alignment.xml
-@@ -0,0 +1,1211 @@
+@@ -0,0 +1,1261 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<formats>
 +   <format>
@@ -1084,6 +1105,13 @@ index 0000000..3f569a2
 +           <plane_name>XBGR</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++              <block_width>16</block_width>
++              <block_height>4</block_height>
++              <pitch_align>64</pitch_align>
++              <height_align>16</height_align>
++              <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
@@ -1099,6 +1127,13 @@ index 0000000..3f569a2
 +           <plane_name>ABGR</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++              <block_width>16</block_width>
++              <block_height>4</block_height>
++              <pitch_align>64</pitch_align>
++              <height_align>16</height_align>
++              <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
@@ -1114,6 +1149,13 @@ index 0000000..3f569a2
 +           <plane_name>R</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
++             <pitch_align>128</pitch_align>
++             <height_align>32</height_align>
++             <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
@@ -1138,12 +1180,19 @@ index 0000000..3f569a2
 +     <format_name>GR_88</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>2</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>GR</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
++           <meta_info>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
++             <pitch_align>128</pitch_align>
++             <height_align>32</height_align>
++             <size_align>4096</size_align>
++           </meta_info>
 +         </plane>
 +       </planes>
 +     </constraints>
@@ -1228,15 +1277,15 @@ index 0000000..3f569a2
 +     <format_name>NV_12</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
 +           <meta_info>
-+             <block_width>16</block_width>
-+             <block_height>4</block_height>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
 +             <pitch_align>128</pitch_align>
 +             <height_align>32</height_align>
 +             <size_align>4096</size_align>
@@ -1247,8 +1296,8 @@ index 0000000..3f569a2
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
 +           <meta_info>
-+             <block_width>16</block_width>
-+             <block_height>4</block_height>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
 +             <pitch_align>128</pitch_align>
 +             <height_align>32</height_align>
 +             <size_align>4096</size_align>
@@ -1262,15 +1311,15 @@ index 0000000..3f569a2
 +     <format_name>NV_21</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
 +           <meta_info>
-+             <block_width>16</block_width>
-+             <block_height>4</block_height>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
 +             <pitch_align>128</pitch_align>
 +             <height_align>32</height_align>
 +             <size_align>4096</size_align>
@@ -1281,8 +1330,8 @@ index 0000000..3f569a2
 +           <pitch_align>64</pitch_align>
 +           <height_align>1</height_align>
 +           <meta_info>
-+             <block_width>16</block_width>
-+             <block_height>4</block_height>
++             <block_width>32</block_width>
++             <block_height>8</block_height>
 +             <pitch_align>128</pitch_align>
 +             <height_align>32</height_align>
 +             <size_align>4096</size_align>
@@ -1305,9 +1354,9 @@ index 0000000..3f569a2
 +           <meta_info>
 +             <block_width>16</block_width>
 +             <block_height>4</block_height>
-+	         <pitch_align>128</pitch_align>
-+	         <height_align>16</height_align>
-+	         <size_align>4096</size_align>
++             <pitch_align>128</pitch_align>
++             <height_align>16</height_align>
++             <size_align>4096</size_align>
 +           </meta_info>
 +         </plane>
 +       </planes>
@@ -1392,7 +1441,7 @@ index 0000000..3f569a2
 +           <pitch_align>256</pitch_align>
 +           <height_align>256</height_align>
 +         </plane>
-+		 <plane>
++         <plane>
 +           <plane_name>UV</plane_name>
 +           <pitch_align>256</pitch_align>
 +           <height_align>256</height_align>
@@ -1475,7 +1524,7 @@ index 0000000..3f569a2
 +     <format_name>YUV_411</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
@@ -1500,7 +1549,7 @@ index 0000000..3f569a2
 +     <format_name>YVU_411</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
@@ -1525,7 +1574,7 @@ index 0000000..3f569a2
 +     <format_name>YUV_420</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
@@ -1550,7 +1599,7 @@ index 0000000..3f569a2
 +     <format_name>YVU_420</format_name>
 +     <constraints>
 +       <size_align>1</size_align>
-+       <bpp>1.5</bpp>
++       <bpp>1</bpp>
 +       <planes>
 +         <plane>
 +           <plane_name>Y</plane_name>
@@ -1671,13 +1720,35 @@ index 0000000..3f569a2
 +     </constraints>
 +   </format>
 +
++   <format>
++     <format_name>RGBA_32323232F</format_name>
++     <constraints>
++       <size_align>1</size_align>
++       <bpp>8</bpp>
++       <planes>
++         <plane>
++           <plane_name>RGBA</plane_name>
++           <pitch_align>64</pitch_align>
++           <height_align>1</height_align>
++           <meta_info>
++              <block_width>16</block_width>
++              <block_height>4</block_height>
++              <pitch_align>64</pitch_align>
++              <height_align>16</height_align>
++              <size_align>4096</size_align>
++           </meta_info>
++         </plane>
++       </planes>
++     </constraints>
++   </format>
++	      
 +</formats>
 diff --git a/src/gbm/backends/msm/gbm_msm.c b/src/gbm/backends/msm/gbm_msm.c
 new file mode 100644
-index 0000000..eb509ee
+index 0000000..324f903
 --- /dev/null
 +++ b/src/gbm/backends/msm/gbm_msm.c
-@@ -0,0 +1,744 @@
+@@ -0,0 +1,755 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -1858,14 +1929,19 @@ index 0000000..eb509ee
 +   FILE *fptr = NULL;
 +   static int count = 1;
 +   const char file_nme[100] = "/var/cache/display/";
++   if (!gbo)
++      return 0;
++
 +   struct gbm_msm_bo *msm_bo = (struct gbm_msm_bo*)gbo;
++   if (!msm_bo)
++      return 0;
++
 +   uint32_t size = msm_bo->size;
 +   int ret = 0;
 +   char tmp_str[50];
 +   uint32_t width = gbo->v0.width;
 +   uint32_t height = gbo->v0.height;
-+   uint32_t format = gbo->v0.format;
-+   int data_fd = msm_bo->fd;
++   uint32_t format = msm_bo->gbm_format;
 +
 +   ret = mkdir(file_nme, 777);
 +   if ((ret != 0) && errno != EEXIST) {
@@ -1874,8 +1950,8 @@ index 0000000..eb509ee
 +      return -1;
 +   }
 +
-+   snprintf(tmp_str, sizeof(tmp_str), "gbm_dump_c%d_%d_%d_%d_%d_%s.dat",
-+                    count++,width,height,data_fd,getpid(), func);
++   snprintf(tmp_str, sizeof(tmp_str), "gbm_dump_c%d_%d_%d_%d_%s.dat",
++                    count++,width,height,getpid(), func);
 +
 +   strlcat(file_nme, tmp_str, sizeof(file_nme));
 +   fptr=fopen(file_nme, "w+");
@@ -1909,7 +1985,7 @@ index 0000000..eb509ee
 +   struct gbm_bufdesc bufdesc = {};
 +   bufdesc.width = msm_bo->base.v0.width;
 +   bufdesc.height = msm_bo->base.v0.height;
-+   bufdesc.format = msm_bo->base.v0.format;
++   bufdesc.format = msm_bo->gbm_format;
 +   bufdesc.modifiers = msm_bo->modifier;
 +   if(get_meta_buffer_size(&bufdesc, plane, &size) != 0) {
 +      fprintf(stderr, "Error: failed to get metabuffer size \n");
@@ -1927,7 +2003,7 @@ index 0000000..eb509ee
 +   struct gbm_bufdesc bufdesc = {};
 +   bufdesc.width = msm_bo->base.v0.width;
 +   bufdesc.height = msm_bo->base.v0.height;
-+   bufdesc.format = msm_bo->base.v0.format;
++   bufdesc.format = msm_bo->gbm_format;
 +   bufdesc.modifiers = msm_bo->modifier;
 +
 +   if (get_aligned_width_and_height(&bufdesc, plane, aligned_width, aligned_height) != 0) {
@@ -1954,6 +2030,7 @@ index 0000000..eb509ee
 +   bo->base.v0.width = width;
 +   bo->base.v0.height = height;
 +   bo->base.v0.format = format;
++   bo->gbm_format = format;
 +   for (int m = 0; m < count; m++) {
 +      modifiers_mask |= modifiers[m];
 +   }
@@ -1971,9 +2048,6 @@ index 0000000..eb509ee
 +      return NULL;
 +
 +   if (allocate_buffer(msm_dev, size, &(bo->base.v0.handle.u32)) != 0)
-+      return NULL;
-+
-+   if (get_fd(msm_dev, bo->base.v0.handle.u32, &(bo->fd)) != 0)
 +      return NULL;
 +
 +   add_gem_handle(bo->base.v0.handle.u32);
@@ -2018,10 +2092,11 @@ index 0000000..eb509ee
 +      bo->base.v0.width = fd_data->width;
 +      bo->base.v0.height = fd_data->height;
 +      bo->base.v0.format = fd_data->format;
++      bo->gbm_format = bo->base.v0.format;
 +
 +      bufdesc.width = bo->base.v0.width;
 +      bufdesc.height = bo->base.v0.height;
-+      bufdesc.format = bo->base.v0.format;
++      bufdesc.format = bo->gbm_format;
 +      bufdesc.modifiers = 0;
 +
 +      if (get_num_planes(&bufdesc, &(bo->num_planes)) != 0)
@@ -2037,7 +2112,6 @@ index 0000000..eb509ee
 +         return NULL;
 +
 +      bo->modifier = 0;
-+      bo->fd = fd_data->fd;
 +      break;
 +
 +   case GBM_BO_IMPORT_FD_MODIFIER:
@@ -2059,10 +2133,15 @@ index 0000000..eb509ee
 +      bo->base.v0.width = fd_modifer_data->width;
 +      bo->base.v0.height = fd_modifer_data->height;
 +      bo->base.v0.format = fd_modifer_data->format;
-+
++      if ((bo->base.v0.format == GBM_FORMAT_XBGR16161616F) &&
++          (fd_modifer_data->modifier & DRM_FORMAT_MOD_QCOM_32F)) {
++         bo->gbm_format = GBM_FORMAT_RGBA32323232F;
++      } else {
++         bo->gbm_format = bo->base.v0.format;
++      }
 +      bufdesc.width = bo->base.v0.width;
 +      bufdesc.height = bo->base.v0.height;
-+      bufdesc.format = bo->base.v0.format;
++      bufdesc.format = bo->gbm_format;
 +      bufdesc.modifiers = fd_modifer_data->modifier;
 +
 +      if (get_num_planes(&bufdesc, &(bo->num_planes)) != 0)
@@ -2078,8 +2157,6 @@ index 0000000..eb509ee
 +         return NULL;
 +
 +      bo->modifier = fd_modifer_data->modifier;
-+      bo->fd = fd_modifer_data->fds[0];
-+      printf("GBMMSM bo_import_mod: dev_fd=%d data_fd=%d w=%d h=%d f=%d mod=%ld num_planes=%d\n", msm_dev->base.v0.fd, fd_modifer_data->fds[0], fd_modifer_data->width, fd_modifer_data->height, fd_modifer_data->format, fd_modifer_data->modifier, bo->num_planes);
 +      break;
 +
 +   default:
@@ -2102,8 +2179,6 @@ index 0000000..eb509ee
 +      return;
 +
 +   remove_gem_handle(msm_dev, bo->base.v0.handle.u32);
-+   if (bo->fd > -1)
-+      close(bo->fd);
 +
 +   if (bo->map) {
 +     void *map_data = bo->map;
@@ -2117,7 +2192,14 @@ index 0000000..eb509ee
 +gbm_msm_bo_get_fd(struct gbm_bo *_bo)
 +{
 +   struct gbm_msm_bo *msm_bo = (struct gbm_msm_bo*)_bo;
-+   return msm_bo->fd;
++
++   int fd;
++   struct gbm_msm_device *msm_dev = gbm_msm_device(_bo->gbm);
++   if (get_fd(msm_dev, _bo->v0.handle.u32, &fd) != 0) {
++      return -1;
++   }
++
++   return fd;
 +}
 +
 +static uint64_t
@@ -2134,7 +2216,7 @@ index 0000000..eb509ee
 +   struct gbm_bufdesc bufdesc = {};
 +   bufdesc.width = msm_bo->base.v0.width;
 +   bufdesc.height = msm_bo->base.v0.height;
-+   bufdesc.format = msm_bo->base.v0.format;
++   bufdesc.format = msm_bo->gbm_format;
 +   bufdesc.modifiers = msm_bo->modifier;
 +
 +   uint32_t stride = 0;
@@ -2158,7 +2240,7 @@ index 0000000..eb509ee
 +   struct gbm_bufdesc bufdesc = {};
 +   bufdesc.width = msm_bo->base.v0.width;
 +   bufdesc.height = msm_bo->base.v0.height;
-+   bufdesc.format = msm_bo->base.v0.format;
++   bufdesc.format = msm_bo->gbm_format;
 +   bufdesc.modifiers = msm_bo->modifier;
 +
 +   uint32_t offset = 0;
@@ -2424,10 +2506,10 @@ index 0000000..eb509ee
 +
 diff --git a/src/gbm/backends/msm/gbm_msm.h b/src/gbm/backends/msm/gbm_msm.h
 new file mode 100644
-index 0000000..e9181be
+index 0000000..24ac7c1
 --- /dev/null
 +++ b/src/gbm/backends/msm/gbm_msm.h
-@@ -0,0 +1,43 @@
+@@ -0,0 +1,47 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -2440,8 +2522,11 @@ index 0000000..e9181be
 +#include <gbmint.h>
 +#include <gbm.h>
 +#include <gbm_backend_abi.h>
++#include "drm-uapi/drm_fourcc.h"
 +
 +#define NUM_BACK_BUFFERS 3
++
++#define DRM_FORMAT_MOD_QCOM_32F	fourcc_mod_code(QCOM, 32)
 +
 +struct gbm_msm_bo {
 +   struct gbm_bo base;
@@ -2451,6 +2536,7 @@ index 0000000..e9181be
 +   uint32_t aligned_height;
 +   uint64_t modifier;
 +   uint32_t num_planes;
++   uint32_t gbm_format;
 +   void *map;
 +   int (*bo_dump_buffers)(struct gbm_bo *gbo, char *func);
 +   uint32_t (*bo_get_metabuffer_size)(struct gbm_bo *gbo, int plane);
@@ -2473,10 +2559,10 @@ index 0000000..e9181be
 +#endif
 diff --git a/src/gbm/backends/msm/gbm_msm_int.h b/src/gbm/backends/msm/gbm_msm_int.h
 new file mode 100644
-index 0000000..357c713
+index 0000000..64a2ec1
 --- /dev/null
 +++ b/src/gbm/backends/msm/gbm_msm_int.h
-@@ -0,0 +1,36 @@
+@@ -0,0 +1,38 @@
 +/*
 + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -2489,6 +2575,8 @@ index 0000000..357c713
 +#include <gbmint.h>
 +#include <gbm_backend_abi.h>
 +#include "gbm_msm.h"
++
++#define GBM_FORMAT_RGBA32323232F fourcc_mod_code(QCOM, 56)
 +
 +struct gbm_msm_device {
 +   struct gbm_device base;
@@ -2515,10 +2603,10 @@ index 0000000..357c713
 +#endif
 diff --git a/src/gbm/backends/msm/schema_parser.c b/src/gbm/backends/msm/schema_parser.c
 new file mode 100644
-index 0000000..9f3d85c
+index 0000000..dc61af7
 --- /dev/null
 +++ b/src/gbm/backends/msm/schema_parser.c
-@@ -0,0 +1,221 @@
+@@ -0,0 +1,222 @@
 +/*
 + * Copyright (c) 2024, 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * SPDX-License-Identifier: BSD-3-Clause-Clear
@@ -2602,7 +2690,8 @@ index 0000000..9f3d85c
 +   {"YUV_422", GBM_FORMAT_YUV422},
 +   {"YVU_422", GBM_FORMAT_YVU422},
 +   {"YUV_444", GBM_FORMAT_YUV444},
-+   {"YVU_444", GBM_FORMAT_YVU444}
++   {"YVU_444", GBM_FORMAT_YVU444},
++   {"RGBA_32323232F", GBM_FORMAT_RGBA32323232F}
 +};
 +
 +const char* find_format_name(uint32_t format_enum)

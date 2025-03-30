@@ -66,6 +66,11 @@ SRC_URI:append = " \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-Add-support-for-MBG-TM-for-pm.patch \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-1-.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-add-mst-support-for-pixel-st.patch \
+    file://qcs9100/0002-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
+    file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPU-OPP-tables-t.patch \
+    file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Add-gpr-node.patch \
+    file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Remove-CPUIdle-states.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -95,6 +100,8 @@ SRC_URI:append = " \
     file://qcs9100/0005-arm64-dts-qcom-Add-support-for-QCS9075-Ride-Ride-.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-Enable-usb0-support-on-QCS907.patch \
     file://qcs9100/0012-FROMLIST-arm64-dts-qcom-sa8775p-ride-Add-firmware-name-in-BT-.patch \
+    file://qcs9100/0001-Revert-FROMLIST-arm64-dts-qcom-qcs9100-Update-memory.patch \
+    file://qcs9100/0002-PENDING-arm64-dts-qcom-qcs9xxx-Update-memory-map-for.patch \
     "
 
 # qcs615 dtsi patches
@@ -178,6 +185,11 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-add-a-PCIe-port-for-.patch \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-qcs8300-Add-device-node-for-.patch \
     file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-Add-gpu-and-gmu-node.patch \
+    file://qcs8300/0004-PENDING-arm64-dts-qcom-Add-L3-interconnect-device-fo.patch \
+    file://qcs8300/0003-PENDING-arm64-dts-qcom-qcs8300-Add-support-for-cpufr.patch \
+    file://qcs8300/0004-PENDING-arm64-dts-qcom-qcs8300-Add-LMH-interrupts-fo.patch \
+    file://qcs8300/0005-PENDING-arm64-dts-qcom-Add-static-vote-for-QCS8300.patch \
+    file://qcs8300/0006-PENDING-arm64-dts-qcom-qcs8300-Add-support-to-scale-.patch \
     "
 
 # qcs8300 board dts patches
@@ -249,4 +261,17 @@ SRC_URI:append = " \
     file://qcs9075/0004-PENDING-add-TPG-support-on-camss-for-qcs8300.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs8300-ride.patch \
     file://qcs9075/0008-PENDING-arm64-dts-qcom-qcs9075-rb8-QUP-Firmware-load.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-PCIe0-PCIe.patch \
+    file://addons/0001-QCLINUX-arm64-dts-qcom-Add-msm-id-board-id-for-qcs90.patch \
+    file://qcs9075/0002-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-r.patch \
+    file://qcs9075/0003-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-llcc-node.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Add-UFS-support-for-Q.patch \
+    file://qcs9075/0044-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-support-for-W.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-Display-Po.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-camss-for-qcs9075-rb8.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-Enable-ethernet-on-QC.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-Enable-all-3-usb-controllers-.patch \
+    file://qcs9075/0006-PENDING-arm64-dts-qcom-qcs9075-rb8-Add-sound-node-fo.patch \
+    file://qcs9075/0002-PENDING-arm64-dts-qcom-Rename-qcs9075-rb8-to-qcs9075.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-iq-9075-evk-Add-PSCI-SYSTEM_R.patch \
     "

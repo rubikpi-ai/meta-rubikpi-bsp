@@ -42,7 +42,7 @@ RRECOMMENDS:${PN} = "weston-launch liberation-fonts"
 REQUIRED_DISTRO_FEATURES:remove:qcom = "opengl"
 
 # select compositor, enable simple and demo clients and enable EGL
-PACKAGECONFIG:qcom = " \
+PACKAGECONFIG:qcom = " x11 \
                  egl \
                  clients \
                  shell-desktop \
@@ -50,6 +50,7 @@ PACKAGECONFIG:qcom = " \
                  shell-fullscreen \
                  shell-ivi \
                  image-jpeg \
+                 xwayland \
                  "
 
 PACKAGECONFIG:append:qcm6490 = "kms"
@@ -74,5 +75,6 @@ PACKAGECONFIG[disablepowerkey] = "-Ddisable-power-key=true,-Ddisable-power-key=f
 #}
 
 FILES:${PN} += "${bindir}/*"
+FILES:${PN} += " ${libdir}/libweston-13/*.so"
 FILES:${PN} += " ${libdir}/*.so"
 FILES:${PN} += "${sysconfdir}/xdg/weston/weston.ini"

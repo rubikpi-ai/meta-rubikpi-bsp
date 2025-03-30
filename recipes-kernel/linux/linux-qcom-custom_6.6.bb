@@ -20,6 +20,7 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux_debug.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack_debug.cfg', '', d)} \
+           file://0001-QCLINUX-Add-support-to-compile-msm_display.ko.patch \
            "
 
 S = "${WORKDIR}/kernel"
@@ -128,3 +129,23 @@ do_install:prepend() {
 }
 
 do_package[nostamp] = "1"
+
+# Duplicate msm as msm_default after source unpacking. This is
+# needed to generate both msm.ko with GPU support and msm_display.ko
+# without GPU support. msm folder is patched to generate msm_display.ko.
+# Also blacklist msm module by default. If drm driver is required for
+# GPU, msm can be removed from blacklist and msm_display and msm_kgsl
+# can be added to blacklist.
+python copy_msm() {
+    import shutil
+    import os
+
+    src = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm")
+    dst = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm_default")
+
+    shutil.copytree(src, dst)
+}
+do_unpack[postfuncs] += "copy_msm"
+
+KERNEL_MODULE_PROBECONF += "msm"
+module_conf_msm = "blacklist msm"

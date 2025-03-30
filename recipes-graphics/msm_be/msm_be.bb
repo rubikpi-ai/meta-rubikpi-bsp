@@ -19,6 +19,7 @@ SRC_URI = "https://mesa.freedesktop.org/archive/mesa-24.0.7.tar.xz \
            file://0001-Revert-meson-do-not-pull-in-clc-for-clover.patch \
            file://0001-mesa-add-meson-option-to-compile-standalone-gbm.patch \
            file://0001-add-MSM-backend-with-xml-schema.patch \
+           file://0001-avoid-install-header.patch \
 "
 
 S = "${WORKDIR}/mesa-24.0.7"
@@ -221,19 +222,7 @@ RDEPENDS:libgles3-mesa-dev += "libgles2-mesa-dev"
 
 RDEPENDS:libopencl-mesa += "${@bb.utils.contains('PACKAGECONFIG', 'opencl', 'libclc spirv-tools', '', d)}"
 
-PACKAGES =+ "libegl-mesa libegl-mesa-dev \
-             libosmesa libosmesa-dev \
-             libgl-mesa libgl-mesa-dev \
-             libglx-mesa libglx-mesa-dev \
-             libglapi libglapi-dev \
-             libgbm libgbm-dev \
-             libgles1-mesa libgles1-mesa-dev \
-             libgles2-mesa libgles2-mesa-dev \
-             libgles3-mesa libgles3-mesa-dev \
-             libopencl-mesa libopencl-mesa-dev \
-             libxatracker libxatracker-dev \
-             mesa-megadriver mesa-vulkan-drivers \
-             mesa-vdpau-drivers mesa-tools \
+PACKAGES =+ "msmgbm msmgbm-dev \
             "
 
 do_install:append () {
@@ -321,40 +310,40 @@ PACKAGESPLITFUNCS =+ "mesa_populate_packages"
 PACKAGES_DYNAMIC += "^mesa-driver-.*"
 PACKAGES_DYNAMIC:class-native = "^mesa-driver-.*-native"
 
-FILES:mesa-megadriver = "${libdir}/dri/* ${datadir}/drirc.d"
-FILES:mesa-vulkan-drivers = "${libdir}/libvulkan_*.so ${libdir}/libpowervr_rogue.so ${datadir}/vulkan"
-FILES:${PN}-vdpau-drivers = "${libdir}/vdpau/*.so.*"
-FILES:libegl-mesa = "${libdir}/libEGL*.so.* ${datadir}/glvnd/egl_vendor.d"
-FILES:libgbm = "${libdir}/libgbm.so.*"
-FILES:libgles1-mesa = "${libdir}/libGLESv1*.so.*"
-FILES:libgles2-mesa = "${libdir}/libGLESv2.so.*"
-FILES:libgl-mesa = "${libdir}/libGL.so.*"
-FILES:libglx-mesa = "${libdir}/libGLX*.so.*"
-FILES:libopencl-mesa = "${libdir}/libMesaOpenCL.so.* ${libdir}/gallium-pipe/*.so ${sysconfdir}/OpenCL/vendors/mesa.icd"
-FILES:libglapi = "${libdir}/libglapi.so.*"
-FILES:libosmesa = "${libdir}/libOSMesa.so.*"
-FILES:libxatracker = "${libdir}/libxatracker.so.*"
+# FILES:mesa-megadriver = "${libdir}/dri/* ${datadir}/drirc.d"
+# FILES:mesa-vulkan-drivers = "${libdir}/libvulkan_*.so ${libdir}/libpowervr_rogue.so ${datadir}/vulkan"
+# FILES:${PN}-vdpau-drivers = "${libdir}/vdpau/*.so.*"
+# FILES:libegl-mesa = "${libdir}/libEGL*.so.* ${datadir}/glvnd/egl_vendor.d"
+FILES:msmgbm = "${libdir}/libgbm.so.*"
+# FILES:libgles1-mesa = "${libdir}/libGLESv1*.so.*"
+# FILES:libgles2-mesa = "${libdir}/libGLESv2.so.*"
+# FILES:libgl-mesa = "${libdir}/libGL.so.*"
+# FILES:libglx-mesa = "${libdir}/libGLX*.so.*"
+# FILES:libopencl-mesa = "${libdir}/libMesaOpenCL.so.* ${libdir}/gallium-pipe/*.so ${sysconfdir}/OpenCL/vendors/mesa.icd"
+# FILES:libglapi = "${libdir}/libglapi.so.*"
+# FILES:libosmesa = "${libdir}/libOSMesa.so.*"
+# FILES:libxatracker = "${libdir}/libxatracker.so.*"
 FILES:${PN} = "${libdir}/libgbm.so.* \
                ${libdir}/gbm/default_fmt_alignment.xml \
                ${libdir}/gbm/msm_gbm.so* \"
 
 
 FILES:${PN}-dev = "${libdir}/pkgconfig/dri.pc ${includedir}/vulkan ${libdir}/vdpau/*.so"
-FILES:libegl-mesa-dev = "${libdir}/libEGL*.* ${includedir}/EGL ${includedir}/KHR ${libdir}/pkgconfig/egl.pc"
-FILES:libgbm-dev = "${libdir}/libgbm.* ${libdir}/pkgconfig/gbm.pc ${includedir}/gbm.h ${includedir}/gbm_backend_abi.h ${includedir}/gbmint.h ${includedir}/gbm_msm.h"
-FILES:libgl-mesa-dev = "${libdir}/libGL.* ${includedir}/GL ${libdir}/pkgconfig/gl.pc"
-FILES:libglx-mesa-dev = "${libdir}/libGLX*.*"
-FILES:libglapi-dev = "${libdir}/libglapi.*"
-FILES:libgles1-mesa-dev = "${libdir}/libGLESv1*.* ${includedir}/GLES ${libdir}/pkgconfig/glesv1*.pc"
-FILES:libgles2-mesa-dev = "${libdir}/libGLESv2.* ${includedir}/GLES2 ${libdir}/pkgconfig/glesv2.pc"
-FILES:libgles3-mesa-dev = "${includedir}/GLES3"
-FILES:libopencl-mesa-dev = "${libdir}/libMesaOpenCL.so"
-FILES:libosmesa-dev = "${libdir}/libOSMesa.* ${includedir}/GL/osmesa.h ${libdir}/pkgconfig/osmesa.pc"
-FILES:libxatracker-dev = "${libdir}/libxatracker.so ${libdir}/libxatracker.la \
-                          ${includedir}/xa_tracker.h ${includedir}/xa_composite.h ${includedir}/xa_context.h \
-                          ${libdir}/pkgconfig/xatracker.pc"
+# FILES:libegl-mesa-dev = "${libdir}/libEGL*.* ${includedir}/EGL ${includedir}/KHR ${libdir}/pkgconfig/egl.pc"
+FILES:msmgbm-dev = "${libdir}/libgbm.* ${libdir}/pkgconfig/gbm.pc ${includedir}/gbm.h ${includedir}/gbm_backend_abi.h ${includedir}/gbmint.h ${includedir}/gbm_msm.h"
+# FILES:libgl-mesa-dev = "${libdir}/libGL.* ${includedir}/GL ${libdir}/pkgconfig/gl.pc"
+# FILES:libglx-mesa-dev = "${libdir}/libGLX*.*"
+# FILES:libglapi-dev = "${libdir}/libglapi.*"
+# FILES:libgles1-mesa-dev = "${libdir}/libGLESv1*.* ${includedir}/GLES ${libdir}/pkgconfig/glesv1*.pc"
+# FILES:libgles2-mesa-dev = "${libdir}/libGLESv2.* ${includedir}/GLES2 ${libdir}/pkgconfig/glesv2.pc"
+# FILES:libgles3-mesa-dev = "${includedir}/GLES3"
+# FILES:libopencl-mesa-dev = "${libdir}/libMesaOpenCL.so"
+# FILES:libosmesa-dev = "${libdir}/libOSMesa.* ${includedir}/GL/osmesa.h ${libdir}/pkgconfig/osmesa.pc"
+# FILES:libxatracker-dev = "${libdir}/libxatracker.so ${libdir}/libxatracker.la \
+#                           ${includedir}/xa_tracker.h ${includedir}/xa_composite.h ${includedir}/xa_context.h \
+#                           ${libdir}/pkgconfig/xatracker.pc"
 # catch all to get all the tools and data
-FILES:${PN}-tools = "${bindir} ${datadir}"
+# FILES:${PN}-tools = "${bindir} ${datadir}"
 ALLOW_EMPTY:${PN}-tools = "1"
 INSANE_SKIP:${PN} = "dev-so"
 
