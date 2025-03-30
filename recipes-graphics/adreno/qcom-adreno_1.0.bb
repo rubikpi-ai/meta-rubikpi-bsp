@@ -20,6 +20,14 @@ SRC_URI[qcs8300.sha256sum] = "${QCS8300_SHA256SUM}"
 
 SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
 
+reinstall_files () {
+    install -d ${D}/${libdir}
+    cp ${THISDIR}/glesv1_cm.pc ${D}${libdir}/pkgconfig/
+    install -d ${D}/usr/share/vulkan/icd.d
+    cp ${THISDIR}/adrenovk.json ${D}/usr/share/vulkan/icd.d/
+}
+do_install[postfuncs] += "reinstall_files"
+
 FILES:${PN} = "${includedir}/* \
                ${nonarch_base_libdir}/firmware/* \
                ${nonarch_libdir}/* \
