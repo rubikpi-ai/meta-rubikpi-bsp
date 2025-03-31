@@ -9,7 +9,7 @@ DEPENDS += "virtual/kernel virtual/egl virtual/libgles2"
 
 PBT_ARCH = "armv8-2a"
 
-ARMV8_SHA256SUM = "f8583b230428b8553ea002ff89e9fda3cdf5b69d6a5550ffaf241cdc271a7de9"
+ARMV8_SHA256SUM = "81a9ff3dc9b30605377859385c40dd97e8d17d6a3bf1dc2b5a7a77cdd949a24b"
 SRC_URI[armv8-2a.sha256sum] = "${ARMV8_SHA256SUM}"
 
 SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"

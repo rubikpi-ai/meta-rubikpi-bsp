@@ -7,7 +7,7 @@ DESCRIPTION = "Sensors-utils Library"
 
 DEPENDS += "glib-2.0 property-vault syslog-plumber"
 
-QCM6490_SHA256SUM = "624a9e6f743ab7f60850e00b968f839e15359e0ade0c1f40b0199e12c3f28c39"
+QCM6490_SHA256SUM = "5ff2ae3f1088bd1e0a5a75710792f688bcae4f682b19a45b7b3f88eca92f3086"
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
