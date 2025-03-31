@@ -9,7 +9,7 @@ COMPATIBLE_MACHINE = "(qcom)"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/le-utils.git;protocol=https"
 SRCBRANCH  = "le-utils.qclinux.1.0.r2-rel"
-SRCREV     = "d62cf3063628ffd3ad933ef33a57257ce32d4845"
+SRCREV     = "ffa247efb98ea7cb5182451132d0756b28a1697b"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=le-utils"
 

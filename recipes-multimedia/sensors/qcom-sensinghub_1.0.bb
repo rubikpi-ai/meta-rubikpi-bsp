@@ -10,7 +10,7 @@ DEPENDS += "protobuf-native"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/sensing-hub.git;protocol=https"
 SRCBRANCH  = "sensors.lnx.1.0.r1-rel"
-SRCREV     = "22830c20042404e3260eaa5afe7523d723a7f4e2"
+SRCREV     = "aa8cd5f5e929b2ff8c4f5b4bc414f1b00dff20ef"
 
 SRC_URI  = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=sensors/sensing-hub"
 

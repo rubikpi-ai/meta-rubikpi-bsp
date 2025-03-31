@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec53
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/opensource/camera-devicetree.git;protocol=https"
 SRCBRANCH  = "camera-kernel.qclinux.1.0.r1-rel"
-SRCREV     = "5b9dff584306e4524182a764bfed93cca0cfc6eb"
+SRCREV     = "ca88075dd8d992709062ee5e1149df8408f29fc4"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=vendor/qcom/opensource/camera-devicetree"
 

@@ -13,7 +13,7 @@ COMPATIBLE_MACHINE = "(qcom)"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/la/kernel/qcom.git;protocol=https"
 SRCBRANCH  = "kernel.qclinux.1.0.r1-rel"
-SRCREV     = "0296590122486c15ee6842d0a408c3d5278ab046"
+SRCREV     = "e21546bdd3154f9ee83a579f2e3c80d313c1169d"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux.cfg', '', d)} \

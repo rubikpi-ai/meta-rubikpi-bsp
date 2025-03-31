@@ -7,7 +7,7 @@ DESCRIPTION = "Audio DAC Plugin"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/audio-utils.git;protocol=https"
 SRCBRANCH  = "audio-utils.lnx.1.0.r1-rel"
-SRCREV     = "c8069a70fc7211b50afbf424dc87698f482dc41a"
+SRCREV     = "ae6b1e72e9aa1d52a6cd6825bfeb84051c28298d"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/audio-utils"
 

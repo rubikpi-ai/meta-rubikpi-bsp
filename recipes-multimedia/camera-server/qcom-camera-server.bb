@@ -15,7 +15,7 @@ DEPENDS:append:qcs8300 = " camx"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/le-services.git;protocol=https"
 SRCBRANCH  = "le-services.lnx.1.0.r1-rel"
-SRCREV     = "1b4dcd10792fa347c12fdf567fa2188b431d1f4e"
+SRCREV     = "88521f1616629d7e630009969bb30e663c784d94"
 
 SRC_URI  = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=le-camera-server \
             file://cam-server-env"
