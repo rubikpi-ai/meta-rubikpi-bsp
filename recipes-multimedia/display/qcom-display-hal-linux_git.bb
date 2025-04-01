@@ -12,8 +12,11 @@ LIC_FILES_CHKSUM = " \
 
 PACKAGE_ARCH = "${SOC_ARCH}"
 
-FILESPATH   =+ "${WORKSPACE}:"
-SRC_URI     =  "file://display/hardware/qcom/display/"
+SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/hardware/qcom/display.git;protocol=https"
+SRCBRANCH  = "display.qclinux.1.0.r1-rel"
+SRCREV     = "8ead5844a163d09f0430dc18b0e8074ce9c90d00"
+
+SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/hardware/qcom/display"
 
 S = "${WORKDIR}/display/hardware/qcom/display"
 
