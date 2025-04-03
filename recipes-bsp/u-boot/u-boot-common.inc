@@ -56,7 +56,9 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0039-PENDING-Enable-QUP-SE-clocks-for-I2C-support-in-qcs9.patch \
             file://0041-PENDING-Enable-IO-Expander-for-Display-support-in-qc.patch \
             file://0042-PENDING-Add-QCOM-RPMH-Power-Domain-Driver-Support.patch \
-            file://0043-PENDING-Add-Display-driver-clock-support.patch"
+            file://0043-PENDING-Add-Display-driver-clock-support.patch \
+            file://0044-PENDING-Add-fastboot-select-active-lun-command-suppo.patch \
+            file://0045-PENDING-Update-fastboot-oem-format-command-to-flash-.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
