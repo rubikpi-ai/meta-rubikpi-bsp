@@ -21,6 +21,7 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack_debug.cfg', '', d)} \
            file://0001-QCLINUX-Add-support-to-compile-msm_display.ko.patch \
+           file://0002-QCLINUX-lt9611uxc-changes-to-include-htotal-and-vtot.patch \
            "
 
 S = "${WORKDIR}/kernel"
