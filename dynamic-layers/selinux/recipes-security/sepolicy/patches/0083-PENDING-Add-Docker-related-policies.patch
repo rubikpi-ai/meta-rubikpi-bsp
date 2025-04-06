@@ -67,5 +67,20 @@ index f98e68ba0..b46e264ae 100644
  /etc/docker(/.*)?		gen_context(system_u:object_r:container_config_t,s0)
  /etc/containerd(/.*)?		gen_context(system_u:object_r:container_config_t,s0)
  
+diff --git a/policy/modules/services/container.te b/policy/modules/services/container.te
+index 864fae707..b92f8caab 100644
+--- a/policy/modules/services/container.te
++++ b/policy/modules/services/container.te
+@@ -1109,6 +1109,9 @@ allow spc_t container_config_t:dir watch;
+ allow spc_t container_runtime_t:lnk_file manage_lnk_file_perms;
+ allow spc_t container_runtime_t:file watch;
+ 
++# for Qualcomm
++qcom_weston_dev_socket_connect(spc_t)
++
+ ifdef(`init_systemd',`
+ 	init_dbus_chat(spc_t)
+ 	init_run_bpf(spc_t)
+
 -- 
 2.34.1
