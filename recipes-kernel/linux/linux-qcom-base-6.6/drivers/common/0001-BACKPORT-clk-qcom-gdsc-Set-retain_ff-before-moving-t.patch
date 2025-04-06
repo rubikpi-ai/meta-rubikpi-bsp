@@ -1,0 +1,89 @@
+From 0e8ee17248f3170abb9a17dce101a35c006990e0 Mon Sep 17 00:00:00 2001
+From: Taniya Das <quic_tdas@quicinc.com>
+Date: Fri, 14 Feb 2025 09:56:59 +0530
+Subject: [PATCH 1/2] BACKPORT: clk: qcom: gdsc: Set retain_ff before moving to
+ HW CTRL
+
+Enable the retain_ff_enable bit of GDSCR only if the GDSC is already ON.
+Once the GDSCR moves to HW control, SW no longer can determine the state
+of the GDSCR and setting the retain_ff bit could destroy all the register
+contents we intended to save.
+Therefore, move the retain_ff configuration before switching the GDSC to
+HW trigger mode.
+
+Cc: stable@vger.kernel.org
+Fixes: 173722995cdb ("clk: qcom: gdsc: Add support to enable retention of GSDCR")
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
+Tested-by: Imran Shaik <quic_imrashai@quicinc.com> # on QCS8300
+Link: https://lore.kernel.org/all/20250214-gdsc_fixes-v1-1-73e56d68a80f@quicinc.com/
+Signed-off-by: Dongfang Zhao <quic_doz@quicinc.com>
+Upstream-Status: Backport[https://lore.kernel.org/all/20250214-gdsc_fixes-v1-1-73e56d68a80f@quicinc.com/]
+---
+ drivers/clk/qcom/gdsc.c | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/clk/qcom/gdsc.c b/drivers/clk/qcom/gdsc.c
+index 5358e28122ab..cefd1d1c96ef 100644
+--- a/drivers/clk/qcom/gdsc.c
++++ b/drivers/clk/qcom/gdsc.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+  * Copyright (c) 2015, 2017-2018, 2022, The Linux Foundation. All rights reserved.
++ * Copyright (c) 2025, Qualcomm Innovation Center, Inc. All rights reserved.
+  */
+ 
+ #include <linux/bitops.h>
+@@ -292,6 +293,9 @@ static int gdsc_enable(struct generic_pm_domain *domain)
+ 	 */
+ 	udelay(1);
+ 
++	if (sc->flags & RETAIN_FF_ENABLE)
++		gdsc_retain_ff_on(sc);
++
+ 	/* Turn on HW trigger mode if supported */
+ 	if (sc->flags & HW_CTRL) {
+ 		ret = gdsc_hwctrl(sc, true);
+@@ -308,9 +312,6 @@ static int gdsc_enable(struct generic_pm_domain *domain)
+ 		udelay(1);
+ 	}
+ 
+-	if (sc->flags & RETAIN_FF_ENABLE)
+-		gdsc_retain_ff_on(sc);
+-
+ 	return 0;
+ }
+ 
+@@ -420,13 +421,6 @@ static int gdsc_init(struct gdsc *sc)
+ 				goto err_disable_supply;
+ 		}
+ 
+-		/* Turn on HW trigger mode if supported */
+-		if (sc->flags & HW_CTRL) {
+-			ret = gdsc_hwctrl(sc, true);
+-			if (ret < 0)
+-				goto err_disable_supply;
+-		}
+-
+ 		/*
+ 		 * Make sure the retain bit is set if the GDSC is already on,
+ 		 * otherwise we end up turning off the GDSC and destroying all
+@@ -434,6 +428,14 @@ static int gdsc_init(struct gdsc *sc)
+ 		 */
+ 		if (sc->flags & RETAIN_FF_ENABLE)
+ 			gdsc_retain_ff_on(sc);
++
++		/* Turn on HW trigger mode if supported */
++		if (sc->flags & HW_CTRL) {
++			ret = gdsc_hwctrl(sc, true);
++			if (ret < 0)
++				goto err_disable_supply;
++		}
++
+ 	} else if (sc->flags & ALWAYS_ON) {
+ 		/* If ALWAYS_ON GDSCs are not ON, turn them ON */
+ 		gdsc_enable(&sc->pd);
+-- 
+2.34.1
+

@@ -436,4 +436,8 @@ SRC_URI:append = " \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
     file://qcs615/0001-BACKPORT-UPSTREAM-net-stmmac-fix-TSO-DMA-API-usage-c.patch \
+    file://common/0001-FROMLIST-wifi-ath11k-add-function-to-get-next-srng-d.patch \
+    file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
+    file://common/0001-BACKPORT-clk-qcom-gdsc-Set-retain_ff-before-moving-t.patch \
+    file://common/0002-BACKPORT-clk-qcom-gdsc-Update-the-status-poll-timeou.patch \
     "
