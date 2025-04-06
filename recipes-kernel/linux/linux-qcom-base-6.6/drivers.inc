@@ -440,4 +440,5 @@ SRC_URI:append = " \
     file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
     file://common/0001-BACKPORT-clk-qcom-gdsc-Set-retain_ff-before-moving-t.patch \
     file://common/0002-BACKPORT-clk-qcom-gdsc-Update-the-status-poll-timeou.patch \
+    file://common/0001-FROMLIST-wifi-ath11k-fix-node-corruption-in-ar-arvif.patch \
     "
