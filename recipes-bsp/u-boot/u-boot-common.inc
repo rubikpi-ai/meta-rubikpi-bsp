@@ -53,7 +53,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0036-PENDING-I2C-driver-and-IO-Expander-support-for-qcs91.patch \
             file://0037-PENDING-Enable-pmm8654au-rpmh-regulators-support.patch \
             file://0038-PENDING-Added-Reboot-bootloader-support.patch \
-            file://0039-PENDING-Enable-QUP-SE-clocks-for-I2C-support-in-qcs9.patch"
+            file://0039-PENDING-Enable-QUP-SE-clocks-for-I2C-support-in-qcs9.patch \
+            file://0040-BACKPORT-mbedtls-external-remove-broken-git-submodule.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
