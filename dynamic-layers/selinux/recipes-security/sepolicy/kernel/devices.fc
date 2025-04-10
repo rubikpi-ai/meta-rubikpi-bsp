@@ -21,9 +21,13 @@
 /dev/fastrpc-adsp-secure  -c    gen_context(system_u:object_r:qcom_adsp_secure_device_t,s0)
 /dev/fastrpc-cdsp-secure  -c    gen_context(system_u:object_r:qcom_cdsp_secure_device_t,s0)
 /dev/fastrpc-cdsp1-secure  -c    gen_context(system_u:object_r:qcom_cdsp_secure_device_t,s0)
+/dev/fastrpc-gdsp0-secure  -c    gen_context(system_u:object_r:qcom_gdsp_secure_device_t,s0)
+/dev/fastrpc-gdsp1-secure  -c    gen_context(system_u:object_r:qcom_gdsp_secure_device_t,s0)
 /dev/fastrpc-adsp  -c           gen_context(system_u:object_r:qcom_adsp_device_t,s0)
 /dev/fastrpc-cdsp  -c           gen_context(system_u:object_r:qcom_cdsp_device_t,s0)
 /dev/fastrpc-cdsp1  -c           gen_context(system_u:object_r:qcom_cdsp_device_t,s0)
+/dev/fastrpc-gdsp0  -c           gen_context(system_u:object_r:qcom_gdsp_device_t,s0)
+/dev/fastrpc-gdsp1  -c           gen_context(system_u:object_r:qcom_gdsp_device_t,s0)
 
 /dev/byte-cntr    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)
 /dev/byte-cntr1    -c            gen_context(system_u:object_r:qcom_coresight_device_t,s0)

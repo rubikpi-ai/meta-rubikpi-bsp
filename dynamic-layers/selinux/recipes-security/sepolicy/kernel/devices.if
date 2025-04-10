@@ -180,6 +180,24 @@ interface(`qcom_cdsp_secure_read_device',`
 
 ########################################
 ## <summary>
+##      Allow read/ioctl/open for gdsp secure device.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+##
+
+interface(`qcom_gdsp_secure_read_device',`
+   gen_require(`
+       type device_t, qcom_gdsp_secure_device_t;
+   ')
+   read_chr_files_pattern($1, device_t, qcom_gdsp_secure_device_t)
+')
+
+########################################
+## <summary>
 ##      Allow read/write/ioctl/open for rpmsg device.
 ## </summary>
 ## <param name="domain">
@@ -397,6 +415,23 @@ interface(`qcom_cdsp_rw', `
         type qcom_cdsp_secure_device_t;
     ')
      allow $1 qcom_cdsp_secure_device_t:chr_file { rw_chr_file_perms };
+')
+
+####################################
+## <summary>
+##  Allow read/Write on gdsp device
+## </summary>
+## <param name="domain">
+##    <summary>
+##    Domain allowed access.
+##    </summary>
+## </param>
+#
+interface(`qcom_gdsp_rw', `
+    gen_require(`
+        type qcom_gdsp_secure_device_t;
+    ')
+     allow $1 qcom_gdsp_secure_device_t:chr_file { rw_chr_file_perms };
 ')
 
 ########################################
