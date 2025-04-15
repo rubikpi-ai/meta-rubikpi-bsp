@@ -48,6 +48,8 @@ do_install:append() {
   install -m 0644 ${S}/config/clstc_config_library.xml \
 -D ${D}/usr/data/display/clstc_config_library.xml
   install -m 0644 ${S}/config/${QDCM_JSON} -D ${D}/usr/data/display/${QDCM_JSON}
+  install -m 0644 ${S}/config/qdcm_calib_data_ext_video_mode_dsi_bridge.json \
+-D ${D}/usr/data/display/qdcm_calib_data_ext_video_mode_dsi_bridge.json
 }
 
 PACKAGES = "${PN}-dbg ${PN}-dev ${PN}"
