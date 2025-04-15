@@ -42,7 +42,7 @@ RRECOMMENDS:${PN} = "weston-launch liberation-fonts"
 REQUIRED_DISTRO_FEATURES:remove:qcom = "opengl"
 
 # select compositor, enable simple and demo clients and enable EGL
-PACKAGECONFIG:qcom = " x11 \
+PACKAGECONFIG:qcom = " \
                  egl \
                  clients \
                  shell-desktop \
@@ -50,7 +50,7 @@ PACKAGECONFIG:qcom = " x11 \
                  shell-fullscreen \
                  shell-ivi \
                  image-jpeg \
-                 xwayland \
+                 ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xwayland', '', d)} \
                  "
 
 
