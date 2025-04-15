@@ -17,6 +17,7 @@ RDEPENDS:${PN} = " \
     wayland \
     wayland-protocols \
     weston \
+    xwayland \
     "
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = "\
