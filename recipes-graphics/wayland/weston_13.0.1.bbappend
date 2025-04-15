@@ -54,7 +54,7 @@ PACKAGECONFIG:qcom = " x11 \
                  "
 
 
-PACKAGECONFIG:append:qcm6490 = "kms rdp"
+PACKAGECONFIG:append:qcm6490 = "kms rdp screenshare"
 
 PACKAGECONFIG:append:qcs9100 = "kms"
 PACKAGECONFIG:append:qcs8300 = "kms"
@@ -63,6 +63,7 @@ PACKAGECONFIG:append:qcs615  = "kms"
 # Weston on SDM
 PACKAGECONFIG[sdm] = "-Dbackend-sdm=true,-Dbackend-sdm=false"
 PACKAGECONFIG[rdp] = "-Dbackend-rdp=true,-Dbackend-rdp=false,freerdp"
+PACKAGECONFIG[screenshare] = "-Dscreenshare=true,-Dscreenshare=false"
 # Weston with disabling display power key
 PACKAGECONFIG[disablepowerkey] = "-Ddisable-power-key=true,-Ddisable-power-key=false"
 
