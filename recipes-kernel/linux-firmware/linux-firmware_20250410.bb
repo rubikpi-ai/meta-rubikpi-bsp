@@ -160,7 +160,7 @@ LIC_FILES_CHKSUM = "file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
                     "
 # WHENCE checksum is defined separately to ease overriding it if
 # class-devupstream is selected.
-WHENCE_CHKSUM  = "65c2919e6511a0d348a009ac419375b7"
+WHENCE_CHKSUM  = "7ddfb44c16e34dcd8bbacc4839ab78dc"
 
 # These are not common licenses, set NO_GENERIC_LICENSE for them
 # so that the license files will be copied from fetched source
@@ -250,7 +250,7 @@ SRC_URI:class-devupstream = "git://git.kernel.org/pub/scm/linux/kernel/git/firmw
 # Pin this to the 20220509 release, override this in local.conf
 SRCREV:class-devupstream ?= "b19cbdca78ab2adfd210c91be15a22568e8b8cae"
 
-SRC_URI[sha256sum] = "2de1345897bf839d532c5de0fdb348770ca2a5f4edfb21971582597abb45297d"
+SRC_URI[sha256sum] = "2ae6aab2d8930fd54bf30ae15498f1625721bc3630b894644db5d21fad5a20f9"
 
 inherit allarch
 
@@ -472,14 +472,16 @@ PACKAGES =+ "${PN}-amphion-vpu-license ${PN}-amphion-vpu \
              ${PN}-qcom-venus-1.8 ${PN}-qcom-venus-4.2 ${PN}-qcom-venus-5.2 ${PN}-qcom-venus-5.4 ${PN}-qcom-venus-6.0 \
              ${PN}-qcom-vpu \
              ${PN}-qcom-adreno-a2xx ${PN}-qcom-adreno-a3xx ${PN}-qcom-adreno-a4xx ${PN}-qcom-adreno-a530 \
-             ${PN}-qcom-adreno-a630 ${PN}-qcom-adreno-a650 ${PN}-qcom-adreno-a660 ${PN}-qcom-adreno-a663 \
-             ${PN}-qcom-adreno-a702 ${PN}-qcom-adreno-g750 \
+             ${PN}-qcom-adreno-a623 ${PN}-qcom-adreno-a630 ${PN}-qcom-adreno-a650 ${PN}-qcom-adreno-a660 \
+             ${PN}-qcom-adreno-a663 ${PN}-qcom-adreno-a702 ${PN}-qcom-adreno-g750 \
              ${PN}-qcom-apq8016-modem ${PN}-qcom-apq8016-wifi \
              ${PN}-qcom-apq8096-adreno ${PN}-qcom-apq8096-audio ${PN}-qcom-apq8096-modem \
              ${PN}-qcom-qcm2290-adreno ${PN}-qcom-qcm2290-audio ${PN}-qcom-qcm2290-modem \
              ${PN}-qcom-qcm6490-adreno \
              ${PN}-qcom-qcm6490-audio ${PN}-qcom-qcm6490-compute ${PN}-qcom-qcm6490-ipa ${PN}-qcom-qcm6490-wifi \
              ${PN}-qcom-qcs615-adreno \
+             ${PN}-qcom-qcs8300-adreno ${PN}-qcom-qcs8300-audio ${PN}-qcom-qcs8300-compute \
+             ${PN}-qcom-qcs8300-generalpurpose \
              ${PN}-qcom-qrb4210-adreno \
              ${PN}-qcom-qrb4210-audio ${PN}-qcom-qrb4210-compute ${PN}-qcom-qrb4210-modem \
              ${PN}-qcom-sa8775p-adreno ${PN}-qcom-sa8775p-audio ${PN}-qcom-sa8775p-compute \
@@ -497,7 +499,9 @@ PACKAGES =+ "${PN}-amphion-vpu-license ${PN}-amphion-vpu \
              ${PN}-qcom-sm8650-audio-tplg \
              ${PN}-qcom-x1e80100-adreno ${PN}-qcom-x1e80100-audio \
              ${PN}-qcom-x1e80100-lenovo-t14s-g6-adreno ${PN}-qcom-x1e80100-lenovo-t14s-g6-audio \
-             ${PN}-qcom-x1e80100-lenovo-t14s-g6-compat ${PN}-qcom-x1e80100-lenovo-t14s-g6-compute \
+             ${PN}-qcom-x1e80100-lenovo-t14s-g6-compute ${PN}-qcom-x1e80100-lenovo-t14s-g6-vpu \
+             ${PN}-qcom-x1e80100-lenovo-yoga-slim7x-adreno ${PN}-qcom-x1e80100-lenovo-yoga-slim7x-audio \
+             ${PN}-qcom-x1e80100-lenovo-yoga-slim7x-compute ${PN}-qcom-x1e80100-lenovo-yoga-slim7x-vpu \
              ${PN}-qla2xxx ${PN}-qla2xxx-license \
              ${PN}-rockchip-license ${PN}-rockchip-dptx \
              ${PN}-amlogic-vdec-license ${PN}-amlogic-vdec \
@@ -662,89 +666,94 @@ ALLOW_EMPTY:${PN}-ath12k = "1"
 ALLOW_EMPTY:${PN}-ath12k-misc = "1"
 
 FILES:${PN}-qca-qca61x4-serial = " \
-  ${nonarch_base_libdir}/firmware/qca/nvm_0*.bin \
-  ${nonarch_base_libdir}/firmware/qca/rampatch_0*.bin \
+  ${nonarch_base_libdir}/firmware/qca/nvm_0*.bin* \
+  ${nonarch_base_libdir}/firmware/qca/rampatch_0*.bin* \
 "
 FILES:${PN}-qca-qca61x4-usb = " \
-  ${nonarch_base_libdir}/firmware/qca/rampatch_usb_*.bin \
-  ${nonarch_base_libdir}/firmware/qca/rampatch_usb_*.bin \
+  ${nonarch_base_libdir}/firmware/qca/nvm_usb_*.bin* \
+  ${nonarch_base_libdir}/firmware/qca/rampatch_usb_*.bin* \
+  ${nonarch_base_libdir}/firmware/qca/QCA2066/nvm_usb_00130201_030a.bin* \
+  ${nonarch_base_libdir}/firmware/qca/QCA2066/nvm_usb_00130201_gf_030a.bin* \
+  ${nonarch_base_libdir}/firmware/qca/QCA2066/rampatch_usb_00130201.bin* \
 "
 FILES:${PN}-qca-qca6390 = " \
-  ${nonarch_base_libdir}/firmware/qca/htbtfw20.tlv \
-  ${nonarch_base_libdir}/firmware/qca/htnv20.bin \
+  ${nonarch_base_libdir}/firmware/qca/htbtfw20.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/htnv20.bin* \
 "
 FILES:${PN}-qca-qca6698 = " \
-  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpbtfw21.tlv \
-  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.b206 \
-  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.b207 \
-  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.bin \
+  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpbtfw21.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.b206* \
+  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.b207* \
+  ${nonarch_base_libdir}/firmware/qca/QCA6698/hpnv21.bin* \
 "
 FILES:${PN}-qca-wcn3950 = " \
-  ${nonarch_base_libdir}/firmware/qca/cmbtfw12.tlv \
-  ${nonarch_base_libdir}/firmware/qca/cmbtfw13.tlv \
-  ${nonarch_base_libdir}/firmware/qca/cmnv12.bin \
-  ${nonarch_base_libdir}/firmware/qca/cmnv13.bin \
-  ${nonarch_base_libdir}/firmware/qca/cmnv13s.bin \
-  ${nonarch_base_libdir}/firmware/qca/cmnv13t.bin \
+  ${nonarch_base_libdir}/firmware/qca/cmbtfw12.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/cmbtfw13.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/cmnv12.bin* \
+  ${nonarch_base_libdir}/firmware/qca/cmnv13.bin* \
+  ${nonarch_base_libdir}/firmware/qca/cmnv13s.bin* \
+  ${nonarch_base_libdir}/firmware/qca/cmnv13t.bin* \
 "
 FILES:${PN}-qca-wcn3988 = " \
-  ${nonarch_base_libdir}/firmware/qca/apbtfw10.tlv \
-  ${nonarch_base_libdir}/firmware/qca/apbtfw11.tlv \
-  ${nonarch_base_libdir}/firmware/qca/apnv10.bin \
-  ${nonarch_base_libdir}/firmware/qca/apnv11.bin \
+  ${nonarch_base_libdir}/firmware/qca/apbtfw10.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/apbtfw11.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/apnv10.bin* \
+  ${nonarch_base_libdir}/firmware/qca/apnv11.bin* \
 "
 FILES:${PN}-qca-wcn399x = " \
-  ${nonarch_base_libdir}/firmware/qca/crbtfw21.tlv \
-  ${nonarch_base_libdir}/firmware/qca/crnv21.bin \
-  ${nonarch_base_libdir}/firmware/qca/crbtfw32.tlv \
-  ${nonarch_base_libdir}/firmware/qca/crnv32.bin \
-  ${nonarch_base_libdir}/firmware/qca/crnv32u.bin \
+  ${nonarch_base_libdir}/firmware/qca/crbtfw21.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/crnv21.bin* \
+  ${nonarch_base_libdir}/firmware/qca/crbtfw32.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/crnv32.bin* \
+  ${nonarch_base_libdir}/firmware/qca/crnv32u.bin* \
 "
 FILES:${PN}-qca-wcn6750 = " \
-  ${nonarch_base_libdir}/firmware/qca/msbtfw11.mbn \
-  ${nonarch_base_libdir}/firmware/qca/msbtfw11.tlv \
-  ${nonarch_base_libdir}/firmware/qca/msnv11.bin \
-  ${nonarch_base_libdir}/firmware/qca/msnv11.b0a \
-  ${nonarch_base_libdir}/firmware/qca/msnv11.b09 \
+  ${nonarch_base_libdir}/firmware/qca/msbtfw11.mbn* \
+  ${nonarch_base_libdir}/firmware/qca/msbtfw11.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/msnv11.bin* \
+  ${nonarch_base_libdir}/firmware/qca/msnv11.b0a* \
+  ${nonarch_base_libdir}/firmware/qca/msnv11.b09* \
 "
 FILES:${PN}-qca-qca2066 = " \
-  ${nonarch_base_libdir}/firmware/qca/hpbtfw21.tlv \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.bin \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.bin \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.301 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.302 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.301 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.302 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.309 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.309 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.b8c \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.b9f \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba0 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba1 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba2 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba3 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba4 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.baa \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.bb8 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.b10c \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21.b111 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b8c \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b9f \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba0 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba1 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba2 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba3 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba4 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.baa \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.bb8 \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b10c \
-  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b111 \
+  ${nonarch_base_libdir}/firmware/qca/hpbtfw21.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.bin* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.bin* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.301* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.302* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.301* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.302* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.309* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.309* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.30a* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.30a* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.b8c* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.b9f* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba0* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba1* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba2* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba3* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.ba4* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.baa* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.bb8* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.b10c* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21.b111* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b8c* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b9f* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba0* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba1* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba2* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba3* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.ba4* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.baa* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.bb8* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b10c* \
+  ${nonarch_base_libdir}/firmware/qca/hpnv21g.b111* \
 "
 FILES:${PN}-qca-wcn7850 = " \
-  ${nonarch_base_libdir}/firmware/qca/hmtbtfw20.tlv \
-  ${nonarch_base_libdir}/firmware/qca/hmtnv20.b10f \
-  ${nonarch_base_libdir}/firmware/qca/hmtnv20.b112 \
-  ${nonarch_base_libdir}/firmware/qca/hmtnv20.bin \
+  ${nonarch_base_libdir}/firmware/qca/hmtbtfw20.tlv* \
+  ${nonarch_base_libdir}/firmware/qca/hmtnv20.b10f* \
+  ${nonarch_base_libdir}/firmware/qca/hmtnv20.b112* \
+  ${nonarch_base_libdir}/firmware/qca/hmtnv20.bin* \
 "
 FILES:${PN}-qca-misc = "${nonarch_base_libdir}/firmware/qca/*"
 # -qca is a virtual package that depends upon all qca packages.
@@ -912,45 +921,45 @@ LICENSE:${PN}-amdgpu-vega12 = "Firmware-amdgpu"
 LICENSE:${PN}-amdgpu-misc = "Firmware-amdgpu"
 
 FILES:${PN}-amdgpu-license = "${nonarch_base_libdir}/firmware/LICENSE.amdgpu"
-FILES:${PN}-amdgpu-aldebaran = "${nonarch_base_libdir}/firmware/amdgpu/aldebaran_*.bin"
-FILES:${PN}-amdgpu-carrizo = "${nonarch_base_libdir}/firmware/amdgpu/carrizo_*.bin"
-FILES:${PN}-amdgpu-cezanne = "${nonarch_base_libdir}/firmware/amdgpu/green_sardine_*.bin"
-FILES:${PN}-amdgpu-fiji = "${nonarch_base_libdir}/firmware/amdgpu/fiji_*.bin"
-FILES:${PN}-amdgpu-hawaii = "${nonarch_base_libdir}/firmware/amdgpu/hawaii_*.bin"
-FILES:${PN}-amdgpu-navi10 = "${nonarch_base_libdir}/firmware/amdgpu/navi10_*.bin"
-FILES:${PN}-amdgpu-navi14 = "${nonarch_base_libdir}/firmware/amdgpu/navi14_*.bin"
-FILES:${PN}-amdgpu-navi21 = "${nonarch_base_libdir}/firmware/amdgpu/sienna_cichlid_*.bin"
-FILES:${PN}-amdgpu-navi22 = "${nonarch_base_libdir}/firmware/amdgpu/navy_flounder_*.bin"
-FILES:${PN}-amdgpu-navi23 = "${nonarch_base_libdir}/firmware/amdgpu/dimgrey_cavefish_*.bin"
-FILES:${PN}-amdgpu-navi24 = "${nonarch_base_libdir}/firmware/amdgpu/beige_goby_*.bin"
-FILES:${PN}-amdgpu-navi31 = "${nonarch_base_libdir}/firmware/amdgpu/gc_11_0_0_*.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_0_sos.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_0_ta.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/smu_13_0_0.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/dcn_3_2_0_dmcub.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/sdma_6_0_0.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/vcn_4_0_0.bin \
+FILES:${PN}-amdgpu-aldebaran = "${nonarch_base_libdir}/firmware/amdgpu/aldebaran_*.bin*"
+FILES:${PN}-amdgpu-carrizo = "${nonarch_base_libdir}/firmware/amdgpu/carrizo_*.bin*"
+FILES:${PN}-amdgpu-cezanne = "${nonarch_base_libdir}/firmware/amdgpu/green_sardine_*.bin*"
+FILES:${PN}-amdgpu-fiji = "${nonarch_base_libdir}/firmware/amdgpu/fiji_*.bin*"
+FILES:${PN}-amdgpu-hawaii = "${nonarch_base_libdir}/firmware/amdgpu/hawaii_*.bin*"
+FILES:${PN}-amdgpu-navi10 = "${nonarch_base_libdir}/firmware/amdgpu/navi10_*.bin*"
+FILES:${PN}-amdgpu-navi14 = "${nonarch_base_libdir}/firmware/amdgpu/navi14_*.bin*"
+FILES:${PN}-amdgpu-navi21 = "${nonarch_base_libdir}/firmware/amdgpu/sienna_cichlid_*.bin*"
+FILES:${PN}-amdgpu-navi22 = "${nonarch_base_libdir}/firmware/amdgpu/navy_flounder_*.bin*"
+FILES:${PN}-amdgpu-navi23 = "${nonarch_base_libdir}/firmware/amdgpu/dimgrey_cavefish_*.bin*"
+FILES:${PN}-amdgpu-navi24 = "${nonarch_base_libdir}/firmware/amdgpu/beige_goby_*.bin*"
+FILES:${PN}-amdgpu-navi31 = "${nonarch_base_libdir}/firmware/amdgpu/gc_11_0_0_*.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_0_sos.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_0_ta.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/smu_13_0_0.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/dcn_3_2_0_dmcub.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/sdma_6_0_0.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/vcn_4_0_0.bin* \
 "
-FILES:${PN}-amdgpu-navi32 = "${nonarch_base_libdir}/firmware/amdgpu/dcn_3_2_0_dmcub.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/gc_11_0_3_*.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_10_sos.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_10_ta.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/sdma_6_0_3.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/smu_13_0_10.bin \
-    ${nonarch_base_libdir}/firmware/amdgpu/vcn_4_0_0.bin \
+FILES:${PN}-amdgpu-navi32 = "${nonarch_base_libdir}/firmware/amdgpu/dcn_3_2_0_dmcub.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/gc_11_0_3_*.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_10_sos.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/psp_13_0_10_ta.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/sdma_6_0_3.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/smu_13_0_10.bin* \
+    ${nonarch_base_libdir}/firmware/amdgpu/vcn_4_0_0.bin* \
 "
-FILES:${PN}-amdgpu-oland = "${nonarch_base_libdir}/firmware/amdgpu/oland_*.bin"
-FILES:${PN}-amdgpu-polaris10 = "${nonarch_base_libdir}/firmware/amdgpu/polaris10_*.bin"
-FILES:${PN}-amdgpu-polaris11 = "${nonarch_base_libdir}/firmware/amdgpu/polaris11_*.bin"
-FILES:${PN}-amdgpu-polaris12 = "${nonarch_base_libdir}/firmware/amdgpu/polaris12_*.bin"
-FILES:${PN}-amdgpu-raven = "${nonarch_base_libdir}/firmware/amdgpu/raven_*.bin"
-FILES:${PN}-amdgpu-rembrandt = "${nonarch_base_libdir}/firmware/amdgpu/yellow_carp_*.bin"
-FILES:${PN}-amdgpu-renoir = "${nonarch_base_libdir}/firmware/amdgpu/renoir_*.bin"
-FILES:${PN}-amdgpu-stoney = "${nonarch_base_libdir}/firmware/amdgpu/stoney_*.bin"
-FILES:${PN}-amdgpu-tonga = "${nonarch_base_libdir}/firmware/amdgpu/tonga_*.bin"
-FILES:${PN}-amdgpu-topaz = "${nonarch_base_libdir}/firmware/amdgpu/topaz_*.bin"
-FILES:${PN}-amdgpu-vega10 = "${nonarch_base_libdir}/firmware/amdgpu/vega10_*.bin"
-FILES:${PN}-amdgpu-vega12 = "${nonarch_base_libdir}/firmware/amdgpu/vega12_*.bin"
+FILES:${PN}-amdgpu-oland = "${nonarch_base_libdir}/firmware/amdgpu/oland_*.bin*"
+FILES:${PN}-amdgpu-polaris10 = "${nonarch_base_libdir}/firmware/amdgpu/polaris10_*.bin*"
+FILES:${PN}-amdgpu-polaris11 = "${nonarch_base_libdir}/firmware/amdgpu/polaris11_*.bin*"
+FILES:${PN}-amdgpu-polaris12 = "${nonarch_base_libdir}/firmware/amdgpu/polaris12_*.bin*"
+FILES:${PN}-amdgpu-raven = "${nonarch_base_libdir}/firmware/amdgpu/raven_*.bin*"
+FILES:${PN}-amdgpu-rembrandt = "${nonarch_base_libdir}/firmware/amdgpu/yellow_carp_*.bin*"
+FILES:${PN}-amdgpu-renoir = "${nonarch_base_libdir}/firmware/amdgpu/renoir_*.bin*"
+FILES:${PN}-amdgpu-stoney = "${nonarch_base_libdir}/firmware/amdgpu/stoney_*.bin*"
+FILES:${PN}-amdgpu-tonga = "${nonarch_base_libdir}/firmware/amdgpu/tonga_*.bin*"
+FILES:${PN}-amdgpu-topaz = "${nonarch_base_libdir}/firmware/amdgpu/topaz_*.bin*"
+FILES:${PN}-amdgpu-vega10 = "${nonarch_base_libdir}/firmware/amdgpu/vega10_*.bin*"
+FILES:${PN}-amdgpu-vega12 = "${nonarch_base_libdir}/firmware/amdgpu/vega12_*.bin*"
 FILES:${PN}-amdgpu-misc = "${nonarch_base_libdir}/firmware/amdgpu/*"
 # -amdgpu is a virtual package that depends upon all amdgpu packages.
 ALLOW_EMPTY:${PN}-amdgpu = "1"
@@ -1500,8 +1509,8 @@ FILES:${PN}-bcm43362 = "${nonarch_base_libdir}/firmware/brcm/brcmfmac43362-sdio.
   ${nonarch_base_libdir}/firmware/cypress/cyfmac43362-sdio.*"
 FILES:${PN}-bcm43430 = "${nonarch_base_libdir}/firmware/brcm/brcmfmac43430-sdio.* \
   ${nonarch_base_libdir}/firmware/cypress/cyfmac43430-sdio.*"
-FILES:${PN}-bcm4354 = "${nonarch_base_libdir}/firmware/brcm/brcmfmac4354-sdio.bin \
-  ${nonarch_base_libdir}/firmware/cypress/cyfmac4354-sdio.bin \
+FILES:${PN}-bcm4354 = "${nonarch_base_libdir}/firmware/brcm/brcmfmac4354-sdio.bin* \
+  ${nonarch_base_libdir}/firmware/cypress/cyfmac4354-sdio.bin* \
 "
 FILES:${PN}-bcm4356-pcie = "${nonarch_base_libdir}/firmware/brcm/brcmfmac4356-pcie.* \
   ${nonarch_base_libdir}/firmware/cypress/cyfmac4356-pcie.* \
@@ -1783,6 +1792,7 @@ LICENSE:${PN}-qcom-adreno-a2xx = "Firmware-qcom Firmware-qcom-yamato"
 LICENSE:${PN}-qcom-adreno-a3xx = "Firmware-qcom"
 LICENSE:${PN}-qcom-adreno-a4xx = "Firmware-qcom"
 LICENSE:${PN}-qcom-adreno-a530 = "Firmware-qcom"
+LICENSE:${PN}-qcom-adreno-a623 = "Firmware-qcom"
 LICENSE:${PN}-qcom-adreno-a630 = "Firmware-qcom"
 LICENSE:${PN}-qcom-adreno-a650 = "Firmware-qcom"
 LICENSE:${PN}-qcom-adreno-a660 = "Firmware-qcom"
@@ -1804,6 +1814,10 @@ LICENSE:${PN}-qcom-qcm6490-compute  = "Firmware-qcom"
 LICENSE:${PN}-qcom-qcm6490-ipa  = "Firmware-qcom"
 LICENSE:${PN}-qcom-qcm6490-wifi  = "Firmware-qcom"
 LICENSE:${PN}-qcom-qcs615-adreno = "Firmware-qcom"
+LICENSE:${PN}-qcom-qcs8300-adreno = "Firmware-qcom"
+LICENSE:${PN}-qcom-qcs8300-audio = "Firmware-qcom-2"
+LICENSE:${PN}-qcom-qcs8300-compute = "Firmware-qcom-2"
+LICENSE:${PN}-qcom-qcs8300-generalpurpose = "Firmware-qcom-2"
 LICENSE:${PN}-qcom-qrb4210-adreno = "Firmware-qcom"
 LICENSE:${PN}-qcom-qrb4210-audio = "Firmware-qcom"
 LICENSE:${PN}-qcom-qrb4210-compute  = "Firmware-qcom"
@@ -1831,8 +1845,13 @@ LICENSE:${PN}-qcom-sm8650-audio-tplg = "Firmware-linaro"
 LICENSE:${PN}-qcom-x1e80100-adreno = "Firmware-qcom"
 LICENSE:${PN}-qcom-x1e80100-audio = "Firmware-qcom"
 LICENSE:${PN}-qcom-x1e80100-lenovo-t14s-g6-adreno = "Firmware-qcom"
-LICENSE:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "Firmware-qcom"
+LICENSE:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "Firmware-qcom & Firmware-linaro"
 LICENSE:${PN}-qcom-x1e80100-lenovo-t14s-g6-compute = "Firmware-qcom"
+LICENSE:${PN}-qcom-x1e80100-lenovo-t14s-g6-vpu = "Firmware-qcom"
+LICENSE:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-adreno = "Firmware-qcom"
+LICENSE:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-audio = "Firmware-qcom & Firmware-linaro"
+LICENSE:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-compute = "Firmware-qcom"
+LICENSE:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-vpu = "Firmware-qcom"
 
 FILES:${PN}-qcom-license   = "${nonarch_base_libdir}/firmware/LICENSE.qcom ${nonarch_base_libdir}/firmware/qcom/NOTICE.txt"
 FILES:${PN}-qcom-2-license   = "${nonarch_base_libdir}/firmware/LICENSE.qcom-2"
@@ -1851,10 +1870,11 @@ FILES:${PN}-qcom-vpu = " \
     ${nonarch_base_libdir}/firmware/qcom/vpu-1.0/* \
     ${nonarch_base_libdir}/firmware/qcom/vpu-2.0/* \
 "
-FILES:${PN}-qcom-adreno-a2xx = "${nonarch_base_libdir}/firmware/qcom/leia_*.fw* ${nonarch_base_libdir}/firmware/qcom/yamato_*.fw*"
+FILES:${PN}-qcom-adreno-a2xx = "${nonarch_base_libdir}/firmware/qcom/leia_*.fw* ${nonarch_base_libdir}/firmware/qcom/yamato_*.fw* ${nonarch_base_libdir}/firmware/qcom/a2*_*.fw*"
 FILES:${PN}-qcom-adreno-a3xx = "${nonarch_base_libdir}/firmware/qcom/a3*_*.fw* ${nonarch_base_libdir}/firmware/a300_*.fw*"
 FILES:${PN}-qcom-adreno-a4xx = "${nonarch_base_libdir}/firmware/qcom/a4*_*.fw*"
 FILES:${PN}-qcom-adreno-a530 = "${nonarch_base_libdir}/firmware/qcom/a530*.fw*"
+FILES:${PN}-qcom-adreno-a623 = "${nonarch_base_libdir}/firmware/qcom/a623*.*"
 FILES:${PN}-qcom-adreno-a630 = "${nonarch_base_libdir}/firmware/qcom/a630*.*"
 FILES:${PN}-qcom-adreno-a650 = "${nonarch_base_libdir}/firmware/qcom/a650*.*"
 FILES:${PN}-qcom-adreno-a660 = "${nonarch_base_libdir}/firmware/qcom/a660*.*"
@@ -1876,6 +1896,10 @@ FILES:${PN}-qcom-qcm6490-compute = "${nonarch_base_libdir}/firmware/qcom/qc[ms]6
 FILES:${PN}-qcom-qcm6490-ipa = "${nonarch_base_libdir}/firmware/qcom/qcm6490/ipa_fws.mbn"
 FILES:${PN}-qcom-qcm6490-wifi = "${nonarch_base_libdir}/firmware/qcom/qc[ms]6490/wpss.mbn*"
 FILES:${PN}-qcom-qcs615-adreno = "${nonarch_base_libdir}/firmware/qcom/qcs615/a612_zap.mbn*"
+FILES:${PN}-qcom-qcs8300-adreno = "${nonarch_base_libdir}/firmware/qcom/qcs8300/a623_zap.mbn*"
+FILES:${PN}-qcom-qcs8300-audio = "${nonarch_base_libdir}/firmware/qcom/qcs8300/adsp*.*"
+FILES:${PN}-qcom-qcs8300-compute = "${nonarch_base_libdir}/firmware/qcom/qcs8300/cdsp*.*"
+FILES:${PN}-qcom-qcs8300-generalpurpose = "${nonarch_base_libdir}/firmware/qcom/qcs8300/gpdsp*.*"
 FILES:${PN}-qcom-qrb4210-adreno = "${nonarch_base_libdir}/firmware/qcom/qrb4210/a610_zap.mbn*"
 FILES:${PN}-qcom-qrb4210-audio = "${nonarch_base_libdir}/firmware/qcom/qrb4210/adsp*.*"
 FILES:${PN}-qcom-qrb4210-compute = "${nonarch_base_libdir}/firmware/qcom/qrb4210/cdsp*.*"
@@ -1904,10 +1928,14 @@ FILES:${PN}-qcom-sm8550-audio-tplg = "${nonarch_base_libdir}/firmware/qcom/sm855
 FILES:${PN}-qcom-sm8650-audio-tplg = "${nonarch_base_libdir}/firmware/qcom/sm8650/*tplg.bin*"
 FILES:${PN}-qcom-x1e80100-adreno = "${nonarch_base_libdir}/firmware/qcom/x1e80100/gen70500_zap.mbn*"
 FILES:${PN}-qcom-x1e80100-audio = "${nonarch_base_libdir}/firmware/qcom/x1e80100/adsp*.* ${nonarch_base_libdir}/firmware/qcom/x1e80100/battmgr.jsn"
-FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-compat = "${nonarch_base_libdir}/firmware/qcom/21N1"
 FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-adreno = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/qcdxkmsuc8380.mbn*"
-FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/*adsp*.* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/battmgr.jsn*"
+FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/*adsp*.* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/battmgr.jsn* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/X1E80100-LENOVO-Thinkpad-T14s-tplg.bin* ${nonarch_base_libdir}/firmware/qcom/x1e80100/X1E80100-LENOVO-Thinkpad-T14s-tplg.bin*"
 FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-compute = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/*cdsp*.*"
+FILES:${PN}-qcom-x1e80100-lenovo-t14s-g6-vpu = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/21N1/qcvss8380.mbn*"
+FILES:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-adreno = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/qcdxkmsuc8380.mbn*"
+FILES:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-audio = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/*adsp*.* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/battmgr.jsn* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/X1E80100-LENOVO-Yoga-Slim7x-tplg.bin* ${nonarch_base_libdir}/firmware/qcom/x1e80100/X1E80100-LENOVO-Yoga-Slim7x-tplg.bin*"
+FILES:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-compute = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/*cdsp*.*"
+FILES:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-vpu = "${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/qcvss8380.mbn* ${nonarch_base_libdir}/firmware/qcom/x1e80100/LENOVO/83ED/qcav1e8380.mbn*"
 
 RDEPENDS:${PN}-qcom-aic100 = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-qdu100 = "${PN}-qcom-license"
@@ -1922,6 +1950,7 @@ RDEPENDS:${PN}-qcom-adreno-a2xx = "${PN}-qcom-license ${PN}-qcom-yamato-license"
 RDEPENDS:${PN}-qcom-adreno-a3xx = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-adreno-a4xx = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-adreno-a530 = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-adreno-a623 = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-adreno-a630 = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-adreno-a650 = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-adreno-a660 = "${PN}-qcom-license"
@@ -1945,7 +1974,12 @@ RDEPENDS:${PN}-qcom-qcm6490-compute = "${PN}-qcom-license"
 RPROVIDES:${PN}-qcom-qcm6490-compute = "${PN}-qcom-qcs6490-compute"
 RDEPENDS:${PN}-qcom-qcm6490-ipa = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-qcm6490-wifi = "${PN}-qcom-license"
+RPROVIDES:${PN}-qcom-qcm6490-wifi = "${PN}-qcom-qcs6490-wifi"
 RDEPENDS:${PN}-qcom-qcs615-adreno = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-qcs8300-adreno = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-qcs8300-audio = "${PN}-qcom-2-license"
+RDEPENDS:${PN}-qcom-qcs8300-compute = "${PN}-qcom-2-license"
+RDEPENDS:${PN}-qcom-qcs8300-generalpurpose = "${PN}-qcom-2-license"
 RDEPENDS:${PN}-qcom-qrb4210-adreno = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-qrb4210-audio = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-qrb4210-compute = "${PN}-qcom-license"
@@ -1975,17 +2009,17 @@ RDEPENDS:${PN}-qcom-sm8650-audio-tplg = "${PN}-linaro-license"
 RDEPENDS:${PN}-qcom-x1e80100-adreno = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-x1e80100-audio = "${PN}-qcom-license"
 RDEPENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-adreno = "${PN}-qcom-license"
-RDEPENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "${PN}-qcom-license ${PN}-linaro-license"
 RDEPENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-compute = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-adreno = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-audio = "${PN}-qcom-license ${PN}-linaro-license"
+RDEPENDS:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-compute = "${PN}-qcom-license"
+RDEPENDS:${PN}-qcom-x1e80100-lenovo-yoga-slim7x-vpu = "${PN}-qcom-license"
 
 RRECOMMENDS:${PN}-qcom-sc8280xp-lenovo-x13s-audio = "${PN}-qcom-sc8280xp-lenovo-x13s-compat"
 RRECOMMENDS:${PN}-qcom-sc8280xp-lenovo-x13s-adreno = "${PN}-qcom-sc8280xp-lenovo-x13s-compat"
 RRECOMMENDS:${PN}-qcom-sc8280xp-lenovo-x13s-compute = "${PN}-qcom-sc8280xp-lenovo-x13s-compat"
 RRECOMMENDS:${PN}-qcom-sc8280xp-lenovo-x13s-sensors = "${PN}-qcom-sc8280xp-lenovo-x13s-compat"
-
-RRECOMMENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-adreno = "${PN}-qcom-x1e80100-lenovo-t14s-g6-compat"
-RRECOMMENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-audio = "${PN}-qcom-x1e80100-lenovo-t14s-g6-compat"
-RRECOMMENDS:${PN}-qcom-x1e80100-lenovo-t14s-g6-compute = "${PN}-qcom-x1e80100-lenovo-t14s-g6-compat"
 
 LICENSE:${PN}-liquidui = "Firmware-cavium_liquidio"
 FILES:${PN}-liquidio = "${nonarch_base_libdir}/firmware/liquidio"
