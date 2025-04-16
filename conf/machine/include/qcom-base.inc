@@ -29,9 +29,8 @@ PREFERRED_PROVIDER_virtual/libgles1-native = "mesa-native"
 PREFERRED_PROVIDER_virtual/libgles2-native = "mesa-native"
 
 # Provider for libgbm
-PREFERRED_PROVIDER_virtual/libgbm ?= "msm"
 PREFERRED_PROVIDER_virtual/libqbm ?= "qbm"
-PREFERRED_PROVIDER_virtual/libgbm:qcom-base-bsp ?= "mesa"
+PREFERRED_PROVIDER_virtual/libgbm = "${@'msm' if d.getVar('GL_PROVIDER') == 'qcom-adreno' else 'mesa'}"
 
 # Provider for linux kernel
 # qcom-base-bsp uses 'linux-qcom-base' as kernel
