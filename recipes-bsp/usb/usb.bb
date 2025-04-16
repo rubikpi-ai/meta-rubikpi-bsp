@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=7a434440b651f4a4
 SRC_URI = "file://usb.service \
            file://qusb \
 	   file://usb_bind.rules \
+	   file://usb-autosuspend.rules \
 	   file://var-usbfw.mount"
 
 do_install() {
@@ -16,6 +17,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/usb.service -D ${D}${systemd_unitdir}/system/usb.service
 	install -d ${D}${sysconfdir}/udev/rules.d/
 	install -m 0644 ${WORKDIR}/usb_bind.rules ${D}${sysconfdir}/udev/rules.d/
+	install -m 0644 ${WORKDIR}/usb-autosuspend.rules ${D}${sysconfdir}/udev/rules.d/
 }
 
 do_install:append:qcm6490 () {
@@ -28,7 +30,8 @@ do_install:append:qcm6490 () {
 
 FILES:${PN} += "${systemd_unitdir}/system/ \
 		${bindir} \
-		${nonarch_base_libdir}/udev/rules.d/usb_bind.rules"
+		${nonarch_base_libdir}/udev/rules.d/usb_bind.rules \
+		${nonarch_base_libdir}/udev/rules.d/usb-autosuspend.rules"
 
 FILES:${PN}:append:qcm6490 = " ${systemd_unitdir}/system/* \
 				${nonarch_base_libdir}/firmware/*"
