@@ -145,7 +145,8 @@ python copy_msm() {
     src = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm")
     dst = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm_default")
 
-    shutil.copytree(src, dst)
+    if not os.path.exists(dst):
+        shutil.copytree(src, dst)
 }
 do_unpack[postfuncs] += "copy_msm"
 
