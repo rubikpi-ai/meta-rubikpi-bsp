@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://src/fastrpc_apps_user.c;beginline=1;endline=2;md5=a5b
 
 COMPATIBLE_MACHINE = "(qcom)"
 
-SRCREV = "${AUTOREV}"
+SRCREV = "abbd72146ab3f44a9421363d5d70eab4b5ba4f99"
 
 FILESEXTRAPATHS:prepend:qcom := "${THISDIR}/${BPN}:"
 
