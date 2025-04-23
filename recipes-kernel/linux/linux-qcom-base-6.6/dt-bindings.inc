@@ -150,4 +150,5 @@ SRC_URI:append = " \
     file://common/0001-FROMLIST-dt-bindings-remoteproc-qcom-pas-common-Intr.patch \
     file://qcs9100/0001-FROMLIST-dt-bindings-pinctrl-qcom-Add-egpio-function.patch \
     file://qcs9075/0001-PENDING-dt-bindings-arm-qcom-Rename-qcs9075-rb8-to-q.patch \
+    file://qcs9100/0003-PENDING-ASoC-dt-bindings-qcom-Document-soundcard-com.patch \
     "
