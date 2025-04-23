@@ -46,6 +46,7 @@ SRC_URI:append:qcom = " file://0001-Setting-default-values-in-main.conf.patch \
                         file://0038-UPSTREAM-obex-Add-null-check-for-data-pointer-for-PC.patch \
                         file://0039-UPSTREAM-obex-Add-messages_get_message-implementatio.patch \
                         file://0042-UPSTREAM-obex-Publish-SDP-record-for-Phonebook-Acces.patch \
+                        file://0043-UPSTREAM-obex-Add-base-implementation-for-get_mas_in.patch \
 "
 
 #Include obex to support obex related profiles like OPP, FTP, MAP, PBAP
