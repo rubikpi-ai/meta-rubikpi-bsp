@@ -2,3 +2,4 @@
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 virtlogd_process_signull(syslogd_t)
+allow syslogd_t self:capability net_admin;
