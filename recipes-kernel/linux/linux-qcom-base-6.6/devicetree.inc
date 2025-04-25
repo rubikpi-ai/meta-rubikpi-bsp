@@ -135,6 +135,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-TRNG-node.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-QCrypto-nodes.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-Command-DB-suppor.patch \
+    file://qcs615/0002-FROMLIST-arm64-dts-qcom-Enable-TSENS-support-for.patch \
     "
 
 # qcs615 board dts patches
