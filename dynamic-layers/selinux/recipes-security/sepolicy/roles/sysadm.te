@@ -19,3 +19,6 @@ qcom_adsp_secure_read_device(sysadm_t)
 qcom_weston_dev_socket_connect(sysadm_t)
 qcom_weston_script_execute(sysadm_t)
 qcom_connect_perf_hal_socket(sysadm_t)
+qcom_allow_ssgtzd_sock_write(sysadm_t)
+qcom_ssgtzd_socket_connect(sysadm_t)
+
