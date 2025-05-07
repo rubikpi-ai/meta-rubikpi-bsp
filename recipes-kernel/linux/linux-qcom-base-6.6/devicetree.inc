@@ -203,6 +203,7 @@ SRC_URI:append = " \
     file://qcs8300/0006-PENDING-arm64-dts-qcom-qcs8300-Add-support-to-scale-.patch \
     file://qcs8300/0001-UPSTREAM-arm64-dts-qcom-Add-support-for-usb-nodes-on.patch \
     file://qcs8300/0001-Revert-PENDING-arm64-dts-qcom-qcs8300-add-video-code.patch \
+    file://qcs8300/0004-FROMLIST-arm64-dts-qcom-qcs8300-add-support-for-vide.patch \
     "
 
 # qcs8300 board dts patches
@@ -222,6 +223,7 @@ SRC_URI:append = " \
     file://qcs8300/0001-FROMLIST-arm64-dts-qcom-add-BT-node-in-QCS8300-RIDE-.patch \
     file://qcs8300/0005-FROMLIST-arm64-dts-qcom-qcs8300-ride-Enable-Adreno-6.patch \
     file://qcs8300/0001-UPSTREAM-arm64-dts-qcom-qcs8300-ride-Enable-second-U.patch \
+    file://qcs8300/0005-FROMLIST-arm64-dts-qcom-qcs8300-ride-enable-video.patch \
     "
 # qcs9075 board dts patches
 SRC_URI:append = " \
