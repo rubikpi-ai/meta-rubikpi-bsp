@@ -156,6 +156,7 @@ SRC_URI:append = " \
     file://qcs615/0002-BACKPORT-FROMLIST-arm64-dts-qcom-qcs615-ride-Enable-.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Tune-RX-sampling.patch \
     file://qcs615/0022-FROMLIST-arm64-dts-qcom-Add-firmware-name-in-BT-no.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Add-PSCI-SYSTEM_.patch \
     "
 
 # qcs8300 dtsi patches
