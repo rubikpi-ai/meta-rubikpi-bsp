@@ -60,7 +60,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0044-PENDING-Add-fastboot-select-active-lun-command-suppo.patch \
             file://0045-PENDING-Update-fastboot-oem-format-command-to-flash-.patch \
             file://0046-PENDING-Fix-for-UFS-write-issue.patch \
-            file://0047-PENDING-Added-I2C-read-issue-fix-in-qcs9100.patch"
+            file://0047-PENDING-Added-I2C-read-issue-fix-in-qcs9100.patch \
+            file://0048-PENDING-Removed-preboot-default-env-variable.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
