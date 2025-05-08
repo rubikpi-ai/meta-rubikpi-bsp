@@ -31,6 +31,7 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
             file://0086-PENDING-networkmanager-allow-access-tmpfs.patch \
             file://0087-PENDING-Fix-bluetoothctl-not-working-in-shell.patch \
             file://0091-UPSTREAM-Adding-SE-Policy-rules-to-allow-usage-of-un.patch \
+            file://0092-PENDING-Add-sepolicy-rules-for-brctl-to-add-remove-b.patch \
 "
 
 #Policy folders
