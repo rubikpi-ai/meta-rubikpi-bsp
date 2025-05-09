@@ -47,3 +47,8 @@ files_manage_etc_files(qcom_usb_t)
 
 # Allow accessing stdin/out/err when using run_init
 init_use_script_ptys(qcom_usb_t)
+
+#Allow qcom_usb_t to access root directories
+files_search_home(qcom_usb_t)
+files_read_usr_files(qcom_usb_t)
+dev_write_sysfs(qcom_usb_t)
