@@ -137,6 +137,9 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-add-QCrypto-nodes.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-Command-DB-suppor.patch \
     file://qcs615/0002-FROMLIST-arm64-dts-qcom-Enable-TSENS-support-for.patch \
+    file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-Add-mproc-node-for-SE.patch \
+    file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-Add-IMEM-and-PIL-info.patch \
+    file://qcs615/0005-FROMLIST-arm64-dts-qcom-qcs615-add-ADSP-and-CDSP-nod.patch \
     "
 
 # qcs615 board dts patches
@@ -159,6 +162,7 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Tune-RX-sampling.patch \
     file://qcs615/0022-FROMLIST-arm64-dts-qcom-Add-firmware-name-in-BT-no.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-ride-Add-PSCI-SYSTEM_.patch \
+    file://qcs615/0006-FROMLIST-arm64-dts-qcom-qcs615-ride-enable-remotepro.patch \
     "
 
 # qcs8300 dtsi patches
