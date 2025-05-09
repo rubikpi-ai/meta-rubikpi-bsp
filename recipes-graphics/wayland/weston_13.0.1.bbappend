@@ -11,6 +11,8 @@ SRC_URI:append:qcom = "   file://weston.png \
 SRC_URI:append:qcom-custom-bsp = "   \
               file://0001-weston-Add-stack-protector-flag.patch"
 
+SRC_URI:append:qcm6490 = "  file://weston.ini"
+
 SRC_URI:append:qcm6490:qcom-custom-bsp = "  \
               file://0001-weston-add-sdm-option.patch \
               file://0001-drm-backend-power-off-during-hotplug-disconnect.patch \
@@ -18,6 +20,7 @@ SRC_URI:append:qcm6490:qcom-custom-bsp = "  \
 
 SRC_URI:append:qcs9100 = "  file://0001-weston-add-sdm-option.patch \
                             file://0001-drm-backend-power-off-during-hotplug-disconnect.patch \
+                            file://weston.ini \
                             "
 
 SRC_URI:append:qcs9100:qcom-base-bsp = " file://0001-weston-avoid-duplicate-format.patch"
@@ -74,11 +77,16 @@ PACKAGECONFIG[disablepowerkey] = "-Ddisable-power-key=true,-Ddisable-power-key=f
 #CXXFLAGS:append:qcm6490  = " -I${STAGING_INCDIR}/sdm"
 # CXXFLAGS:append:qcm6490  = " -I${STAGING_INCDIR}/display/display"
 
-#do_install:append:qcm6490() {
-#    install -m 0644 ${WORKDIR}/weston.ini -D ${D}${sysconfdir}/xdg/weston/weston.ini
-#}
+do_install:append:qcm6490() {
+    install -m 0644 ${WORKDIR}/weston.ini -D ${D}${sysconfdir}/xdg/weston/weston.ini
+}
+
+do_install:append:qcs9100() {
+    install -m 0644 ${WORKDIR}/weston.ini -D ${D}${sysconfdir}/xdg/weston/weston.ini
+}
 
 FILES:${PN} += "${bindir}/*"
 FILES:${PN} += " ${libdir}/libweston-13/*.so"
 FILES:${PN} += " ${libdir}/*.so"
-FILES:${PN} += "${sysconfdir}/xdg/weston/weston.ini"
+FILES:${PN}:append:qcm6490 = " ${sysconfdir}/xdg/weston/weston.ini"
+FILES:${PN}:append:qcs9100 = " ${sysconfdir}/xdg/weston/weston.ini"
