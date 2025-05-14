@@ -11,6 +11,10 @@ After=smcinvoke.service property-vault.service sfsconfig.service
 Wants=property-vault.service sfsconfig.service
 
 [Service]
+User=system
+Group=system
+AmbientCapabilities=CAP_SYS_RAWIO CAP_BLOCK_SUSPEND
+CapabilityBoundingSet=CAP_SYS_RAWIO CAP_BLOCK_SUSPEND
 Restart=always
 RemainAfterExit=yes
 ExecStart=/usr/bin/qtee_supplicant
