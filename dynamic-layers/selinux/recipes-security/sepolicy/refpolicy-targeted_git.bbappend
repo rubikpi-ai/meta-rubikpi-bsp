@@ -13,7 +13,7 @@ FILES:${PN} += " \
         ${datadir}/selinux/${POLICY_NAME}/*.pp \
         ${QCOM_STORE_ROOT}/${POLICY_NAME}/ \
 "
-SRC_URI:remove:qcom = "file://0042-policy-modules-system-systemd-systemd-user-fixes.patch"
+SRC_URI:remove:qcom = "file://0001-refpolicy-targeted-make-unconfined_u-the-default-sel.patch "
 
 #Patches
 SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-busybox.patch \
