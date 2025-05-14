@@ -451,4 +451,5 @@ SRC_URI:append = " \
     file://common/0004-PENDING-ASoC-qcom-qcs9100-Add-machine-driver-for-qcs.patch \
     file://common/0007-PENDING-ASoC-qcom-qcs9100-Set-dai-format-for-MI2S-in.patch \
     file://common/0008-PENDING-ASoC-qcom-qdsp6-Add-set_fmt-dai-ops-support-.patch \
+    file://common/0001-QCLINUX-iommu-arm-smmu-Invoke-pm-runtime-for-context.patch \
     "
