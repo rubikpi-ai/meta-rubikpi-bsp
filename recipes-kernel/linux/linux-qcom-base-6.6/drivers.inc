@@ -231,7 +231,6 @@ SRC_URI:append = " \
     file://common/0015-FROMLIST-ufs-host-add-support-for-wrapped-keys-in-QC.patch \
     file://common/0016-FROMLIST-ufs-host-add-a-callback-for-deriving-softwa.patch \
     file://common/0017-FROMLIST-ufs-host-add-support-for-generating-importi.patch \
-    file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
     file://qcs615/0001-BACKPORT-arm64-dts-qcom-qcs615-Add-metadata.patch \
     file://qcs9100/0002-PENDING-iio-adc-Add-support-for-QCOM-PMIC5-Gen3-ADC.patch \
@@ -401,7 +400,6 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
     file://common/0001-FROMLIST-wifi-ath11k-add-function-to-get-next-srng-d.patch \
     file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
-    file://common/0001-BACKPORT-clk-qcom-gdsc-Set-retain_ff-before-moving-t.patch \
     file://common/0002-BACKPORT-clk-qcom-gdsc-Update-the-status-poll-timeou.patch \
     file://common/0001-FROMLIST-wifi-ath11k-fix-node-corruption-in-ar-arvif.patch \
     file://common/0141-QCLINUX-firmware-qcom_scm-provisioning-addon-scm-cal.patch \

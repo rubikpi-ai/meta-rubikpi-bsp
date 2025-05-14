@@ -1,8 +1,8 @@
-From 6bae631606a6c1f708be3b587135029128227851 Mon Sep 17 00:00:00 2001
+From eeca094206b8d26e5105de3bc7d131282f21d9a8 Mon Sep 17 00:00:00 2001
 From: Paloma Arellano <quic_parellan@quicinc.com>
 Date: Thu, 22 Feb 2024 11:40:03 -0800
-Subject: [PATCH 072/146] UPSTREAM: drm/msm/dpu: reserve CDM blocks for DP if
- mode is YUV420
+Subject: [PATCH 1/1] UPSTREAM: drm/msm/dpu: reserve CDM blocks for DP if mode
+ is YUV420
 
 Reserve CDM blocks for DP if the mode format is YUV420. Currently this
 reservation only works for writeback and DP if the format is YUV420. But
@@ -23,7 +23,7 @@ Upstream-Status: Backport [https://git.kernel.org/pub/scm/linux/kernel/git/torva
  1 file changed, 14 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c
-index c63f670358e3..bd3738e38dc3 100644
+index c37fcf69abec..0258782abfa8 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c
 +++ b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c
 @@ -675,6 +675,7 @@ static int dpu_encoder_virt_atomic_check(
@@ -73,8 +73,8 @@ index c63f670358e3..bd3738e38dc3 100644
 +		crtc_state->mode_changed = true;
  	/*
  	 * Release and Allocate resources on every modeset
- 	 * Dont allocate when active is false.
-@@ -1173,7 +1178,8 @@ static void dpu_encoder_virt_atomic_mode_set(struct drm_encoder *drm_enc,
+ 	 */
+@@ -1172,7 +1177,8 @@ static void dpu_encoder_virt_atomic_mode_set(struct drm_encoder *drm_enc,
  
  	dpu_enc->dsc_mask = dsc_mask;
  
@@ -85,5 +85,5 @@ index c63f670358e3..bd3738e38dc3 100644
  
  		dpu_rm_get_assigned_resources(&dpu_kms->rm, global_state,
 -- 
-2.34.1
+2.25.1
 
