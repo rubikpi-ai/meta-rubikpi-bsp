@@ -152,4 +152,6 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-dt-bindings-arm-qcom-Rename-qcs9075-rb8-to-q.patch \
     file://qcs9100/0003-PENDING-ASoC-dt-bindings-qcom-Document-soundcard-com.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-thermal-tsens-Add-QCS615-compat.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-remoteproc-qcom-sm8150-pas-Docu.patch \
+    file://qcs615/0002-FROMLIST-dt-bindings-soc-qcom-add-qcom-qcs615-imem-c.patch \
     "
