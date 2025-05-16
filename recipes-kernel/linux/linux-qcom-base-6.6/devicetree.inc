@@ -140,6 +140,7 @@ SRC_URI:append = " \
     file://qcs615/0003-FROMLIST-arm64-dts-qcom-qcs615-Add-mproc-node-for-SE.patch \
     file://qcs615/0004-FROMLIST-arm64-dts-qcom-qcs615-Add-IMEM-and-PIL-info.patch \
     file://qcs615/0005-FROMLIST-arm64-dts-qcom-qcs615-add-ADSP-and-CDSP-nod.patch \
+    file://qcs615/0001-PENDING-arm64-dts-qcom-Enable-cpu-and-gpu-mitigation.patch \
     "
 
 # qcs615 board dts patches
