@@ -1,7 +1,7 @@
-From 6782ecad69afcef1ee1a07281354bdf8a8d4dc4b Mon Sep 17 00:00:00 2001
+From c2f292248941b5ee6f314bf6afa86cea0b156517 Mon Sep 17 00:00:00 2001
 From: Bartosz Golaszewski <brgl@bgdev.pl>
 Date: Sun, 1 Dec 2024 21:58:57 +0530
-Subject: [PATCH 13/17] FROMLIST: ufs: core: add support for deriving the
+Subject: [PATCH 1/1] FROMLIST: ufs: core: add support for deriving the
  software secret
 
 Extend the UFS core to allow calling the block layer's callback for
@@ -26,7 +26,7 @@ index c42a537053f4..247c1eb225aa 100644
 @@ -119,6 +119,20 @@ static int ufshcd_crypto_keyslot_evict(struct blk_crypto_profile *profile,
  	return ufshcd_clear_keyslot(hba, slot);
  }
-
+ 
 +static int ufshcd_crypto_derive_sw_secret(struct blk_crypto_profile *profile,
 +					  const u8 wkey[], size_t wkey_size,
 +					  u8 sw_secret[BLK_CRYPTO_SW_SECRET_SIZE])
@@ -50,13 +50,13 @@ index c42a537053f4..247c1eb225aa 100644
  	.keyslot_evict		= ufshcd_crypto_keyslot_evict,
 +	.derive_sw_secret	= ufshcd_crypto_derive_sw_secret,
  };
-
+ 
  static enum blk_crypto_mode_num
 diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index b647e1af973c..ceccee81fc2c 100644
+index 2b6050d127f6..89715e7dd25d 100644
 --- a/include/ufs/ufshcd.h
 +++ b/include/ufs/ufshcd.h
-@@ -363,6 +363,9 @@ struct ufs_hba_variant_ops {
+@@ -367,6 +367,9 @@ struct ufs_hba_variant_ops {
  	int	(*program_key)(struct ufs_hba *hba,
  			       const struct blk_crypto_key *bkey,
  			       const union ufs_crypto_cfg_entry *cfg, int slot);
@@ -65,7 +65,7 @@ index b647e1af973c..ceccee81fc2c 100644
 +				    u8 sw_secret[BLK_CRYPTO_SW_SECRET_SIZE]);
  	void	(*event_notify)(struct ufs_hba *hba,
  				enum ufs_event_type evt, void *data);
- 	void	(*reinit_notify)(struct ufs_hba *);
---
-2.34.1
+ 	int	(*mcq_config_resource)(struct ufs_hba *hba);
+-- 
+2.25.1
 

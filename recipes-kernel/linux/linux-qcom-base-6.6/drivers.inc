@@ -3,7 +3,6 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/drivers:"
 
 SRC_URI:append = " \
     file://qcs6490/0001-phy-qcom-qmp-ufs-Add-Phy-Configuration-support-for-S.patch \
-    file://qcs9100/0001-FROMLIST-remoteproc-qcom_q6v5_pas-Add-support-for-SA.patch \
     file://qcs9100/0002-FROMLIST-soc-qcom-socinfo-add-QCS9100-ID.patch \
     file://qcs9100/0002-BACKPORT-soc-qcom-llcc-Add-llcc-configuration-suppor.patch \
     file://qcs9100/0001-UPSTREAM-crypto-qcom-rng-Add-hw_random-interface-sup.patch \
@@ -50,8 +49,6 @@ SRC_URI:append = " \
     file://common/0025-FROMLIST-media-iris-implement-power-scaling-for-vpu2.patch \
     file://common/0026-FROMLIST-media-iris-add-check-to-allow-sub-states-tr.patch \
     file://common/0027-FROMLIST-media-iris-enable-video-driver-probe-of-SM8.patch \
-    file://qcs9100/0004-QCLINUX-Revert-FROMLIST-remoteproc-qcom_q6v5_pas-Add.patch \
-    file://qcs9100/0003-BACKPORT-remoteproc-qcom_q6v5_pas-Add-support-for-SA.patch \
     file://qcs9100/0004-UPSTREAM-misc-fastrpc-Add-support-for-cdsp1-remotepr.patch \
     file://qcs9100/0002-UPSTREAM-power-sequencing-implement-the-pwrseq-core.patch \
     file://qcs9100/0003-UPSTREAM-power-pwrseq-add-a-driver-for-the-PMU-modul.patch \
@@ -157,14 +154,12 @@ SRC_URI:append = " \
     file://common/0002-FROMGIT-soc-qcom-llcc-Updating-the-macro-name.patch \
     file://common/0003-FROMGIT-soc-qcom-llcc-add-support-for-SAR2130P-and-S.patch \
     file://qcs8300/0004-BACKPORT-soc-qcom-llcc-Add-LLCC-configuration-for-th.patch \
-    file://qcs9100/0001-FROMLIST-wifi-ath11k-Fix-unexpected-return-buffer-ma.patch \
     file://qcs9100/0001-PENDING-media-iris-add-compatible-string-for-sa8775p.patch \
     file://qcs9100/0003-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
     file://qcs9100/0001-FROMLIST-drm-msm-a6xx-Add-support-for-A663.patch \
     file://qcs8300/0001-UPSTREAM-phy-qcom-qmp-Add-qmp-configuration-for-QCS8.patch \
     file://qcs8300/0002-UPSTREAM-phy-qcom-qmp-usb-simplify-clock-handling.patch \
     file://qcs8300/0003-UPSTREAM-phy-qcom-qmp-usb-rework-reset-handling.patch \
-    file://qcs615/0001-FROMLIST-clk-qcom-Update-the-support-for-alpha-mode-.patch \
     file://qcs615/0002-FROMLIST-clk-qcom-clk-alpha-pll-Add-support-for-dyna.patch \
     file://qcs615/0004-FROMLIST-clk-qcom-camcc-qcs615-Add-QCS615-camera-clo.patch \
     file://qcs615/0006-FROMLIST-clk-qcom-dispcc-qcs615-Add-QCS615-display-c.patch \
@@ -220,7 +215,6 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \
     file://common/0028-FROMLIST-mmc-sdhci-msm-Enable-MMC_CAP_AGGRESSIVE_PM-.patch \
     file://common/0041-UPSTREAM-net-phy-mdio_device-Reset-device-only-when-necessary.patch \
-    file://common/0042-UPSTREAM-net-stmmac-don-t-create-a-MDIO-bus-if-unnecessary.patch \
     file://qcs615/0003-FROMLIST-phy-qcom-qmp-usbc-Add-DP-phy-mode-support-o.patch \
     file://qcs615/0004-FROMLIST-drm-msm-dp-Add-DisplayPort-support-for-QCS6.patch \
     file://qcs615/0005-FROMLIST-drm-msm-dp-Add-support-for-lane-mapping-con.patch \
@@ -232,7 +226,6 @@ SRC_URI:append = " \
     file://qcs9100/0002-soc-qcom-socinfo-add-QCS9075-SoC-ID.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Filter-modes-based-on-adjusted-.patch \
     file://qcs615/0001-FROMLIST-arm64-gfx-qcom-qcs615-Add-support-for-Adren.patch \
-    file://common/0001-FROMLIST-irqchip-gic-v3-Handle-failure-case-of-CPU-e.patch \
     file://qcs8300/0002-FROMLIST-clk-qcom-Add-support-for-GPU-Clock-Controll.patch \
     file://qcs8300/0004-FROMLIST-clk-qcom-Add-support-for-Camera-Clock-Contr.patch \
     file://qcs8300/0006-FROMLIST-clk-qcom-Add-support-for-Video-Clock-Contro.patch \
@@ -435,7 +428,6 @@ SRC_URI:append = " \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
-    file://qcs615/0001-BACKPORT-UPSTREAM-net-stmmac-fix-TSO-DMA-API-usage-c.patch \
     file://common/0001-FROMLIST-wifi-ath11k-add-function-to-get-next-srng-d.patch \
     file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
     file://common/0001-BACKPORT-clk-qcom-gdsc-Set-retain_ff-before-moving-t.patch \
