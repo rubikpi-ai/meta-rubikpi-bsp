@@ -65,7 +65,8 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0049-PENDING-Create-Mask-for-gpio-input-bit-read.patch \
             file://0050-PENDING-Add-QCOM-Watchdog-Driver-Support.patch \
             file://0051-PENDING-Remove-unwanted-DTS-entries-and-configs-in-q.patch \
-            file://0052-PENDING-Add-fastboot-variables-to-read-security-feat.patch"
+            file://0052-PENDING-Add-fastboot-variables-to-read-security-feat.patch \
+            file://0053-PENDING-drivers-rng-Enable-hardware-random-number-ge.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
