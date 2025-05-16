@@ -99,6 +99,9 @@ do_install() {
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+#Allow to build empty ${PN}-el2-combined package
+ALLOW_EMPTY:${PN}-el2-combined = "1"
+
 PACKAGE_BEFORE_PN = "${PN}-combined ${PN}-el2-combined"
 
 FILES:${PN}-combined += "combined-dtb.dtb"
