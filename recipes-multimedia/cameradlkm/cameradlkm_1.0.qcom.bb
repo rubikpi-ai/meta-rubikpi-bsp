@@ -45,12 +45,10 @@ EXTRA_OEMAKE += "CAMERA_ARCH='${CAMERA_ARCH}' SOC_FAM='${SOC_FAM}' HEADERS_DIR='
 do_install[postfuncs] += "do_module_signing"
 
 do_install:append() {
-	install -d ${D}${includedir}/media
-	if [ "${CAMERA_ARCH}" = "qcm6490" ]; then
-		install -m 0755 ${B}/sanitized_headers/camera_kt/media/*.h -D ${D}${includedir}/media/
-	else
-		install -m 0755 ${B}/sanitized_headers/camera/media/*.h -D ${D}${includedir}/media/
-	fi
+	install -d ${D}${includedir}/camera/media
+        install -d ${D}${includedir}/camera_kt/media
+        install -m 0755 ${B}/sanitized_headers/camera_kt/media/*.h -D ${D}${includedir}/camera_kt/media/
+        install -m 0755 ${B}/sanitized_headers/camera/media/*.h -D ${D}${includedir}/camera/media/
         install -d ${D}${includedir}/dt-bindings
         install -m 0644 ${S}/${HEADERS_DIR}/dt-bindings/*.h -D ${D}${includedir}/dt-bindings/
         install -m 0644 ${THISDIR}/camera.rules -D ${D}${sysconfdir}/udev/rules.d/camera.rules
