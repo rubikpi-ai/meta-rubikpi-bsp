@@ -21,7 +21,7 @@ KERNEL_INCLUDE := "${STAGING_KERNEL_DIR}/include/"
 COMPATIBLE_MACHINE = "qcm6490|qcs9100|qcs6490|qcs8300"
 KODIAK_BOARD_NAMES = "qcm6490-idp|qcs6490-rb3gen2-vision-kit|qcs6490-rb3gen2-core-kit|"
 LEMANS_BOARD_NAMES = "qcs9100-ride-sx|qcs9075-ride-sx|qcs9075-rb8-core-kit|qcs9075-iq-9075-evk|"
-MONACO_BOARD_NAMES = "qcs8300-ride-sx"
+MONACO_BOARD_NAMES = "qcs8300-ride-sx|qcs8275-iq-8275-evk"
 
 python get_soc_family() {
     need_machine = d.getVar('COMPATIBLE_MACHINE')
@@ -74,6 +74,8 @@ do_compile() {
     elif [ "${SOC_FAM}" = "qcs8300" ]; then
         if [ "${TARGET_BOARD}" = "qcs8300-ride-sx" ]; then
             oe_runmake ${EXTRA_OEMAKE} qcs8300-camera
+        elif [ "${TARGET_BOARD}" = "qcs8275-iq-8275-evk" ]; then
+            oe_runmake ${EXTRA_OEMAKE} qcs8275-camera-iq-8275-evk
         fi
     else
         echo "Unknown SOC_FAM -> " ${SOC_FAM}
