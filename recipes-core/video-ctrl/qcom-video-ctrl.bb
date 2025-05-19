@@ -16,6 +16,7 @@ SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT
 
 FILES:${PN} += "${bindir}"
 FILES:${PN} += "${libdir}"
+FILES:${PN} += "${libdir}/pkgconfig"
 
 
 SOLIBS = ".so*"
