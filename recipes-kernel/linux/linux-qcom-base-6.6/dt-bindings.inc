@@ -156,4 +156,5 @@ SRC_URI:append = " \
     file://common/0001-UPSTREAM-dt-bindings-media-Add-video-support-for-QCO.patch \
     file://qcs9100/0001-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
     file://common/0002-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
+    file://qcs8300/0003-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
     "
