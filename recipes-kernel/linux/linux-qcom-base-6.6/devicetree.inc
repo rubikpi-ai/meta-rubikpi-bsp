@@ -71,6 +71,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-arm64-dts-qcom-sa8775p-Add-CPU-OPP-tables-t.patch \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Add-gpr-node.patch \
+    file://qcs9100/0002-Revert-PENDING-arm64-dts-qcom-iris-video-driver-for-.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -199,6 +200,7 @@ SRC_URI:append = " \
     file://qcs8300/0005-PENDING-arm64-dts-qcom-Add-static-vote-for-QCS8300.patch \
     file://qcs8300/0006-PENDING-arm64-dts-qcom-qcs8300-Add-support-to-scale-.patch \
     file://qcs8300/0001-UPSTREAM-arm64-dts-qcom-Add-support-for-usb-nodes-on.patch \
+    file://qcs8300/0001-Revert-PENDING-arm64-dts-qcom-qcs8300-add-video-code.patch \
     "
 
 # qcs8300 board dts patches
