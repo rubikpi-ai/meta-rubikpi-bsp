@@ -72,6 +72,7 @@ SRC_URI:append = " \
     file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-Add-LMH-interrupts-f.patch \
     file://qcs9100/0001-PENDING-arm64-dts-qcom-sa8775p-Add-gpr-node.patch \
     file://qcs9100/0002-Revert-PENDING-arm64-dts-qcom-iris-video-driver-for-.patch \
+    file://qcs9100/0002-FROMLIST-arm64-dts-qcom-sa8775p-add-support-for-vide.patch \
     "
 # qcs9100 board dts patches
 SRC_URI:append = " \
@@ -104,6 +105,7 @@ SRC_URI:append = " \
     file://qcs9100/0001-QCLINUX-arm64-dts-qcom-sa8775p-Add-EL2-dtb-support.patch \
     file://qcs9100/0001-Revert-FROMLIST-arm64-dts-qcom-qcs9100-Update-memory.patch \
     file://qcs9100/0002-PENDING-arm64-dts-qcom-qcs9xxx-Update-memory-map-for.patch \
+    file://qcs9100/0003-FROMLIST-arm64-dts-qcom-sa8775p-ride-enable-video.patch \
     "
 
 # qcs615 dtsi patches
