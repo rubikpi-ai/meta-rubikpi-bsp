@@ -1,7 +1,7 @@
 inherit useradd
 FILESEXTRAPATHS:prepend := "${THISDIR}:"
 SRC_URI += "file://pulseaudio/system_custom.pa \
-            file://pulseaudio/system.pa \
+            file://pulseaudio/system_base.pa \
             file://pulseaudio/pulseaudio.service \
             file://pulseaudio/pulseaudio_custom.service \
             file://pulseaudio/0001-Support-for-compress-offload-playback-usecase.patch \
@@ -41,9 +41,26 @@ do_install:append:qcom-base-bsp () {
     ln -sf ${systemd_system_unitdir}/pulseaudio.service \
            ${D}${systemd_system_unitdir}/multi-user.target.wants/pulseaudio.service
     install -d ${D}${sysconfdir}/pulse/
-    install -m 0644 ${WORKDIR}/pulseaudio/system.pa ${D}${sysconfdir}/pulse/system.pa
+    install -m 0644 ${WORKDIR}/pulseaudio/system_custom.pa ${D}${sysconfdir}/pulse/system.pa
     install -m 0775 -g pulse -d ${D}${sysconfdir}/acdbdata/delta
 
+ ESCOD
+
+### Make sure we always have a sink around, even if it is a null sink.
+load-module module-always-sink
+
+### Automatically suspend sinks/sources that become idle for too long
+load-module module-suspend-on-idle timeout=1
+
+### Enable positioned event sounds
+load-module module-position-event-sounds
+
+### Load module bluetooth discover
+load-module module-bluetooth-discover
+
+### Load module bluetooth policy
+
+load-module module-bluetooth-policy
     for i in $(find ${S}/src/pulsecore/ -type d -printf "pulsecore/%P\n"); do
         [ -n "$(ls ${S}/src/${i}/*.h 2>/dev/null)" ] || continue
         install -d ${D}${includedir}/${i}
