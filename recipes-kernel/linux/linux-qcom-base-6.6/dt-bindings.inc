@@ -153,4 +153,5 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-dt-bindings-thermal-tsens-Add-QCS615-compat.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-remoteproc-qcom-sm8150-pas-Docu.patch \
     file://qcs615/0002-FROMLIST-dt-bindings-soc-qcom-add-qcom-qcs615-imem-c.patch \
+    file://common/0001-UPSTREAM-dt-bindings-media-Add-video-support-for-QCO.patch \
     "
