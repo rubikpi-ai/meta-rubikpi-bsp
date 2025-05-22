@@ -8,7 +8,6 @@ RRECOMMENDS:${PN} = " \
 "
 
 RRECOMMENDS:${PN}:qcom-base-bsp = " \
-    firmware-qcom-qupv3fw \
     hexagon-dsp-binaries-qcom-sa8775p-ride-adsp \
     hexagon-dsp-binaries-qcom-sa8775p-ride-cdsp \
     hexagon-dsp-binaries-qcom-sa8775p-ride-gdsp \
@@ -22,5 +21,6 @@ RRECOMMENDS:${PN}:qcom-base-bsp = " \
     linux-firmware-qcom-sa8775p-audio \
     linux-firmware-qcom-sa8775p-compute \
     linux-firmware-qcom-sa8775p-generalpurpose \
+    linux-firmware-qcom-sa8775p-qupv3fw \
     linux-firmware-qcom-vpu \
 "
