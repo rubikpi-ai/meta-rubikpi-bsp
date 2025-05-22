@@ -3,7 +3,7 @@ DESCRIPTION = "TOSHIBA tc956x firmware"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/${LICENSE};md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRCREV = "1655d58b8778d387097683ec7e3ddd120ccd0a6c"
+SRCREV = "f9b0e1bc0f7c3dfc74ad1a46a87efa56885b9288"
 
 SRC_URI  =  "git://github.com/TC956X/TC9564_Firmware;branch=industrial_limited_tested;protocol=https"
 
