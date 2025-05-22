@@ -14,6 +14,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}:"
 SRC_URI = " \
     file://qcm6490-partitions.conf \
     file://qcs9100-partitions.conf \
+    file://qcs8300-partitions.conf \
 "
 
 S = "${WORKDIR}"
@@ -25,6 +26,7 @@ do_configure[noexec] = "1"
 PARTCONF ?= ""
 PARTCONF:qcm6490 = "qcm6490-partitions.conf"
 PARTCONF:qcs9100 = "qcs9100-partitions.conf"
+PARTCONF:qcs8300 = "qcs8300-partitions.conf"
 
 PACKAGE_ARCH = "${SOC_ARCH}"
 
