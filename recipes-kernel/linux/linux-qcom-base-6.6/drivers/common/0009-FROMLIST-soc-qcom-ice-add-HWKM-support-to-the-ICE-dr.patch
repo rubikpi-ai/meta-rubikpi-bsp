@@ -1,7 +1,7 @@
-From 3e480fb7b7f74b1db8ae5993a491014226e4962d Mon Sep 17 00:00:00 2001
+From d988cce3ac4dc80bd857d0b4f96404bd15c70a73 Mon Sep 17 00:00:00 2001
 From: Bartosz Golaszewski <brgl@bgdev.pl>
 Date: Sun, 1 Dec 2024 21:49:00 +0530
-Subject: [PATCH 09/17] FROMLIST: soc: qcom: ice: add HWKM support to the ICE
+Subject: [PATCH 1/1] FROMLIST: soc: qcom: ice: add HWKM support to the ICE
  driver
 
 Qualcomm's ICE (Inline Crypto Engine) contains a proprietary key
@@ -26,10 +26,10 @@ Upstream-Status: Submitted [https://lore.kernel.org/all/20241011-wrapped-keys-v7
  2 files changed, 149 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/soc/qcom/ice.c b/drivers/soc/qcom/ice.c
-index 6f941d32fffb..0cf3294ba310 100644
+index 9f9bd324d646..60bbbb492b3c 100644
 --- a/drivers/soc/qcom/ice.c
 +++ b/drivers/soc/qcom/ice.c
-@@ -26,6 +26,40 @@
+@@ -27,6 +27,40 @@
  #define QCOM_ICE_REG_FUSE_SETTING		0x0010
  #define QCOM_ICE_REG_BIST_STATUS		0x0070
  #define QCOM_ICE_REG_ADVANCED_CONTROL		0x1000
@@ -67,33 +67,33 @@ index 6f941d32fffb..0cf3294ba310 100644
 +#define QCOM_ICE_HWKM_V2_STANDARD_MODE_MASK	GENMASK(31, 1)
 +#define QCOM_ICE_HWKM_DISABLE_CRC_CHECKS_VAL	(BIT(1) | BIT(2))
 +#define QCOM_ICE_HWKM_RSP_FIFO_CLEAR_VAL	BIT(3)
-
+ 
  /* BIST ("built-in self-test") status flags */
  #define QCOM_ICE_BIST_STATUS_MASK		GENMASK(31, 28)
-@@ -34,6 +68,9 @@
+@@ -35,6 +69,9 @@
  #define QCOM_ICE_FORCE_HW_KEY0_SETTING_MASK	0x2
  #define QCOM_ICE_FORCE_HW_KEY1_SETTING_MASK	0x4
-
+ 
 +#define QCOM_ICE_HWKM_REG_OFFSET	0x8000
 +#define HWKM_OFFSET(reg)		((reg) + QCOM_ICE_HWKM_REG_OFFSET)
 +
  #define qcom_ice_writel(engine, val, reg)	\
  	writel((val), (engine)->base + (reg))
-
-@@ -46,6 +83,9 @@ struct qcom_ice {
+ 
+@@ -47,6 +84,9 @@ struct qcom_ice {
  	struct device_link *link;
-
+ 
  	struct clk *core_clk;
 +	u8 hwkm_version;
 +	bool use_hwkm;
 +	bool hwkm_init_complete;
  };
-
+ 
  static bool qcom_ice_check_supported(struct qcom_ice *ice)
-@@ -63,8 +103,21 @@ static bool qcom_ice_check_supported(struct qcom_ice *ice)
+@@ -64,8 +104,21 @@ static bool qcom_ice_check_supported(struct qcom_ice *ice)
  		return false;
  	}
-
+ 
 -	dev_info(dev, "Found QC Inline Crypto Engine (ICE) v%d.%d.%d\n",
 -		 major, minor, step);
 +	if (major >= 4 || (major == 3 && minor == 2 && step >= 1))
@@ -111,10 +111,10 @@ index 6f941d32fffb..0cf3294ba310 100644
 +
 +	if (!ice->use_hwkm)
 +		dev_info(dev, "QC ICE HWKM (Hardware Key Manager) not used/supported");
-
+ 
  	/* If fuses are blown, ICE might not work in the standard way. */
  	regval = qcom_ice_readl(ice, QCOM_ICE_REG_FUSE_SETTING);
-@@ -113,27 +166,106 @@ static void qcom_ice_optimization_enable(struct qcom_ice *ice)
+@@ -114,27 +167,106 @@ static void qcom_ice_optimization_enable(struct qcom_ice *ice)
   * fails, so we needn't do it in software too, and (c) properly testing
   * storage encryption requires testing the full storage stack anyway,
   * and not relying on hardware-level self-tests.
@@ -127,7 +127,7 @@ index 6f941d32fffb..0cf3294ba310 100644
  	u32 regval;
 +	u32 bist_done_val;
  	int err;
-
+ 
  	err = readl_poll_timeout(ice->base + QCOM_ICE_REG_BIST_STATUS,
  				 regval, !(regval & QCOM_ICE_BIST_STATUS_MASK),
  				 50, 5000);
@@ -136,7 +136,7 @@ index 6f941d32fffb..0cf3294ba310 100644
  		dev_err(ice->dev, "Timed out waiting for ICE self-test to complete\n");
 +		return err;
 +	}
-
+ 
 +	if (ice->use_hwkm) {
 +		bist_done_val = ice->hwkm_version == 1 ?
 +				QCOM_ICE_HWKM_BIST_VAL(1) :
@@ -151,7 +151,7 @@ index 6f941d32fffb..0cf3294ba310 100644
 +	}
  	return err;
  }
-
+ 
 +static void qcom_ice_enable_standard_mode(struct qcom_ice *ice)
 +{
 +	u32 val = 0;
@@ -207,7 +207,7 @@ index 6f941d32fffb..0cf3294ba310 100644
 +
  	qcom_ice_low_power_mode_enable(ice);
  	qcom_ice_optimization_enable(ice);
-
+ 
 -	return qcom_ice_wait_bist_status(ice);
 +	if (ice->use_hwkm)
 +		qcom_ice_enable_standard_mode(ice);
@@ -222,11 +222,11 @@ index 6f941d32fffb..0cf3294ba310 100644
 +	return err;
  }
  EXPORT_SYMBOL_GPL(qcom_ice_enable);
-
-@@ -149,6 +281,10 @@ int qcom_ice_resume(struct qcom_ice *ice)
+ 
+@@ -150,6 +282,10 @@ int qcom_ice_resume(struct qcom_ice *ice)
  		return err;
  	}
-
+ 
 +	if (ice->use_hwkm) {
 +		qcom_ice_enable_standard_mode(ice);
 +		qcom_ice_hwkm_init(ice);
@@ -234,18 +234,18 @@ index 6f941d32fffb..0cf3294ba310 100644
  	return qcom_ice_wait_bist_status(ice);
  }
  EXPORT_SYMBOL_GPL(qcom_ice_resume);
-@@ -156,6 +292,7 @@ EXPORT_SYMBOL_GPL(qcom_ice_resume);
+@@ -157,6 +293,7 @@ EXPORT_SYMBOL_GPL(qcom_ice_resume);
  int qcom_ice_suspend(struct qcom_ice *ice)
  {
  	clk_disable_unprepare(ice->core_clk);
 +	ice->hwkm_init_complete = false;
-
+ 
  	return 0;
  }
-@@ -205,6 +342,12 @@ int qcom_ice_evict_key(struct qcom_ice *ice, int slot)
+@@ -206,6 +343,12 @@ int qcom_ice_evict_key(struct qcom_ice *ice, int slot)
  }
  EXPORT_SYMBOL_GPL(qcom_ice_evict_key);
-
+ 
 +bool qcom_ice_hwkm_supported(struct qcom_ice *ice)
 +{
 +	return ice->use_hwkm;
@@ -255,25 +255,26 @@ index 6f941d32fffb..0cf3294ba310 100644
  static struct qcom_ice *qcom_ice_create(struct device *dev,
  					void __iomem *base)
  {
-@@ -239,6 +382,7 @@ static struct qcom_ice *qcom_ice_create(struct device *dev,
+@@ -240,6 +383,7 @@ static struct qcom_ice *qcom_ice_create(struct device *dev,
  		engine->core_clk = devm_clk_get_enabled(dev, NULL);
  	if (IS_ERR(engine->core_clk))
  		return ERR_CAST(engine->core_clk);
 +	engine->use_hwkm = qcom_scm_has_wrapped_key_support();
-
+ 
  	if (!qcom_ice_check_supported(engine))
  		return ERR_PTR(-EOPNOTSUPP);
 diff --git a/include/soc/qcom/ice.h b/include/soc/qcom/ice.h
-index 9dd835dba2a7..1f52e82e3e1c 100644
+index fc998f66c4c3..0e4d96896a5f 100644
 --- a/include/soc/qcom/ice.h
 +++ b/include/soc/qcom/ice.h
-@@ -34,5 +34,6 @@ int qcom_ice_program_key(struct qcom_ice *ice,
+@@ -34,6 +34,7 @@ int qcom_ice_program_key(struct qcom_ice *ice,
  			 const struct blk_crypto_key *bkey,
  			 u8 data_unit_size, int slot);
  int qcom_ice_evict_key(struct qcom_ice *ice, int slot);
 +bool qcom_ice_hwkm_supported(struct qcom_ice *ice);
  struct qcom_ice *of_qcom_ice_get(struct device *dev);
- #endif /* __QCOM_ICE_H__ */
---
-2.34.1
+ struct qcom_ice *devm_of_qcom_ice_get(struct device *dev);
+ 
+-- 
+2.25.1
 
