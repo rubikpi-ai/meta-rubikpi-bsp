@@ -27,6 +27,7 @@ SRC_URI:append:qcs9100:qcom-base-bsp = " file://0001-weston-avoid-duplicate-form
 
 SRC_URI:append:qcs8300 = "  file://0001-weston-add-sdm-option.patch \
                             file://0001-drm-backend-power-off-during-hotplug-disconnect.patch \
+                            file://weston.ini \
                             "
 
 SRC_URI:append:qcs8300:qcom-base-bsp = " file://0001-weston-avoid-duplicate-format.patch"
@@ -85,8 +86,13 @@ do_install:append:qcs9100() {
     install -m 0644 ${WORKDIR}/weston.ini -D ${D}${sysconfdir}/xdg/weston/weston.ini
 }
 
+do_install:append:qcs8300() {
+    install -m 0644 ${WORKDIR}/weston.ini -D ${D}${sysconfdir}/xdg/weston/weston.ini
+}
+
 FILES:${PN} += "${bindir}/*"
 FILES:${PN} += " ${libdir}/libweston-13/*.so"
 FILES:${PN} += " ${libdir}/*.so"
 FILES:${PN}:append:qcm6490 = " ${sysconfdir}/xdg/weston/weston.ini"
 FILES:${PN}:append:qcs9100 = " ${sysconfdir}/xdg/weston/weston.ini"
+FILES:${PN}:append:qcs8300 = " ${sysconfdir}/xdg/weston/weston.ini"
