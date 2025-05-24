@@ -12,6 +12,13 @@ ACTION=="add", SUBSYSTEM=="soc", \
                ATTR{soc_id}=="498", \
                RUN+="/bin/sh -c '/sbin/modprobe camera_qcm6490'"
 
+# For Sogtsku Kodiak (QCS5430)
+ACTION=="add", SUBSYSTEM=="soc", \
+               KERNEL=="soc0", \
+               ATTR{machine}=="Qualcomm Technologies, Inc. qcs5430 fp1 addons rb3gen2 vision mezz platform", \
+               ATTR{soc_id}=="575", \
+               RUN+="/bin/sh -c '/sbin/modprobe camera_qcm6490"
+
 # For Lemans Ride-sx-9100 Auto
 ACTION=="add", SUBSYSTEM=="soc", \
                KERNEL=="soc0", \
