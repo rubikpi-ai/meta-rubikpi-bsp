@@ -15,6 +15,7 @@ PE = "1"
 SRCREV = "v2025.01"
 
 SRC_URI = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
+
 SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.patch \
 	    file://0002-PENDING-configs-add-qcm6490_defconfig.patch \
 	    file://0003-PENDING-clk-qcom-add-initial-clock-driver-for-sa8775.patch \
@@ -42,7 +43,30 @@ SRC_URI += "file://0001-PENDING-arm64-dts-qcom-qcs9100-Add-support-for-the-Q.pat
             file://0026-PENDING-Changes-to-enable-fastboot-erase-command-for.patch \
             file://0027-PENDING-Changes-to-enable-scsi-erase-command-for-Lem.patch \
             file://0028-PENDING-Setting-bootargs-in-bootqli-command.patch \
-            file://0029-PENDING-Change-to-enable-flashing-of-boot_a-and-syst.patch"
+            file://0029-PENDING-Change-to-enable-flashing-of-boot_a-and-syst.patch \
+            file://0030-PENDING-Changes-to-enable-Verified-Boot-for-Lemans-i.patch \
+            file://0031-PENDING-Update-memory-partition-info-in-dts-from-sme.patch \
+            file://0032-PENDING-Fallback-action-for-u-boot-env.patch \
+            file://0033-BACKPORT-UFS-multiple-LUNs-read-fix.patch \
+            file://0034-PENDING-Verified-Boot-Add-public-key-info-in-u-boot-.patch \
+            file://0035-PENDING-Add-a-weak-extra-fixup_dt_handler.patch \
+            file://0036-PENDING-I2C-driver-and-IO-Expander-support-for-qcs91.patch \
+            file://0037-PENDING-Enable-pmm8654au-rpmh-regulators-support.patch \
+            file://0038-PENDING-Added-Reboot-bootloader-support.patch \
+            file://0039-PENDING-Enable-QUP-SE-clocks-for-I2C-support-in-qcs9.patch \
+            file://0041-PENDING-Enable-IO-Expander-for-Display-support-in-qc.patch \
+            file://0042-PENDING-Add-QCOM-RPMH-Power-Domain-Driver-Support.patch \
+            file://0043-PENDING-Add-Display-driver-clock-support.patch \
+            file://0044-PENDING-Add-fastboot-select-active-lun-command-suppo.patch \
+            file://0045-PENDING-Update-fastboot-oem-format-command-to-flash-.patch \
+            file://0046-PENDING-Fix-for-UFS-write-issue.patch \
+            file://0047-PENDING-Added-I2C-read-issue-fix-in-qcs9100.patch \
+            file://0048-PENDING-Removed-preboot-default-env-variable.patch \
+            file://0049-PENDING-Create-Mask-for-gpio-input-bit-read.patch \
+            file://0050-PENDING-Add-QCOM-Watchdog-Driver-Support.patch \
+            file://0051-PENDING-Remove-unwanted-DTS-entries-and-configs-in-q.patch \
+            file://0052-PENDING-Add-fastboot-variables-to-read-security-feat.patch \
+            file://0053-PENDING-drivers-rng-Enable-hardware-random-number-ge.patch"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"

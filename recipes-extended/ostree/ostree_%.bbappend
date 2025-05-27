@@ -19,5 +19,7 @@ do_install:append:qcom (){
     if [ ! -d "${D}${sysconfdir}/tmpfiles.d" ]; then
         install -d ${D}${sysconfdir}/tmpfiles.d
     fi
-    echo "t /var/roothome - - - - security.selinux=system_u:object_r:home_root_t:s0" >> ${D}${sysconfdir}/tmpfiles.d/00ostree-tmpfiles.conf
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'true', 'false', d)}; then
+        echo "t /var/roothome - - - - security.selinux=system_u:object_r:home_root_t:s0" >> ${D}${sysconfdir}/tmpfiles.d/01ostree-tmpfiles.conf
+    fi
 }

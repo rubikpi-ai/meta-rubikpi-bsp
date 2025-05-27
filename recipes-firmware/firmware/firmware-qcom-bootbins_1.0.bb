@@ -8,10 +8,10 @@ PROVIDES += "virtual/bootbins"
 
 SRC_URI ="https://${FW_ARTIFACTORY}/${FW_BUILD_ID}/${FW_BIN_PATH}/${BOOTBINARIES}.zip;name=${PBT_ARCH}"
 
-SRC_URI[qcm6490.sha256sum] = "08c0798f1ab9f380c94b54141847c7b365c87f2a072a2461779cf282809aeeb4"
-SRC_URI[qcs9100.sha256sum] = "bd024ffe419f13b19907b285d0369bf9dfdf77b7e95052b9e4869957ddcaf07f"
-SRC_URI[qcs8300.sha256sum] = "224e3d59239efc4e64baec98db5c4df0f5ccd166b75226455533996dac0debae"
-SRC_URI[qcs615.sha256sum]  = "977ac0bf59ea751787468974b329ef6f755ddfc13d74f6fbb951726aaf7894e2"
+SRC_URI[qcm6490.sha256sum] = "38e6f424e02a8f99b9edf953e9d62b02489cb936426c58c48daf399ec6d5b60c"
+SRC_URI[qcs9100.sha256sum] = "c8042ef4668761f75021886b931d678339ca9cbab936a20f951a6ba747a77303"
+SRC_URI[qcs8300.sha256sum] = "826599d4ef60337f38de935f3049134489e3f703b874dd592996b013f8e9e40a"
+SRC_URI[qcs615.sha256sum]  = "e0737b31a8dd2bdc50a6ee9e62e582d7ca2921274151a23fdfbebe06f0b9ecf9"
 
 include firmware-common.inc
 
@@ -46,11 +46,16 @@ python do_install() {
 inherit deploy
 
 do_deploy() {
-    find "${D}" -name '*.bin' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.elf' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.fv' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.mbn' -exec install -m 0644 {} ${DEPLOYDIR} \;
-    find "${D}" -name '*.melf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.bin' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.elf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.fv' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.mbn' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    find "${D}" -maxdepth 1 -name '*.melf' -exec install -m 0644 {} ${DEPLOYDIR} \;
+    # Copy sail_nor files to deploydir
+    for f in $(find "${D}/sail_nor" -type f -printf '%P ') ; do
+        install -d ${DEPLOYDIR}/sail_nor
+        install -m 0644 ${D}/sail_nor/$f ${DEPLOYDIR}/sail_nor/$f
+    done
 }
 addtask deploy before do_build after do_install
 
@@ -58,7 +63,7 @@ PACKAGE_ARCH = "${SOC_ARCH}"
 
 PACKAGES += "${PN}-copyright"
 
-FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf"
+FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf /sail_nor/*"
 FILES:${PN}-copyright += "/Qualcomm-Technologies-Inc.-Proprietary"
 
 INSANE_SKIP:${PN} = "arch"

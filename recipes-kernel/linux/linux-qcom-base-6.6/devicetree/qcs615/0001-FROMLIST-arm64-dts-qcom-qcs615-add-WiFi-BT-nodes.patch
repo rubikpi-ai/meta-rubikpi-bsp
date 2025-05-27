@@ -8,6 +8,7 @@ Assign its LDO power outputs to the existing WiFi/BT module.
 
 Signed-off-by: Yu Zhang(Yuriy) <quic_yuzha@quicinc.com>
 Link: https://lore.kernel.org/all/20241203060318.1750927-1-quic_yuzha@quicinc.com/
+[Note: New changes, will update upstream version]
 Upstream-Status: Submitted
 
 diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
@@ -115,8 +116,8 @@ index 478b09420161..3a8958a4c21c 100644
 +		pins = "gpio98";
 +		function = "gpio";
 +		drive-strength = <16>;
-+		output-high;
-+		bias-pull-up;
++		output-low;
++		bias-pull-down;
 +	};
 +
 +	bt_en_state: bt-en-state {

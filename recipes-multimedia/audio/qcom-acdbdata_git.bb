@@ -7,7 +7,7 @@ DESCRIPTION = "Audio Calibration Library"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/audioreach-conf.git;protocol=https"
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
-SRCREV     = "8ada127da2892cb6b59bcb823523f13c35a93cb9"
+SRCREV     = "2f4484b75723c54ccdad94242694cef4869e170e"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/audioreach-conf"
 
@@ -33,6 +33,10 @@ do_install:append:qcm6490() {
 }
 
 do_install:append:qcs8300() {
+    mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcs8275_rb4
+    install -m 0644 ${S}/qcs8275/qcs8275_rb4/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcs8275_rb4/acdb_cal.acdb
+    install -m 0644 ${S}/qcs8275/qcs8275_rb4/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcs8275_rb4/workspaceFileXml.qwsp
+
     mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcs8300_ridesx
     install -m 0644 ${S}/qcs8300/qcs8300_ridesx/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcs8300_ridesx/acdb_cal.acdb
     install -m 0644 ${S}/qcs8300/qcs8300_ridesx/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcs8300_ridesx/workspaceFileXml.qwsp

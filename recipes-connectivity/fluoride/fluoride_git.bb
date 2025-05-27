@@ -10,7 +10,7 @@ RDEPENDS:${PN} = "property-vault"
 
 QCOM_SYSTEM_BT_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/system/bt.git;protocol=https"
 QCOM_SYSTEM_BT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
-QCOM_SYSTEM_BT_SRCREV ?= "f49b4d2bf1485a4b28fbd54502ec4ff421b159b6"
+QCOM_SYSTEM_BT_SRCREV ?= "db943ed562f68d7f3a6d41dc79e0fdb731320e5e"
 
 QCOM_BLUETOOTH_EXT_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/bluetooth_ext.git;protocol=https"
 QCOM_BLUETOOTH_EXT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
@@ -18,7 +18,7 @@ QCOM_BLUETOOTH_EXT_SRCREV ?= "996bbb712e62c5c22489cd84fad1a93a91d65ddc"
 
 QCOM_BT_SRC ?= "git://git.codelinaro.org/clo/le/platform/qcom-opensource/bt.git;protocol=https"
 QCOM_BT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
-QCOM_BT_SRCREV ?= "9844d95677d8fd2a145ada53dc7872de49d8dd0e"
+QCOM_BT_SRCREV ?= "6656f553a4bbe3f22d7503d72de400c53ce54737"
 
 QCOM_BLUETOOTH_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/bluetooth.git;protocol=https"
 QCOM_BLUETOOTH_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"

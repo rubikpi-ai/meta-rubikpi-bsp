@@ -9,7 +9,7 @@ COMPATIBLE_MACHINE = "(qcom)"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/le-utils.git;protocol=https"
 SRCBRANCH  = "le-utils.qclinux.1.0.r2-rel"
-SRCREV     = "80064c0374bc1f7a3238e45ea8da5cb9addae58c"
+SRCREV     = "ffa247efb98ea7cb5182451132d0756b28a1697b"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=le-utils"
 
@@ -32,9 +32,3 @@ do_install:append() {
 }
 
 FILES:${PN} += " /etc/build.prop "
-
-python () {
-    mach_overrides = d.getVar('MACHINEOVERRIDES').split(":")
-    if ('qcom-base-bsp' in mach_overrides):
-        raise bb.parse.SkipRecipe("property-vault not compatible with qcom-base-bsp")
-}

@@ -13,7 +13,7 @@ FILES:${PN} += " \
         ${datadir}/selinux/${POLICY_NAME}/*.pp \
         ${QCOM_STORE_ROOT}/${POLICY_NAME}/ \
 "
-SRC_URI:remove:qcom = "file://0042-policy-modules-system-systemd-systemd-user-fixes.patch"
+SRC_URI:remove:qcom = "file://0001-refpolicy-targeted-make-unconfined_u-the-default-sel.patch "
 
 #Patches
 SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-busybox.patch \
@@ -36,6 +36,7 @@ SRC_URI:append:qcom = " file://0070-PENDING-allow-logging-domains-to-execute-bus
             file://0089-PENDING-sepolicy-Add-sepolicy-for-obexctl-to-work-in.patch \
             file://0090-PENDING-sepolicy-Add-sepolicy-rules-for-obex-server-.patch \
             file://0091-UPSTREAM-Adding-SE-Policy-rules-to-allow-usage-of-un.patch \
+            file://0092-PENDING-Add-sepolicy-rules-for-brctl-to-add-remove-b.patch \
 "
 
 #Policy folders
@@ -56,6 +57,7 @@ RDEPENDS:${PN} += "\
 ENABLE_TEST_SEPOLICY ?= "y"
 SRC_URI:append:qcom = "\
             ${@bb.utils.contains('ENABLE_TEST_SEPOLICY', 'y', 'file://test/', '', d)} \
+            file://0995-QCLINUX-selinux-Add-se_debug-macro.patch \
             file://0996-QCLINUX-file_contexts.subs_dist-set-aliases-for-var-lib-seli.patch \
             file://0997-QCLINIUX-sepolicy-update-file_contexts.subs_dist-for-support.patch \
             file://0998-refpolicy-config-update-ssh-to-login-in-sysadmin-rol.patch \
@@ -63,6 +65,17 @@ SRC_URI:append:qcom = "\
 
 EXTRA_OEMAKE += "tc_usrsbindir=${STAGING_SBINDIR_NATIVE}"
 EXTRA_OEMAKE += "tc_sbindir=${STAGING_DIR_NATIVE}${base_sbindir_native}"
+
+#
+#se_debug is intended only for debug purpose, should be disabled in prod build.
+#Sepolicies required for debug and testing should be kept inside se_debug.
+#usage:
+#    se_debug(`
+#         <policy rules to be added>
+#     ')
+#To Disable se_debug, Comment the below line.
+#
+EXTRA_OEMAKE += "SE_DEBUG=y"
 
 do_compile:qcom() {
         if [ -f "${WORKDIR}/modules.conf" ] ; then

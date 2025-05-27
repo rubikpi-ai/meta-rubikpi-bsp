@@ -17,7 +17,7 @@ RDEPENDS:${PN} = " \
     wayland \
     wayland-protocols \
     weston \
-    xwayland \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'xwayland', '', d)} \
     "
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = "\

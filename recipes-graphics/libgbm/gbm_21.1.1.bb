@@ -16,7 +16,7 @@ PROVIDES += "virtual/libgbm libgbm"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/le/display/libgbm.git;protocol=https"
 SRCBRANCH  = "display.qclinux.1.0.r1-rel"
-SRCREV     = "5eb3c08f78412718642498ba95178ee1b974a0d7"
+SRCREV     = "94de962039ed06034866540fbf28da3f62b48390"
 
 SRC_URI =  "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/vendor/qcom/opensource/display/libgbm"
 

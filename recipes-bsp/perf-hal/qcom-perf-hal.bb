@@ -12,7 +12,7 @@ RDEPENDS:${PN} = "property-vault"
 
 PBT_ARCH = "armv8-2a"
 
-ARMV8_SHA256SUM = "b2f5283de4bd411b965cd262a9db64a77f542499a3b8ffa51f17db08a5b9ad0b"
+ARMV8_SHA256SUM = "ee51c3c4de2518e57db7a024f0c4b89df7ae1a2010be891efc46df32576dfc5d"
 SRC_URI[armv8-2a.sha256sum] = "${ARMV8_SHA256SUM}"
 
 SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"

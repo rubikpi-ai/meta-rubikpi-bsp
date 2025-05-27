@@ -7,9 +7,9 @@ DESCRIPTION = "securemsm-features with QseecomAPI user space library to interact
 
 DEPENDS += "libxml2 libtinyxml2 linux-kernel-qcom-headers glib-2.0 glibc qcom-libdmabufheap securemsm-headers minkipc property-vault jsoncpp qmi-framework curl"
 
-QCM6490_SHA256SUM = "1fb6b33f33727d7ca26d67fdef20a19bac934bbd7cf7f31781b89e0c9c2b21ef"
-QCS9100_SHA256SUM = "9b7bd612fdff551fee97f1fa58026d5ad656613ddc7b7a5760ee63375faf2fa6"
-QCS8300_SHA256SUM = "1e8b2c8adc040079e1c8e18cbae54a2194e075401a8c8a59b75f88e4f15d8854"
+QCM6490_SHA256SUM = "c2d229139b74f985cce5fef153d806d59dc03cd340a44fc0cb21358338c59490"
+QCS9100_SHA256SUM = "1cacd489a5dd8393505052e8fe6d6c65a5a04667b9f7c2e3988188d14ccd2034"
+QCS8300_SHA256SUM = "171134947b52871e6fdeee70956288c220a53f24db6bbc181210ed4dda056bd5"
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 SRC_URI[qcs9100.sha256sum] = "${QCS9100_SHA256SUM}"

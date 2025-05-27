@@ -5,8 +5,11 @@ DESCRIPTION = "QCOM Display drivers"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=801f80980d171dd6425610833a22dbe6"
 
-FILESPATH   =+ "${WORKSPACE}:"
-SRC_URI     =  "file://display/vendor/qcom/opensource/display-drivers/"
+SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/opensource/display-drivers.git;protocol=https"
+SRCBRANCH  = "display-kernel.qclinux.1.0.r2-rel"
+SRCREV     = "5dce509c229439be1e0ca4545efdc4f6f8ba809e"
+
+SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/vendor/qcom/opensource/display-drivers"
 
 S = "${WORKDIR}/display/vendor/qcom/opensource/display-drivers"
 

@@ -68,7 +68,7 @@ index 054b8e74ba4f..13c6d2b002cb 100644
 +	.cp_size = 0x70800000,
 +	.cp_nonpixel_start = 0x1000000,
 +	.cp_nonpixel_size = 0x24800000,
-+	.fwname = "qcom/venus-5.4/venus_s6.mbn",
++	.fwname = "qcom/venus-5.4/venus.mbn",
 +};
 +
  static const struct freq_tbl sdm660_freq_table[] = {

@@ -5,27 +5,37 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=7a434440b651f4a4
 
 SRC_URI = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/edgegateway.git;branch=edgegateway.lnx.1.0;protocol=https"
 SRCREV = "${AUTOREV}"
-
-S="${WORKDIR}/git/parser"
+S="${WORKDIR}/git/parserSystem"
 
 CFLAGS += "\
-    -I${S}/inc\
+    -I${S}/parser/inc \
+    -I${S}/processController/inc \
 "
 
-DEPENDS += "dpdk rapidjson paho-mqtt-cpp mosquitto sqlite"
+DEPENDS += "dpdk rapidjson paho-mqtt-cpp mosquitto sqlite3"
 
 inherit autotools-brokensep pkgconfig
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 do_compile() {
-       oe_runmake all
+       oe_runmake -C parser
+       if [ -d ${S}/processController ]; then
+           oe_runmake -C processController
+       else
+           bbwarn "processController directory not found. Skipping build."
+       fi
 }
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 ${S}/build/parser-shared ${D}${bindir}
+    install -m 0755 ${S}/parser/build/parser-shared ${D}${bindir}
+    if [ -d ${S}/processController/build ]; then
+        install -m 0755 ${S}/processController/build/qcontroller-shared ${D}${bindir}
+    else
+        bbwarn "processController directory not found. Skipping installation of qcontroller-shared."
+    fi
 }
 
 PACKAGES = "${PN} ${PN}-dbg"
-FILES:${PN} += "${bindir}/parser-shared"
+FILES:${PN} += "${bindir}/parser-shared ${bindir}/qcontroller-shared"

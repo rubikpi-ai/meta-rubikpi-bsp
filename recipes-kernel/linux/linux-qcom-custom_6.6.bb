@@ -13,7 +13,7 @@ COMPATIBLE_MACHINE = "(qcom)"
 
 SRCPROJECT = "git://git.codelinaro.org/clo/la/kernel/qcom.git;protocol=https"
 SRCBRANCH  = "kernel.qclinux.1.0.r1-rel"
-SRCREV     = "d3ed32bf7ee64db22653833d4c3d9a80dd76896d"
+SRCREV     = "e21546bdd3154f9ee83a579f2e3c80d313c1169d"
 
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux.cfg', '', d)} \
@@ -143,7 +143,8 @@ python copy_msm() {
     src = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm")
     dst = os.path.join(d.getVar('S'), "drivers/gpu/drm/msm_default")
 
-    shutil.copytree(src, dst)
+    if not os.path.exists(dst):
+        shutil.copytree(src, dst)
 }
 do_unpack[postfuncs] += "copy_msm"
 
