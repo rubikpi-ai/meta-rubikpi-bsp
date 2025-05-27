@@ -470,6 +470,9 @@ SRC_URI:append = " \
     file://common/0025-FROMLIST-media-iris-Add-internal-buffer-calculation-.patch \
     file://common/0026-FROMLIST-media-iris-Add-codec-specific-check-for-VP9.patch \
     file://common/0001-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
+    file://common/0001-FROMLIST-dt-bindings-thermal-Add-qcom-qmi-cooling-ya.patch \
+    file://common/0002-FROMLIST-remoteproc-qcom-probe-all-child-devices.patch \
+    file://common/0003-FROMLIST-thermal-qcom-add-qmi-cooling-driver.patch \
     file://common/0142-FORMLIST-driver-bluetooth-hci_qca-disable-hci_aut.patch \
     file://common/0001-PENDING-soc-qcom-ice-Fix-bkey-size-check.patch \
     file://common/0143-FROMLIST-driver-bluetooth-hci_qca-fix-ssr-fail-wh.patch \
