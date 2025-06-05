@@ -476,4 +476,5 @@ SRC_URI:append = " \
     file://common/0026-FROMLIST-media-iris-Add-codec-specific-check-for-VP9.patch \
     file://common/0001-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
     file://common/0001-PENDING-soc-qcom-ice-Fix-bkey-size-check.patch \
+    file://common/0143-FROMLIST-driver-bluetooth-hci_qca-fix-ssr-fail-wh.patch \
     "
