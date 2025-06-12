@@ -3,7 +3,6 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/drivers:"
 
 SRC_URI:append = " \
     file://qcs6490/0001-phy-qcom-qmp-ufs-Add-Phy-Configuration-support-for-S.patch \
-    file://qcs9100/0001-FROMLIST-remoteproc-qcom_q6v5_pas-Add-support-for-SA.patch \
     file://qcs9100/0002-FROMLIST-soc-qcom-socinfo-add-QCS9100-ID.patch \
     file://qcs9100/0002-BACKPORT-soc-qcom-llcc-Add-llcc-configuration-suppor.patch \
     file://qcs9100/0001-UPSTREAM-crypto-qcom-rng-Add-hw_random-interface-sup.patch \
@@ -24,34 +23,6 @@ SRC_URI:append = " \
     file://qcs9100/0001-BACKPORT-FROMLIST-clk-qcom-Add-support-for-Video-clo.patch \
     file://qcs9100/0002-BACKPORT-FROMLIST-clk-qcom-Add-support-for-Camera-Cl.patch \
     file://qcs9100/0003-BACKPORT-FROMLIST-clk-qcom-Add-support-for-Display-c.patch \
-    file://common/0002-FROMLIST-media-iris-add-platform-driver-for-iris-vid.patch \
-    file://common/0003-FROMLIST-media-iris-implement-iris-v4l2-file-ops.patch \
-    file://common/0004-FROMLIST-media-iris-introduce-iris-core-state-manage.patch \
-    file://common/0005-FROMLIST-media-iris-implement-video-firmware-load-un.patch \
-    file://common/0006-FROMLIST-media-iris-implement-boot-sequence-of-the-f.patch \
-    file://common/0007-FROMLIST-media-iris-introduce-host-firmware-interfac.patch \
-    file://common/0008-FROMLIST-media-iris-implement-power-management.patch \
-    file://common/0009-FROMLIST-media-iris-implement-reqbuf-ioctl-with-vb2_.patch \
-    file://common/0010-FROMLIST-media-iris-implement-s_fmt-g_fmt-and-try_fm.patch \
-    file://common/0011-FROMLIST-media-iris-implement-g_selection-ioctl.patch \
-    file://common/0012-FROMLIST-media-iris-implement-enum_fmt-and-enum_fram.patch \
-    file://common/0013-FROMLIST-media-iris-implement-subscribe_event-and-un.patch \
-    file://common/0014-FROMLIST-media-iris-implement-iris-v4l2_ctrl_ops.patch \
-    file://common/0015-FROMLIST-media-iris-implement-query_cap-query_ctrl-a.patch \
-    file://common/0016-FROMLIST-media-iris-implement-vb2-streaming-ops.patch \
-    file://common/0017-FROMLIST-media-iris-implement-set-properties-to-firm.patch \
-    file://common/0018-FROMLIST-media-iris-subscribe-parameters-and-propert.patch \
-    file://common/0019-FROMLIST-media-iris-allocate-initialize-and-queue-in.patch \
-    file://common/0020-FROMLIST-media-iris-implement-vb2-ops-for-buf_queue-.patch \
-    file://common/0021-FROMLIST-media-iris-add-support-for-dynamic-resoluti.patch \
-    file://common/0022-FROMLIST-media-iris-handle-streamoff-on-from-client-.patch \
-    file://common/0023-FROMLIST-media-iris-add-support-for-drain-sequence.patch \
-    file://common/0024-FROMLIST-media-iris-add-check-whether-the-video-sess.patch \
-    file://common/0025-FROMLIST-media-iris-implement-power-scaling-for-vpu2.patch \
-    file://common/0026-FROMLIST-media-iris-add-check-to-allow-sub-states-tr.patch \
-    file://common/0027-FROMLIST-media-iris-enable-video-driver-probe-of-SM8.patch \
-    file://qcs9100/0004-QCLINUX-Revert-FROMLIST-remoteproc-qcom_q6v5_pas-Add.patch \
-    file://qcs9100/0003-BACKPORT-remoteproc-qcom_q6v5_pas-Add-support-for-SA.patch \
     file://qcs9100/0004-UPSTREAM-misc-fastrpc-Add-support-for-cdsp1-remotepr.patch \
     file://qcs9100/0002-UPSTREAM-power-sequencing-implement-the-pwrseq-core.patch \
     file://qcs9100/0003-UPSTREAM-power-pwrseq-add-a-driver-for-the-PMU-modul.patch \
@@ -157,14 +128,10 @@ SRC_URI:append = " \
     file://common/0002-FROMGIT-soc-qcom-llcc-Updating-the-macro-name.patch \
     file://common/0003-FROMGIT-soc-qcom-llcc-add-support-for-SAR2130P-and-S.patch \
     file://qcs8300/0004-BACKPORT-soc-qcom-llcc-Add-LLCC-configuration-for-th.patch \
-    file://qcs9100/0001-FROMLIST-wifi-ath11k-Fix-unexpected-return-buffer-ma.patch \
-    file://qcs9100/0001-PENDING-media-iris-add-compatible-string-for-sa8775p.patch \
-    file://qcs9100/0003-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
     file://qcs9100/0001-FROMLIST-drm-msm-a6xx-Add-support-for-A663.patch \
     file://qcs8300/0001-UPSTREAM-phy-qcom-qmp-Add-qmp-configuration-for-QCS8.patch \
     file://qcs8300/0002-UPSTREAM-phy-qcom-qmp-usb-simplify-clock-handling.patch \
     file://qcs8300/0003-UPSTREAM-phy-qcom-qmp-usb-rework-reset-handling.patch \
-    file://qcs615/0001-FROMLIST-clk-qcom-Update-the-support-for-alpha-mode-.patch \
     file://qcs615/0002-FROMLIST-clk-qcom-clk-alpha-pll-Add-support-for-dyna.patch \
     file://qcs615/0004-FROMLIST-clk-qcom-camcc-qcs615-Add-QCS615-camera-clo.patch \
     file://qcs615/0006-FROMLIST-clk-qcom-dispcc-qcs615-Add-QCS615-display-c.patch \
@@ -220,7 +187,6 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-net-stmmac-dwmac-qcom-ethqos-add-support-fo.patch \
     file://common/0028-FROMLIST-mmc-sdhci-msm-Enable-MMC_CAP_AGGRESSIVE_PM-.patch \
     file://common/0041-UPSTREAM-net-phy-mdio_device-Reset-device-only-when-necessary.patch \
-    file://common/0042-UPSTREAM-net-stmmac-don-t-create-a-MDIO-bus-if-unnecessary.patch \
     file://qcs615/0003-FROMLIST-phy-qcom-qmp-usbc-Add-DP-phy-mode-support-o.patch \
     file://qcs615/0004-FROMLIST-drm-msm-dp-Add-DisplayPort-support-for-QCS6.patch \
     file://qcs615/0005-FROMLIST-drm-msm-dp-Add-support-for-lane-mapping-con.patch \
@@ -232,7 +198,6 @@ SRC_URI:append = " \
     file://qcs9100/0002-soc-qcom-socinfo-add-QCS9075-SoC-ID.patch \
     file://qcs615/0001-FROMLIST-drm-msm-dpu-Filter-modes-based-on-adjusted-.patch \
     file://qcs615/0001-FROMLIST-arm64-gfx-qcom-qcs615-Add-support-for-Adren.patch \
-    file://common/0001-FROMLIST-irqchip-gic-v3-Handle-failure-case-of-CPU-e.patch \
     file://qcs8300/0002-FROMLIST-clk-qcom-Add-support-for-GPU-Clock-Controll.patch \
     file://qcs8300/0004-FROMLIST-clk-qcom-Add-support-for-Camera-Clock-Contr.patch \
     file://qcs8300/0006-FROMLIST-clk-qcom-Add-support-for-Video-Clock-Contro.patch \
@@ -244,7 +209,6 @@ SRC_URI:append = " \
     file://common/0044-UPSTREAM-wifi-ath11k-add-support-for-QCA2066.patch \
     file://common/0045-BACKPORT-UPSTREAM-wifi-ath11k-fix-misspelling-of-dma.patch \
     file://common/0046-UPSTREAM-wifi-ath11k-add-support-for-QCA6698AQ.patch \
-    file://qcs8300/0002-PENDING-media-iris-add-platfrom-data-for-qcs8300.patch \
     file://qcs8300/0004-BACKPORT-FROMLIST-drm-msm-mdss-Add-QCS8300-support.patch \
     file://common/0047-UPSTREAM-wifi-ath11k-add-support-for-MU-EDCA.patch \
     file://common/0048-UPSTREAM-wifi-ath11k-fix-wrong-overriding-for-VHT-Be.patch \
@@ -267,7 +231,6 @@ SRC_URI:append = " \
     file://common/0015-FROMLIST-ufs-host-add-support-for-wrapped-keys-in-QC.patch \
     file://common/0016-FROMLIST-ufs-host-add-a-callback-for-deriving-softwa.patch \
     file://common/0017-FROMLIST-ufs-host-add-support-for-generating-importi.patch \
-    file://common/0047-UPSTREAM-Bluetooth-qca-Update-firmware-name-to-support-board-.patch \
     file://common/0048-UPSTREAM-Bluetooth-qca-Expand-firmware-name-to-load-specific-.patch \
     file://qcs615/0001-BACKPORT-arm64-dts-qcom-qcs615-Add-metadata.patch \
     file://qcs9100/0002-PENDING-iio-adc-Add-support-for-QCOM-PMIC5-Gen3-ADC.patch \
@@ -425,13 +388,91 @@ SRC_URI:append = " \
     file://qcs8300/0002-BACKPORT-drm-msm-a6xx-Evaluate-adreno_is_a650_family.patch \
     file://qcs8300/0001-FROMLIST-drm-msm-a6xx-Fix-gpucc-register-block-for-A.patch \
     file://qcs8300/0002-FROMLIST-drm-msm-a6xx-Add-support-for-Adreno-623.patch \
-    file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
+    file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
+    file://qcs615/0001-FROMLIST-media-venus-vdec-queue-dpb-buffers-to-firmw.patch \
+    file://common/0002-FROMLIST-remoteproc-qcom-Add-iommu-map_unmap-helper-.patch \
+    file://common/0003-FROMLIST-remoteproc-qcom-Add-helper-function-to-supp.patch \
+    file://common/0004-FROMLIST-remoteproc-qcom-Add-support-to-parse-qcom-d.patch \
+    file://common/0005-FROMLIST-remoteproc-qcom-Add-support-of-SHM-bridge-t.patch \
+    file://common/0006-FROMLIST-remoteproc-qcom-Enable-map-unmap-and-SHM-br.patch \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
     file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
-    file://qcs9100/0003-PENDING-interconnect-qcom-Add-EPSS-L3-support-on-SA8.patch \
+    file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
+    file://common/0001-FROMLIST-wifi-ath11k-add-function-to-get-next-srng-d.patch \
+    file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
+    file://common/0002-BACKPORT-clk-qcom-gdsc-Update-the-status-poll-timeou.patch \
+    file://common/0001-FROMLIST-wifi-ath11k-fix-node-corruption-in-ar-arvif.patch \
+    file://common/0141-QCLINUX-firmware-qcom_scm-provisioning-addon-scm-cal.patch \
+    file://common/0142-QCLINUX-firmware-qcom_scm_addon-Add-function-qcom_sc.patch \
+    file://common/0143-QCLINUX-firmware-qcom_scm_addon-Remove-implementatio.patch \
+    file://common/0144-QCLINUX-firmware-qcom_scm-allow-scm-addon-to-be-comp.patch \
+    file://common/0141-BACKPORT-driver-bluetooth-hci_qca-fix-SSR-unable-.patch \
     file://common/0001-PENDING-ASoC-dt-bindings-q6dsp-Add-High-Speed-Audio-.patch \
     file://common/0002-PENDING-ASoC-qcom-q6dsp-Add-SDR-High-speed-DAI-suppo.patch \
     file://common/0004-PENDING-ASoC-qcom-qcs9100-Add-machine-driver-for-qcs.patch \
     file://common/0007-PENDING-ASoC-qcom-qcs9100-Set-dai-format-for-MI2S-in.patch \
     file://common/0008-PENDING-ASoC-qcom-qdsp6-Add-set_fmt-dai-ops-support-.patch \
+    file://common/0001-QCLINUX-iommu-arm-smmu-Invoke-pm-runtime-for-context.patch \
+    file://common/0002-UPSTREAM-media-iris-add-platform-driver-for-iris-vid.patch \
+    file://common/0003-UPSTREAM-media-iris-implement-iris-v4l2-file-ops.patch \
+    file://common/0004-UPSTREAM-media-iris-introduce-iris-core-state-manage.patch \
+    file://common/0005-UPSTREAM-media-iris-implement-video-firmware-load-un.patch \
+    file://common/0006-UPSTREAM-media-iris-implement-the-boot-sequence-of-t.patch \
+    file://common/0007-UPSTREAM-media-iris-introduce-host-firmware-interfac.patch \
+    file://common/0008-UPSTREAM-media-iris-implement-power-management.patch \
+    file://common/0009-UPSTREAM-media-iris-implement-reqbuf-ioctl-with-vb2_.patch \
+    file://common/0010-UPSTREAM-media-iris-implement-s_fmt-g_fmt-and-try_fm.patch \
+    file://common/0011-UPSTREAM-media-iris-implement-g_selection-ioctl.patch \
+    file://common/0012-UPSTREAM-media-iris-implement-enum_fmt-and-enum_fram.patch \
+    file://common/0013-UPSTREAM-media-iris-implement-subscribe_event-and-un.patch \
+    file://common/0014-UPSTREAM-media-iris-implement-iris-v4l2_ctrl_ops.patch \
+    file://common/0015-UPSTREAM-media-iris-implement-query_cap-ioctl.patch \
+    file://common/0016-UPSTREAM-media-iris-implement-vb2-streaming-ops.patch \
+    file://common/0017-UPSTREAM-media-iris-implement-set-properties-to-firm.patch \
+    file://common/0018-UPSTREAM-media-iris-subscribe-parameters-and-propert.patch \
+    file://common/0019-UPSTREAM-media-iris-allocate-initialize-and-queue-in.patch \
+    file://common/0020-UPSTREAM-media-iris-implement-vb2-ops-for-buf_queue-.patch \
+    file://common/0021-UPSTREAM-media-iris-add-support-for-dynamic-resoluti.patch \
+    file://common/0022-UPSTREAM-media-iris-handle-streamoff-on-from-client-.patch \
+    file://common/0023-UPSTREAM-media-iris-add-support-for-drain-sequence.patch \
+    file://common/0024-UPSTREAM-media-iris-add-check-whether-the-video-sess.patch \
+    file://common/0025-UPSTREAM-media-iris-implement-power-scaling-for-vpu2.patch \
+    file://common/0026-UPSTREAM-media-iris-add-check-to-allow-sub-states-tr.patch \
+    file://common/0027-UPSTREAM-media-iris-enable-video-driver-probe-of-SM8.patch \
+    file://common/0028-UPSTREAM-media-MAINTAINERS-add-Qualcomm-iris-video-a.patch \
+    file://common/0002-FROMGIT-media-platform-qcom-iris-add-power_off_contr.patch \
+    file://common/0003-FROMGIT-media-platform-qcom-iris-introduce-optional-.patch \
+    file://common/0004-FROMGIT-media-platform-qcom-iris-rename-iris_vpu3-to.patch \
+    file://common/0005-FROMGIT-media-platform-qcom-iris-add-support-for-vpu.patch \
+    file://common/0006-FROMGIT-media-platform-qcom-iris-rename-platform_sm8.patch \
+    file://common/0007-FROMGIT-media-platform-qcom-iris-add-sm8650-support.patch \
+    file://qcs8300/0002-FROMGIT-media-iris-fix-the-order-of-compat-strings.patch \
+    file://qcs8300/0003-FROMGIT-media-iris-add-qcs8300-platform-data.patch \
+    file://common/0001-FROMLIST-media-iris-Skip-destroying-internal-buffer-.patch \
+    file://common/0002-FROMLIST-media-iris-Verify-internal-buffer-release-o.patch \
+    file://common/0003-FROMLIST-media-iris-Update-CAPTURE-format-info-based.patch \
+    file://common/0004-FROMLIST-media-iris-Avoid-updating-frame-size-to-fir.patch \
+    file://common/0005-FROMLIST-media-iris-Drop-port-check-for-session-prop.patch \
+    file://common/0006-FROMLIST-media-iris-Prevent-HFI-queue-writes-when-co.patch \
+    file://common/0007-FROMLIST-media-iris-Remove-error-check-for-non-zero-.patch \
+    file://common/0008-FROMLIST-media-iris-Remove-deprecated-property-setti.patch \
+    file://common/0009-FROMLIST-media-iris-Fix-missing-function-pointer-ini.patch \
+    file://common/0010-FROMLIST-media-iris-Fix-NULL-pointer-dereference.patch \
+    file://common/0011-FROMLIST-media-iris-Fix-typo-in-depth-variable.patch \
+    file://common/0012-FROMLIST-media-iris-Track-flush-responses-to-prevent.patch \
+    file://common/0013-FROMLIST-media-iris-Fix-buffer-preparation-failure-d.patch \
+    file://common/0014-FROMLIST-media-iris-Send-V4L2_BUF_FLAG_ERROR-for-cap.patch \
+    file://common/0015-FROMLIST-media-iris-Skip-flush-on-first-sequence-cha.patch \
+    file://common/0016-FROMLIST-media-iris-Remove-unnecessary-re-initializa.patch \
+    file://common/0017-FROMLIST-media-iris-Add-handling-for-corrupt-and-dro.patch \
+    file://common/0018-FROMLIST-media-iris-Add-handling-for-no-show-frames.patch \
+    file://common/0019-FROMLIST-media-iris-Improve-last-flag-handling.patch \
+    file://common/0020-FROMLIST-media-iris-Remove-redundant-buffer-count-ch.patch \
+    file://common/0021-FROMLIST-media-iris-Add-a-comment-to-explain-usage-o.patch \
+    file://common/0022-FROMLIST-media-iris-Add-HEVC-and-VP9-formats-for-dec.patch \
+    file://common/0023-FROMLIST-media-iris-Add-platform-capabilities-for-HE.patch \
+    file://common/0024-FROMLIST-media-iris-Set-mandatory-properties-for-HEV.patch \
+    file://common/0025-FROMLIST-media-iris-Add-internal-buffer-calculation-.patch \
+    file://common/0026-FROMLIST-media-iris-Add-codec-specific-check-for-VP9.patch \
+    file://common/0001-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
     "

@@ -32,9 +32,3 @@ do_install:append() {
 }
 
 FILES:${PN} += " /etc/build.prop "
-
-python () {
-    mach_overrides = d.getVar('MACHINEOVERRIDES').split(":")
-    if ('qcom-base-bsp' in mach_overrides):
-        raise bb.parse.SkipRecipe("property-vault not compatible with qcom-base-bsp")
-}

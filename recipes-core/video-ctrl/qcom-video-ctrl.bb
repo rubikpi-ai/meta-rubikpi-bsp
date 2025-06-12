@@ -1,4 +1,4 @@
-inherit qprebuilt
+inherit qprebuilt pkgconfig
 
 LICENSE          = "Qualcomm-Technologies-Inc.-Proprietary"
 LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=58d50a3d36f27f1a1e6089308a49b403"

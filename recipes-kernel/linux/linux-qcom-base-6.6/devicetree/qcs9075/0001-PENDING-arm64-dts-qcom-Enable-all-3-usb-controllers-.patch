@@ -1,6 +1,6 @@
-From 4505e97566e4f305adf6785bea311478c4084e38 Mon Sep 17 00:00:00 2001
+From 7d26196bc4eb536d4714b339cb77689048035ec8 Mon Sep 17 00:00:00 2001
 From: Swati Agarwal <quic_swatagar@quicinc.com>
-Date: Thu, 13 Mar 2025 13:49:03 +0530
+Date: Fri, 28 Feb 2025 02:22:19 +0530
 Subject: [PATCH] PENDING: arm64: dts: qcom: Enable all 3 usb controllers on
  QCS9075 RB8
 
@@ -14,7 +14,7 @@ Upstream-Status: Pending
  1 file changed, 234 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts b/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
-index 08f5ae1ea04f..26f654eaab21 100644
+index 4798c09e529f..d861fa46eb63 100644
 --- a/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
 +++ b/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
 @@ -11,6 +11,9 @@
@@ -27,7 +27,7 @@ index 08f5ae1ea04f..26f654eaab21 100644
  / {
  	model = "Qualcomm Technologies, Inc. Robotics RB8";
  	compatible = "qcom,qcs9075-rb8", "qcom,qcs9075", "qcom,sa8775p";
-@@ -455,6 +458,36 @@ &i2c10 {
+@@ -310,6 +313,36 @@ &i2c10 {
  &i2c11 {
  	qcom,load-firmware;
  	qcom,xfer-mode = <1>;
@@ -64,7 +64,7 @@ index 08f5ae1ea04f..26f654eaab21 100644
  };
  
  &i2c12 {
-@@ -490,6 +523,51 @@ &i2c17 {
+@@ -345,6 +378,51 @@ &i2c17 {
  &i2c18 {
  	qcom,load-firmware;
  	qcom,xfer-mode = <1>;
@@ -116,33 +116,33 @@ index 08f5ae1ea04f..26f654eaab21 100644
  };
  
  &i2c19 {
-@@ -562,6 +640,25 @@ wlan_en_state: wlan-en-state {
- 	};
+@@ -390,6 +468,25 @@ &pcie1_phy {
+ 	status = "okay";
  };
  
 +&pmm8654au_1_gpios {
-+       usb2_en_state: usb2-en-state {
-+               pins = "gpio9";
-+               function = "normal";
-+               output-high;
-+               power-source = <0>;
-+       };
++	usb2_en_state: usb2-en-state {
++		pins = "gpio9";
++		function = "normal";
++		output-high;
++		power-source = <0>;
++	};
 +};
 +
 +&pmm8654au_2_gpios {
-+       usb0_intr_state: usb0-intr-state {
-+               pins = "gpio5";
-+               function = "normal";
-+               input-enable;
-+               bias-pull-up;
-+               power-source = <0>;
-+       };
++	usb0_intr_state: usb0-intr-state {
++		pins = "gpio5";
++		function = "normal";
++		input-enable;
++		bias-pull-up;
++		power-source = <0>;
++	};
 +};
 +
  &qupv3_id_0 {
  	status = "okay";
  };
-@@ -612,6 +709,29 @@ &sleep_clk {
+@@ -435,6 +532,29 @@ &sleep_clk {
  	clock-frequency = <32768>;
  };
  
@@ -172,7 +172,7 @@ index 08f5ae1ea04f..26f654eaab21 100644
  &spi0 {
  	qcom,load-firmware;
  	qcom,xfer-mode = <1>;
-@@ -857,6 +977,20 @@ wake-pins {
+@@ -576,6 +696,20 @@ wake-pins {
  			bias-pull-up;
  		};
  	};
@@ -193,7 +193,7 @@ index 08f5ae1ea04f..26f654eaab21 100644
  };
  
  &uart0 {
-@@ -946,12 +1080,46 @@ &ufs_mem_phy {
+@@ -631,12 +765,46 @@ &uart10 {
  };
  
  &usb_0 {
@@ -244,7 +244,7 @@ index 08f5ae1ea04f..26f654eaab21 100644
  };
  
  &usb_0_hsphy {
-@@ -969,6 +1137,68 @@ &usb_0_qmpphy {
+@@ -654,6 +822,68 @@ &usb_0_qmpphy {
  	status = "okay";
  };
  

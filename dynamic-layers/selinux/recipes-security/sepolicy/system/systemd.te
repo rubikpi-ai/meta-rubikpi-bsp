@@ -4,6 +4,7 @@
 # allow systemd-tmpfiles to create location data and socket dirs.
 qcom_loc_create_loc_sock_dirs(systemd_tmpfiles_t)
 qcom_loc_create_loc_data_dirs(systemd_tmpfiles_t)
+qcom_connect_cmdline_to_property_vault(systemd_tmpfiles_t)
 fs_relabelfrom_tmpfs_dirs(systemd_tmpfiles_t)
 # tmpfiles does initial setup on behalf of other daemons, so exempt
 #  this from mls range constraints.

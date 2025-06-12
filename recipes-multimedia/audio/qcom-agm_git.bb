@@ -1,8 +1,8 @@
 SUMMARY = "AGM for AROSP"
 
 LICENSE = "BSD-3-Clause & LGPL-2.1-only"
-LIC_FILES_CHKSUM += "file://service/src/agm.c;beginline=30;endline=31;md5=0f37b80cb1f8d808a27cca9f0cb5e0ac \
-                     file://service/inc/public/agm/agm_api.h;beginline=31;endline=32;md5=2eeb25220b858bebc66a98390f40229e"
+LIC_FILES_CHKSUM += "file://service/src/agm.c;beginline=30;endline=31;md5=c901025e24b8cbc3b2ec2714b0571261 \
+                     file://service/inc/public/agm/agm_api.h;beginline=31;endline=32;md5=c901025e24b8cbc3b2ec2714b0571261"
 
 inherit autotools pkgconfig
 

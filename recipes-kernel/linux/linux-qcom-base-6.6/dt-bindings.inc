@@ -15,7 +15,6 @@ SRC_URI:append = " \
     file://qcs9100/0001-FROMLIST-dt-bindings-clock-qcom-Add-SA8775P-video-cl.patch \
     file://qcs9100/0002-FROMLIST-dt-bindings-clock-qcom-Add-SA8775P-camera-clock-cont.patch \
     file://qcs9100/0003-FROMLIST-dt-bindings-clock-qcom-Add-SA8775P-display-clock-con.patch \
-    file://common/0001-FROMLIST-dt-bindings-media-Add-video-support-for-QCO.patch \
     file://qcs9100/0005-QCLINUX-Revert-FROMLIST-dt-bindings-mailbox-qcom-ipc.patch \
     file://qcs9100/0001-UPSTREAM-dt-bindings-misc-qcom-fastrpc-increase-the-.patch \
     file://qcs9100/0002-UPSTREAM-dt-bindings-mailbox-qcom-ipcc-Add-GPDSP0-an.patch \
@@ -146,8 +145,16 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-prng-document-QCS615.patch \
     file://qcs615/0001-FROMLIST-dt-bindings-crypto-qcom-qce-document-the-QC615.patch \
     file://qcs8300/0003-FROMLIST-dt-bindings-display-msm-gmu-Add-Adreno-623-.patch \
-    file://qcs9100/0001-FROMLIST-dt-bindings-pinctrl-qcom-Add-egpio-function.patch \
     file://qcs9100/0001-PENDING-dt-bindings-interconnect-Add-EPSS-L3-DT-bind.patch \
-    file://qcs9100/0003-PENDING-ASoC-dt-bindings-qcom-Document-soundcard-com.patch \
+    file://common/0001-FROMLIST-dt-bindings-remoteproc-qcom-pas-common-Intr.patch \
+    file://qcs9100/0001-FROMLIST-dt-bindings-pinctrl-qcom-Add-egpio-function.patch \
     file://qcs9075/0001-PENDING-dt-bindings-arm-qcom-Rename-qcs9075-rb8-to-q.patch \
+    file://qcs9100/0003-PENDING-ASoC-dt-bindings-qcom-Document-soundcard-com.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-thermal-tsens-Add-QCS615-compat.patch \
+    file://qcs615/0001-FROMLIST-dt-bindings-remoteproc-qcom-sm8150-pas-Docu.patch \
+    file://qcs615/0002-FROMLIST-dt-bindings-soc-qcom-add-qcom-qcs615-imem-c.patch \
+    file://common/0001-UPSTREAM-dt-bindings-media-Add-video-support-for-QCO.patch \
+    file://qcs9100/0001-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
+    file://common/0002-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
+    file://qcs8300/0003-FROMGIT-dt-bindings-media-qcom-sm8550-iris-document-.patch \
     "

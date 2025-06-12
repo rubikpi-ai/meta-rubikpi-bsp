@@ -1,7 +1,7 @@
-From 126462de3a38d0b8c2425103f166071eb7abc536 Mon Sep 17 00:00:00 2001
+From df686207dd1b8fbd311f0a8d7450360e6dcda778 Mon Sep 17 00:00:00 2001
 From: Bartosz Golaszewski <brgl@bgdev.pl>
 Date: Sun, 1 Dec 2024 21:44:37 +0530
-Subject: [PATCH 05/17] FROMLIST: ice, ufs, mmc: use the blk_crypto_key struct
+Subject: [PATCH 1/1] FROMLIST: ice, ufs, mmc: use the blk_crypto_key struct
  when programming the key
 
 The program key ops in the storage controller does not pass on the
@@ -35,7 +35,7 @@ index 6652982410ec..91da6de1d650 100644
 +++ b/drivers/mmc/host/cqhci-crypto.c
 @@ -32,6 +32,7 @@ cqhci_host_from_crypto_profile(struct blk_crypto_profile *profile)
  }
-
+ 
  static int cqhci_crypto_program_key(struct cqhci_host *cq_host,
 +				    const struct blk_crypto_key *bkey,
  				    const union cqhci_crypto_cfg_entry *cfg,
@@ -43,30 +43,30 @@ index 6652982410ec..91da6de1d650 100644
  {
 @@ -39,7 +40,7 @@ static int cqhci_crypto_program_key(struct cqhci_host *cq_host,
  	int i;
-
+ 
  	if (cq_host->ops->program_key)
 -		return cq_host->ops->program_key(cq_host, cfg, slot);
 +		return cq_host->ops->program_key(cq_host, bkey, cfg, slot);
-
+ 
  	/* Clear CFGE */
  	cqhci_writel(cq_host, 0, slot_offset + 16 * sizeof(cfg->reg_val[0]));
 @@ -99,7 +100,7 @@ static int cqhci_crypto_keyslot_program(struct blk_crypto_profile *profile,
  		memcpy(cfg.crypto_key, key->raw, key->size);
  	}
-
+ 
 -	err = cqhci_crypto_program_key(cq_host, &cfg, slot);
 +	err = cqhci_crypto_program_key(cq_host, key, &cfg, slot);
-
+ 
  	memzero_explicit(&cfg, sizeof(cfg));
  	return err;
 @@ -113,7 +114,7 @@ static int cqhci_crypto_clear_keyslot(struct cqhci_host *cq_host, int slot)
  	 */
  	union cqhci_crypto_cfg_entry cfg = {};
-
+ 
 -	return cqhci_crypto_program_key(cq_host, &cfg, slot);
 +	return cqhci_crypto_program_key(cq_host, NULL, &cfg, slot);
  }
-
+ 
  static int cqhci_crypto_keyslot_evict(struct blk_crypto_profile *profile,
 diff --git a/drivers/mmc/host/cqhci.h b/drivers/mmc/host/cqhci.h
 index 1a12e40a02e6..949ebbe05773 100644
@@ -78,7 +78,7 @@ index 1a12e40a02e6..949ebbe05773 100644
  #include <linux/irqreturn.h>
 +#include <linux/blk-crypto.h>
  #include <asm/io.h>
-
+ 
  /* registers */
 @@ -291,6 +292,7 @@ struct cqhci_host_ops {
  	void (*post_disable)(struct mmc_host *mmc);
@@ -89,10 +89,10 @@ index 1a12e40a02e6..949ebbe05773 100644
  #endif
  };
 diff --git a/drivers/mmc/host/sdhci-msm.c b/drivers/mmc/host/sdhci-msm.c
-index e113b99a3eab..f661d855b77e 100644
+index 9520acb247d0..bea37c73e198 100644
 --- a/drivers/mmc/host/sdhci-msm.c
 +++ b/drivers/mmc/host/sdhci-msm.c
-@@ -1859,6 +1859,7 @@ static __maybe_unused int sdhci_msm_ice_suspend(struct sdhci_msm_host *msm_host)
+@@ -1908,6 +1908,7 @@ static __maybe_unused int sdhci_msm_ice_suspend(struct sdhci_msm_host *msm_host)
   * vendor-specific SCM calls for this; it doesn't support the standard way.
   */
  static int sdhci_msm_program_key(struct cqhci_host *cq_host,
@@ -100,34 +100,33 @@ index e113b99a3eab..f661d855b77e 100644
  				 const union cqhci_crypto_cfg_entry *cfg,
  				 int slot)
  {
-@@ -1866,6 +1867,7 @@ static int sdhci_msm_program_key(struct cqhci_host *cq_host,
+@@ -1915,6 +1916,7 @@ static int sdhci_msm_program_key(struct cqhci_host *cq_host,
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
  	struct sdhci_msm_host *msm_host = sdhci_pltfm_priv(pltfm_host);
  	union cqhci_crypto_cap_entry cap;
 +	u8 ice_key_size;
-
- 	/* Only AES-256-XTS has been tested so far. */
- 	cap = cq_host->crypto_cap_array[cfg->crypto_cap_idx];
-@@ -1873,11 +1875,11 @@ static int sdhci_msm_program_key(struct cqhci_host *cq_host,
+ 
+ 	if (!(cfg->config_enable & CQHCI_CRYPTO_CONFIGURATION_ENABLE))
+ 		return qcom_ice_evict_key(msm_host->ice, slot);
+@@ -1925,10 +1927,10 @@ static int sdhci_msm_program_key(struct cqhci_host *cq_host,
  		cap.key_size != CQHCI_CRYPTO_KEY_SIZE_256)
  		return -EINVAL;
-
+ 
 +	ice_key_size = QCOM_ICE_CRYPTO_KEY_SIZE_256;
- 	if (cfg->config_enable & CQHCI_CRYPTO_CONFIGURATION_ENABLE)
- 		return qcom_ice_program_key(msm_host->ice,
- 					    QCOM_ICE_CRYPTO_ALG_AES_XTS,
--					    QCOM_ICE_CRYPTO_KEY_SIZE_256,
--					    cfg->crypto_key,
-+					    ice_key_size, bkey,
- 					    cfg->data_unit_size, slot);
- 	else
- 		return qcom_ice_evict_key(msm_host->ice, slot);
+ 	return qcom_ice_program_key(msm_host->ice,
+ 				    QCOM_ICE_CRYPTO_ALG_AES_XTS,
+-				    QCOM_ICE_CRYPTO_KEY_SIZE_256,
+-				    cfg->crypto_key,
++				    ice_key_size, bkey,
+ 				    cfg->data_unit_size, slot);
+ }
+ 
 diff --git a/drivers/soc/qcom/ice.c b/drivers/soc/qcom/ice.c
-index fbab7fe5c652..6f941d32fffb 100644
+index d6e205e3812a..9f9bd324d646 100644
 --- a/drivers/soc/qcom/ice.c
 +++ b/drivers/soc/qcom/ice.c
-@@ -163,8 +163,8 @@ EXPORT_SYMBOL_GPL(qcom_ice_suspend);
-
+@@ -164,8 +164,8 @@ EXPORT_SYMBOL_GPL(qcom_ice_suspend);
+ 
  int qcom_ice_program_key(struct qcom_ice *ice,
  			 u8 algorithm_id, u8 key_size,
 -			 const u8 crypto_key[], u8 data_unit_size,
@@ -137,13 +136,13 @@ index fbab7fe5c652..6f941d32fffb 100644
  {
  	struct device *dev = ice->dev;
  	union {
-@@ -183,7 +183,7 @@ int qcom_ice_program_key(struct qcom_ice *ice,
+@@ -184,7 +184,7 @@ int qcom_ice_program_key(struct qcom_ice *ice,
  		return -EINVAL;
  	}
-
+ 
 -	memcpy(key.bytes, crypto_key, AES_256_XTS_KEY_SIZE);
 +	memcpy(key.bytes, bkey->raw, AES_256_XTS_KEY_SIZE);
-
+ 
  	/* The SCM call requires that the key words are encoded in big endian */
  	for (i = 0; i < ARRAY_SIZE(key.words); i++)
 diff --git a/drivers/ufs/core/ufshcd-crypto.c b/drivers/ufs/core/ufshcd-crypto.c
@@ -152,7 +151,7 @@ index f4cc54d82281..34537cbac622 100644
 +++ b/drivers/ufs/core/ufshcd-crypto.c
 @@ -18,6 +18,7 @@ static const struct ufs_crypto_alg_entry {
  };
-
+ 
  static int ufshcd_program_key(struct ufs_hba *hba,
 +			      const struct blk_crypto_key *bkey,
  			      const union ufs_crypto_cfg_entry *cfg, int slot)
@@ -160,77 +159,74 @@ index f4cc54d82281..34537cbac622 100644
  	int i;
 @@ -27,7 +28,7 @@ static int ufshcd_program_key(struct ufs_hba *hba,
  	ufshcd_hold(hba);
-
+ 
  	if (hba->vops && hba->vops->program_key) {
 -		err = hba->vops->program_key(hba, cfg, slot);
 +		err = hba->vops->program_key(hba, bkey, cfg, slot);
  		goto out;
  	}
-
+ 
 @@ -89,7 +90,7 @@ static int ufshcd_crypto_keyslot_program(struct blk_crypto_profile *profile,
  		memcpy(cfg.crypto_key, key->raw, key->size);
  	}
-
+ 
 -	err = ufshcd_program_key(hba, &cfg, slot);
 +	err = ufshcd_program_key(hba, key, &cfg, slot);
-
+ 
  	memzero_explicit(&cfg, sizeof(cfg));
  	return err;
 @@ -103,7 +104,7 @@ static int ufshcd_clear_keyslot(struct ufs_hba *hba, int slot)
  	 */
  	union ufs_crypto_cfg_entry cfg = {};
-
+ 
 -	return ufshcd_program_key(hba, &cfg, slot);
 +	return ufshcd_program_key(hba, NULL, &cfg, slot);
  }
-
+ 
  static int ufshcd_crypto_keyslot_evict(struct blk_crypto_profile *profile,
 diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 922ae1d76d90..cab258f1eeee 100644
+index c6417ef074a4..f2f798f05d7a 100644
 --- a/drivers/ufs/host/ufs-qcom.c
 +++ b/drivers/ufs/host/ufs-qcom.c
-@@ -153,6 +153,7 @@ static inline int ufs_qcom_ice_suspend(struct ufs_qcom_host *host)
+@@ -153,11 +153,13 @@ static inline int ufs_qcom_ice_suspend(struct ufs_qcom_host *host)
  }
-
+ 
  static int ufs_qcom_ice_program_key(struct ufs_hba *hba,
 +				    const struct blk_crypto_key *bkey,
  				    const union ufs_crypto_cfg_entry *cfg,
  				    int slot)
  {
-@@ -160,6 +161,7 @@ static int ufs_qcom_ice_program_key(struct ufs_hba *hba,
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
  	union ufs_crypto_cap_entry cap;
- 	bool config_enable =
- 		cfg->config_enable & UFS_CRYPTO_CONFIGURATION_ENABLE;
 +	u8 ice_key_size;
-
- 	/* Only AES-256-XTS has been tested so far. */
- 	cap = hba->crypto_cap_array[cfg->crypto_cap_idx];
-@@ -167,11 +169,11 @@ static int ufs_qcom_ice_program_key(struct ufs_hba *hba,
+ 
+ 	if (!(cfg->config_enable & UFS_CRYPTO_CONFIGURATION_ENABLE))
+ 		return qcom_ice_evict_key(host->ice, slot);
+@@ -168,10 +170,10 @@ static int ufs_qcom_ice_program_key(struct ufs_hba *hba,
  	    cap.key_size != UFS_CRYPTO_KEY_SIZE_256)
  		return -EOPNOTSUPP;
-
+ 
 +	ice_key_size = QCOM_ICE_CRYPTO_KEY_SIZE_256;
- 	if (config_enable)
- 		return qcom_ice_program_key(host->ice,
- 					    QCOM_ICE_CRYPTO_ALG_AES_XTS,
--					    QCOM_ICE_CRYPTO_KEY_SIZE_256,
--					    cfg->crypto_key,
-+					    ice_key_size, bkey,
- 					    cfg->data_unit_size, slot);
- 	else
- 		return qcom_ice_evict_key(host->ice, slot);
+ 	return qcom_ice_program_key(host->ice,
+ 				    QCOM_ICE_CRYPTO_ALG_AES_XTS,
+-				    QCOM_ICE_CRYPTO_KEY_SIZE_256,
+-				    cfg->crypto_key,
++				    ice_key_size, bkey,
+ 				    cfg->data_unit_size, slot);
+ }
+ 
 diff --git a/include/soc/qcom/ice.h b/include/soc/qcom/ice.h
-index 5870a94599a2..9dd835dba2a7 100644
+index d5f6a228df65..fc998f66c4c3 100644
 --- a/include/soc/qcom/ice.h
 +++ b/include/soc/qcom/ice.h
 @@ -7,6 +7,7 @@
  #define __QCOM_ICE_H__
-
+ 
  #include <linux/types.h>
 +#include <linux/blk-crypto.h>
-
+ 
  struct qcom_ice;
-
+ 
 @@ -30,8 +31,8 @@ int qcom_ice_resume(struct qcom_ice *ice);
  int qcom_ice_suspend(struct qcom_ice *ice);
  int qcom_ice_program_key(struct qcom_ice *ice,
@@ -241,12 +237,12 @@ index 5870a94599a2..9dd835dba2a7 100644
 +			 u8 data_unit_size, int slot);
  int qcom_ice_evict_key(struct qcom_ice *ice, int slot);
  struct qcom_ice *of_qcom_ice_get(struct device *dev);
- #endif /* __QCOM_ICE_H__ */
+ struct qcom_ice *devm_of_qcom_ice_get(struct device *dev);
 diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index 2a7d6f269d9e..dd1c59947ae6 100644
+index d5aa832f8dba..3becc1873b53 100644
 --- a/include/ufs/ufshcd.h
 +++ b/include/ufs/ufshcd.h
-@@ -361,6 +361,7 @@ struct ufs_hba_variant_ops {
+@@ -365,6 +365,7 @@ struct ufs_hba_variant_ops {
  				struct devfreq_dev_profile *profile,
  				struct devfreq_simple_ondemand_data *data);
  	int	(*program_key)(struct ufs_hba *hba,
@@ -254,6 +250,6 @@ index 2a7d6f269d9e..dd1c59947ae6 100644
  			       const union ufs_crypto_cfg_entry *cfg, int slot);
  	void	(*event_notify)(struct ufs_hba *hba,
  				enum ufs_event_type evt, void *data);
---
-2.34.1
+-- 
+2.25.1
 

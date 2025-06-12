@@ -62,3 +62,20 @@ interface(`qcom_getattr_sysctl_file',`
      getattr_files_pattern($1, sysctl_kernel_t, sysctl_kernel_t)
 ')
 
+########################################
+## <summary>
+##      dontaudit access to the kernel directory and file.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain to allow.
+##      </summary>
+## </param>
+#
+interface(`dontaudit_kernel_access_dir_file',`
+    gen_require(`
+            type kernel_t;
+    ')
+    dontaudit $1 kernel_t:dir { getattr search };
+    dontaudit $1 kernel_t:file { open read };
+')

@@ -33,6 +33,10 @@ do_install:append:qcm6490() {
 }
 
 do_install:append:qcs8300() {
+    mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcs8275_rb4
+    install -m 0644 ${S}/qcs8275/qcs8275_rb4/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcs8275_rb4/acdb_cal.acdb
+    install -m 0644 ${S}/qcs8275/qcs8275_rb4/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcs8275_rb4/workspaceFileXml.qwsp
+
     mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcs8300_ridesx
     install -m 0644 ${S}/qcs8300/qcs8300_ridesx/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcs8300_ridesx/acdb_cal.acdb
     install -m 0644 ${S}/qcs8300/qcs8300_ridesx/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcs8300_ridesx/workspaceFileXml.qwsp

@@ -26,11 +26,17 @@ dev_node(qcom_adsp_secure_device_t)
 type qcom_cdsp_secure_device_t;
 dev_node(qcom_cdsp_secure_device_t)
 
+type qcom_gdsp_secure_device_t;
+dev_node(qcom_gdsp_secure_device_t)
+
 type qcom_adsp_device_t;
 dev_node(qcom_adsp_device_t)
 
 type qcom_cdsp_device_t;
 dev_node(qcom_cdsp_device_t)
+
+type qcom_gdsp_device_t;
+dev_node(qcom_gdsp_device_t)
 
 type qcom_rpmsg_device_t;
 dev_node(qcom_rpmsg_device_t)

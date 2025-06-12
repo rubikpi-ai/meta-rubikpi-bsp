@@ -6,7 +6,6 @@ Subject: [PATCH] add MSM backend with xml schema
 Signed-off-by: Devanshi Bansal <quic_devanshi@quicinc.com>
 
 Upstream-Status: Inappropriate [Downstream]
-
 ---
  src/gbm/backends/msm/buffer_alloc.c           |   98 ++
  src/gbm/backends/msm/buffer_alloc.h           |   13 +

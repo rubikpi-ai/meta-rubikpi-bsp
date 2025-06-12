@@ -23,3 +23,12 @@ RDEPENDS:${PN}:qcom-custom-bsp:qcs9100 = "camxcommon camxlib camx chicdk camerad
 
 #qcs8300 is a common SOC_FAMILY name for all Monaco board
 RDEPENDS:${PN}:qcom-custom-bsp:qcs8300 = "camxcommon camxlib camx chicdk cameradlkm"
+
+#qcm6490 is a common SOC_FAMILY name for all Kodiak board
+RDEPENDS:${PN}:qcom-base-bsp:qcm6490= "libcamera v4l-utils media-ctl yavta"
+
+#qcs9100 is a common SOC_FAMILY name for all Lemans board
+RDEPENDS:${PN}:qcom-base-bsp:qcs9100= "libcamera v4l-utils media-ctl yavta"
+
+#qcs8300 is a common SOC_FAMILY name for all Monaco board
+RDEPENDS:${PN}:qcom-base-bsp:qcs8300= "libcamera v4l-utils media-ctl yavta"
