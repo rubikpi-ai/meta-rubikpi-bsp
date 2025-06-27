@@ -1,4 +1,4 @@
-inherit qprebuilt
+inherit qprebuilt pkgconfig
 
 LICENSE          = "Qualcomm-Technologies-Inc.-Proprietary"
 LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}${LICENSE};md5=58d50a3d36f27f1a1e6089308a49b403"
@@ -20,6 +20,7 @@ PACKAGECONFIG[gbm] = " , ,gbm,gbm"
 INSANE_SKIP:${PN} = "dev-so"
 FILES:${PN} += "${bindir}"
 FILES:${PN} += "${libdir}"
+FILES:${PN} += "${libdir}/pkgconfig"
 
 SOLIBS = ".so*"
 FILES_SOLIBSDEV = ""

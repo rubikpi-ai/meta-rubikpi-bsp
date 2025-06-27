@@ -25,3 +25,41 @@ qcom_ssgtzd_socket_connect(sysadm_t)
 qcom_unlink_bt_src_socket_file(sysadm_t)
 qcom_read_loc_sock_dir(sysadm_t)
 corecmd_exec_all_executables(sysadm_t)
+allow sysadm_t self:bluetooth_socket { create bind read write };
+allow sysadm_t self:capability2 wake_alarm;
+corenet_tcp_bind_all_unreserved_ports(sysadm_t)
+init_use_script_fds(sysadm_t)
+qcom_weston_etc_execute(sysadm_t)
+
+# Required for ostree
+kernel_manage_unlabeled_files(sysadm_t)
+kernel_manage_unlabeled_dirs(sysadm_t)
+kernel_manage_unlabeled_symlinks(sysadm_t)
+kernel_map_unlabeled_file(sysadm_t)
+fs_remount_xattr_fs(sysadm_t)
+fs_unmount_xattr_fs(sysadm_t)
+auth_manage_shadow(sysadm_t)
+files_mounton_root(sysadm_t)
+files_mounton_tmp(sysadm_t)
+fs_mount_tmpfs(sysadm_t)
+fs_unmount_tmpfs(sysadm_t)
+files_mounton_user_tmpfs(sysadm_t)
+term_mount_devpts(sysadm_t)
+kernel_mount_proc(sysadm_t)
+kernel_remount_proc(sysadm_t)
+kernel_mounton_proc_dirs(sysadm_t)
+kernel_mounton_proc_file(sysadm_t)
+kernel_mounton_sysctl_dirs(sysadm_t)
+kernel_mounton_sysctl_files(sysadm_t)
+dev_remount_sysfs(sysadm_t)
+
+# Required for WLAN wpa_supplicant/hostapd
+allow sysadm_t self:capability { chown dac_override dac_read_search fsetid net_admin net_raw };
+allow sysadm_t self:fifo_file rw_fifo_file_perms;
+allow sysadm_t self:unix_stream_socket create_stream_socket_perms;
+allow sysadm_t self:netlink_socket create_socket_perms;
+allow sysadm_t self:netlink_generic_socket create_socket_perms;
+allow sysadm_t self:netlink_route_socket create_netlink_socket_perms;
+allow sysadm_t self:packet_socket create_socket_perms;
+allow sysadm_t self:unix_dgram_socket create_socket_perms;
+kernel_request_load_module(sysadm_t)

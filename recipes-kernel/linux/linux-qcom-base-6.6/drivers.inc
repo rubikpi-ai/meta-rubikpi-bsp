@@ -396,7 +396,6 @@ SRC_URI:append = " \
     file://common/0005-FROMLIST-remoteproc-qcom-Add-support-of-SHM-bridge-t.patch \
     file://common/0006-FROMLIST-remoteproc-qcom-Enable-map-unmap-and-SHM-br.patch \
     file://qcs9100/0001-PENDING-usb-dwc3-qcom-Add-DWC3-glue-callbacks-for-Qu.patch \
-    file://qcs9100/0001-PENDING-i2c-qcom-geni-Defer-i2c-spi-uart-geni-driver.patch \
     file://qcs9100/0002-FROMLIST-pinctrl-qcom-sa8775p-Enable-egpio-function.patch \
     file://common/0001-FROMLIST-wifi-ath11k-add-function-to-get-next-srng-d.patch \
     file://common/0002-FROMLIST-wifi-ath11k-fix-HTC-rx-insufficient-length.patch \
@@ -475,4 +474,8 @@ SRC_URI:append = " \
     file://common/0025-FROMLIST-media-iris-Add-internal-buffer-calculation-.patch \
     file://common/0026-FROMLIST-media-iris-Add-codec-specific-check-for-VP9.patch \
     file://common/0001-QCLINUX-media-iris-add-support-for-GDSC-switch-and-P.patch \
+    file://common/0142-FORMLIST-driver-bluetooth-hci_qca-disable-hci_aut.patch \
+    file://common/0001-PENDING-soc-qcom-ice-Fix-bkey-size-check.patch \
+    file://common/0143-FROMLIST-driver-bluetooth-hci_qca-fix-ssr-fail-wh.patch \
+    file://common/0144-FORMLIST-driver-bluetooth_hci_qca-fix-unable.patch \
     "

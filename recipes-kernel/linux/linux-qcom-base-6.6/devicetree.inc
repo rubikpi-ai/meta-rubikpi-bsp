@@ -146,6 +146,7 @@ SRC_URI:append = " \
     file://qcs615/0001-PENDING-arm64-dts-qcom-Enable-cpu-and-gpu-mitigation.patch \
     file://qcs615/0001-QCLINUX-Revert-FROMLIST-arm64-dts-qcom-qcs615-add-SD.patch \
     file://qcs615/0001-UPSTREAM-arm64-dts-qcom-qcs615-add-SDHC1-and-SDHC2.patch \
+    file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-ADSP-and-CDSP-fas.patch \
     "
 
 # qcs615 board dts patches
@@ -296,4 +297,5 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-Display-Po.patch \
     file://qcs9075/0045-FROMLIST-arm64-qcs9075-evk-remove-uart-bt-en-and-b.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-enable-vi.patch \
+    file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-Add-firmw.patch \
     "
