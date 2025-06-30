@@ -9,7 +9,7 @@ SRC_URI ="https://${FW_ARTIFACTORY}/${FW_BUILD_ID}/${FW_BIN_PATH}/${DSPSO}.zip;n
 SRC_URI[qcm6490.sha256sum] = "0e0929445eadc9967313f140e4c83cb68cf24f1f43eb169b584a9b9d481e7a28"
 SRC_URI[qcs9100.sha256sum] = "8c9edfb674a55213abd7a7eac9c25b1dcfc739fab5bda20b816b33b866329762"
 SRC_URI[qcs8300.sha256sum] = "4180e0df62113572beaa6633a9ce8f57325518cd93227b4f2dfc1f0a5d6a36bf"
-SRC_URI[qcs615.sha256sum] = "bd405ef2eff9a0f02a5df4b2c656616116fe0c41bd9b590e508901e0f590c0a8"
+SRC_URI[qcs615.sha256sum] = "7414aab7a847cbf258b862e009a2bc079f70de974e01dfbf6e3978a3843ee851"
 
 include firmware-common.inc
 
