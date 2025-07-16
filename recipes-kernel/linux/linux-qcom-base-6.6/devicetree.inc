@@ -305,6 +305,8 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-enable-vi.patch \
     file://qcs8275/0001-QCLINUX-arm64-dts-fix-base-BSP-compilation-issue-for.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-Add-firmw.patch \
+    file://qcs9075/0046-PENDING-arm64-dts-qcom-Add-sdcard-support-for-qcs907.patch \
+    file://qcs9075/0047-PENDING-arm64-dts-qcom-Enable-vqmmc-voltage-switchin.patch \
     "
 
 # qcs8275 board dts patches
