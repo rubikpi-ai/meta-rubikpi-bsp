@@ -152,7 +152,6 @@ SRC_URI:append = " \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-Add-ADSP-and-CDSP-fas.patch \
     file://qcs615/0001-FROMLIST-arm64-dts-qcom-qcs615-disable-the-CTI-devic.patch \
     file://qcs615/0001-PENDING-arm64-dts-qcom-qcm615-Enable-tsens-thermal-z.patch \
-
     "
 
 # qcs615 board dts patches
@@ -303,11 +302,12 @@ SRC_URI:append = " \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-rb8-Enable-Display-Po.patch \
     file://qcs9075/0045-FROMLIST-arm64-qcs9075-evk-remove-uart-bt-en-and-b.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-enable-vi.patch \
-    file://qcs8275/0001-QCLINUX-arm64-dts-fix-base-BSP-compilation-issue-for.patch \
+    file://qcs9075/0047-PENDING-arm64-dts-qcom-Enable-vqmmc-voltage-switchin.patch \
     file://qcs9075/0001-PENDING-arm64-dts-qcom-qcs9075-iq-9075-evk-Add-firmw.patch \
     file://qcs9075/0046-PENDING-arm64-dts-qcom-Add-sdcard-support-for-qcs907.patch \
     file://qcs8275/0001-PENDING-arm64-dts-qcom-Enable-usb0-support-on-QCS827.patch \
-    file://qcs9075/0047-PENDING-arm64-dts-qcom-Enable-vqmmc-voltage-switchin.patch \
+    file://qcs8275/0001-PENDING-arm64-dts-qcom-qcs8275-iq-8275-evk-Add-firmw.patch \
+    file://qcs8275/0001-QCLINUX-arm64-dts-fix-base-BSP-compilation-issue-for.patch \
     "
 
 # qcs8275 board dts patches
