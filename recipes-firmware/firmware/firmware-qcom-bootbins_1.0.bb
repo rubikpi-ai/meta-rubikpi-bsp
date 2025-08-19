@@ -65,7 +65,7 @@ PACKAGE_ARCH = "${SOC_ARCH}"
 
 PACKAGES += "${PN}-copyright"
 
-FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf /sail_nor/*"
+FILES:${PN} += "/*.elf /*.mbn /*.bin /*.fv */.melf /sail_nor/* /*.img"
 FILES:${PN}-copyright += "/Qualcomm-Technologies-Inc.-Proprietary"
 
 INSANE_SKIP:${PN} = "arch"

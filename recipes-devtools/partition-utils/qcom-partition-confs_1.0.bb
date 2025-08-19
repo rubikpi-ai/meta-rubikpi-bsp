@@ -9,7 +9,7 @@ inherit python3native
 
 PROVIDES += "virtual/partconf"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}:qcom-partition-confs:"
 
 SRC_URI = " \
     file://ufs/qcm6490-partitions.conf \
@@ -18,6 +18,7 @@ SRC_URI = " \
     file://emmc/qcm6490-partitions.conf \
     file://emmc/qcs9100-partitions.conf \
     file://emmc/qcs8300-partitions.conf \
+    file://001-generic-ufs-partitions.conf-Add-splash-image.patch \
 "
 
 S = "${WORKDIR}"

@@ -9,9 +9,11 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/opensource/display
 SRCBRANCH  = "display-kernel.qclinux.1.0.r2-rel"
 SRCREV     = "d2e9358d0b54d40700ececa4d09c187d7c4005c9"
 
-SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/vendor/qcom/opensource/display-drivers"
+FILESPATH =+ "${TOPDIR}/../src/vendor/qcom/opensource:"
 
-S = "${WORKDIR}/display/vendor/qcom/opensource/display-drivers"
+SRC_URI = "file://kernel-6.6/techpack/display;protocol=file;name=display"
+
+S = "${WORKDIR}/kernel-6.6/techpack/display"
 
 EXTRA_OEMAKE += "MACHINE='${MACHINE}'"
 

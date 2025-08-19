@@ -6,6 +6,7 @@ Subject: [PATCH] add MSM backend with xml schema
 Signed-off-by: Devanshi Bansal <quic_devanshi@quicinc.com>
 
 Upstream-Status: Inappropriate [Downstream]
+
 ---
  src/gbm/backends/msm/buffer_alloc.c           |   98 ++
  src/gbm/backends/msm/buffer_alloc.h           |   13 +
@@ -2521,7 +2522,7 @@ index 0000000..24ac7c1
 +#include <gbmint.h>
 +#include <gbm.h>
 +#include <gbm_backend_abi.h>
-+#include "drm/drm_fourcc.h"
++#include "drm_fourcc.h"
 +
 +#define NUM_BACK_BUFFERS 3
 +

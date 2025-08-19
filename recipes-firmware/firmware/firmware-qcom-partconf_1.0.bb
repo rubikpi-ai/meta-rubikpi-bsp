@@ -76,6 +76,8 @@ do_deploy() {
         install -d ${DEPLOYDIR}/partition_emmc
         install -m 0644 ${D}/partition_emmc.xml ${DEPLOYDIR}/partition_emmc/partition.xml
     fi
+
+    install -m 0644 ${WORKDIR}/QCM6490_bootbinaries/*.img ${DEPLOYDIR}
 }
 addtask deploy before do_build after do_install
 

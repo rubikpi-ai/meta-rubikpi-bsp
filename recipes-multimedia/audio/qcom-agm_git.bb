@@ -10,7 +10,16 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom/opensource/ag
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
 SRCREV     = "c34bbd51fb9797ce592d74e22c25af70c4746415"
 
-SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/agm"
+FILESPATH =+ "${THISDIR}/agm:"
+
+SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/agm \
+    file://0002_Modify_the_backend_conf_xml_file.patch \
+    file://0003_Change_the_capture_format_of_ES8316_from_1ch_to_2ch.patch \
+    file://0004_Change_the_HDMI_OUT_AUDIO_format_from_16_to_32bit.patch \
+    file://0005_Enable_the_third_i2s.patch \
+    file://0006_Enable_BTHS_record.patch \
+    file://0007_Add_agmhostless_tool_to_Linux.patch \
+"
 
 S = "${WORKDIR}/audio/opensource/agm"
 

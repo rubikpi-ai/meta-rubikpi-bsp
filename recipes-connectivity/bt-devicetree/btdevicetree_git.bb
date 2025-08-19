@@ -4,6 +4,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=550794465ba0ec53
 
 inherit module deploy
 
+FILESEXTRAPATHS:prepend := "${THISDIR}:"
+
 QCOM_BT_DT_SRC ?= "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/bt-devicetree.git;protocol=https"
 QCOM_BT_DT_SRCBRANCH ?= "bt-performant.qclinux.1.0.r1-rel"
 QCOM_BT_DT_SRCREV ?= "bf9d4e3a5139a919099ace5978317e9e6f129507"
@@ -18,7 +20,8 @@ SRCREV_btdt = "${QCOM_BT_DT_SRCREV}"
 SRCREV_bluetoothext = "${QCOM_BLUETOOTH_EXT_SRCREV}"
 
 SRC_URI = "${QCOM_BT_DT_SRC};branch=${QCOM_BT_DT_SRCBRANCH};name=btdt;destsuffix=bluetooth/bt-devicetree \
-           ${QCOM_BLUETOOTH_EXT_SRC};branch=${QCOM_BLUETOOTH_EXT_SRCBRANCH};name=bluetoothext;destsuffix=bluetooth/stack/bluetooth_ext"
+           ${QCOM_BLUETOOTH_EXT_SRC};branch=${QCOM_BLUETOOTH_EXT_SRCBRANCH};name=bluetoothext;destsuffix=bluetooth/stack/bluetooth_ext \
+           file://files/0001_Delete_redundant_dai-link_nodes.patch"
 
 BT_SOURCE = "${WORKDIR}/bluetooth"
 S = "${BT_SOURCE}/bt-devicetree"

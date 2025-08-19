@@ -8,6 +8,10 @@ RDEPENDS:${PN} = " \
   initscripts-post-boot \
   initscripts-log-restrict \
   initscripts-modem-start-stop \
+  initscripts-rubikpi-boot \
+  initscripts-rubikpi-rtc \
+  initscripts-rubikpi-bt \
+  initscripts-rubikpi-wifi \
 "
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = " \

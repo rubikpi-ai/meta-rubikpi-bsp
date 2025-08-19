@@ -16,9 +16,7 @@ RDEPENDS:${PN} = " \
 "
 
 RDEPENDS:${PN}:append:qcom-custom-bsp = " \
-    wlan-conf \
     cld80211-lib \
-    hostap-daemon \
     wlan-sigma-dut \
 "
 

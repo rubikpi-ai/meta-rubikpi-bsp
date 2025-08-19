@@ -1,5 +1,5 @@
 manufacturer=Qualcomm
 model=`hostname`
-androidserial="$(printf "%x" "$(cat /sys/devices/soc0/serial_number)")"
+androidserial="$(rw_reservepartition r piserialno)"
 [ -n "$androidserial" ] && serial="$androidserial"
 true

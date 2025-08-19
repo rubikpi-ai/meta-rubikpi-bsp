@@ -9,8 +9,12 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/opensource/display
 SRCBRANCH  = "display-kernel.qclinux.1.0.r2-rel"
 SRCREV     = "05bdee019918f932fdcb48f2e7ed251b2bd12542"
 
+FILESPATH =+ "${THISDIR}/display-devicetree:"
+
 SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=display/vendor/qcom/opensource/display-devicetree"
-S = "${WORKDIR}/display/vendor/qcom/opensource/display-devicetree"
+S = "${WORKDIR}/display/vendor/qcom/opensource/display-devicetree \
+     file://0001-delete-ssc.patch \
+"
 
 DTC := "${KBUILD_OUTPUT}/scripts/dtc/dtc"
 KERNEL_INCLUDE := "${STAGING_KERNEL_DIR}/include/"

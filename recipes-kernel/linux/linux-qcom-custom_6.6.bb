@@ -15,7 +15,9 @@ SRCPROJECT = "git://git.codelinaro.org/clo/la/kernel/qcom.git;protocol=https"
 SRCBRANCH  = "kernel.qclinux.1.0.r1-rel"
 SRCREV     = "c4b8666c9a55750817cc1ca7c03819eac84c9ad4"
 
-SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
+FILESPATH =+ "${TOPDIR}/../src/vendor/qcom/opensource:"
+
+SRC_URI = "file://kernel-6.6;protocol=file;name=git \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', ' file://selinux_debug.cfg', '', d)} \
            ${@bb.utils.contains('DISTRO_FEATURES', 'smack', ' file://smack.cfg', '', d)} \
@@ -28,7 +30,7 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=kernel \
            file://0006-kernel-config-qcom-enable-AT24-EEPROM-driver.patch \
            "
 
-S = "${WORKDIR}/kernel"
+S = "${WORKDIR}/kernel-6.6"
 
 KERNEL_CONFIG ??= "qcom_defconfig"
 
@@ -43,6 +45,9 @@ KERNEL_CONFIG_FRAGMENTS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'seli
 #Enable SMACK Support
 SMACK_CFG = "${@oe.utils.vartrue('DEBUG_BUILD', 'smack_debug.cfg', 'smack.cfg', d)}"
 KERNEL_CONFIG_FRAGMENTS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'smack', '${WORKDIR}/${SMACK_CFG}', '', d)}"
+
+# Add support for RUBIK Pi 3
+KERNEL_CONFIG_FRAGMENTS:append = " ${S}/arch/arm64/configs/rubikpi3.config"
 
 # List of kernel modules that will be auto-loaded for Qualcomm platforms.
 
@@ -121,6 +126,8 @@ do_configure:prepend() {
 }
 
 do_configure:append() {
+    kernel_conf_variable LOCALVERSION ""
+    kernel_conf_variable LOCALVERSION_AUTO n
     oe_runmake -C ${S} O=${B} savedefconfig && cp ${B}/defconfig ${WORKDIR}/defconfig.saved
 }
 

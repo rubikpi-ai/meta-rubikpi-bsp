@@ -562,7 +562,7 @@ init_uvc_configuration() {
 
 bind_xhci_hcd() {
 	if [ -d /sys/bus/pci/drivers/xhci_hcd ]; then
-		bdf="$(lspci | grep "USB controller" | awk '{print $1}')"
+		bdf=$(lspci | grep "USB controller" | awk '{print $1}')
 		echo $bdf > /sys/bus/pci/drivers/xhci_hcd/bind
 	fi
 }
@@ -583,18 +583,6 @@ usb_init() {
 		mkdir configs/c.1/strings/0x409
 		# instance for ADB
 		mkdir functions/ffs.usb0
-
-                echo "Qualcomm" > strings/0x409/manufacturer
-
-                serialno="$(printf "%x" "$(cat /sys/devices/soc0/serial_number)")"
-                if [ ! "$serialno" ]; then
-                        serialno="12345678"
-                fi
-
-                echo $serialno > strings/0x409/serialnumber
-		# Hostname command gives the SOC name.
-                echo $(hostname)"_"$serialno > strings/0x409/product
-
 		# mount functionfs
 		if [ ! -d /dev/usb-ffs/adb ]; then
 			mkdir -p /dev/usb-ffs/adb
@@ -614,6 +602,20 @@ usb_init() {
 	mkdir functions/rndis.rndis
 	mkdir functions/uac2.0
 	mkdir functions/uvc.0
+
+	echo "Qualcomm" > strings/0x409/manufacturer
+
+	serialno="$(rw_reservepartition r piserialno)"
+	if [ ! "$serialno" ]; then
+		serialno="$(printf "%x" "$(cat /sys/devices/soc0/serial_number)")"
+		if [ ! "$serialno" ]; then
+			serialno="12345678"
+		fi
+	fi
+
+	echo $serialno > strings/0x409/serialnumber
+	# Hostname command gives the SOC name.
+	echo $(hostname)"_"$serialno > strings/0x409/product
 
 	# Mount ffs nodes for diag
 	if [ ! -d /dev/ffs-diag ]; then

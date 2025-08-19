@@ -11,7 +11,9 @@ QCM6490_SHA256SUM = "3c46ee1ab56f91dd17b17c9f71d834d6d609bd5a6f6eb0658945314d810
 
 SRC_URI[qcm6490.sha256sum] = "${QCM6490_SHA256SUM}"
 
-SRC_URI = "${PBT_ARTIFACTORY}/${PBT_BUILD_ID}/${PBT_BIN_PATH}/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH}"
+SRC_URI  = " \
+    file://${TOPDIR}/../src/vendor/qcom/proprietary/chi-cdk-kt/${BPN}_${PV}_${PBT_ARCH}.tar.gz;name=${PBT_ARCH} \
+"
 
 FILES:${PN} = "\
     /usr/lib/* \

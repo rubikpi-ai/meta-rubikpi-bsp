@@ -9,15 +9,24 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/au
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
 SRCREV     = "0069beaf1dca5ff5aec17b2b8cf2fb69a3cb3394"
 
-SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/audioreach-conf"
+SRC_URI = " \
+    ${SRCPROJECT};branch=${SRCBRANCH};name=qcom;destsuffix=audio/opensource/audioreach-conf \
+    git://github.com/rubikpi-ai/audioreach-conf.git;protocol=https;branch=main;name=rubikpi3;destsuffix=rubikpi3 \
+"
 
-S = "${WORKDIR}/audio/opensource/audioreach-conf/ar-acdb/acdbdata"
+SRCREV_qcom    = "0069beaf1dca5ff5aec17b2b8cf2fb69a3cb3394"
+SRCREV_rubikpi3 = "943557b355e4316b8f36066d38e181ca0588cfe1"
+
+SRCREV_FORMAT = "qcom_rubikpi3"
+
+S         = "${WORKDIR}/audio/opensource/audioreach-conf/ar-acdb/acdbdata"
+RUBIKPI3_S = "${WORKDIR}/rubikpi3/ar-acdb/acdbdata"
 
 do_install:append:qcm6490() {
     mkdir -p -m 0777 ${D}${sysconfdir}/acdbdata
     mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcm6490_idp
-    install -m 0644 ${S}/qcm6490/qcm6490_idp/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcm6490_idp/acdb_cal.acdb
-    install -m 0644 ${S}/qcm6490/qcm6490_idp/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcm6490_idp/workspaceFileXml.qwsp
+    install -m 0644 ${RUBIKPI3_S}/qcm6490/qcm6490_rubikpi3/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcm6490_idp/acdb_cal.acdb
+    install -m 0644 ${RUBIKPI3_S}/qcm6490/qcm6490_rubikpi3/workspaceFileXml.qwsp ${D}${sysconfdir}/acdbdata/qcm6490_idp/workspaceFileXml.qwsp
 
     mkdir -p -m 0755 ${D}${sysconfdir}/acdbdata/qcm6490_rb3
     install -m 0644 ${S}/qcm6490/qcm6490_rb3/acdb_cal.acdb ${D}${sysconfdir}/acdbdata/qcm6490_rb3/acdb_cal.acdb

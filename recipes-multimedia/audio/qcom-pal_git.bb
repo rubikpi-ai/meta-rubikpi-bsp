@@ -11,8 +11,14 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom/opensource/ar
 SRCBRANCH  = "audio-core.lnx.1.0.r1-rel"
 SRCREV     = "1c7e1da83a1b36d9dec6daf8f2259735c10d4f87"
 
+FILESPATH =+ "${THISDIR}/pal:"
+
 SRC_URI  = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/arpal-lx \
-            file://adsprpcd_audiopd.service"
+            file://adsprpcd_audiopd.service \
+            file://0002-modifying-configuration-files.patch \
+            file://0003-Modify-the-backend-used-by-the-speaker-mic.patch \
+            file://0004-Enable-hdmi-to-add-a-new-device.patch \
+"
 
 S = "${WORKDIR}/audio/opensource/arpal-lx"
 

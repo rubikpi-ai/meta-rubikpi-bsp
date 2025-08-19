@@ -61,5 +61,6 @@ RDEPENDS:${PN}:append:qcom-custom-bsp = ' \
     qcom-dac-mer-testapp \
     qcom-dac-plugin \
     qcom-mercury-plugin \
+    notify \
     ${PULSEAUDIO_PKGS}  \
 '

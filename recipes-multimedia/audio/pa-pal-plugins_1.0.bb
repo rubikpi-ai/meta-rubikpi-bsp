@@ -8,7 +8,12 @@ SRCPROJECT = "git://git.codelinaro.org/clo/le/platform/vendor/qcom-opensource/pu
 SRCBRANCH  = "audio-algos.lnx.1.0.r1-rel"
 SRCREV     = "2231dad8b9f7b5c50340b742cfd5cb5eddf3ce9e"
 
-SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/pulseaudio-plugins"
+FILESPATH =+ "${THISDIR}/pa-pal-plugins:"
+
+SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/pulseaudio-plugins \
+    file://0001-change_pulseaudio_config_file.patch \
+    file://0002-Modify-HDMI-output-device.patch \
+"
 
 S = "${WORKDIR}/audio/opensource/pulseaudio-plugins/modules/pa-pal-plugins"
 
