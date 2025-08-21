@@ -1,0 +1,21 @@
+diff --git a/configs/qcm6490/resourcemanager_qcm6490_idp.xml b/configs/qcm6490/resourcemanager_qcm6490_idp.xml
+index b6d9e38..3c23c94 100644
+--- a/configs/qcm6490/resourcemanager_qcm6490_idp.xml
++++ b/configs/qcm6490/resourcemanager_qcm6490_idp.xml
+@@ -248,6 +248,7 @@
+             <max_channels>4</max_channels>
+             <samplerate>48000</samplerate>
+             <channels>1</channels>
++            <bit_width>16</bit_width>
+             <ec_enable>0</ec_enable>
+             <snd_device_name>speaker-mic</snd_device_name>
+             <usecase>
+@@ -363,6 +364,8 @@
+             <back_end_name>MI2S-LPAIF-TX-PRIMARY</back_end_name>
+             <max_channels>1</max_channels>
+             <channels>1</channels>
++            <samplerate>48000</samplerate>
++            <bit_width>16</bit_width>
+             <snd_device_name>headset-mic</snd_device_name>
+             <ec_enable>0</ec_enable>
+             <usecase>
