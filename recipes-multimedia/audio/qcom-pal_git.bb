@@ -19,6 +19,7 @@ SRC_URI  = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/arpal-
             file://0003-Modify-the-backend-used-by-the-speaker-mic.patch \
             file://0004-Enable-hdmi-to-add-a-new-device.patch \
             file://0005-Fixed-the-problem-of-audio-recording-failing-occasionally.patch \
+            file://0006-Increase-the-default-volume-of-headphone-playback.patch \
 "
 
 S = "${WORKDIR}/audio/opensource/arpal-lx"

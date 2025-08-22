@@ -1,0 +1,12 @@
+diff --git a/configs/qcm6490/mixer_paths_qcm6490_idp.xml b/configs/qcm6490/mixer_paths_qcm6490_idp.xml
+index bf5e4e7..407c6a0 100644
+--- a/configs/qcm6490/mixer_paths_qcm6490_idp.xml
++++ b/configs/qcm6490/mixer_paths_qcm6490_idp.xml
+@@ -439,6 +439,7 @@
+     </path>
+ 
+     <path name="headphones">
++        <ctl name="DAC Playback Volume" value="192 192" />
+     </path>
+     <path name="line">
+         <path name="headphones" />
