@@ -10,7 +10,7 @@ Upstream-Status: Inappropriate [Downstream]
 ---
  src/gbm/backends/msm/buffer_alloc.c           |   102 ++
  src/gbm/backends/msm/buffer_alloc.h           |   13 +
- src/gbm/backends/msm/buffer_layout.c          |  330 +++++
+ src/gbm/backends/msm/buffer_layout.c          |  334 +++++
  src/gbm/backends/msm/buffer_layout.h          |   24 +
  .../backends/msm/default_fmt_alignment.xml    | 1261 +++++++++++++++++
  src/gbm/backends/msm/gbm_msm.c                |  765 ++++++++++
@@ -21,7 +21,7 @@ Upstream-Status: Inappropriate [Downstream]
  src/gbm/meson.build                           |   34 +
  src/test/gbmtest.c                            |  502 +++++++
  src/test/meson.build                          |   28 +
- 13 files changed, 3417 insertions(+)
+ 13 files changed, 3421 insertions(+)
  create mode 100644 src/gbm/backends/msm/buffer_alloc.c
  create mode 100644 src/gbm/backends/msm/buffer_alloc.h
  create mode 100644 src/gbm/backends/msm/buffer_layout.c
@@ -228,6 +228,10 @@ index 0000000..3d8c432
 +}
 +
 +int get_best_layout(const unsigned int count, const uint64_t *modifiers, struct gbm_bufdesc *descriptor) {
++   if (count == 0){
++         descriptor->modifiers = 0;
++         return 0;
++   }
 +   for (int m = 0; m < count; m++) {
 +      if (modifiers[m] == DRM_FORMAT_MOD_QCOM_COMPRESSED && ubwc_supported(descriptor)) {
 +         descriptor->modifiers = modifiers[m];
