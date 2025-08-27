@@ -13,6 +13,7 @@ SRC_URI =" \
     file://fw_bcm43456c5_ag.bin \
     file://BCM4345C5_003.006.006.1081.1154.hcd \
     file://brcm/BCM4345C5.hcd \
+    file://clm_bcm43456c5_ag.blob \
 "
 
 SRC_URI[qcm6490.sha256sum] = "23dc576c4a420d15df770cd64fb01473b1ae9e101576473af54ae419a843bda4"
@@ -43,6 +44,7 @@ do_install_extra() {
     install -m 0644 ${WORKDIR}/fw_bcm43456c5_ag.bin     ${D}${nonarch_base_libdir}/firmware/
     install -m 0644 ${WORKDIR}/BCM4345C5_003.006.006.1081.1154.hcd ${D}${nonarch_base_libdir}/firmware/
     install -m 0644 ${WORKDIR}/brcm/BCM4345C5.hcd        ${D}${nonarch_base_libdir}/firmware/brcm/
+    install -m 0644 ${WORKDIR}/clm_bcm43456c5_ag.blob   ${D}${nonarch_base_libdir}/firmware/
 }
 
 python do_install() {
