@@ -19,6 +19,7 @@ SRC_URI = "${SRCPROJECT};branch=${SRCBRANCH};destsuffix=audio/opensource/agm \
     file://0005_Enable_the_third_i2s.patch \
     file://0006_Enable_BTHS_record.patch \
     file://0007_Add_agmhostless_tool_to_Linux.patch \
+    file://0008_Fix_Tertiary_i2s_configuration_error.patch \
 "
 
 S = "${WORKDIR}/audio/opensource/agm"
