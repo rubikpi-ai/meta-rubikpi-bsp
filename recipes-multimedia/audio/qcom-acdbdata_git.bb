@@ -14,7 +14,7 @@ SRC_URI = " \
     git://github.com/rubikpi-ai/audioreach-conf.git;protocol=https;branch=main;name=rubikpi3;destsuffix=rubikpi3 \
 "
 
-SRCREV_qcom    = "0069beaf1dca5ff5aec17b2b8cf2fb69a3cb3394"
+SRCREV     = "a9d8c6bc891011435ff10d477481c839ee4be160"
 SRCREV_rubikpi3 = "943557b355e4316b8f36066d38e181ca0588cfe1"
 
 SRCREV_FORMAT = "qcom_rubikpi3"
