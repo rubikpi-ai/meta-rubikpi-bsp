@@ -4,17 +4,7 @@ LIC_FILES_CHKSUM = "file://${QCOM_COMMON_LICENSE_DIR}/${LICENSE};md5=58d50a3d36f
 
 COMPATIBLE_MACHINE = "qcm6490|qcs9100|qcs8300|qcs615"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-
-SRC_URI =" \
-    https://${FW_ARTIFACTORY}/${FW_BUILD_ID}/${FW_BIN_PATH}/${HLOSFIRMWARE}.zip;name=${PBT_ARCH} \
-    file://nvram.txt \
-    file://config.txt \
-    file://fw_bcm43456c5_ag.bin \
-    file://BCM4345C5_003.006.006.1081.1154.hcd \
-    file://brcm/BCM4345C5.hcd \
-    file://clm_bcm43456c5_ag.blob \
-"
+SRC_URI ="https://${FW_ARTIFACTORY}/${FW_BUILD_ID}/${FW_BIN_PATH}/${HLOSFIRMWARE}.zip;name=${PBT_ARCH}"
 
 SRC_URI[qcm6490.sha256sum] = "23dc576c4a420d15df770cd64fb01473b1ae9e101576473af54ae419a843bda4"
 SRC_URI[qcs9100.sha256sum] = "5e20489ccd38cae8a97aa07248db5f29b39714af9815d1a6b7917a266b2f37bc"
@@ -35,17 +25,6 @@ HLOSFIRMWARE_PATH = "${WORKDIR}/git/${BUILD_ID}/${BIN_PATH}"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
-
-do_install_extra() {
-    install -d ${D}${nonarch_base_libdir}/firmware
-    install -d ${D}${nonarch_base_libdir}/firmware/brcm
-    install -m 0644 ${WORKDIR}/nvram.txt                ${D}${nonarch_base_libdir}/firmware/
-    install -m 0644 ${WORKDIR}/config.txt               ${D}${nonarch_base_libdir}/firmware/
-    install -m 0644 ${WORKDIR}/fw_bcm43456c5_ag.bin     ${D}${nonarch_base_libdir}/firmware/
-    install -m 0644 ${WORKDIR}/BCM4345C5_003.006.006.1081.1154.hcd ${D}${nonarch_base_libdir}/firmware/
-    install -m 0644 ${WORKDIR}/brcm/BCM4345C5.hcd        ${D}${nonarch_base_libdir}/firmware/brcm/
-    install -m 0644 ${WORKDIR}/clm_bcm43456c5_ag.blob   ${D}${nonarch_base_libdir}/firmware/
-}
 
 python do_install() {
 
@@ -71,8 +50,6 @@ python do_install() {
             shutil.rmtree(firm_path_usr)
         shutil.copytree(firm_path, firm_path_usr)
         shutil.rmtree(lib_path)
-
-    bb.build.exec_func('do_install_extra', d)
 }
 
 inherit deploy
@@ -92,8 +69,6 @@ PACKAGES += "${PN}-copyright"
 
 FILES:${PN} += "${nonarch_base_libdir}/* /usr/*"
 FILES:${PN}-copyright += "/Qualcomm-Technologies-Inc.-Proprietary"
-FILES:${PN} += "/usr/lib/firmware"
-FILES:${PN} += "/usr/lib/firmware/*"
 
 INSANE_SKIP:${PN} = "file-rdeps"
 INSANE_SKIP:${PN} += "ldflags"
