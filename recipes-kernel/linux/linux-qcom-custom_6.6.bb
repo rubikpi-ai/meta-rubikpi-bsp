@@ -25,9 +25,6 @@ SRC_URI = "file://kernel-6.6;protocol=file;name=git \
            file://0001-QCLINUX-Add-support-to-compile-msm_display.ko.patch \
            file://0002-QCLINUX-arm64-dts-qcom-Disable-eMMC-ICE.patch \
            file://0003-PENDING-arm64-dts-qcom-Add-EEPROM-support-for-IQ-907.patch \
-           file://0004-QCLINUX-net-stmmac-Add-EEPROM-support-to-driver.patch \
-           file://0005-kernel-arm64-dts-qcom-enable-EEPROM-Client-Driver.patch \
-           file://0006-kernel-config-qcom-enable-AT24-EEPROM-driver.patch \
            "
 
 S = "${WORKDIR}/kernel-6.6"
