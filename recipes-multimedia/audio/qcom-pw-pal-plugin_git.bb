@@ -13,9 +13,11 @@ SRC_URI += "\
     file://pipewire-pulse.service \
     file://pipewire-pulse.socket \
     file://98-qcom-pipewire.preset \
+    file://0001-modify-pipewire-configuration-for-rubikpi3.patch;patchdir=${RUBIKPI3_S} \
 "
 
 S = "${WORKDIR}/audio/opensource/pulseaudio-plugins/pipewire-plugin"
+RUBIKPI3_S = "${WORKDIR}/audio/opensource/pulseaudio-plugins"
 
 DEPENDS = "qcom-agm pipewire qcom-pal qcom-pal-headers"
 TARGET_CFLAGS += "-I ${STAGING_DIR_TARGET}/usr/include/spa-0.2"
