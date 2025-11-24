@@ -1,7 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI:append:qcom = "file://0001-QCLINUX-units-adjust-timeout-for-systemd-networkd-wa.patch \
-		      "
+	file://50-weston.conf \
+	file://50-weston-wakeup.conf \
+"
 
 # Enable coredump support
 PACKAGECONFIG:append:qcom = " coredump"
@@ -35,4 +37,12 @@ do_install:append:qcom () {
           rm -rf ${D}${localstatedir}/log/
          (cd ${D}${localstatedir}; rmdir -v --parents log/journal)
      fi
+
+     install -d ${D}${systemd_system_unitdir}
+     install -d ${D}${systemd_system_unitdir}/systemd-suspend.service.d/
+     install -m 0644 ${WORKDIR}/50-weston.conf ${D}${systemd_system_unitdir}/systemd-suspend.service.d/50-weston.conf
+     install -m 0644 ${WORKDIR}/50-weston-wakeup.conf ${D}${systemd_system_unitdir}/systemd-suspend.service.d/50-weston-wakeup.conf
 }
+
+FILES:${PN} += "${systemd_system_unitdir}/systemd-suspend.service.d/50-weston.conf"
+FILES:${PN} += "${systemd_system_unitdir}/systemd-suspend.service.d/50-weston-wakeup.conf"
